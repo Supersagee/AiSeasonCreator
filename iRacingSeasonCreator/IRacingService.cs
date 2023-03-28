@@ -19,6 +19,10 @@ namespace iRacingSeasonCreator
         }
 
         public static IRacingService IRacingServiceLogin { get; set; }
+        public Task<IRacingService> GetCurrentSeason { get; set; }
+        public Aydsko.iRacingData.Common.DataResponse<Aydsko.iRacingData.Series.SeasonSeries[]> SeasonSeries { get; set; }
+        public Aydsko.iRacingData.Common.DataResponse<Aydsko.iRacingData.Cars.CarInfo[]> CarInfo { get; set; }
+        public static List<string> CurrentSeries { get; set; }
 
         public static async Task<bool> LoginWindow(string userName, string password)
         {
@@ -46,12 +50,19 @@ namespace iRacingSeasonCreator
             }
         }
 
+        public async Task SetCurrentSeason()
+        {
+            SeasonSeries = await dataClient.GetSeasonsAsync(true, default);
+        }
+
+        public async Task SetCars()
+        {
+            CarInfo = await dataClient.GetCarsAsync();
+        }
+
         public async Task<List<string>> GetAllSeries()
         {
-            var season = await dataClient.GetSeasonsAsync(true, default);
-
-            var seasonSchedule = season.Data;
-
+            var seasonSchedule = SeasonSeries.Data;
             var list = new List<string>();
 
             foreach (var item in seasonSchedule)
@@ -60,6 +71,38 @@ namespace iRacingSeasonCreator
             }
 
             return list;
+        }
+
+        public async Task<List<string>> PopulateCarComboBox()
+        {
+            var seasonSchedule = SeasonSeries.Data;
+            var carIds = new List<int>();            
+
+            for (var i = 0; i < seasonSchedule.Length; i++)
+            {
+                if (seasonSchedule[i].Schedules[0].SeriesName == MainForm.SeriesName)
+                {
+                    for (var j = 0; j < seasonSchedule[i].Schedules[0].CarRestrictions.Length; j++)
+                    {
+                        carIds.Add(seasonSchedule[i].Schedules[0].CarRestrictions[j].CarId);
+                    }
+                }
+            }
+            
+            var carsInfo = CarInfo.Data;
+            var carNames = new List<string>();
+            for (var i = 0; i < carIds.Count; i++)
+            {
+                for (var j = 0; j < carsInfo.Length; j++)
+                {
+                    if (carIds[i] == carsInfo[j].CarId)
+                    {
+                        carNames.Add(carsInfo[j].CarName);
+                    }
+                }
+            }
+
+            return carNames;
         }
 
         public async Task SeasonBuilder(string seasonName)
@@ -74,6 +117,7 @@ namespace iRacingSeasonCreator
 
                 if (c.SeasonName == seasonName)
                 {
+                    s.AiCarClassId = c.CarClassIds[0];
                     s.LuckyDog = c.LuckyDog;
                 }
             }

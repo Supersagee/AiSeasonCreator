@@ -56,6 +56,7 @@
             seriesListCombo.Name = "seriesListCombo";
             seriesListCombo.Size = new Size(274, 23);
             seriesListCombo.TabIndex = 0;
+            seriesListCombo.SelectedIndexChanged += seriesListCombo_SelectedIndexChanged;
             // 
             // createSeason
             // 

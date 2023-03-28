@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json.Serialization;
+using Aydsko.iRacingData.Series;
 
 namespace iRacingSeasonCreator.ScheduleClasses
 {
@@ -81,4 +82,7 @@ namespace iRacingSeasonCreator.ScheduleClasses
         [JsonPropertyName("name")]
         public string? Name { get; set; }
     }
+
+    [JsonSerializable(typeof(SeasonSchedule[])), JsonSourceGenerationOptions(WriteIndented = true)]
+    internal partial class SeasonScheduleArrayContext : JsonSerializerContext { }
 }

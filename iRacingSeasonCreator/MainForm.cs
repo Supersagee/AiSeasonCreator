@@ -1,7 +1,3 @@
-using Microsoft.VisualBasic.ApplicationServices;
-using System.Diagnostics;
-using System.IO;
-
 namespace iRacingSeasonCreator
 {
     public partial class MainForm : Form
@@ -16,9 +12,14 @@ namespace iRacingSeasonCreator
             loginForm.ShowDialog();
             try
             {
-                var list = await IRacingService.IRacingServiceLogin.GetAllSeries();
+                var irs = IRacingService.IRacingServiceLogin;
 
-                foreach (var item in list)
+                await irs.SetCurrentSeason();
+                await irs.SetCars();
+
+                IRacingService.CurrentSeries = await irs.GetAllSeries();
+
+                foreach (var item in IRacingService.CurrentSeries)
                 {
                     seriesListCombo.Items.Add(item);
                 }
@@ -90,6 +91,18 @@ namespace iRacingSeasonCreator
                 {
                     filePathTextBox.Text = folderBrowserDialog.SelectedPath;
                 }
+            }
+        }
+
+        private async void seriesListCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SeriesName = seriesListCombo.SelectedItem.ToString();
+            var carList = await IRacingService.IRacingServiceLogin.PopulateCarComboBox();
+            carListCombo.Items.Clear();
+
+            foreach (var car in carList)
+            {
+                carListCombo.Items.Add(car);
             }
         }
 
