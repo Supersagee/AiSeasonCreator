@@ -10,20 +10,22 @@ namespace iRacingSeasonCreator.ScheduleClasses
 {
     public class SeasonSchedule
     {
+        public SeasonSchedule() { }
+
         [JsonPropertyName("aiCarClassId")]
         public int AiCarClassId { get; set; }
         [JsonPropertyName("carId")]
         public int CarId { get; set; }
         [JsonPropertyName("carSettings")]
-        public List<CarSettings> CarSettings { get; set; }
+        public List<CarSettings>? CarSettings { get; set; }
         [JsonPropertyName("damage_model")]
         public int DamageModel { get; set; }
         [JsonPropertyName("track_state")]
-        public TrackState TrackState { get; set; }
+        public TrackState? TrackState { get; set; }
         [JsonPropertyName("time_of_day")]
         public int TimeOfDay { get; set; }
         [JsonPropertyName("weather")]
-        public Weather Weather { get; set; }
+        public Weather? Weather { get; set; }
         [JsonPropertyName("full_course_cautions")]
         public bool FullCourseCautions { get; set; }
         [JsonPropertyName("gridPosition")]
@@ -69,14 +71,14 @@ namespace iRacingSeasonCreator.ScheduleClasses
         [JsonPropertyName("do_not_count_caution_laps")]
         public bool DoNotCountCautionLaps { get; set; }
         [JsonPropertyName("subsessions")]
-        public List<int> Subsessions { get; set; }
+        public List<int>? Subsessions { get; set; }
         [JsonPropertyName("startZone")]
         public int StartZone { get; set; }
         [JsonPropertyName("events")]
-        public List<Events> Events { get; set; }
+        public List<Events>? Events { get; set; }
         [JsonPropertyName("points_system_id")]
         public int PointsSystemId { get; set; }
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
     }
 }

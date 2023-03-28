@@ -36,6 +36,7 @@ namespace iRacingSeasonCreator
 
             if (validUser)
             {
+                userPasswordBox.Text = "";
                 Close();
             }
             else
