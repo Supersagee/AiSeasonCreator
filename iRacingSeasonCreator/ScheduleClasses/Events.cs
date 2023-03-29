@@ -28,17 +28,5 @@ namespace iRacingSeasonCreator.ScheduleClasses
         public Weather Weather { get; set; }
         [JsonPropertyName("time_of_day")]
         public int TimeOfDay { get; set; }
-
-        public List<Events> EventList { get; set; }
-
-        public Events()
-        {
-            EventList = new List<Events>();
-        }
-
-        public void AddEvent(Events eventToAdd)
-        {
-            EventList.Add(eventToAdd);
-        }
     }
 }

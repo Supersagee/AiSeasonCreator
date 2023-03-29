@@ -180,7 +180,7 @@ namespace iRacingSeasonCreator
                         loopEvent.Weather = await CreateWeather();
                         loopEvent.TimeOfDay = ss.Schedules[j].Weather.TimeOfDay;
 
-                        loopEvent.AddEvent(loopEvent);
+                        events.Add(loopEvent);
                     }
                 }
             }
@@ -319,7 +319,7 @@ namespace iRacingSeasonCreator
                     s.Events = await CreateEvents();
 
                     s.Name = MainForm.SeasonName;
-
+                    var nothing = 0;
                 }
                 
             }
