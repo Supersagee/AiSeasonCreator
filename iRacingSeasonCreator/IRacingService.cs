@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Text.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -222,7 +224,19 @@ namespace iRacingSeasonCreator
             return paceCar;
         }
 
-        public async Task SeasonBuilder(string seasonName)
+        public static async Task SaveSeasonScheduleToJson(SeasonSchedule seasonSchedule, string filePath)
+        {
+            var jsonOptions = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+            };
+
+            string jsonString = JsonSerializer.Serialize(seasonSchedule, jsonOptions);
+
+            await File.WriteAllTextAsync(filePath, jsonString);
+        }
+
+        public async Task<SeasonSchedule> SeasonBuilder(string seasonName)
         {
             var s = new SeasonSchedule();
             var client = await dataClient.GetSeasonsAsync(true, default);
@@ -267,7 +281,7 @@ namespace iRacingSeasonCreator
 
                     for (var j = 0; j < seriesDetails.Data.Length; j++)
                     {
-                        if (seriesDetails.Data[j].SeriesShortName == MainForm.SeasonName)
+                        if (seriesDetails.Data[j].SeriesShortName == MainForm.SeriesName)
                         {
                             s.MaxDrivers = seriesDetails.Data[j].MaxStarters;
                             s.PointsSystemId = seriesDetails.Data[j].CategoryId + 2;
@@ -319,10 +333,9 @@ namespace iRacingSeasonCreator
                     s.Events = await CreateEvents();
 
                     s.Name = MainForm.SeasonName;
-                    var nothing = 0;
-                }
-                
+                }  
             }
+            return s;
         }
 
     }

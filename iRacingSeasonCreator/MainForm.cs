@@ -1,3 +1,5 @@
+using Microsoft.VisualBasic.ApplicationServices;
+
 namespace iRacingSeasonCreator
 {
     public partial class MainForm : Form
@@ -51,7 +53,9 @@ namespace iRacingSeasonCreator
             //check to make sure user hasn't timed out
             try
             {
-                await irs.SeasonBuilder(SeasonName);
+                var ss = await irs.SeasonBuilder(SeasonName);
+                string filePath = $@"{FilePath}\{SeasonName}.json";
+                await IRacingService.SaveSeasonScheduleToJson(ss, filePath);
             }
             catch
             {
