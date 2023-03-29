@@ -2,6 +2,7 @@ namespace iRacingSeasonCreator
 {
     public partial class MainForm : Form
     {
+        IRacingService irs;
         public MainForm()
         {
             InitializeComponent();
@@ -12,7 +13,7 @@ namespace iRacingSeasonCreator
             loginForm.ShowDialog();
             try
             {
-                var irs = IRacingService.IRacingServiceLogin;
+                irs = IRacingService.IRacingServiceLogin;
 
                 await irs.SetCurrentSeason();
                 await irs.SetCars();
@@ -37,6 +38,8 @@ namespace iRacingSeasonCreator
             AiMin = Convert.ToInt32(minSkillBox.Text);
             AiMax = Convert.ToInt32(maxSkillBox.Text);
             FilePath = filePathTextBox.Text;
+            DisableDamage = disableCarDamageCheckBox.Checked;
+            AiAvoids = aiAvoidPlayerCheckBox.Checked;
 
             //check for any empty boxes
             if (BlankFormChecker() == false)
@@ -48,7 +51,7 @@ namespace iRacingSeasonCreator
             //check to make sure user hasn't timed out
             try
             {
-                var isLoggedIn = await IRacingService.IRacingServiceLogin.GetAllSeries();
+                await irs.SeasonBuilder(SeasonName);
             }
             catch
             {
@@ -67,8 +70,8 @@ namespace iRacingSeasonCreator
                 return false;
             if (SeriesName == "" || SeriesName == null)
                 return false;
-            //if (CarName == "" || CarName == null)
-            //    return false;
+            if (CarName == "" || CarName == null)
+                return false;
             if (AiMin.HasValue == false)
                 return false;
             if (AiMax.HasValue == false)
@@ -97,7 +100,7 @@ namespace iRacingSeasonCreator
         private async void seriesListCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             SeriesName = seriesListCombo.SelectedItem.ToString();
-            var carList = await IRacingService.IRacingServiceLogin.PopulateCarComboBox();
+            var carList = await irs.PopulateCarComboBox();
             carListCombo.Items.Clear();
 
             foreach (var car in carList)
@@ -112,5 +115,8 @@ namespace iRacingSeasonCreator
         public static int? AiMin { get; set; }
         public static int? AiMax { get; set; }
         public static string? FilePath { get; set; }
+        public static bool DisableDamage { get; set; }
+        public static bool AiAvoids { get; set; }
+        public static Aydsko.iRacingData.Common.DataResponse<Aydsko.iRacingData.Cars.CarInfo[]> CarInfo { get; set; }
     }
 }

@@ -28,7 +28,7 @@ namespace iRacingSeasonCreator.ScheduleClasses
         [JsonPropertyName("weather")]
         public Weather? Weather { get; set; }
         [JsonPropertyName("full_course_cautions")]
-        public bool FullCourseCautions { get; set; }
+        public bool? FullCourseCautions { get; set; }
         [JsonPropertyName("gridPosition")]
         public int GridPosition { get; set; }
         [JsonPropertyName("lucky_dog")]
@@ -56,9 +56,9 @@ namespace iRacingSeasonCreator.ScheduleClasses
         [JsonPropertyName("qualify_length")]
         public int QualifyLength { get; set; }
         [JsonPropertyName("race_laps")]
-        public int RaceLaps { get; set; }
+        public int? RaceLaps { get; set; }
         [JsonPropertyName("race_length")]
-        public int RaceLength { get; set; }
+        public int? RaceLength { get; set; }
         [JsonPropertyName("race_length_type")]
         public int RaceLengthType { get; set; }
         [JsonPropertyName("restarts")]
@@ -66,7 +66,7 @@ namespace iRacingSeasonCreator.ScheduleClasses
         [JsonPropertyName("rolling_starts")]
         public bool RollingStarts { get; set; }
         [JsonPropertyName("short_parade_lap")]
-        public bool ShortParadeLap { get; set; }
+        public bool? ShortParadeLap { get; set; }
         [JsonPropertyName("no_lapper_wave_arounds")]
         public bool NoLapperWaveArounds { get; set; }
         [JsonPropertyName("do_not_count_caution_laps")]
