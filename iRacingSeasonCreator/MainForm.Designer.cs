@@ -216,6 +216,7 @@
             MaximumSize = new Size(400, 480);
             MinimumSize = new Size(400, 480);
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "iRacing Season Creator";
             Load += MainForm_Load;
             ResumeLayout(false);

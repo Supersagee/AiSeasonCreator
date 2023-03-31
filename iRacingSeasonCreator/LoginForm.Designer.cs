@@ -105,6 +105,7 @@
             MinimizeBox = false;
             MinimumSize = new Size(319, 177);
             Name = "LoginForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             ResumeLayout(false);
             PerformLayout();

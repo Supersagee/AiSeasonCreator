@@ -174,10 +174,8 @@ namespace iRacingSeasonCreator
                 if (!tracks.Data[i].AiEnabled)
                 {
                     notAllowedTracks.Add(tracks.Data[i].TrackId);
-                }
-                
+                }                
             }
-            var placeholder = 0;
 
             for (var i = 0; i < SeasonSeries.Data.Length; i++)
             {
@@ -218,7 +216,8 @@ namespace iRacingSeasonCreator
                         }
                         else
                         {
-                            MainForm.NotAvailableTracks.Add(SeasonSeries.Data[i].Schedules[j].Track.TrackName);
+                            MainForm.NotAvailableTracks.Add($"{SeasonSeries.Data[i].Schedules[j].Track.TrackName} - {SeasonSeries.Data[i].Schedules[j].Track.ConfigName}");
+                            //MainForm.NotAvailableTracks.Add(SeasonSeries.Data[i].Schedules[j].Track.ConfigName);
                         }
                     }
                 }

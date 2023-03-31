@@ -65,7 +65,7 @@ namespace iRacingSeasonCreator
                 loginForm.ShowDialog();
             }
 
-            
+
             if (NotAvailableTracks.Any())
             {
                 var builder = new StringBuilder();
@@ -75,7 +75,7 @@ namespace iRacingSeasonCreator
                 builder.AppendLine("");
                 foreach (var track in NotAvailableTracks)
                 {
-                    builder.Append($"-{ track.ToString()}").AppendLine();
+                    builder.Append($"-{track.ToString()}").AppendLine();
                 }
                 MessageBox.Show($"{builder}");
             }
@@ -83,8 +83,8 @@ namespace iRacingSeasonCreator
             {
                 MessageBox.Show("Season created successfully!");
             }
-            
-            
+
+
         }
 
         private static bool BlankFormChecker()
