@@ -24,6 +24,12 @@ namespace iRacingSeasonCreator.ScheduleClasses
         public List<int> Subsessions { get; set; }
         [JsonPropertyName("eventId")]
         public string EventId { get; set; }
+        [JsonPropertyName("race_laps")]
+        public int? RaceLaps { get; set; }
+        [JsonPropertyName("race_length")]
+        public int? RaceLength { get; set; }
+        [JsonPropertyName("race_length_type")]
+        public int RaceLengthType { get; set; }
         [JsonPropertyName("weather")]
         public Weather Weather { get; set; }
         [JsonPropertyName("time_of_day")]

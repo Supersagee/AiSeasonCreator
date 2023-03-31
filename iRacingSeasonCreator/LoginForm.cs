@@ -26,12 +26,10 @@ namespace iRacingSeasonCreator
             userNameBox.KeyPress += loginButton_KeyPress;
             userPasswordBox.KeyPress += loginButton_KeyPress;
             userPasswordBox.PasswordChar = '*';
-
         }
 
         private async void loginButton_Click(object sender, EventArgs e)
         {
-
             bool validUser = await IRacingService.LoginWindow(userNameBox.Text, userPasswordBox.Text);
 
             if (validUser)
@@ -43,7 +41,6 @@ namespace iRacingSeasonCreator
             {
                 loginErrorLabel.Text = "Username or Password incorrect. Please try again.";
                 loginErrorLabel.Visible = true;
-
             }
         }
 

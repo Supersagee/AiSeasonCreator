@@ -55,7 +55,7 @@ namespace iRacingSeasonCreator
 
         public async Task SetCurrentSeason()
         {
-            SeasonSeries = await dataClient.GetSeasonsAsync(true, default);
+            SeasonSeries = await dataClient.GetSeasonsAsync(true);
         }
 
         public async Task SetCars()
@@ -65,14 +65,18 @@ namespace iRacingSeasonCreator
 
         public async Task<List<string>> GetAllSeries()
         {
-            var seasonSchedule = SeasonSeries.Data;
             var list = new List<string>();
+            var seriesCheck = await dataClient.GetSeriesAsync();
 
-            foreach (var item in seasonSchedule)
+            for (var i = 0; i < seriesCheck.Data.Length; i++)
             {
-                list.Add(item.Schedules[0].SeriesName);
+                if (seriesCheck.Data[i].Category == "oval" || seriesCheck.Data[i].Category == "road")
+                {
+                    list.Add(seriesCheck.Data[i].SeriesShortName);
+                }
             }
 
+            list.Sort();
             return list;
         }
 
@@ -104,7 +108,7 @@ namespace iRacingSeasonCreator
             {
                 for (var j = 0; j < carsInfo.Length; j++)
                 {
-                    if (carIds[i] == carsInfo[j].CarId)
+                    if (carIds[i] == carsInfo[j].CarId && carsInfo[j].AiEnabled)
                     {
                         carNames.Add(carsInfo[j].CarName);
                     }
@@ -162,6 +166,18 @@ namespace iRacingSeasonCreator
         public async Task<List<Events>> CreateEvents()
         {
             var events = new List<Events>();
+            var tracks = await dataClient.GetTracksAsync();
+            var notAllowedTracks = new List<int>();
+
+            for (var i = 0; i < tracks.Data.Length; i++)
+            {
+                if (!tracks.Data[i].AiEnabled)
+                {
+                    notAllowedTracks.Add(tracks.Data[i].TrackId);
+                }
+                
+            }
+            var placeholder = 0;
 
             for (var i = 0; i < SeasonSeries.Data.Length; i++)
             {
@@ -171,18 +187,39 @@ namespace iRacingSeasonCreator
                 {
                     for (var j = 0; j < SeasonSeries.Data[i].Schedules.Length; j++)
                     {
-                        var loopEvent = new Events();
-                        loopEvent.TrackId = ss.Schedules[j].Track.TrackId;
-                        loopEvent.NumOptLaps = 0;
-                        loopEvent.PaceCar = await CreatePaceCar();
-                        loopEvent.ShortParadeLap = false;
-                        loopEvent.MustUseDiffTireTypesInRace = ss.MustUseDiffTireTypesInRace;
-                        loopEvent.Subsessions = new List<int> { 3, 5, 6 };
-                        loopEvent.EventId = Guid.NewGuid().ToString();
-                        loopEvent.Weather = await CreateWeather();
-                        loopEvent.TimeOfDay = ss.Schedules[j].Weather.TimeOfDay;
+                        if (!notAllowedTracks.Contains(SeasonSeries.Data[i].Schedules[j].Track.TrackId))
+                        {
+                            var loopEvent = new Events();
+                            loopEvent.TrackId = ss.Schedules[j].Track.TrackId;
+                            loopEvent.NumOptLaps = 0;
+                            loopEvent.PaceCar = await CreatePaceCar();
+                            loopEvent.ShortParadeLap = false;
+                            loopEvent.MustUseDiffTireTypesInRace = ss.MustUseDiffTireTypesInRace;
+                            loopEvent.Subsessions = new List<int> { 3, 5, 6 };
+                            loopEvent.EventId = Guid.NewGuid().ToString();
 
-                        events.Add(loopEvent);
+                            if (ss.Schedules[j].RaceLapLimit == null)
+                            {
+                                loopEvent.RaceLaps = 0;
+                                loopEvent.RaceLength = ss.Schedules[j].RaceTimeLimit;
+                                loopEvent.RaceLengthType = 2;
+                            }
+                            else
+                            {
+                                loopEvent.RaceLaps = ss.Schedules[j].RaceLapLimit;
+                                loopEvent.RaceLength = 0;
+                                loopEvent.RaceLengthType = 3;
+                            }
+
+                            loopEvent.Weather = await CreateWeather();
+                            loopEvent.TimeOfDay = ss.Schedules[j].Weather.TimeOfDay;
+
+                            events.Add(loopEvent);
+                        }
+                        else
+                        {
+                            MainForm.NotAvailableTracks.Add(SeasonSeries.Data[i].Schedules[j].Track.TrackName);
+                        }
                     }
                 }
             }
@@ -242,6 +279,7 @@ namespace iRacingSeasonCreator
             var client = await dataClient.GetSeasonsAsync(true, default);
             var seriesDetails = await dataClient.GetSeriesAsync();
             var cars = await dataClient.GetCarsAsync();
+            var tracks = await dataClient.GetTracksAsync();
 
             for (var i = 0; i < client.Data.Length; i++)
             {
@@ -304,7 +342,7 @@ namespace iRacingSeasonCreator
                     if (c.Schedules[0].RaceLapLimit == null)
                     {
                         s.RaceLaps = 0;
-                        s.RaceLength = c.Schedules[0].RaceLapLimit;
+                        s.RaceLength = c.Schedules[0].RaceTimeLimit;
                         s.RaceLengthType = 2;
                     }
                     else
@@ -335,6 +373,7 @@ namespace iRacingSeasonCreator
                     s.Name = MainForm.SeasonName;
                 }  
             }
+
             return s;
         }
 

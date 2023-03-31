@@ -1,4 +1,5 @@
 using Microsoft.VisualBasic.ApplicationServices;
+using System.Text;
 
 namespace iRacingSeasonCreator
 {
@@ -64,8 +65,26 @@ namespace iRacingSeasonCreator
                 loginForm.ShowDialog();
             }
 
-            //await IRacingService.SeasonBuilder(SeriesName);
-            MessageBox.Show($"{seriesListCombo.Text}");
+            
+            if (NotAvailableTracks.Any())
+            {
+                var builder = new StringBuilder();
+                builder.AppendLine("Season created successfully!");
+                builder.AppendLine("");
+                builder.AppendLine("The following tracks were not included in the season as they are not available for AI racing:");
+                builder.AppendLine("");
+                foreach (var track in NotAvailableTracks)
+                {
+                    builder.Append($"-{ track.ToString()}").AppendLine();
+                }
+                MessageBox.Show($"{builder}");
+            }
+            else
+            {
+                MessageBox.Show("Season created successfully!");
+            }
+            
+            
         }
 
         private static bool BlankFormChecker()
@@ -121,6 +140,7 @@ namespace iRacingSeasonCreator
         public static string? FilePath { get; set; }
         public static bool DisableDamage { get; set; }
         public static bool AiAvoids { get; set; }
+        public static List<string> NotAvailableTracks { get; set; } = new List<string>();
         public static Aydsko.iRacingData.Common.DataResponse<Aydsko.iRacingData.Cars.CarInfo[]> CarInfo { get; set; }
     }
 }
