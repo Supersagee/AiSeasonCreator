@@ -44,6 +44,11 @@
             filePathTextBox = new TextBox();
             disableCarDamageCheckBox = new CheckBox();
             aiAvoidPlayerCheckBox = new CheckBox();
+            aiMinTrackBar = new TrackBar();
+            textBox1 = new TextBox();
+            aiMaxTrackBar = new TrackBar();
+            ((System.ComponentModel.ISupportInitialize)aiMinTrackBar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)aiMaxTrackBar).BeginInit();
             SuspendLayout();
             // 
             // seriesListCombo
@@ -123,7 +128,7 @@
             // minSkillLabel
             // 
             minSkillLabel.AutoSize = true;
-            minSkillLabel.Location = new Point(93, 261);
+            minSkillLabel.Location = new Point(62, 246);
             minSkillLabel.Name = "minSkillLabel";
             minSkillLabel.Size = new Size(28, 15);
             minSkillLabel.TabIndex = 10;
@@ -132,7 +137,7 @@
             // maxSkillLabel
             // 
             maxSkillLabel.AutoSize = true;
-            maxSkillLabel.Location = new Point(141, 261);
+            maxSkillLabel.Location = new Point(57, 302);
             maxSkillLabel.Name = "maxSkillLabel";
             maxSkillLabel.Size = new Size(30, 15);
             maxSkillLabel.TabIndex = 11;
@@ -140,14 +145,16 @@
             // 
             // minSkillBox
             // 
-            minSkillBox.Location = new Point(93, 279);
+            minSkillBox.Enabled = false;
+            minSkillBox.Location = new Point(325, 243);
             minSkillBox.Name = "minSkillBox";
             minSkillBox.Size = new Size(30, 23);
             minSkillBox.TabIndex = 12;
             // 
             // maxSkillBox
             // 
-            maxSkillBox.Location = new Point(141, 279);
+            maxSkillBox.Enabled = false;
+            maxSkillBox.Location = new Point(325, 294);
             maxSkillBox.Name = "maxSkillBox";
             maxSkillBox.Size = new Size(30, 23);
             maxSkillBox.TabIndex = 13;
@@ -191,11 +198,41 @@
             aiAvoidPlayerCheckBox.Text = "AI Avoids Player";
             aiAvoidPlayerCheckBox.UseVisualStyleBackColor = true;
             // 
+            // aiMinTrackBar
+            // 
+            aiMinTrackBar.Location = new Point(93, 236);
+            aiMinTrackBar.Maximum = 125;
+            aiMinTrackBar.Name = "aiMinTrackBar";
+            aiMinTrackBar.Size = new Size(226, 45);
+            aiMinTrackBar.TabIndex = 18;
+            aiMinTrackBar.Value = 25;
+            aiMinTrackBar.Scroll += aiMinTrackBar_Scroll;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(267, 195);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 19;
+            // 
+            // aiMaxTrackBar
+            // 
+            aiMaxTrackBar.Location = new Point(93, 284);
+            aiMaxTrackBar.Maximum = 125;
+            aiMaxTrackBar.Name = "aiMaxTrackBar";
+            aiMaxTrackBar.Size = new Size(226, 45);
+            aiMaxTrackBar.TabIndex = 20;
+            aiMaxTrackBar.Value = 50;
+            aiMaxTrackBar.Scroll += aiMaxTrackBar_Scroll;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(384, 441);
+            Controls.Add(aiMaxTrackBar);
+            Controls.Add(textBox1);
+            Controls.Add(aiMinTrackBar);
             Controls.Add(aiAvoidPlayerCheckBox);
             Controls.Add(disableCarDamageCheckBox);
             Controls.Add(filePathTextBox);
@@ -219,6 +256,8 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "iRacing Season Creator";
             Load += MainForm_Load;
+            ((System.ComponentModel.ISupportInitialize)aiMinTrackBar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)aiMaxTrackBar).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -241,5 +280,8 @@
         private TextBox filePathTextBox;
         private CheckBox disableCarDamageCheckBox;
         private CheckBox aiAvoidPlayerCheckBox;
+        private TrackBar aiMinTrackBar;
+        private TextBox textBox1;
+        private TrackBar aiMaxTrackBar;
     }
 }

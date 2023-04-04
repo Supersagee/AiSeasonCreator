@@ -9,6 +9,11 @@ using Aydsko.iRacingData;
 using Aydsko.iRacingData.Series;
 using iRacingSeasonCreator.ScheduleClasses;
 using Microsoft.Extensions.DependencyInjection;
+using iRacingSeasonCreator.JsonClasses.TrackDetails;
+using System.Reflection;
+using iRacingSeasonCreator.JsonClasses.SeriesDetails;
+using iRacingSeasonCreator.JsonClasses.CarDetails;
+using System.Diagnostics;
 
 namespace iRacingSeasonCreator
 {
@@ -23,9 +28,11 @@ namespace iRacingSeasonCreator
         public static IRacingService IRacingServiceLogin { get; set; }
         public Task<IRacingService> GetCurrentSeason { get; set; }
         public Aydsko.iRacingData.Common.DataResponse<SeasonSeries[]> SeasonSeries { get; set; }
-        public Aydsko.iRacingData.Common.DataResponse<Aydsko.iRacingData.Cars.CarInfo[]> CarInfo { get; set; }
+        public dynamic CarInfo { get; set; }
         public List<CarSettings> CarSettingsList { get; set; } = new List<CarSettings>();
         public static List<string> CurrentSeries { get; set; }
+        public static List<int> CarClassIds { get; set; }
+        public static List<int> CarIds { get; set; }
 
         public static async Task<bool> LoginWindow(string userName, string password)
         {
@@ -60,19 +67,41 @@ namespace iRacingSeasonCreator
 
         public async Task SetCars()
         {
-            CarInfo = await dataClient.GetCarsAsync();
+            if (MainForm.OfflineMode)
+            {
+                var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                var jsonFilePath = Path.Combine(basePath, "JsonFiles", "carsJson.json");
+                CarInfo = JsonSerializer.Deserialize<List<CarDetails>>(File.ReadAllText(jsonFilePath)).ToArray();
+            }
+            else
+            {
+                CarInfo = await dataClient.GetCarsAsync();
+                CarInfo = CarInfo.Data;
+            }
         }
 
         public async Task<List<string>> GetAllSeries()
         {
             var list = new List<string>();
-            var seriesCheck = await dataClient.GetSeriesAsync();
+            dynamic seriesCheck;
 
-            for (var i = 0; i < seriesCheck.Data.Length; i++)
+            if (MainForm.OfflineMode)
             {
-                if (seriesCheck.Data[i].Category == "oval" || seriesCheck.Data[i].Category == "road")
+                var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                var jsonFilePath = Path.Combine(basePath, "JsonFiles", "seriesListJson.json");
+                seriesCheck = JsonSerializer.Deserialize<List<SeriesDetails>>(File.ReadAllText(jsonFilePath)).ToArray();
+            }
+            else
+            {
+                seriesCheck = await dataClient.GetSeriesAsync();
+                seriesCheck = seriesCheck.Data;
+            }
+
+            for (var i = 0; i < seriesCheck.Length; i++)
+            {
+                if (seriesCheck[i].Category == "oval" || seriesCheck[i].Category == "road")
                 {
-                    list.Add(seriesCheck.Data[i].SeriesShortName);
+                    list.Add(seriesCheck[i].SeriesShortName);
                 }
             }
 
@@ -80,7 +109,7 @@ namespace iRacingSeasonCreator
             return list;
         }
 
-        public async Task<List<string>> PopulateCarComboBox()
+        public async Task CreateCarSettings()
         {
             var seasonSchedule = SeasonSeries.Data;
             var carIds = new List<int>();
@@ -102,7 +131,7 @@ namespace iRacingSeasonCreator
                 }
             }
 
-            var carsInfo = CarInfo.Data;
+            var carsInfo = CarInfo;
             var carNames = new List<string>();
             for (var i = 0; i < carIds.Count; i++)
             {
@@ -115,7 +144,6 @@ namespace iRacingSeasonCreator
                 }
             }
 
-            return carNames;
         }
 
         public static ScheduleClasses.TrackState CreateTrackState()
@@ -166,14 +194,26 @@ namespace iRacingSeasonCreator
         public async Task<List<Events>> CreateEvents()
         {
             var events = new List<Events>();
-            var tracks = await dataClient.GetTracksAsync();
+            dynamic tracks;
             var notAllowedTracks = new List<int>();
 
-            for (var i = 0; i < tracks.Data.Length; i++)
+            if (MainForm.OfflineMode)
             {
-                if (!tracks.Data[i].AiEnabled)
+                var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                var jsonFilePath = Path.Combine(basePath, "JsonFiles", "tracksJson.json");
+                tracks = JsonSerializer.Deserialize<List<TrackDetails>>(File.ReadAllText(jsonFilePath)).ToArray();
+            }
+            else
+            {
+                tracks = await dataClient.GetTracksAsync();
+                tracks = tracks.Data;
+            }
+
+            for (var i = 0; i < tracks.Length; i++)
+            {
+                if (!tracks[i].AiEnabled)
                 {
-                    notAllowedTracks.Add(tracks.Data[i].TrackId);
+                    notAllowedTracks.Add(tracks[i].TrackId);
                 }                
             }
 
@@ -217,13 +257,62 @@ namespace iRacingSeasonCreator
                         else
                         {
                             MainForm.NotAvailableTracks.Add($"{SeasonSeries.Data[i].Schedules[j].Track.TrackName} - {SeasonSeries.Data[i].Schedules[j].Track.ConfigName}");
-                            //MainForm.NotAvailableTracks.Add(SeasonSeries.Data[i].Schedules[j].Track.ConfigName);
                         }
                     }
                 }
             }
 
             return events;
+        }
+
+        public async Task<List<string>> PopulateCarComboBox()
+        {
+            var cc = await dataClient.GetCarClassesAsync();
+            var cars = await dataClient.GetCarsAsync();
+            var ccd = cc.Data;
+            var carClassIds = new List<int>();
+            var carIds = new List<int>();
+            var carNames = new List<string>();
+
+            for (var i = 0; i < SeasonSeries.Data.Length; i++)
+            {
+                if (SeasonSeries.Data[i].Schedules[0].SeriesName == MainForm.SeriesName)
+                {
+                    for (var j = 0; j < SeasonSeries.Data[i].CarClassIds.Length; j++)
+                    {
+                        carClassIds.Add(SeasonSeries.Data[i].CarClassIds[j]);
+                    }
+                }
+            }
+
+            for (var i = 0; i < ccd.Length; i++)
+            {
+                for (var j = 0; j < carClassIds.Count; j++)
+                {
+                    if (ccd[i].CarClassId == carClassIds[j])
+                    {
+                        for (var k = 0; k < ccd[i].CarsInClass.Length; k++)
+                        {
+                            carIds.Add(ccd[i].CarsInClass[k].CarId);
+                        }                        
+                    }
+                }
+            }
+
+            for (var i = 0; i < cars.Data.Length; i++)
+            {
+                for (var j = 0; j < carIds.Count; j++)
+                {
+                    if (cars.Data[i].CarId == carIds[j])
+                    {
+                        carNames.Add(cars.Data[i].CarName);
+                    }
+                }
+            }
+
+            IRacingService.CarIds = carIds;
+            IRacingService.CarClassIds = carClassIds;
+            return carNames;
         }
 
         public async Task<PaceCar> CreatePaceCar()
@@ -278,6 +367,7 @@ namespace iRacingSeasonCreator
             var client = await dataClient.GetSeasonsAsync(true, default);
             var seriesDetails = await dataClient.GetSeriesAsync();
             var cars = await dataClient.GetCarsAsync();
+            var carClasses = await dataClient.GetCarClassesAsync();
             var tracks = await dataClient.GetTracksAsync();
 
             for (var i = 0; i < client.Data.Length; i++)
@@ -286,8 +376,19 @@ namespace iRacingSeasonCreator
 
                 if (c.Schedules[0].SeriesName == MainForm.SeriesName)
                 {
-                    s.AiCarClassId = c.CarClassIds[0];
                     
+                    //get aiIds
+                    if (c.CarClassIds.Length == 1)
+                    {
+                        s.AiCarClassId = c.CarClassIds[0];
+                        s.AiCarClassIds = new List<int> { };
+                    }
+                    else
+                    {
+                        s.AiCarClassId = null;
+                        s.AiCarClassIds = IRacingService.CarClassIds;
+                    }
+
                     //get carID
                     for (var j = 0; j < cars.Data.Length; j++)
                     {
@@ -297,8 +398,24 @@ namespace iRacingSeasonCreator
                             break;
                         }
                     }
-
-                    s.CarSettings = CarSettingsList;
+                   
+                    if (CarSettingsList.Any())
+                    {
+                        s.CarSettings = CarSettingsList;
+                    }
+                    else
+                    {
+                        foreach (var id in IRacingService.CarIds)
+                        {
+                            var carSettings = new CarSettings();
+                            carSettings.CarId = id;
+                            carSettings.MaxPctFuelFill = 100;
+                            carSettings.MaxDryTireSets = 0;
+                            CarSettingsList.Add(carSettings);
+                        }
+                        s.CarSettings = CarSettingsList;
+                    }
+                    
 
                     if (MainForm.DisableDamage)
                     {

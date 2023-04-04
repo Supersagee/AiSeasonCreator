@@ -14,7 +14,9 @@ namespace iRacingSeasonCreator.ScheduleClasses
         public SeasonSchedule() { }
 
         [JsonPropertyName("aiCarClassId")]
-        public int AiCarClassId { get; set; }
+        public int? AiCarClassId { get; set; }
+        [JsonPropertyName("aiCarClassIds")]
+        public List<int> AiCarClassIds { get; set; }
         [JsonPropertyName("carId")]
         public int CarId { get; set; }
         [JsonPropertyName("carSettings")]

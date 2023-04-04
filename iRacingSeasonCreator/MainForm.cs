@@ -1,5 +1,8 @@
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Text;
+using iRacingSeasonCreator.ScheduleClasses;
+using iRacingSeasonCreator.JsonClasses.TrackDetails;
+using System.Text.Json;
 
 namespace iRacingSeasonCreator
 {
@@ -14,23 +17,30 @@ namespace iRacingSeasonCreator
         {
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
+
+            minSkillBox.Text = aiMinTrackBar.Value.ToString();
+            maxSkillBox.Text = aiMaxTrackBar.Value.ToString();
+
+            var buildJson = new StringBuilder();
+            buildJson.AppendLine();
+
             try
             {
                 irs = IRacingService.IRacingServiceLogin;
 
                 await irs.SetCurrentSeason();
-                await irs.SetCars();
-
-                IRacingService.CurrentSeries = await irs.GetAllSeries();
-
-                foreach (var item in IRacingService.CurrentSeries)
-                {
-                    seriesListCombo.Items.Add(item);
-                }
+                await irs.SetCars();                
             }
             catch
             {
                 Close();
+            }
+
+            IRacingService.CurrentSeries = await irs.GetAllSeries();
+
+            foreach (var item in IRacingService.CurrentSeries)
+            {
+                seriesListCombo.Items.Add(item);
             }
         }
         private async void createSeason_Click(object sender, EventArgs e)
@@ -38,8 +48,8 @@ namespace iRacingSeasonCreator
             SeasonName = seasonNameTextBox.Text;
             SeriesName = seriesListCombo.Text;
             CarName = carListCombo.Text;
-            AiMin = Convert.ToInt32(minSkillBox.Text);
-            AiMax = Convert.ToInt32(maxSkillBox.Text);
+            AiMin = aiMinTrackBar.Value;
+            AiMax = aiMaxTrackBar.Value;
             FilePath = filePathTextBox.Text;
             DisableDamage = disableCarDamageCheckBox.Checked;
             AiAvoids = aiAvoidPlayerCheckBox.Checked;
@@ -52,6 +62,7 @@ namespace iRacingSeasonCreator
             }
 
             //check to make sure user hasn't timed out
+            
             try
             {
                 var ss = await irs.SeasonBuilder(SeasonName);
@@ -68,23 +79,12 @@ namespace iRacingSeasonCreator
 
             if (NotAvailableTracks.Any())
             {
-                var builder = new StringBuilder();
-                builder.AppendLine("Season created successfully!");
-                builder.AppendLine("");
-                builder.AppendLine("The following tracks were not included in the season as they are not available for AI racing:");
-                builder.AppendLine("");
-                foreach (var track in NotAvailableTracks)
-                {
-                    builder.Append($"-{track.ToString()}").AppendLine();
-                }
-                MessageBox.Show($"{builder}");
+                NotAllowedTracksMessage();
             }
             else
             {
-                MessageBox.Show("Season created successfully!");
+                MessageBox.Show("Season created successfully! Restart iRacing if it is currently open.");
             }
-
-
         }
 
         private static bool BlankFormChecker()
@@ -95,13 +95,31 @@ namespace iRacingSeasonCreator
                 return false;
             if (CarName == "" || CarName == null)
                 return false;
-            if (AiMin.HasValue == false)
-                return false;
-            if (AiMax.HasValue == false)
-                return false;
             if (FilePath == "" || FilePath == null)
                 return false;
+            if (AiMin > AiMax)
+                return false;
+
             return true;
+        }
+
+        private static void ClearForm()
+        {
+
+        }
+
+        private static void NotAllowedTracksMessage()
+        {
+            var builder = new StringBuilder();
+            builder.AppendLine("Season created successfully!");
+            builder.AppendLine("");
+            builder.AppendLine("The following tracks were not included in the season as they are not available for AI racing:");
+            builder.AppendLine("");
+            foreach (var track in NotAvailableTracks)
+            {
+                builder.Append($"-{track.ToString()}").AppendLine();
+            }
+            MessageBox.Show($"{builder}");
         }
 
         private void filePathTextBox_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -124,6 +142,7 @@ namespace iRacingSeasonCreator
         {
             SeriesName = seriesListCombo.SelectedItem.ToString();
             var carList = await irs.PopulateCarComboBox();
+            await irs.CreateCarSettings();
             carListCombo.Items.Clear();
 
             foreach (var car in carList)
@@ -132,6 +151,17 @@ namespace iRacingSeasonCreator
             }
         }
 
+        private void aiMinTrackBar_Scroll(object sender, EventArgs e)
+        {
+            minSkillBox.Text = aiMinTrackBar.Value.ToString();
+        }
+
+        private void aiMaxTrackBar_Scroll(object sender, EventArgs e)
+        {
+            maxSkillBox.Text = aiMaxTrackBar.Value.ToString();
+        }
+
+        public static bool OfflineMode { get; set; } = false;
         public static string? SeasonName { get; set; }
         public static string? SeriesName { get; set; }
         public static string? CarName { get; set; }

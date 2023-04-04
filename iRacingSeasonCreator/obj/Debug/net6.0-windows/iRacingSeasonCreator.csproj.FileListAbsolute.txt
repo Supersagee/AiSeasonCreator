@@ -28,3 +28,8 @@ C:\Users\Billy\source\repos\iRacingSeasonCreator\iRacingSeasonCreator\bin\Debug\
 C:\Users\Billy\source\repos\iRacingSeasonCreator\iRacingSeasonCreator\bin\Debug\net6.0-windows\Microsoft.Net.Http.Headers.dll
 C:\Users\Billy\source\repos\iRacingSeasonCreator\iRacingSeasonCreator\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 C:\Users\Billy\source\repos\iRacingSeasonCreator\iRacingSeasonCreator\obj\Debug\net6.0-windows\iRacingSeasonCreator.csproj.CopyComplete
+C:\Users\Billy\source\repos\iRacingSeasonCreator\iRacingSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\tracksJson.json
+C:\Users\Billy\source\repos\iRacingSeasonCreator\iRacingSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\seriesListJson.json
+C:\Users\Billy\source\repos\iRacingSeasonCreator\iRacingSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\carsJson.json
+C:\Users\Billy\source\repos\iRacingSeasonCreator\iRacingSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\carClassesJson.json
+C:\Users\Billy\source\repos\iRacingSeasonCreator\iRacingSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\seasons23s2Json.json
