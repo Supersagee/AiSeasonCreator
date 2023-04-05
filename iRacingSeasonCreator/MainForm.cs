@@ -57,12 +57,11 @@ namespace iRacingSeasonCreator
             //check for any empty boxes
             if (BlankFormChecker() == false)
             {
-                MessageBox.Show($"Please finish filling out form before creating season.");
+                MessageBox.Show($"Please finish filling out the form before attempting to create a season.");
                 return;
             }
 
             //check to make sure user hasn't timed out
-
             try
             {
                 var ss = await irs.SeasonBuilder(SeasonName);

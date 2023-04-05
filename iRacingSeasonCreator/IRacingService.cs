@@ -14,6 +14,7 @@ using System.Reflection;
 using iRacingSeasonCreator.JsonClasses.SeriesDetails;
 using iRacingSeasonCreator.JsonClasses.CarDetails;
 using System.Diagnostics;
+using iRacingSeasonCreator.Roster;
 
 namespace iRacingSeasonCreator
 {
@@ -335,6 +336,104 @@ namespace iRacingSeasonCreator
             return paceCar;
         }
 
+        public async Task CreateRoster(List<int> carClassIds, int maxDrivers)
+        {
+            var names = new List<string>()
+            {
+                "Liam Johnson", "Noah Martinez", "Oliver Thompson", "Elijah Taylor", "William Anderson", "James White", "Benjamin Harris", "Lucas Clark",
+                "Henry Lewis", "Alexander Walker", "Sebastian Hall", "Jack Allen", "Samuel Young", "Luke King", "Daniel Wright", "Gabriel Hill",
+                "Anthony Scott", "Isaac Green", "Grayson Adams", "Joseph Baker", "Aiden Nelson", "Ethan Mitchell", "Leo Ramirez", "Carter Carter",
+                "Mason Roberts", "Josiah Phillips", "Andrew Evans", "Thomas Torres", "Joshua Hughes", "Christopher Morris", "Ian Price", "Hudson Sanchez",
+                "Nathan Perry", "Aaron Reed", "Julian Bryant", "Levi Cruz", "David Long", "Jaxon Foster", "Adam Ward", "Jonathan Howard",
+                "Nolan Jenkins", "Elias Rogers", "Mateo Cook", "Nicholas Bailey", "Dominic Diaz", "Landon Richardson", "John Brooks",
+                "Robert Watson", "Tyler Wood", "Gavin Gray", "Dylan James", "Jackson Bennett", "Maxwell Ramirez", "Connor Collins", "Cameron Ryan",
+                "Christian Grant", "Lincoln Cooper", "Jordan Rivera", "Ezra Hayes", "Xavier Simmons", "Brayden Griffin", "Micah West", "Brandon Brooks",
+                "Miles Kelly", "Easton Spencer", "Harrison Alexander", "Wesley Hoffman", "Emmett Weaver", "Caleb Chapman", "Declan Gardner",
+                "Owen Kelley", "Charles Snyder", "Ayden Vasquez", "Caden Hawkins", "Blake Guerrero", "Cooper Silva", "Ryder Lawson",
+                "Colton Fisher", "Zachary Mason", "Maddox Diaz", "Olivia Holland", "Sophia Warren", "Emma Luna", "Ava May", "Isabella Ray",
+                "Amelia Daniels", "Mia Cummings", "Charlotte Harmon", "Harper George", "Evelyn Reid", "Abigail Armstrong", "Emily Ellis",
+                "Avery Porter", "Scarlett Sanchez", "Lily Hunt", "Chloe Murphy", "Sophie Romero", "Layla Cole", "Riley Douglas", "Zoey Stone"
+            };
+
+            var cc = await dataClient.GetCarClassesAsync();
+            var drivers = new List<Drivers>();
+            var carNum = 0;
+
+            var split = maxDrivers / carClassIds.Count;
+
+            for (var i = 0; i < carClassIds.Count; i++)
+            {
+                for (var j = 0; j < split; j++)
+                {   
+                    var num = new Random().Next(1, 20);
+                    var nameNum = new Random().Next(0, names.Count - 1);
+                    var color1 = String.Format("{0:X6}", new Random().Next(0x1000000));
+                    var color2 = String.Format("{0:X6}", new Random().Next(0x1000000));
+                    var color3 = String.Format("{0:X6}", new Random().Next(0x1000000));
+                    var design = $"{num},{color1},{color2},{color3}";
+                    //var design = "1,d82520,ffffff,134c92";
+
+                    var d = new Drivers();
+
+                    carNum++;
+                    d.DriverName = $"{names[nameNum]}";
+                    names.RemoveAt(nameNum);
+                    d.CarNumber = carNum.ToString();
+
+                    //asign random cars to proper classes
+                    for (var k = 0; k < cc.Data.Length;  k++)
+                    {
+                        if (cc.Data[k].CarClassId == carClassIds[i])
+                        {
+                            if (cc.Data[k].CarsInClass.Length == 1)
+                            {
+                                d.CarId = cc.Data[k].CarsInClass[0].CarId;
+                                d.CarPath = cc.Data[k].CarsInClass[0].CarDirpath;
+                            }
+                            else
+                            {
+                                var pickOne = new Random().Next(0, cc.Data[k].CarsInClass.Length - 1);
+                                d.CarId = cc.Data[k].CarsInClass[pickOne].CarId;
+                                d.CarPath = cc.Data[k].CarsInClass[pickOne].CarDirpath;
+                            }
+                        }
+                    }
+                    
+                    d.CarClassId = carClassIds[i];
+
+                    d.Id = Guid.NewGuid().ToString();
+
+                    d.CarDesign = design;
+                    d.HelmetDesign = design;
+                    d.SuitDesign = design;
+                    d.NumberDesign = "0,0,ffffff,AAAAAA,000000";
+                    d.DisableCarDecals = true;
+
+                    drivers.Add(d);
+                }
+            }
+
+            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string airostersPath = Path.Combine(documentsPath, "iRacing", "airosters");
+            Directory.CreateDirectory(airostersPath);
+            string filePath = Path.Combine(airostersPath, "roster.json");
+
+            DriverRoster roster = new DriverRoster { Drivers = drivers };
+            await SaveRosterToJson(roster, filePath);
+        }
+
+        public static async Task SaveRosterToJson(DriverRoster drivers, string filePath)
+        {
+            var jsonOptions = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+            };
+
+            string jsonString = JsonSerializer.Serialize(drivers, jsonOptions);
+
+            await File.WriteAllTextAsync(filePath, jsonString);
+        }
+        
         public static async Task SaveSeasonScheduleToJson(SeasonSchedule seasonSchedule, string filePath)
         {
             var jsonOptions = new JsonSerializerOptions
@@ -385,6 +484,8 @@ namespace iRacingSeasonCreator
                         }
                     }
                    
+                    var carIds = new List<int>();
+
                     if (CarSettingsList.Any())
                     {
                         s.CarSettings = CarSettingsList;
@@ -398,6 +499,7 @@ namespace iRacingSeasonCreator
                             carSettings.MaxPctFuelFill = 100;
                             carSettings.MaxDryTireSets = 0;
                             CarSettingsList.Add(carSettings);
+                            carIds.Add(id);
                         }
                         s.CarSettings = CarSettingsList;
                     }
@@ -467,6 +569,7 @@ namespace iRacingSeasonCreator
                     if (s.AiCarClassIds.Any())
                     {
                         s.RosterName = MainForm.SeasonName;
+                        await CreateRoster(s.AiCarClassIds, s.MaxDrivers);
                     }
                     else
                     {
