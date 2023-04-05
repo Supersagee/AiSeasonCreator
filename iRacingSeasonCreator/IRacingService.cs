@@ -130,20 +130,6 @@ namespace iRacingSeasonCreator
                     }
                 }
             }
-
-            var carsInfo = CarInfo;
-            var carNames = new List<string>();
-            for (var i = 0; i < carIds.Count; i++)
-            {
-                for (var j = 0; j < carsInfo.Length; j++)
-                {
-                    if (carIds[i] == carsInfo[j].CarId && carsInfo[j].AiEnabled)
-                    {
-                        carNames.Add(carsInfo[j].CarName);
-                    }
-                }
-            }
-
         }
 
         public static ScheduleClasses.TrackState CreateTrackState()
@@ -476,6 +462,15 @@ namespace iRacingSeasonCreator
                     else
                     {
                         s.RollingStarts = false;
+                    }
+
+                    if (s.AiCarClassIds.Any())
+                    {
+                        s.RosterName = MainForm.SeasonName;
+                    }
+                    else
+                    {
+                        s.RosterName = null;
                     }
 
                     s.ShortParadeLap = c.Schedules[0].HasShortParadeLap;

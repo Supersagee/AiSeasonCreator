@@ -34,7 +34,6 @@
             userPasswordBox = new TextBox();
             loginButton = new Button();
             loginErrorLabel = new Label();
-            offlineButton = new Button();
             SuspendLayout();
             // 
             // userNameLabel
@@ -90,21 +89,11 @@
             loginErrorLabel.TabIndex = 5;
             loginErrorLabel.Visible = false;
             // 
-            // offlineButton
-            // 
-            offlineButton.Location = new Point(116, 106);
-            offlineButton.Name = "offlineButton";
-            offlineButton.Size = new Size(95, 23);
-            offlineButton.TabIndex = 6;
-            offlineButton.Text = "Offline Mode";
-            offlineButton.UseVisualStyleBackColor = true;
-            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(303, 138);
-            Controls.Add(offlineButton);
             Controls.Add(loginErrorLabel);
             Controls.Add(loginButton);
             Controls.Add(userPasswordBox);
@@ -130,6 +119,5 @@
         private TextBox userPasswordBox;
         private Button loginButton;
         private Label loginErrorLabel;
-        private Button offlineButton;
     }
 }

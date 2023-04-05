@@ -67,6 +67,8 @@ namespace iRacingSeasonCreator.ScheduleClasses
         public int Restarts { get; set; }
         [JsonPropertyName("rolling_starts")]
         public bool RollingStarts { get; set; }
+        [JsonPropertyName("rosterName")]
+        public string? RosterName { get; set; }
         [JsonPropertyName("short_parade_lap")]
         public bool? ShortParadeLap { get; set; }
         [JsonPropertyName("no_lapper_wave_arounds")]
@@ -84,7 +86,4 @@ namespace iRacingSeasonCreator.ScheduleClasses
         [JsonPropertyName("name")]
         public string? Name { get; set; }
     }
-
-    [JsonSerializable(typeof(SeasonSchedule[])), JsonSourceGenerationOptions(WriteIndented = true)]
-    internal partial class SeasonScheduleArrayContext : JsonSerializerContext { }
 }

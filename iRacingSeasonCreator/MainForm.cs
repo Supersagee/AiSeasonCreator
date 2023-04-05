@@ -29,7 +29,7 @@ namespace iRacingSeasonCreator
                 irs = IRacingService.IRacingServiceLogin;
 
                 await irs.SetCurrentSeason();
-                await irs.SetCars();                
+                await irs.SetCars();
             }
             catch
             {
@@ -62,7 +62,7 @@ namespace iRacingSeasonCreator
             }
 
             //check to make sure user hasn't timed out
-            
+
             try
             {
                 var ss = await irs.SeasonBuilder(SeasonName);

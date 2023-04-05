@@ -45,7 +45,6 @@
             disableCarDamageCheckBox = new CheckBox();
             aiAvoidPlayerCheckBox = new CheckBox();
             aiMinTrackBar = new TrackBar();
-            textBox1 = new TextBox();
             aiMaxTrackBar = new TrackBar();
             ((System.ComponentModel.ISupportInitialize)aiMinTrackBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)aiMaxTrackBar).BeginInit();
@@ -146,7 +145,7 @@
             // minSkillBox
             // 
             minSkillBox.Enabled = false;
-            minSkillBox.Location = new Point(325, 243);
+            minSkillBox.Location = new Point(337, 243);
             minSkillBox.Name = "minSkillBox";
             minSkillBox.Size = new Size(30, 23);
             minSkillBox.TabIndex = 12;
@@ -154,7 +153,7 @@
             // maxSkillBox
             // 
             maxSkillBox.Enabled = false;
-            maxSkillBox.Location = new Point(325, 294);
+            maxSkillBox.Location = new Point(337, 294);
             maxSkillBox.Name = "maxSkillBox";
             maxSkillBox.Size = new Size(30, 23);
             maxSkillBox.TabIndex = 13;
@@ -203,24 +202,17 @@
             aiMinTrackBar.Location = new Point(93, 236);
             aiMinTrackBar.Maximum = 125;
             aiMinTrackBar.Name = "aiMinTrackBar";
-            aiMinTrackBar.Size = new Size(226, 45);
+            aiMinTrackBar.Size = new Size(238, 45);
             aiMinTrackBar.TabIndex = 18;
             aiMinTrackBar.Value = 25;
             aiMinTrackBar.Scroll += aiMinTrackBar_Scroll;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(267, 195);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 19;
             // 
             // aiMaxTrackBar
             // 
             aiMaxTrackBar.Location = new Point(93, 284);
             aiMaxTrackBar.Maximum = 125;
             aiMaxTrackBar.Name = "aiMaxTrackBar";
-            aiMaxTrackBar.Size = new Size(226, 45);
+            aiMaxTrackBar.Size = new Size(238, 45);
             aiMaxTrackBar.TabIndex = 20;
             aiMaxTrackBar.Value = 50;
             aiMaxTrackBar.Scroll += aiMaxTrackBar_Scroll;
@@ -231,7 +223,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(384, 441);
             Controls.Add(aiMaxTrackBar);
-            Controls.Add(textBox1);
             Controls.Add(aiMinTrackBar);
             Controls.Add(aiAvoidPlayerCheckBox);
             Controls.Add(disableCarDamageCheckBox);
@@ -281,7 +272,6 @@
         private CheckBox disableCarDamageCheckBox;
         private CheckBox aiAvoidPlayerCheckBox;
         private TrackBar aiMinTrackBar;
-        private TextBox textBox1;
         private TrackBar aiMaxTrackBar;
     }
 }
