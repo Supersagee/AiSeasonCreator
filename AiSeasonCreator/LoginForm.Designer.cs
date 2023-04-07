@@ -100,10 +100,9 @@
             Controls.Add(userNameBox);
             Controls.Add(userPasswordLabel);
             Controls.Add(userNameLabel);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
-            MaximumSize = new Size(319, 177);
             MinimizeBox = false;
-            MinimumSize = new Size(319, 177);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";

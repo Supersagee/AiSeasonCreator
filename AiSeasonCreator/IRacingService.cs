@@ -412,8 +412,26 @@ namespace AiSeasonCreator
                 }
             }
 
-            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             string airostersPath = Path.Combine(documentsPath, "iRacing", "airosters");
+
+            // Check if the default folder path exists
+            if (!Directory.Exists(airostersPath))
+            {
+                MessageBox.Show($@"The default folder path for iRacing could not be found for saving the season roster. Please select the folder where the ""{MainForm.SeasonName}"" folder should be created.", "Select Folder", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Prompt the user to select a folder path if the default one doesn't exist
+                string selectedFolderPath = GetFolderPathFromUser();
+                if (selectedFolderPath != null)
+                {
+                    airostersPath = selectedFolderPath;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
             Directory.CreateDirectory(airostersPath);
 
             string seasonName = MainForm.SeasonName;
@@ -424,6 +442,20 @@ namespace AiSeasonCreator
 
             DriverRoster roster = new DriverRoster { Drivers = drivers };
             await SaveRosterToJson(roster, filePath);
+        }
+
+        public static string GetFolderPathFromUser()
+        {
+            using (var folderBrowserDialog = new FolderBrowserDialog())
+            {
+                DialogResult result = folderBrowserDialog.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
+                {
+                    return folderBrowserDialog.SelectedPath;
+                }
+            }
+            return null;
         }
 
         public static async Task SaveRosterToJson(DriverRoster drivers, string filePath)
@@ -450,7 +482,7 @@ namespace AiSeasonCreator
             await File.WriteAllTextAsync(filePath, jsonString);
         }
 
-        public async Task<SeasonSchedule> SeasonBuilder(string seasonName)
+        public async Task<SeasonSchedule> SeasonBuilder()
         {
             var s = new SeasonSchedule();
             var client = await dataClient.GetSeasonsAsync(true, default);

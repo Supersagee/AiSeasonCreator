@@ -21,6 +21,12 @@ namespace AiSeasonCreator
             minSkillBox.Text = aiMinTrackBar.Value.ToString();
             maxSkillBox.Text = aiMaxTrackBar.Value.ToString();
 
+            string savedFolderPath = LoadSelectedFolderPath();
+            if (!string.IsNullOrEmpty(savedFolderPath) && Directory.Exists(savedFolderPath))
+            {
+                filePathTextBox.Text = savedFolderPath;
+            }
+
             var buildJson = new StringBuilder();
             buildJson.AppendLine();
 
@@ -65,7 +71,7 @@ namespace AiSeasonCreator
                     return;
                 }
 
-                var ss = await irs.SeasonBuilder(SeasonName);
+                var ss = await irs.SeasonBuilder();
                 string filePath = $@"{FilePath}\{SeasonName}.json";
                 await IRacingService.SaveSeasonScheduleToJson(ss, filePath);
 
@@ -142,6 +148,7 @@ namespace AiSeasonCreator
                 if (result == DialogResult.OK)
                 {
                     filePathTextBox.Text = folderBrowserDialog.SelectedPath;
+                    SaveSelectedFolderPath(folderBrowserDialog.SelectedPath);
                 }
             }
         }
@@ -159,6 +166,23 @@ namespace AiSeasonCreator
             }
         }
 
+        private void SaveSelectedFolderPath(string folderPath)
+        {
+            string configFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.txt");
+            File.WriteAllText(configFilePath, folderPath);
+        }
+
+        private string LoadSelectedFolderPath()
+        {
+            string configFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.txt");
+            if (File.Exists(configFilePath))
+            {
+                return File.ReadAllText(configFilePath);
+            }
+
+            return null;
+        }
+
         private void aiMinTrackBar_Scroll(object sender, EventArgs e)
         {
             minSkillBox.Text = aiMinTrackBar.Value.ToString();
@@ -167,6 +191,23 @@ namespace AiSeasonCreator
         private void aiMaxTrackBar_Scroll(object sender, EventArgs e)
         {
             maxSkillBox.Text = aiMaxTrackBar.Value.ToString();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.ShowDialog();
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.ShowDialog();
         }
 
         public static bool OfflineMode { get; set; } = false;

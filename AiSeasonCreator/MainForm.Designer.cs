@@ -46,8 +46,14 @@
             aiAvoidPlayerCheckBox = new CheckBox();
             aiMinTrackBar = new TrackBar();
             aiMaxTrackBar = new TrackBar();
+            menuStrip1 = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            settingsToolStripMenuItem = new ToolStripMenuItem();
+            aboutToolStripMenuItem = new ToolStripMenuItem();
+            exitToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)aiMinTrackBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)aiMaxTrackBar).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // seriesListCombo
@@ -217,6 +223,43 @@
             aiMaxTrackBar.Value = 50;
             aiMaxTrackBar.Scroll += aiMaxTrackBar_Scroll;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(384, 24);
+            menuStrip1.TabIndex = 21;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { settingsToolStripMenuItem, aboutToolStripMenuItem, exitToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(37, 20);
+            fileToolStripMenuItem.Text = "&File";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            settingsToolStripMenuItem.Size = new Size(180, 22);
+            settingsToolStripMenuItem.Text = "&Settings";
+            settingsToolStripMenuItem.Click += settingsToolStripMenuItem_Click;
+            // 
+            // aboutToolStripMenuItem
+            // 
+            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            aboutToolStripMenuItem.Size = new Size(180, 22);
+            aboutToolStripMenuItem.Text = "&About";
+            aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(180, 22);
+            exitToolStripMenuItem.Text = "E&xit";
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -240,15 +283,18 @@
             Controls.Add(seriesListLabel);
             Controls.Add(createSeason);
             Controls.Add(seriesListCombo);
+            Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MainMenuStrip = menuStrip1;
             MaximizeBox = false;
-            MaximumSize = new Size(400, 480);
-            MinimumSize = new Size(400, 480);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "iRacing Season Creator";
+            Text = " AiSeasonCreator";
             Load += MainForm_Load;
             ((System.ComponentModel.ISupportInitialize)aiMinTrackBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)aiMaxTrackBar).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -273,5 +319,10 @@
         private CheckBox aiAvoidPlayerCheckBox;
         private TrackBar aiMinTrackBar;
         private TrackBar aiMaxTrackBar;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem settingsToolStripMenuItem;
+        private ToolStripMenuItem aboutToolStripMenuItem;
+        private ToolStripMenuItem exitToolStripMenuItem;
     }
 }

@@ -33,3 +33,5 @@ C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-win
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.pdb
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.genruntimeconfig.cache
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\ref\AiSeasonCreator.dll
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.AboutForm.resources
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.SettingsForm.resources
