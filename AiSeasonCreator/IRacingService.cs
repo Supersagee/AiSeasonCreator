@@ -611,6 +611,16 @@ namespace AiSeasonCreator
                         s.RaceLengthType = 3;
                     }
                     
+                    //restart type
+                    if (c.Schedules[0].RestartType == "Double-file Back")
+                    {
+                        s.Restarts = 2;
+                    }
+                    else
+                    {
+                        s.Restarts = 0;
+                    }
+
                     //rolling or standing starts
                     if (c.Schedules[0].StartType == "Rolling")
                     {
