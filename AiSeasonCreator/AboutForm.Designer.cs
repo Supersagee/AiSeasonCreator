@@ -38,9 +38,8 @@
             versionTextBox.Enabled = false;
             versionTextBox.Location = new Point(12, 326);
             versionTextBox.Name = "versionTextBox";
-            versionTextBox.Size = new Size(56, 23);
+            versionTextBox.Size = new Size(50, 23);
             versionTextBox.TabIndex = 0;
-            versionTextBox.Text = "v1.0.1";
             // 
             // aboutTextBox
             // 
@@ -64,6 +63,7 @@
             Name = "AboutForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "About";
+            Load += AboutForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

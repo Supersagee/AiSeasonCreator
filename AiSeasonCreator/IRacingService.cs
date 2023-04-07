@@ -84,25 +84,26 @@ namespace AiSeasonCreator
         public async Task<List<string>> GetAllSeries()
         {
             var list = new List<string>();
-            dynamic seriesCheck;
+            //dynamic seriesCheck;
+            var getSeriesNames = await dataClient.GetSeasonsAsync(true);
 
-            if (MainForm.OfflineMode)
-            {
-                var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                var jsonFilePath = Path.Combine(basePath, "JsonFiles", "seriesListJson.json");
-                seriesCheck = JsonSerializer.Deserialize<List<SeriesDetails>>(File.ReadAllText(jsonFilePath)).ToArray();
-            }
-            else
-            {
-                seriesCheck = await dataClient.GetSeriesAsync();
-                seriesCheck = seriesCheck.Data;
-            }
+            //if (MainForm.OfflineMode)
+            //{
+            //    var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            //    var jsonFilePath = Path.Combine(basePath, "JsonFiles", "seriesListJson.json");
+            //    seriesCheck = JsonSerializer.Deserialize<List<SeriesDetails>>(File.ReadAllText(jsonFilePath)).ToArray();
+            //}
+            //else
+            //{
+            //    seriesCheck = await dataClient.GetSeriesAsync();
+            //    seriesCheck = seriesCheck.Data;
+            //}
 
-            for (var i = 0; i < seriesCheck.Length; i++)
+            for (var i =  0; i < getSeriesNames.Data.Length; i++)
             {
-                if (seriesCheck[i].Category == "oval" || seriesCheck[i].Category == "road")
+                if (getSeriesNames.Data[i].Schedules[0].Track.Category == "oval" || getSeriesNames.Data[i].Schedules[0].Track.Category == "road")
                 {
-                    list.Add(seriesCheck[i].SeriesShortName);
+                    list.Add(getSeriesNames.Data[i].Schedules[0].SeriesName);
                 }
             }
 
@@ -271,7 +272,7 @@ namespace AiSeasonCreator
                     }
                 }
             }
-
+            var breakpoint = "";
             for (var i = 0; i < ccd.Length; i++)
             {
                 for (var j = 0; j < carClassIds.Count; j++)
@@ -285,7 +286,7 @@ namespace AiSeasonCreator
                     }
                 }
             }
-
+            breakpoint = "";
             for (var i = 0; i < cars.Data.Length; i++)
             {
                 for (var j = 0; j < carIds.Count; j++)
@@ -412,7 +413,7 @@ namespace AiSeasonCreator
                 }
             }
 
-            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string airostersPath = Path.Combine(documentsPath, "iRacing", "airosters");
 
             // Check if the default folder path exists

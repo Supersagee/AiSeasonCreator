@@ -3,6 +3,7 @@ using System.Text;
 using AiSeasonCreator.ScheduleClasses;
 using AiSeasonCreator.JsonClasses.TrackDetails;
 using System.Text.Json;
+using System.Reflection;
 
 namespace AiSeasonCreator
 {
@@ -20,7 +21,7 @@ namespace AiSeasonCreator
 
             minSkillBox.Text = aiMinTrackBar.Value.ToString();
             maxSkillBox.Text = aiMaxTrackBar.Value.ToString();
-
+            var version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             string savedFolderPath = LoadSelectedFolderPath();
             if (!string.IsNullOrEmpty(savedFolderPath) && Directory.Exists(savedFolderPath))
             {
