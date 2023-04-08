@@ -220,6 +220,7 @@ namespace AiSeasonCreator
         public static string? FilePath { get; set; }
         public static bool DisableDamage { get; set; }
         public static bool AiAvoids { get; set; }
+        public static int SeasonSeriesIndex { get; set; }
         public static List<string> NotAvailableTracks { get; set; } = new List<string>();
         public static Aydsko.iRacingData.Common.DataResponse<Aydsko.iRacingData.Cars.CarInfo[]> CarInfo { get; set; }
     }

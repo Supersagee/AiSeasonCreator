@@ -147,109 +147,99 @@ namespace AiSeasonCreator
             return trackState;
         }
 
-        public async Task<ScheduleClasses.Weather> CreateWeather()
+        public async Task<ScheduleClasses.Weather> CreateWeather(int i, int j)
         {
             var weather = new ScheduleClasses.Weather();
 
-            for (var i = 0; i < SeasonSeries.Data.Length; i++)
-            {
-                var ss = SeasonSeries.Data[i].Schedules[0].Weather;
+            var ss = SeasonSeries.Data[i].Schedules[j].Weather;
 
-                if (SeasonSeries.Data[i].Schedules[0].SeriesName == MainForm.SeriesName)
-                {
-                    weather.Type = ss.Type;
-                    weather.TempUnits = ss.TempUnits;
-                    weather.TempValue = ss.TempValue;
-                    weather.RelHumidity = ss.RelHumidity;
-                    weather.Fog = ss.Fog;
-                    weather.WindDir = ss.WindDir;
-                    weather.WindUnits = ss.WindUnits;
-                    weather.WindValue = ss.WindValue;
-                    weather.Skies = ss.Skies;
-                    weather.SimulatedStartTime = ss.SimulatedStartTime;
-                    weather.SimulatedTimeMultiplier = ss.SimulatedTimeMultiplier;
-                    weather.SimulatedTimeOffsets = ss.SimulatedTimeOffsets.ToList();
-                    weather.Version = ss.Version;
-                    weather.WeatherVarInitial = ss.WeatherVarInitial;
-                    weather.WeatherVarOngoing = ss.WeatherVarOngoing;
-                    weather.TimeOfDay = ss.TimeOfDay;
-                }
-            }
+            weather.Type = ss.Type;
+            weather.TempUnits = ss.TempUnits;
+            weather.TempValue = ss.TempValue;
+            weather.RelHumidity = ss.RelHumidity;
+            weather.Fog = ss.Fog;
+            weather.WindDir = ss.WindDir;
+            weather.WindUnits = ss.WindUnits;
+            weather.WindValue = ss.WindValue;
+            weather.Skies = ss.Skies;
+            weather.SimulatedStartTime = ss.SimulatedStartTime;
+            weather.SimulatedTimeMultiplier = ss.SimulatedTimeMultiplier;
+            weather.SimulatedTimeOffsets = ss.SimulatedTimeOffsets.ToList();
+            weather.Version = ss.Version;
+            weather.WeatherVarInitial = ss.WeatherVarInitial;
+            weather.WeatherVarOngoing = ss.WeatherVarOngoing;
+            weather.TimeOfDay = ss.TimeOfDay;
 
             return weather;
         }
 
-        public async Task<List<Events>> CreateEvents()
+        public async Task<List<Events>> CreateEvents(int i)
         {
             var events = new List<Events>();
-            dynamic tracks;
+            var t = await dataClient.GetTracksAsync();
+            var tracks = t.Data;
+            //dynamic tracks;
             var notAllowedTracks = new List<int>();
 
-            if (MainForm.OfflineMode)
-            {
-                var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                var jsonFilePath = Path.Combine(basePath, "JsonFiles", "tracksJson.json");
-                tracks = JsonSerializer.Deserialize<List<TrackDetails>>(File.ReadAllText(jsonFilePath)).ToArray();
-            }
-            else
-            {
-                tracks = await dataClient.GetTracksAsync();
-                tracks = tracks.Data;
-            }
+            //if (MainForm.OfflineMode)
+            //{
+            //    var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            //    var jsonFilePath = Path.Combine(basePath, "JsonFiles", "tracksJson.json");
+            //    tracks = JsonSerializer.Deserialize<List<TrackDetails>>(File.ReadAllText(jsonFilePath)).ToArray();
+            //}
+            //else
+            //{
+            //    tracks = await dataClient.GetTracksAsync();
+            //    tracks = tracks.Data;
+            //}
 
-            for (var i = 0; i < tracks.Length; i++)
+            for (var j = 0; j < tracks.Length; j++)
             {
-                if (!tracks[i].AiEnabled)
+                if (!tracks[j].AiEnabled)
                 {
-                    notAllowedTracks.Add(tracks[i].TrackId);
+                    notAllowedTracks.Add(tracks[j].TrackId);
                 }                
             }
 
-            for (var i = 0; i < SeasonSeries.Data.Length; i++)
+            var ss = SeasonSeries.Data[i];
+
+            for (var j = 0; j < ss.Schedules.Length; j++)
             {
-                var ss = SeasonSeries.Data[i];
-
-                if (ss.Schedules[0].SeriesName == MainForm.SeriesName)
+                if (!notAllowedTracks.Contains(SeasonSeries.Data[i].Schedules[j].Track.TrackId))
                 {
-                    for (var j = 0; j < SeasonSeries.Data[i].Schedules.Length; j++)
+                    var loopEvent = new Events();
+                    loopEvent.TrackId = ss.Schedules[j].Track.TrackId;
+                    loopEvent.NumOptLaps = 0;
+                    loopEvent.PaceCar = await CreatePaceCar();
+                    loopEvent.ShortParadeLap = false;
+                    loopEvent.MustUseDiffTireTypesInRace = ss.MustUseDiffTireTypesInRace;
+                    loopEvent.Subsessions = new List<int> { 3, 5, 6 };
+                    loopEvent.EventId = Guid.NewGuid().ToString();
+
+                    if (ss.Schedules[j].RaceLapLimit == null)
                     {
-                        if (!notAllowedTracks.Contains(SeasonSeries.Data[i].Schedules[j].Track.TrackId))
-                        {
-                            var loopEvent = new Events();
-                            loopEvent.TrackId = ss.Schedules[j].Track.TrackId;
-                            loopEvent.NumOptLaps = 0;
-                            loopEvent.PaceCar = await CreatePaceCar();
-                            loopEvent.ShortParadeLap = false;
-                            loopEvent.MustUseDiffTireTypesInRace = ss.MustUseDiffTireTypesInRace;
-                            loopEvent.Subsessions = new List<int> { 3, 5, 6 };
-                            loopEvent.EventId = Guid.NewGuid().ToString();
-
-                            if (ss.Schedules[j].RaceLapLimit == null)
-                            {
-                                loopEvent.RaceLaps = 0;
-                                loopEvent.RaceLength = ss.Schedules[j].RaceTimeLimit;
-                                loopEvent.RaceLengthType = 2;
-                            }
-                            else
-                            {
-                                loopEvent.RaceLaps = ss.Schedules[j].RaceLapLimit;
-                                loopEvent.RaceLength = 0;
-                                loopEvent.RaceLengthType = 3;
-                            }
-
-                            loopEvent.Weather = await CreateWeather();
-                            loopEvent.TimeOfDay = ss.Schedules[j].Weather.TimeOfDay;
-
-                            events.Add(loopEvent);
-                        }
-                        else
-                        {
-                            MainForm.NotAvailableTracks.Add($"{SeasonSeries.Data[i].Schedules[j].Track.TrackName} - {SeasonSeries.Data[i].Schedules[j].Track.ConfigName}");
-                        }
+                        loopEvent.RaceLaps = 0;
+                        loopEvent.RaceLength = ss.Schedules[j].RaceTimeLimit;
+                        loopEvent.RaceLengthType = 2;
                     }
+                    else
+                    {
+                        loopEvent.RaceLaps = ss.Schedules[j].RaceLapLimit;
+                        loopEvent.RaceLength = 0;
+                        loopEvent.RaceLengthType = 3;
+                    }
+
+                    loopEvent.Weather = await CreateWeather(i, j);
+                    loopEvent.TimeOfDay = ss.Schedules[j].Weather.TimeOfDay;
+
+                    events.Add(loopEvent);
+                }
+                else
+                {
+                    MainForm.NotAvailableTracks.Add($"{SeasonSeries.Data[i].Schedules[j].Track.TrackName} - {SeasonSeries.Data[i].Schedules[j].Track.ConfigName}");
                 }
             }
-
+                
             return events;
         }
 
@@ -270,9 +260,10 @@ namespace AiSeasonCreator
                     {
                         carClassIds.Add(SeasonSeries.Data[i].CarClassIds[j]);
                     }
+                    MainForm.SeasonSeriesIndex = i;
                 }
             }
-            var breakpoint = "";
+
             for (var i = 0; i < ccd.Length; i++)
             {
                 for (var j = 0; j < carClassIds.Count; j++)
@@ -286,7 +277,7 @@ namespace AiSeasonCreator
                     }
                 }
             }
-            breakpoint = "";
+
             for (var i = 0; i < cars.Data.Length; i++)
             {
                 for (var j = 0; j < carIds.Count; j++)
@@ -486,172 +477,166 @@ namespace AiSeasonCreator
         public async Task<SeasonSchedule> SeasonBuilder()
         {
             var s = new SeasonSchedule();
-            var client = await dataClient.GetSeasonsAsync(true, default);
             var seriesDetails = await dataClient.GetSeriesAsync();
             var cars = await dataClient.GetCarsAsync();
             var carClasses = await dataClient.GetCarClassesAsync();
-            var tracks = await dataClient.GetTracksAsync();
+            var i = MainForm.SeasonSeriesIndex;
 
-            for (var i = 0; i < client.Data.Length; i++)
+            var c = SeasonSeries.Data[i];
+
+            //get carID
+
+            for (var j = 0; j < cars.Data.Length; j++)
             {
-                var c = client.Data[i];
-
-                //get carID
-                if (c.Schedules[0].SeriesName == MainForm.SeriesName)
+                if (cars.Data[j].CarName == MainForm.CarName)
                 {
+                    s.CarId = cars.Data[j].CarId;
+                    break;
+                }
+            }
 
-                    for (var j = 0; j < cars.Data.Length; j++)
-                    {
-                        if (cars.Data[j].CarName == MainForm.CarName)
-                        {
-                            s.CarId = cars.Data[j].CarId;
-                            break;
-                        }
-                    }
-
-                    //get AiIds and UserClassId
-                    if (c.CarClassIds.Length == 1)
-                    {
-                        s.AiCarClassId = c.CarClassIds[0];
-                        s.AiCarClassIds = new List<int> { };
-                        s.UserCarClassId = null;
-                    }
-                    else
-                    {
-                        s.AiCarClassId = null;
-                        s.AiCarClassIds = IRacingService.CarClassIds;
+            //get AiIds and UserClassId
+            if (c.CarClassIds.Length == 1)
+            {
+                s.AiCarClassId = c.CarClassIds[0];
+                s.AiCarClassIds = new List<int> { };
+                s.UserCarClassId = null;
+            }
+            else
+            {
+                s.AiCarClassId = null;
+                s.AiCarClassIds = IRacingService.CarClassIds;
                         
-                        for (var j = 0; j < carClasses.Data.Length; j++)
+                for (var j = 0; j < carClasses.Data.Length; j++)
+                {
+                    for (var k = 0; k < s.AiCarClassIds.Count; k++)
+                    {
+                        if (s.AiCarClassIds[k] == carClasses.Data[j].CarClassId)
                         {
-                            for (var k = 0; k < s.AiCarClassIds.Count; k++)
+                            for (var l = 0; l  < carClasses.Data[j].CarsInClass.Length;  l++)
                             {
-                                if (s.AiCarClassIds[k] == carClasses.Data[j].CarClassId)
+                                if (carClasses.Data[j].CarsInClass[l].CarId == s.CarId)
                                 {
-                                    for (var l = 0; l  < carClasses.Data[j].CarsInClass.Length;  l++)
-                                    {
-                                        if (carClasses.Data[j].CarsInClass[l].CarId == s.CarId)
-                                        {
-                                            s.UserCarClassId = carClasses.Data[j].CarClassId;
-                                        }
-                                    }
+                                    s.UserCarClassId = carClasses.Data[j].CarClassId;
                                 }
                             }
                         }
                     }
-      
-                    var carIds = new List<int>();
-
-                    if (CarSettingsList.Any())
-                    {
-                        s.CarSettings = CarSettingsList;
-                    }
-                    else
-                    {
-                        foreach (var id in IRacingService.CarIds)
-                        {
-                            var carSettings = new CarSettings();
-                            carSettings.CarId = id;
-                            carSettings.MaxPctFuelFill = 100;
-                            carSettings.MaxDryTireSets = 0;
-                            CarSettingsList.Add(carSettings);
-                            carIds.Add(id);
-                        }
-                        s.CarSettings = CarSettingsList;
-                    }
-                    
-
-                    if (MainForm.DisableDamage)
-                    {
-                        s.DamageModel = 3;
-                    }
-                    else
-                    {
-                        s.DamageModel = 0;
-                    }
-
-                    s.TrackState = CreateTrackState();
-                    s.TimeOfDay = 0;
-                    s.Weather = await CreateWeather();
-                    s.FullCourseCautions = c.Schedules[0].HasFullCourseCautions;
-                    s.GridPosition = 1;
-                    s.LuckyDog = c.LuckyDog;
-
-                    for (var j = 0; j < seriesDetails.Data.Length; j++)
-                    {
-                        if (seriesDetails.Data[j].SeriesShortName == MainForm.SeriesName)
-                        {
-                            s.MaxDrivers = seriesDetails.Data[j].MaxStarters;
-                            s.PointsSystemId = seriesDetails.Data[j].CategoryId + 2;
-                            break;
-                        }
-                    }
-
-                    s.NumFastTows = -1;
-                    s.AvoidUser = MainForm.AiAvoids;
-                    s.MinSkill = MainForm.AiMin.Value;
-                    s.MaxSkill = MainForm.AiMax.Value;
-                    s.MustUseDiffTireTypesInRace = c.MustUseDiffTireTypesInRace;
-                    s.StartOnQualTire = c.StartOnQualTire;
-                    s.UnsportConductRuleMode = 0;
-                    s.PracticeLength = 3;
-                    s.QualifyLaps = 3;
-                    s.QualifyLength = 8;
-
-                    //sets race by by lap count or time limit
-                    if (c.Schedules[0].RaceLapLimit == null)
-                    {
-                        s.RaceLaps = 0;
-                        s.RaceLength = c.Schedules[0].RaceTimeLimit;
-                        s.RaceLengthType = 2;
-                    }
-                    else
-                    {
-                        s.RaceLaps = c.Schedules[0].RaceLapLimit;
-                        s.RaceLength = 0;
-                        s.RaceLengthType = 3;
-                    }
-                    
-                    //restart type
-                    if (c.Schedules[0].RestartType == "Double-file Back")
-                    {
-                        s.Restarts = 2;
-                    }
-                    else
-                    {
-                        s.Restarts = 0;
-                    }
-
-                    //rolling or standing starts
-                    if (c.Schedules[0].StartType == "Rolling")
-                    {
-                        s.RollingStarts = true;
-                    }
-                    else
-                    {
-                        s.RollingStarts = false;
-                    }
-
-                    if (s.AiCarClassIds.Any())
-                    {
-                        s.RosterName = MainForm.SeasonName;
-                        await CreateRoster(s.AiCarClassIds, s.MaxDrivers);
-                    }
-                    else
-                    {
-                        s.RosterName = null;
-                    }
-
-                    s.ShortParadeLap = c.Schedules[0].HasShortParadeLap;
-                    s.NoLapperWaveArounds = false;
-                    s.DoNotCountCautionLaps = c.CautionLapsDoNotCount;
-                    s.Subsessions = new List<int> { 3, 5, 6 };
-                    s.StartZone = 0;
-
-                    s.Events = await CreateEvents();
-
-                    s.Name = MainForm.SeasonName;
-                }  
+                }
             }
+      
+            var carIds = new List<int>();
+
+            if (CarSettingsList.Any())
+            {
+                s.CarSettings = CarSettingsList;
+            }
+            else
+            {
+                foreach (var id in IRacingService.CarIds)
+                {
+                    var carSettings = new CarSettings();
+                    carSettings.CarId = id;
+                    carSettings.MaxPctFuelFill = 100;
+                    carSettings.MaxDryTireSets = 0;
+                    CarSettingsList.Add(carSettings);
+                    carIds.Add(id);
+                }
+                s.CarSettings = CarSettingsList;
+            }
+                    
+
+            if (MainForm.DisableDamage)
+            {
+                s.DamageModel = 3;
+            }
+            else
+            {
+                s.DamageModel = 0;
+            }
+
+            s.TrackState = CreateTrackState();
+            s.TimeOfDay = 0;
+            s.Weather = await CreateWeather(i, 0);
+            s.FullCourseCautions = c.Schedules[0].HasFullCourseCautions;
+            s.GridPosition = 1;
+            s.LuckyDog = c.LuckyDog;
+
+            for (var j = 0; j < seriesDetails.Data.Length; j++)
+            {
+                if (seriesDetails.Data[j].SeriesShortName == MainForm.SeriesName)
+                {
+                    s.MaxDrivers = seriesDetails.Data[j].MaxStarters;
+                    s.PointsSystemId = seriesDetails.Data[j].CategoryId + 2;
+                    break;
+                }
+            }
+
+            s.NumFastTows = -1;
+            s.AvoidUser = MainForm.AiAvoids;
+            s.MinSkill = MainForm.AiMin.Value;
+            s.MaxSkill = MainForm.AiMax.Value;
+            s.MustUseDiffTireTypesInRace = c.MustUseDiffTireTypesInRace;
+            s.StartOnQualTire = c.StartOnQualTire;
+            s.UnsportConductRuleMode = 0;
+            s.PracticeLength = 3;
+            s.QualifyLaps = 3;
+            s.QualifyLength = 8;
+
+            //sets race by by lap count or time limit
+            if (c.Schedules[0].RaceLapLimit == null)
+            {
+                s.RaceLaps = 0;
+                s.RaceLength = c.Schedules[0].RaceTimeLimit;
+                s.RaceLengthType = 2;
+            }
+            else
+            {
+                s.RaceLaps = c.Schedules[0].RaceLapLimit;
+                s.RaceLength = 0;
+                s.RaceLengthType = 3;
+            }
+                    
+            //restart type
+            if (c.Schedules[0].RestartType == "Double-file Back")
+            {
+                s.Restarts = 2;
+            }
+            else
+            {
+                s.Restarts = 0;
+            }
+
+            //rolling or standing starts
+            if (c.Schedules[0].StartType == "Rolling")
+            {
+                s.RollingStarts = true;
+            }
+            else
+            {
+                s.RollingStarts = false;
+            }
+
+            if (s.AiCarClassIds.Any())
+            {
+                s.RosterName = MainForm.SeasonName;
+                await CreateRoster(s.AiCarClassIds, s.MaxDrivers);
+            }
+            else
+            {
+                s.RosterName = null;
+            }
+
+            s.ShortParadeLap = c.Schedules[0].HasShortParadeLap;
+            s.NoLapperWaveArounds = false;
+            s.DoNotCountCautionLaps = c.CautionLapsDoNotCount;
+            s.Subsessions = new List<int> { 3, 5, 6 };
+            s.StartZone = 0;
+
+            s.Events = await CreateEvents(i);
+
+            s.Name = MainForm.SeasonName;
+                  
             return s;
         }
 
