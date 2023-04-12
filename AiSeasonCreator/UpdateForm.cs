@@ -43,7 +43,15 @@ namespace AiSeasonCreator
         private async void updateButton_Click(object sender, EventArgs e)
         {
             var updater = new Updater();
-            await updater.DownloadAndRunInstaller(_latestReleaseInfo);
+            string installerUrl = updater.FindInstallerAsset(_latestReleaseInfo);
+
+            if (installerUrl == null)
+            {
+                MessageBox.Show("No installer found in the latest release.");
+                return;
+            }
+
+            await updater.DownloadAndRunInstaller(installerUrl);
             DialogResult = DialogResult.Yes;
             Close();
         }

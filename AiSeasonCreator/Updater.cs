@@ -16,9 +16,11 @@ namespace AiSeasonCreator
         public async void CheckForUpdates()
         {
             JObject latestReleaseInfo;
+            var updater = new AiSeasonCreator.Updater();
+
             try
             {
-                latestReleaseInfo = await GetLatestReleaseInfo();
+                latestReleaseInfo = await updater.GetLatestReleaseInfo();
             }
             catch (Exception ex)
             {
@@ -26,7 +28,7 @@ namespace AiSeasonCreator
                 return;
             }
 
-            if (IsUpdateAvailable(latestReleaseInfo))
+            if (updater.IsUpdateAvailable(latestReleaseInfo))
             {
                 using (var updateForm = new UpdateForm(latestReleaseInfo))
                 {
@@ -34,11 +36,34 @@ namespace AiSeasonCreator
 
                     if (result == DialogResult.Yes)
                     {
-                        await DownloadAndRunInstaller(latestReleaseInfo);
+                        string installerUrl = updater.FindInstallerAsset(latestReleaseInfo);
+                        if (installerUrl == null)
+                        {
+                            MessageBox.Show("No installer found in the latest release.");
+                            return;
+                        }
+
+                        await updater.DownloadAndRunInstaller(installerUrl);
                         Application.Exit();
                     }
                 }
             }
+        }
+
+        public string FindInstallerAsset(JObject latestReleaseInfo)
+        {
+            var assets = latestReleaseInfo["assets"] as JArray;
+
+            foreach (var asset in assets)
+            {
+                string assetName = asset["name"].ToString();
+                if (assetName.Equals("AiSeasonCreatorSetup.msi", StringComparison.OrdinalIgnoreCase))
+                {
+                    return asset["browser_download_url"].ToString();
+                }
+            }
+
+            return null;
         }
 
         private async Task<JObject> GetLatestReleaseInfo()
@@ -65,21 +90,17 @@ namespace AiSeasonCreator
             return latestVersion > currentVersion;
         }
 
-        public async Task DownloadAndRunInstaller(JObject latestReleaseInfo)
+        public async Task DownloadAndRunInstaller(string installerUrl)
         {
             using var httpClient = new HttpClient();
-            var assets = latestReleaseInfo["assets"] as JArray;
-            var installerAsset = assets.FirstOrDefault(asset => asset["name"].ToString().EndsWith(".exe"));
 
-            if (installerAsset == null)
-            {
-                MessageBox.Show("No installer found in the latest release.");
-                return;
-            }
+            // Get the installer file name from the URL
+            string installerFileName = Path.GetFileName(installerUrl);
 
-            var installerUrl = installerAsset["browser_download_url"].ToString();
-            var installerPath = Path.Combine(Path.GetTempPath(), installerAsset["name"].ToString());
+            // Create the local installer path in the temp folder
+            var installerPath = Path.Combine(Path.GetTempPath(), installerFileName);
 
+            // Download the installer file
             using (var response = await httpClient.GetAsync(installerUrl))
             {
                 response.EnsureSuccessStatusCode();
@@ -89,6 +110,7 @@ namespace AiSeasonCreator
                 }
             }
 
+            // Run the installer
             Process.Start(installerPath);
         }
     }
