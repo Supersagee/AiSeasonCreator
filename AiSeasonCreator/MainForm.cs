@@ -71,7 +71,7 @@ namespace AiSeasonCreator
                 // Check for any empty boxes
                 if (BlankFormChecker() == false)
                 {
-                    MessageBox.Show($"Please finish filling out the form before attempting to create a season. Make sure the minimum AI skill is less than or equal to the maximum. ");
+                    MessageBox.Show($"Please finish filling out the form before attempting to create a season. Make sure the minimum AI skill is less than or equal to the maximum.");
                     return;
                 }
 
