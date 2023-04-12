@@ -74,6 +74,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "UpdateForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Update";
             ResumeLayout(false);
             PerformLayout();

@@ -76,6 +76,16 @@
         {
             "LaunchCondition"
             {
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_C81C56C9819B42F99F84200569E9E7D9"
+                {
+                "Name" = "8:.NET Core"
+                "Message" = "8:[VSDNETCOREMSG]"
+                "AllowLaterVersions" = "11:FALSE"
+                "InstallUrl" = "8:https://dotnet.microsoft.com/download/dotnet-core/[NetCoreVerMajorDotMinor]"
+                "IsNETCore" = "11:TRUE"
+                "Architecture" = "2:0"
+                "Runtime" = "2:0"
+                }
             }
         }
         "File"
@@ -156,12 +166,12 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AiSeasonCreatorSetup"
-        "ProductCode" = "8:{BE1CE621-2FFD-413B-846F-59354CE8186C}"
-        "PackageCode" = "8:{D4E69CB2-04EC-4E80-AFC4-18E8D269718E}"
+        "ProductCode" = "8:{A811E713-0738-4AEA-9313-4ACE8E812CF7}"
+        "PackageCode" = "8:{DEBD6D39-946D-4B35-9A72-89757F9A9D92}"
         "UpgradeCode" = "8:{9FD9925F-28BE-4257-869A-68FD3C962274}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"

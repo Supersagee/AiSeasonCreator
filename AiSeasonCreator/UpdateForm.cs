@@ -54,6 +54,7 @@ namespace AiSeasonCreator
             await updater.DownloadAndRunInstaller(installerUrl);
             DialogResult = DialogResult.Yes;
             Close();
+            Application.Exit();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

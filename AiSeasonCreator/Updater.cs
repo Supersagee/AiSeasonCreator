@@ -54,15 +54,19 @@ namespace AiSeasonCreator
         {
             var assets = latestReleaseInfo["assets"] as JArray;
 
+            StringBuilder assetNames = new StringBuilder("Assets in the latest release:\n");
             foreach (var asset in assets)
             {
                 string assetName = asset["name"].ToString();
+                assetNames.AppendLine($"- {assetName}");
+
                 if (assetName.Equals("AiSeasonCreatorSetup.msi", StringComparison.OrdinalIgnoreCase))
                 {
                     return asset["browser_download_url"].ToString();
                 }
             }
 
+            MessageBox.Show(assetNames.ToString());
             return null;
         }
 
@@ -111,7 +115,7 @@ namespace AiSeasonCreator
             }
 
             // Run the installer
-            Process.Start(installerPath);
+            Process.Start("msiexec.exe", $"/i \"{installerPath}\"");
         }
     }
 }
