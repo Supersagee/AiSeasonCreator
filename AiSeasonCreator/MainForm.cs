@@ -90,7 +90,7 @@ namespace AiSeasonCreator
                 }
                 else if (IRacingService.CarClassIds.Count > 1)
                 {
-                    MessageBox.Show(@$"A Multi-Class season was created. Before starting the season, in iRacing, go to ""Opponent Rosters"" under the AI Racing tab and click on the {SeasonName} roster. Click ""Save Edits"" at the bottom right to set AI driver attributes.");
+                    MessageBox.Show(@$"A Multi-Class season was created. Before starting the season, in iRacing, go to ""Opponent Rosters"" under the AI Racing tab and click on the {SeasonName} roster. Click ""Save Edits"" at the bottom right to set AI driver attributes. Restart iRacing if it is currently open.");
                     return;
                 }
                 else
