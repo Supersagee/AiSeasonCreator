@@ -35,3 +35,4 @@ C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Release\net6.0-w
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Release\net6.0-windows\ref\AiSeasonCreator.dll
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Release\net6.0-windows\AiSeasonCreator.AboutForm.resources
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Release\net6.0-windows\AiSeasonCreator.SettingsForm.resources
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Release\net6.0-windows\AiSeasonCreator.UpdateForm.resources

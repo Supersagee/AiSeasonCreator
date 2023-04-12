@@ -16,6 +16,9 @@ namespace AiSeasonCreator
         }
         private async void MainForm_Load(object sender, EventArgs e)
         {
+            var updater = new Updater();
+            updater.CheckForUpdates();
+            
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
 
