@@ -172,13 +172,24 @@ namespace AiSeasonCreator
 
         private void SaveSelectedFolderPath(string folderPath)
         {
-            string configFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.txt");
+            string appDataFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string appSpecificFolderPath = Path.Combine(appDataFolderPath, "AiSeasonCreator");
+
+            if (!Directory.Exists(appSpecificFolderPath))
+            {
+                Directory.CreateDirectory(appSpecificFolderPath);
+            }
+
+            string configFilePath = Path.Combine(appSpecificFolderPath, "AiSeasonCreatorConfig.txt");
             File.WriteAllText(configFilePath, folderPath);
         }
 
         private string LoadSelectedFolderPath()
         {
-            string configFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.txt");
+            string appDataFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string appSpecificFolderPath = Path.Combine(appDataFolderPath, "AiSeasonCreator");
+            string configFilePath = Path.Combine(appSpecificFolderPath, "AiSeasonCreatorConfig.txt");
+
             if (File.Exists(configFilePath))
             {
                 return File.ReadAllText(configFilePath);
