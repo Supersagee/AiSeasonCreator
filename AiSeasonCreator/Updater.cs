@@ -56,7 +56,10 @@ namespace AiSeasonCreator
 
         private bool IsUpdateAvailable(JObject latestReleaseInfo)
         {
-            var latestVersion = new Version(latestReleaseInfo["tag_name"].ToString());
+            string tagName = latestReleaseInfo["tag_name"].ToString();
+            string versionString = tagName.StartsWith("v") ? tagName.Substring(1) : tagName;
+            var latestVersion = new Version(versionString);
+
             var currentVersion = Assembly.GetExecutingAssembly().GetName().Version;
 
             return latestVersion > currentVersion;
