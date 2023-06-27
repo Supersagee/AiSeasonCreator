@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             seriesListCombo = new ComboBox();
             createSeason = new Button();
             seriesListLabel = new Label();
@@ -51,6 +52,8 @@
             settingsToolStripMenuItem = new ToolStripMenuItem();
             aboutToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
+            consistentWeatherCheckBox = new CheckBox();
+            toolTip1 = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)aiMinTrackBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)aiMaxTrackBar).BeginInit();
             menuStrip1.SuspendLayout();
@@ -65,7 +68,7 @@
             seriesListCombo.Location = new Point(93, 68);
             seriesListCombo.Name = "seriesListCombo";
             seriesListCombo.Size = new Size(274, 23);
-            seriesListCombo.TabIndex = 0;
+            seriesListCombo.TabIndex = 2;
             seriesListCombo.SelectedIndexChanged += seriesListCombo_SelectedIndexChanged;
             // 
             // createSeason
@@ -73,7 +76,7 @@
             createSeason.Location = new Point(232, 406);
             createSeason.Name = "createSeason";
             createSeason.Size = new Size(135, 23);
-            createSeason.TabIndex = 1;
+            createSeason.TabIndex = 10;
             createSeason.Text = "Create Season";
             createSeason.UseVisualStyleBackColor = true;
             createSeason.Click += createSeason_Click;
@@ -92,7 +95,7 @@
             seasonNameTextBox.Location = new Point(93, 28);
             seasonNameTextBox.Name = "seasonNameTextBox";
             seasonNameTextBox.Size = new Size(274, 23);
-            seasonNameTextBox.TabIndex = 3;
+            seasonNameTextBox.TabIndex = 1;
             // 
             // seasonNameLabel
             // 
@@ -110,7 +113,7 @@
             carListCombo.Location = new Point(93, 112);
             carListCombo.Name = "carListCombo";
             carListCombo.Size = new Size(274, 23);
-            carListCombo.TabIndex = 5;
+            carListCombo.TabIndex = 3;
             // 
             // carListLabel
             // 
@@ -124,7 +127,7 @@
             // aiSkillLevelLabel
             // 
             aiSkillLevelLabel.AutoSize = true;
-            aiSkillLevelLabel.Location = new Point(12, 272);
+            aiSkillLevelLabel.Location = new Point(15, 282);
             aiSkillLevelLabel.Name = "aiSkillLevelLabel";
             aiSkillLevelLabel.Size = new Size(72, 30);
             aiSkillLevelLabel.TabIndex = 9;
@@ -133,7 +136,7 @@
             // minSkillLabel
             // 
             minSkillLabel.AutoSize = true;
-            minSkillLabel.Location = new Point(62, 246);
+            minSkillLabel.Location = new Point(59, 260);
             minSkillLabel.Name = "minSkillLabel";
             minSkillLabel.Size = new Size(28, 15);
             minSkillLabel.TabIndex = 10;
@@ -142,7 +145,7 @@
             // maxSkillLabel
             // 
             maxSkillLabel.AutoSize = true;
-            maxSkillLabel.Location = new Point(57, 302);
+            maxSkillLabel.Location = new Point(57, 312);
             maxSkillLabel.Name = "maxSkillLabel";
             maxSkillLabel.Size = new Size(30, 15);
             maxSkillLabel.TabIndex = 11;
@@ -151,7 +154,7 @@
             // minSkillBox
             // 
             minSkillBox.Enabled = false;
-            minSkillBox.Location = new Point(337, 243);
+            minSkillBox.Location = new Point(337, 260);
             minSkillBox.Name = "minSkillBox";
             minSkillBox.Size = new Size(30, 23);
             minSkillBox.TabIndex = 12;
@@ -159,7 +162,7 @@
             // maxSkillBox
             // 
             maxSkillBox.Enabled = false;
-            maxSkillBox.Location = new Point(337, 294);
+            maxSkillBox.Location = new Point(337, 312);
             maxSkillBox.Name = "maxSkillBox";
             maxSkillBox.Size = new Size(30, 23);
             maxSkillBox.TabIndex = 13;
@@ -167,7 +170,7 @@
             // filePathLabel
             // 
             filePathLabel.AutoSize = true;
-            filePathLabel.Location = new Point(20, 338);
+            filePathLabel.Location = new Point(20, 365);
             filePathLabel.Name = "filePathLabel";
             filePathLabel.Size = new Size(67, 15);
             filePathLabel.TabIndex = 14;
@@ -175,51 +178,51 @@
             // 
             // filePathTextBox
             // 
-            filePathTextBox.Location = new Point(93, 335);
+            filePathTextBox.Location = new Point(93, 362);
             filePathTextBox.Name = "filePathTextBox";
             filePathTextBox.ReadOnly = true;
             filePathTextBox.Size = new Size(274, 23);
-            filePathTextBox.TabIndex = 15;
+            filePathTextBox.TabIndex = 9;
             filePathTextBox.Text = "Double click to add folder path. iRacing\\aiseasons";
             filePathTextBox.MouseDoubleClick += filePathTextBox_MouseDoubleClick;
             // 
             // disableCarDamageCheckBox
             // 
             disableCarDamageCheckBox.AutoSize = true;
-            disableCarDamageCheckBox.Location = new Point(93, 160);
+            disableCarDamageCheckBox.Location = new Point(93, 150);
             disableCarDamageCheckBox.Name = "disableCarDamageCheckBox";
             disableCarDamageCheckBox.Size = new Size(132, 19);
-            disableCarDamageCheckBox.TabIndex = 16;
+            disableCarDamageCheckBox.TabIndex = 4;
             disableCarDamageCheckBox.Text = "Disable Car Damage";
             disableCarDamageCheckBox.UseVisualStyleBackColor = true;
             // 
             // aiAvoidPlayerCheckBox
             // 
             aiAvoidPlayerCheckBox.AutoSize = true;
-            aiAvoidPlayerCheckBox.Location = new Point(93, 196);
+            aiAvoidPlayerCheckBox.Location = new Point(93, 188);
             aiAvoidPlayerCheckBox.Name = "aiAvoidPlayerCheckBox";
             aiAvoidPlayerCheckBox.Size = new Size(111, 19);
-            aiAvoidPlayerCheckBox.TabIndex = 17;
+            aiAvoidPlayerCheckBox.TabIndex = 5;
             aiAvoidPlayerCheckBox.Text = "AI Avoids Player";
             aiAvoidPlayerCheckBox.UseVisualStyleBackColor = true;
             // 
             // aiMinTrackBar
             // 
-            aiMinTrackBar.Location = new Point(93, 236);
+            aiMinTrackBar.Location = new Point(93, 260);
             aiMinTrackBar.Maximum = 125;
             aiMinTrackBar.Name = "aiMinTrackBar";
             aiMinTrackBar.Size = new Size(238, 45);
-            aiMinTrackBar.TabIndex = 18;
+            aiMinTrackBar.TabIndex = 7;
             aiMinTrackBar.Value = 25;
             aiMinTrackBar.Scroll += aiMinTrackBar_Scroll;
             // 
             // aiMaxTrackBar
             // 
-            aiMaxTrackBar.Location = new Point(93, 284);
+            aiMaxTrackBar.Location = new Point(93, 311);
             aiMaxTrackBar.Maximum = 125;
             aiMaxTrackBar.Name = "aiMaxTrackBar";
             aiMaxTrackBar.Size = new Size(238, 45);
-            aiMaxTrackBar.TabIndex = 20;
+            aiMaxTrackBar.TabIndex = 8;
             aiMaxTrackBar.Value = 50;
             aiMaxTrackBar.Scroll += aiMaxTrackBar_Scroll;
             // 
@@ -242,29 +245,47 @@
             // settingsToolStripMenuItem
             // 
             settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            settingsToolStripMenuItem.Size = new Size(180, 22);
+            settingsToolStripMenuItem.Size = new Size(116, 22);
             settingsToolStripMenuItem.Text = "&Settings";
             settingsToolStripMenuItem.Click += settingsToolStripMenuItem_Click;
             // 
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(180, 22);
+            aboutToolStripMenuItem.Size = new Size(116, 22);
             aboutToolStripMenuItem.Text = "&About";
             aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(180, 22);
+            exitToolStripMenuItem.Size = new Size(116, 22);
             exitToolStripMenuItem.Text = "E&xit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            // 
+            // consistentWeatherCheckBox
+            // 
+            consistentWeatherCheckBox.AutoSize = true;
+            consistentWeatherCheckBox.Location = new Point(93, 226);
+            consistentWeatherCheckBox.Name = "consistentWeatherCheckBox";
+            consistentWeatherCheckBox.Size = new Size(129, 19);
+            consistentWeatherCheckBox.TabIndex = 6;
+            consistentWeatherCheckBox.Text = "Consistent Weather";
+            toolTip1.SetToolTip(consistentWeatherCheckBox, "Checking this box will set the weather to 78 degrees, with 55% humity for every race. This may help the AI to race more consistently. ");
+            consistentWeatherCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // toolTip1
+            // 
+            toolTip1.AutoPopDelay = 500000;
+            toolTip1.InitialDelay = 10;
+            toolTip1.ReshowDelay = 10;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(384, 441);
+            Controls.Add(consistentWeatherCheckBox);
             Controls.Add(aiMaxTrackBar);
             Controls.Add(aiMinTrackBar);
             Controls.Add(aiAvoidPlayerCheckBox);
@@ -324,5 +345,7 @@
         private ToolStripMenuItem settingsToolStripMenuItem;
         private ToolStripMenuItem aboutToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
+        private CheckBox consistentWeatherCheckBox;
+        private ToolTip toolTip1;
     }
 }

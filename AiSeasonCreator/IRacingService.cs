@@ -170,6 +170,15 @@ namespace AiSeasonCreator
             weather.WeatherVarOngoing = ss.WeatherVarOngoing;
             weather.TimeOfDay = ss.TimeOfDay;
 
+            if (MainForm.ConsistentWeather == true)
+            {
+                weather.Type = 3;
+                weather.TempValue = 78;
+                weather.RelHumidity = 55;
+                weather.WindDir = 0;
+                weather.WindValue = 2;
+            }
+
             return weather;
         }
 

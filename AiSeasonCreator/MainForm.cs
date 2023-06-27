@@ -18,7 +18,7 @@ namespace AiSeasonCreator
         {
             var updater = new Updater();
             updater.CheckForUpdates();
-            
+
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
 
@@ -65,6 +65,7 @@ namespace AiSeasonCreator
             FilePath = filePathTextBox.Text;
             DisableDamage = disableCarDamageCheckBox.Checked;
             AiAvoids = aiAvoidPlayerCheckBox.Checked;
+            ConsistentWeather = consistentWeatherCheckBox.Checked;
 
             try
             {
@@ -234,6 +235,7 @@ namespace AiSeasonCreator
         public static string? FilePath { get; set; }
         public static bool DisableDamage { get; set; }
         public static bool AiAvoids { get; set; }
+        public static bool ConsistentWeather { get; set; }
         public static int SeasonSeriesIndex { get; set; }
         public static List<string> NotAvailableTracks { get; set; } = new List<string>();
         public static Aydsko.iRacingData.Common.DataResponse<Aydsko.iRacingData.Cars.CarInfo[]> CarInfo { get; set; }
