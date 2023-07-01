@@ -1,11 +1,5 @@
-﻿using Aydsko.iRacingData.Converters;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
+﻿using System;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace AiSeasonCreator.JsonClasses.TrackDetails
 {
@@ -23,13 +17,8 @@ namespace AiSeasonCreator.JsonClasses.TrackDetails
         [JsonPropertyName("category_id")]
         public int CategoryId { get; set; }
 
-#if NET6_0_OR_GREATER
-        [JsonPropertyName("closes"), JsonConverter(typeof(DateOnlyConverter))]
-        public DateOnly Closes { get; set; } = default!;
-#else
-    [JsonPropertyName("closes"), JsonConverter(typeof(DateTimeConverter))]
-    public DateTime Closes { get; set; } = default!;
-#endif
+        [JsonPropertyName("closes")]
+        public string Closes { get; set; } = default!;
 
         [JsonPropertyName("config_name")]
         public string ConfigName { get; set; } = default!;
@@ -82,19 +71,14 @@ namespace AiSeasonCreator.JsonClasses.TrackDetails
         [JsonPropertyName("night_lighting")]
         public bool NightLighting { get; set; }
 
-        [JsonPropertyName("nominal_lap_time"), JsonConverter(typeof(TenThousandthSecondDurationConverter))]
-        public TimeSpan? NominalLapTime { get; set; }
+        [JsonPropertyName("nominal_lap_time")]
+        public double? NominalLapTime { get; set; }
 
         [JsonPropertyName("number_pitstalls")]
         public int NumberPitstalls { get; set; }
 
-#if NET6_0_OR_GREATER
-        [JsonPropertyName("opens"), JsonConverter(typeof(DateOnlyConverter))]
-        public DateOnly Opens { get; set; } = default!;
-#else
-    [JsonPropertyName("opens"), JsonConverter(typeof(DateTimeConverter))]
-    public DateTime Opens { get; set; } = default!;
-#endif
+        [JsonPropertyName("opens")]
+        public string Opens { get; set; } = default!;
 
         [JsonPropertyName("package_id")]
         public int PackageId { get; set; }
@@ -123,7 +107,7 @@ namespace AiSeasonCreator.JsonClasses.TrackDetails
         [JsonPropertyName("search_filters")]
         public string SearchFilters { get; set; } = default!;
 
-        [JsonPropertyName("site_url"), SuppressMessage("Design", "CA1056:URI-like properties should not be strings", Justification = "Strings are easier to deal with.")]
+        [JsonPropertyName("site_url")]
         public string SiteUrl { get; set; } = default!;
 
         [JsonPropertyName("sku")]
@@ -144,11 +128,9 @@ namespace AiSeasonCreator.JsonClasses.TrackDetails
         [JsonPropertyName("time_zone")]
         public string TimeZone { get; set; } = default!;
 
-        /// <summary>The length of this track configuration in miles.</summary>
         [JsonPropertyName("track_config_length")]
         public decimal TrackConfigLength { get; set; }
 
-        /// <summary>The length of this track configuration converted to kilometres.</summary>
         [JsonIgnore]
         public decimal TrackConfigLengthKm => Math.Truncate(TrackConfigLength * 160.9344M) / 100;
 

@@ -1,6 +1,4 @@
-﻿using Aydsko.iRacingData.Cars;
-using Aydsko.iRacingData.Converters;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -104,7 +102,7 @@ namespace AiSeasonCreator.JsonClasses.CarDetails
         [JsonPropertyName("car_model")]
         public string CarModel { get; set; } = default!;
 
-        [JsonPropertyName("site_url"), JsonConverter(typeof(UriConverter))]
+        [JsonPropertyName("site_url")]
         public Uri? SiteUrl { get; set; } = default!;
     }
 }

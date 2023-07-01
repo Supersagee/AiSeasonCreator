@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\Billy\\source\\repos\\AiSeasonCreator\\AiSeasonCreator\\AiSeasonCreator.csproj": {
-      "version": "1.1.13",
+      "version": "1.1.14",
       "restore": {
         "projectUniqueName": "C:\\Users\\Billy\\source\\repos\\AiSeasonCreator\\AiSeasonCreator\\AiSeasonCreator.csproj",
         "projectName": "AiSeasonCreator",
@@ -44,10 +44,6 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
-            "Aydsko.iRacingData": {
-              "target": "Package",
-              "version": "[0.8.0, )"
-            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"

@@ -182,20 +182,6 @@
     "short_name": "Cup"
   },
   {
-    "car_class_id": 22,
-    "cars_in_class": [
-      {
-        "car_dirpath": "lotus79",
-        "car_id": 25,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "Lotus 79",
-    "relative_speed": 125,
-    "short_name": "Lotus 79"
-  },
-  {
     "car_class_id": 0,
     "cars_in_class": [
       {
@@ -904,8 +890,23 @@
         "retired": false
       },
       {
+        "car_dirpath": "ligierjsp320",
+        "car_id": 165,
+        "retired": false
+      },
+      {
         "car_dirpath": "stockcars2\\chevy\\gen4cup",
         "car_id": 167,
+        "retired": false
+      },
+      {
+        "car_dirpath": "cadillacvseriesrgtp",
+        "car_id": 168,
+        "retired": false
+      },
+      {
+        "car_dirpath": "porsche992rgt3",
+        "car_id": 169,
         "retired": false
       }
     ],
@@ -913,6 +914,20 @@
     "name": "Hosted All Cars Class",
     "relative_speed": 100,
     "short_name": "Hosted All Cars"
+  },
+  {
+    "car_class_id": 22,
+    "cars_in_class": [
+      {
+        "car_dirpath": "lotus79",
+        "car_id": 25,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Lotus 79",
+    "relative_speed": 125,
+    "short_name": "Lotus 79"
   },
   {
     "car_class_id": 23,
@@ -955,20 +970,6 @@
     "name": "FG01 V8 - circa 2012",
     "relative_speed": 75,
     "short_name": "V8SC"
-  },
-  {
-    "car_class_id": 28,
-    "cars_in_class": [
-      {
-        "car_dirpath": "fr500s",
-        "car_id": 30,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "Ford Mustang FR500S",
-    "relative_speed": 37,
-    "short_name": "FR500S"
   },
   {
     "car_class_id": 29,
@@ -2067,25 +2068,6 @@
     "short_name": "Rallycross"
   },
   {
-    "car_class_id": 107,
-    "cars_in_class": [
-      {
-        "car_dirpath": "dirtsprint\\nonwinged\\360",
-        "car_id": 87,
-        "retired": false
-      },
-      {
-        "car_dirpath": "dirtsprint\\nonwinged\\410",
-        "car_id": 89,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "USAC Sprint",
-    "relative_speed": 75,
-    "short_name": "USAC Sprint"
-  },
-  {
     "car_class_id": 113,
     "cars_in_class": [
       {
@@ -2605,6 +2587,79 @@
     "short_name": "[L] GT3 Nurb"
   },
   {
+    "car_class_id": 2708,
+    "cars_in_class": [
+      {
+        "car_dirpath": "ferrarievogt3",
+        "car_id": 144,
+        "retired": false
+      },
+      {
+        "car_dirpath": "bmwm4gt3",
+        "car_id": 132,
+        "retired": false
+      },
+      {
+        "car_dirpath": "lamborghinievogt3",
+        "car_id": 133,
+        "retired": false
+      },
+      {
+        "car_dirpath": "audir8gt3",
+        "car_id": 73,
+        "retired": false
+      },
+      {
+        "car_dirpath": "porsche992rgt3",
+        "car_id": 169,
+        "retired": false
+      },
+      {
+        "car_dirpath": "mclarenmp4",
+        "car_id": 43,
+        "retired": false
+      },
+      {
+        "car_dirpath": "fordgt\\gt3",
+        "car_id": 59,
+        "retired": false
+      },
+      {
+        "car_dirpath": "mercedesamgevogt3",
+        "car_id": 156,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "GT3 Class",
+    "relative_speed": 52,
+    "short_name": "GT3 Class"
+  },
+  {
+    "car_class_id": 2709,
+    "cars_in_class": [
+      {
+        "car_dirpath": "bmwm4gt3",
+        "car_id": 132,
+        "retired": false
+      },
+      {
+        "car_dirpath": "lamborghinievogt3",
+        "car_id": 133,
+        "retired": false
+      },
+      {
+        "car_dirpath": "porsche992rgt3",
+        "car_id": 169,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "GTD Class",
+    "relative_speed": 52,
+    "short_name": "GTD Class"
+  },
+  {
     "car_class_id": 2267,
     "cars_in_class": [
       {
@@ -2617,6 +2672,54 @@
     "name": "Ford F150",
     "relative_speed": 60,
     "short_name": "Ford F150"
+  },
+  {
+    "car_class_id": 3188,
+    "cars_in_class": [
+      {
+        "car_dirpath": "formulair04",
+        "car_id": 148,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "FIA F4",
+    "relative_speed": 47,
+    "short_name": "FIA F4"
+  },
+  {
+    "car_class_id": 4008,
+    "cars_in_class": [
+      {
+        "car_dirpath": "amvantagegt4",
+        "car_id": 150,
+        "retired": false
+      },
+      {
+        "car_dirpath": "porsche718gt4",
+        "car_id": 119,
+        "retired": false
+      },
+      {
+        "car_dirpath": "mclaren570sgt4",
+        "car_id": 135,
+        "retired": false
+      },
+      {
+        "car_dirpath": "bmwm4gt4",
+        "car_id": 122,
+        "retired": false
+      },
+      {
+        "car_dirpath": "mercedesamggt4",
+        "car_id": 157,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "IMPCGT4 Class",
+    "relative_speed": 49,
+    "short_name": "IMPCGT4 Class"
   },
   {
     "car_class_id": 2264,
@@ -2747,6 +2850,81 @@
     "short_name": "1987 Ford T-bird"
   },
   {
+    "car_class_id": 4018,
+    "cars_in_class": [
+      {
+        "car_dirpath": "ligierjsp320",
+        "car_id": 165,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Ligier JS P320",
+    "relative_speed": 72,
+    "short_name": "Ligier JS P320"
+  },
+  {
+    "car_class_id": 4024,
+    "cars_in_class": [
+      {
+        "car_dirpath": "cadillacvseriesrgtp",
+        "car_id": 168,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Cadillac V-Series.R GTP",
+    "relative_speed": 165,
+    "short_name": "Cadillac VSRGTP"
+  },
+  {
+    "car_class_id": 4025,
+    "cars_in_class": [
+      {
+        "car_dirpath": "porsche992rgt3",
+        "car_id": 169,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Porsche 911 GT3 R (992)",
+    "relative_speed": 52,
+    "short_name": "Porsche 992GT3R"
+  },
+  {
+    "car_class_id": 4029,
+    "cars_in_class": [
+      {
+        "car_dirpath": "cadillacvseriesrgtp",
+        "car_id": 168,
+        "retired": false
+      },
+      {
+        "car_dirpath": "bmwlmdh",
+        "car_id": 159,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "GTP",
+    "relative_speed": 179,
+    "short_name": "GTP"
+  },
+  {
+    "car_class_id": 4035,
+    "cars_in_class": [
+      {
+        "car_dirpath": "hyundaielantracn7",
+        "car_id": 146,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Ring Meister 2023",
+    "relative_speed": 52,
+    "short_name": "RingMeister23"
+  },
+  {
     "car_class_id": 2522,
     "cars_in_class": [
       {
@@ -2833,6 +3011,20 @@
     "short_name": "GTE Class 3"
   },
   {
+    "car_class_id": 28,
+    "cars_in_class": [
+      {
+        "car_dirpath": "fr500s",
+        "car_id": 30,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Ford Mustang FR500S",
+    "relative_speed": 38,
+    "short_name": "FR500S"
+  },
+  {
     "car_class_id": 2704,
     "cars_in_class": [
       {
@@ -2887,79 +3079,6 @@
     "name": "Dirt 358 Modified",
     "relative_speed": 60,
     "short_name": "Dirt 358 Mod"
-  },
-  {
-    "car_class_id": 2708,
-    "cars_in_class": [
-      {
-        "car_dirpath": "ferrarievogt3",
-        "car_id": 144,
-        "retired": false
-      },
-      {
-        "car_dirpath": "bmwm4gt3",
-        "car_id": 132,
-        "retired": false
-      },
-      {
-        "car_dirpath": "lamborghinievogt3",
-        "car_id": 133,
-        "retired": false
-      },
-      {
-        "car_dirpath": "audir8gt3",
-        "car_id": 73,
-        "retired": false
-      },
-      {
-        "car_dirpath": "porsche911rgt3",
-        "car_id": 137,
-        "retired": false
-      },
-      {
-        "car_dirpath": "mclarenmp4",
-        "car_id": 43,
-        "retired": false
-      },
-      {
-        "car_dirpath": "fordgt\\gt3",
-        "car_id": 59,
-        "retired": false
-      },
-      {
-        "car_dirpath": "mercedesamgevogt3",
-        "car_id": 156,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "GT3 Class",
-    "relative_speed": 52,
-    "short_name": "GT3 Class"
-  },
-  {
-    "car_class_id": 2709,
-    "cars_in_class": [
-      {
-        "car_dirpath": "bmwm4gt3",
-        "car_id": 132,
-        "retired": false
-      },
-      {
-        "car_dirpath": "lamborghinievogt3",
-        "car_id": 133,
-        "retired": false
-      },
-      {
-        "car_dirpath": "porsche911rgt3",
-        "car_id": 137,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "GTD Class",
-    "relative_speed": 52,
-    "short_name": "GTD Class"
   },
   {
     "car_class_id": 2742,
@@ -3123,20 +3242,6 @@
     "short_name": "NASCAR 2022 NG"
   },
   {
-    "car_class_id": 3000,
-    "cars_in_class": [
-      {
-        "car_dirpath": "porsche911rgt3",
-        "car_id": 137,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "Porsche 911 GT3 R",
-    "relative_speed": 52,
-    "short_name": "Porsche 911 GT3R"
-  },
-  {
     "car_class_id": 3001,
     "cars_in_class": [
       {
@@ -3163,6 +3268,20 @@
     "name": "Formula Vee",
     "relative_speed": 20,
     "short_name": "Formula Vee"
+  },
+  {
+    "car_class_id": 3000,
+    "cars_in_class": [
+      {
+        "car_dirpath": "porsche911rgt3",
+        "car_id": 137,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "[Legacy] Porsche 911 GT3 R",
+    "relative_speed": 52,
+    "short_name": "[L] Porsche911"
   },
   {
     "car_class_id": 3022,
@@ -3257,20 +3376,6 @@
     "name": "Honda Civic Type R",
     "relative_speed": 45,
     "short_name": "Civic Type R"
-  },
-  {
-    "car_class_id": 3188,
-    "cars_in_class": [
-      {
-        "car_dirpath": "formulair04",
-        "car_id": 148,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "iRacing Formula iR-04",
-    "relative_speed": 47,
-    "short_name": "Formula iR-04"
   },
   {
     "car_class_id": 3189,
@@ -3634,35 +3739,6 @@
     "short_name": "NECTCR Class"
   },
   {
-    "car_class_id": 4008,
-    "cars_in_class": [
-      {
-        "car_dirpath": "amvantagegt4",
-        "car_id": 150,
-        "retired": false
-      },
-      {
-        "car_dirpath": "porsche718gt4",
-        "car_id": 119,
-        "retired": false
-      },
-      {
-        "car_dirpath": "bmwm4gt4",
-        "car_id": 122,
-        "retired": false
-      },
-      {
-        "car_dirpath": "mercedesamggt4",
-        "car_id": 157,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "IMPCGT4 Class",
-    "relative_speed": 49,
-    "short_name": "IMPCGT4 Class"
-  },
-  {
     "car_class_id": 4009,
     "cars_in_class": [
       {
@@ -3705,45 +3781,6 @@
     "short_name": "BMW M Hybrid V8"
   },
   {
-    "car_class_id": 4011,
-    "cars_in_class": [
-      {
-        "car_dirpath": "ferrarievogt3",
-        "car_id": 144,
-        "retired": false
-      },
-      {
-        "car_dirpath": "bmwm4gt3",
-        "car_id": 132,
-        "retired": false
-      },
-      {
-        "car_dirpath": "lamborghinievogt3",
-        "car_id": 133,
-        "retired": false
-      },
-      {
-        "car_dirpath": "audir8gt3",
-        "car_id": 73,
-        "retired": false
-      },
-      {
-        "car_dirpath": "porsche911rgt3",
-        "car_id": 137,
-        "retired": false
-      },
-      {
-        "car_dirpath": "mercedesamgevogt3",
-        "car_id": 156,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "IMSA23",
-    "relative_speed": 52,
-    "short_name": "IMSA23"
-  },
-  {
     "car_class_id": 4012,
     "cars_in_class": [
       {
@@ -3770,6 +3807,45 @@
     "name": "Mercedes-AMG W13 E Performance",
     "relative_speed": 219,
     "short_name": "Mercedes-AMG W13"
+  },
+  {
+    "car_class_id": 4011,
+    "cars_in_class": [
+      {
+        "car_dirpath": "ferrarievogt3",
+        "car_id": 144,
+        "retired": false
+      },
+      {
+        "car_dirpath": "bmwm4gt3",
+        "car_id": 132,
+        "retired": false
+      },
+      {
+        "car_dirpath": "lamborghinievogt3",
+        "car_id": 133,
+        "retired": false
+      },
+      {
+        "car_dirpath": "audir8gt3",
+        "car_id": 73,
+        "retired": false
+      },
+      {
+        "car_dirpath": "porsche992rgt3",
+        "car_id": 169,
+        "retired": false
+      },
+      {
+        "car_dirpath": "mercedesamgevogt3",
+        "car_id": 156,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "IMSA23",
+    "relative_speed": 52,
+    "short_name": "IMSA23"
   },
   {
     "car_class_id": 26,
@@ -3885,20 +3961,6 @@
     "short_name": "Late Model Stock"
   },
   {
-    "car_class_id": 21,
-    "cars_in_class": [
-      {
-        "car_dirpath": "stockcars2\\chevy",
-        "car_id": 24,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "ARCA Series",
-    "relative_speed": 53,
-    "short_name": "ARCA Series"
-  },
-  {
     "car_class_id": 4022,
     "cars_in_class": [
       {
@@ -3907,8 +3969,8 @@
         "retired": false
       },
       {
-        "car_dirpath": "porsche911rgt3",
-        "car_id": 137,
+        "car_dirpath": "porsche992rgt3",
+        "car_id": 169,
         "retired": false
       },
       {
@@ -3923,6 +3985,20 @@
     "short_name": "NECGT323"
   },
   {
+    "car_class_id": 21,
+    "cars_in_class": [
+      {
+        "car_dirpath": "stockcars2\\chevy",
+        "car_id": 24,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "ARCA Series",
+    "relative_speed": 53,
+    "short_name": "ARCA Series"
+  },
+  {
     "car_class_id": 4023,
     "cars_in_class": [
       {
@@ -3934,11 +4010,35 @@
         "car_dirpath": "porsche718gt4",
         "car_id": 119,
         "retired": false
+      },
+      {
+        "car_dirpath": "bmwm4gt4",
+        "car_id": 122,
+        "retired": false
       }
     ],
     "cust_id": 0,
     "name": "NECGT423",
     "relative_speed": 49,
     "short_name": "NECGT423"
+  },
+  {
+    "car_class_id": 107,
+    "cars_in_class": [
+      {
+        "car_dirpath": "dirtsprint\\nonwinged\\360",
+        "car_id": 87,
+        "retired": false
+      },
+      {
+        "car_dirpath": "dirtsprint\\nonwinged\\410",
+        "car_id": 89,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "USAC Sprint",
+    "relative_speed": 75,
+    "short_name": "USAC Sprint"
   }
 ]

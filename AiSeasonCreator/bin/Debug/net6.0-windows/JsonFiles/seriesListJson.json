@@ -410,8 +410,8 @@
     "oval_caution_type": 0,
     "road_caution_type": 2,
     "series_id": 519,
-    "series_name": "iRacing Clio Cup - Fixed",
-    "series_short_name": "iRacing Clio Cup - Fixed"
+    "series_name": "Clio Ricmotech Cup - Fixed",
+    "series_short_name": "Clio Ricmotech Cup - Fixed"
   },
   {
     "allowed_licenses": [
@@ -574,6 +574,201 @@
     "series_id": 524,
     "series_name": "Gen 4 Cup - Fixed",
     "series_short_name": "Gen 4 Cup - Fixed"
+  },
+  {
+    "allowed_licenses": [
+      {
+        "license_group": 2,
+        "min_license_level": 8,
+        "max_license_level": 8,
+        "group_name": "Class D"
+      },
+      {
+        "license_group": 3,
+        "min_license_level": 9,
+        "max_license_level": 12,
+        "group_name": "Class C"
+      },
+      {
+        "license_group": 4,
+        "min_license_level": 13,
+        "max_license_level": 16,
+        "group_name": "Class B"
+      },
+      {
+        "license_group": 5,
+        "min_license_level": 17,
+        "max_license_level": 20,
+        "group_name": "Class A"
+      },
+      {
+        "license_group": 6,
+        "min_license_level": 21,
+        "max_license_level": 24,
+        "group_name": "Pro"
+      },
+      {
+        "license_group": 7,
+        "min_license_level": 25,
+        "max_license_level": 28,
+        "group_name": "Pro/WC"
+      }
+    ],
+    "category": "road",
+    "category_id": 2,
+    "eligible": true,
+    "max_starters": 20,
+    "min_starters": 6,
+    "oval_caution_type": 0,
+    "road_caution_type": 2,
+    "series_id": 525,
+    "series_name": "LMP3 Turn Racing Trophy - Fixed",
+    "series_short_name": "LMP3 Turn Racing Trophy - Fixed"
+  },
+  {
+    "allowed_licenses": [
+      {
+        "license_group": 2,
+        "min_license_level": 8,
+        "max_license_level": 8,
+        "group_name": "Class D"
+      },
+      {
+        "license_group": 3,
+        "min_license_level": 9,
+        "max_license_level": 12,
+        "group_name": "Class C"
+      },
+      {
+        "license_group": 4,
+        "min_license_level": 13,
+        "max_license_level": 16,
+        "group_name": "Class B"
+      },
+      {
+        "license_group": 5,
+        "min_license_level": 17,
+        "max_license_level": 20,
+        "group_name": "Class A"
+      },
+      {
+        "license_group": 6,
+        "min_license_level": 21,
+        "max_license_level": 24,
+        "group_name": "Pro"
+      },
+      {
+        "license_group": 7,
+        "min_license_level": 25,
+        "max_license_level": 28,
+        "group_name": "Pro/WC"
+      }
+    ],
+    "category": "road",
+    "category_id": 2,
+    "eligible": true,
+    "max_starters": 30,
+    "min_starters": 6,
+    "oval_caution_type": 0,
+    "road_caution_type": 1,
+    "series_id": 526,
+    "series_name": "Ring Meister Ricmotech Series",
+    "series_short_name": "Ring Meister Ricmotech Series"
+  },
+  {
+    "allowed_licenses": [
+      {
+        "license_group": 4,
+        "min_license_level": 16,
+        "max_license_level": 16,
+        "group_name": "Class B"
+      },
+      {
+        "license_group": 5,
+        "min_license_level": 17,
+        "max_license_level": 20,
+        "group_name": "Class A"
+      },
+      {
+        "license_group": 6,
+        "min_license_level": 21,
+        "max_license_level": 24,
+        "group_name": "Pro"
+      },
+      {
+        "license_group": 7,
+        "min_license_level": 25,
+        "max_license_level": 28,
+        "group_name": "Pro/WC"
+      }
+    ],
+    "category": "road",
+    "category_id": 2,
+    "eligible": true,
+    "max_starters": 26,
+    "min_starters": 6,
+    "oval_caution_type": 3,
+    "road_caution_type": 1,
+    "series_id": 529,
+    "series_name": "GP Turn Racing Qualifying Series",
+    "series_short_name": "GP Turn Racing Qualifying Series"
+  },
+  {
+    "allowed_licenses": [
+      {
+        "license_group": 1,
+        "min_license_level": 4,
+        "max_license_level": 4,
+        "group_name": "Rookie"
+      },
+      {
+        "license_group": 2,
+        "min_license_level": 5,
+        "max_license_level": 8,
+        "group_name": "Class D"
+      },
+      {
+        "license_group": 3,
+        "min_license_level": 9,
+        "max_license_level": 12,
+        "group_name": "Class C"
+      },
+      {
+        "license_group": 4,
+        "min_license_level": 13,
+        "max_license_level": 16,
+        "group_name": "Class B"
+      },
+      {
+        "license_group": 5,
+        "min_license_level": 17,
+        "max_license_level": 20,
+        "group_name": "Class A"
+      },
+      {
+        "license_group": 6,
+        "min_license_level": 21,
+        "max_license_level": 24,
+        "group_name": "Pro"
+      },
+      {
+        "license_group": 7,
+        "min_license_level": 25,
+        "max_license_level": 28,
+        "group_name": "Pro/WC"
+      }
+    ],
+    "category": "road",
+    "category_id": 2,
+    "eligible": true,
+    "forum_url": "https://forums.iracing.com/categories/NEC",
+    "max_starters": 60,
+    "min_starters": 8,
+    "oval_caution_type": 0,
+    "road_caution_type": 2,
+    "series_id": 275,
+    "series_name": "Nurburgring Endurance Championship",
+    "series_short_name": "Nurburgring Endurance Championship"
   },
   {
     "allowed_licenses": [
@@ -786,7 +981,7 @@
     "category_id": 2,
     "eligible": true,
     "forum_url": "https://forums.iracing.com/categories/skip-barber-formula-2000",
-    "max_starters": 20,
+    "max_starters": 25,
     "min_starters": 6,
     "oval_caution_type": 0,
     "road_caution_type": 2,
@@ -1064,7 +1259,7 @@
     "category_id": 1,
     "eligible": true,
     "forum_url": "https://forums.iracing.com/categories/OvalTrucks",
-    "max_starters": 32,
+    "max_starters": 28,
     "min_starters": 6,
     "oval_caution_type": 3,
     "road_caution_type": 2,
@@ -1312,8 +1507,8 @@
     "road_caution_type": 0,
     "search_filters": "dirtoval,dirtsprints",
     "series_id": 309,
-    "series_name": "AMSOIL USAC Sprint Car",
-    "series_short_name": "AMSOIL USAC Sprint Car"
+    "series_name": "AMSOIL USAC Sprint Car - Fixed",
+    "series_short_name": "AMSOIL USAC Sprint Car - Fixed"
   },
   {
     "allowed_licenses": [
@@ -1496,7 +1691,7 @@
     "category_id": 1,
     "eligible": true,
     "forum_url": "https://forums.iracing.com/categories/NextGen",
-    "max_starters": 32,
+    "max_starters": 30,
     "min_starters": 6,
     "oval_caution_type": 3,
     "road_caution_type": 2,
@@ -1600,7 +1795,7 @@
     "category_id": 1,
     "eligible": true,
     "forum_url": "https://forums.iracing.com/categories/Xfinity",
-    "max_starters": 34,
+    "max_starters": 28,
     "min_starters": 6,
     "oval_caution_type": 3,
     "road_caution_type": 2,
@@ -1872,46 +2067,6 @@
   {
     "allowed_licenses": [
       {
-        "license_group": 4,
-        "min_license_level": 16,
-        "max_license_level": 16,
-        "group_name": "Class B"
-      },
-      {
-        "license_group": 5,
-        "min_license_level": 17,
-        "max_license_level": 20,
-        "group_name": "Class A"
-      },
-      {
-        "license_group": 6,
-        "min_license_level": 21,
-        "max_license_level": 24,
-        "group_name": "Pro"
-      },
-      {
-        "license_group": 7,
-        "min_license_level": 25,
-        "max_license_level": 28,
-        "group_name": "Pro/WC"
-      }
-    ],
-    "category": "road",
-    "category_id": 2,
-    "eligible": true,
-    "forum_url": "https://forums.iracing.com/categories/european-sprint-endurance-series",
-    "max_starters": 50,
-    "min_starters": 10,
-    "oval_caution_type": 0,
-    "road_caution_type": 2,
-    "search_filters": "prototype,sportscars,road",
-    "series_id": 331,
-    "series_name": "European Endurance Pure Driving School Series",
-    "series_short_name": "European Endurance Pure Driving School Series"
-  },
-  {
-    "allowed_licenses": [
-      {
         "license_group": 1,
         "min_license_level": 4,
         "max_license_level": 4,
@@ -2160,7 +2315,7 @@
     "category_id": 2,
     "eligible": true,
     "forum_url": "https://forums.iracing.com/categories/PCC",
-    "max_starters": 32,
+    "max_starters": 40,
     "min_starters": 6,
     "oval_caution_type": 0,
     "road_caution_type": 2,
@@ -2876,8 +3031,8 @@
     "road_caution_type": 2,
     "search_filters": "nascar,oval",
     "series_id": 164,
-    "series_name": "NASCAR Class C Fixed",
-    "series_short_name": "NASCAR Class C Fixed"
+    "series_name": "NASCAR Class C Maconi Setup Shop Fixed",
+    "series_short_name": "NASCAR Class C Maconi Setup Shop Fixed"
   },
   {
     "allowed_licenses": [
@@ -3311,26 +3466,6 @@
   {
     "allowed_licenses": [
       {
-        "license_group": 5,
-        "min_license_level": 18,
-        "max_license_level": 20,
-        "group_name": "Class A"
-      }
-    ],
-    "category": "oval",
-    "category_id": 1,
-    "eligible": true,
-    "max_starters": 35,
-    "min_starters": 6,
-    "oval_caution_type": 3,
-    "road_caution_type": 2,
-    "series_id": 438,
-    "series_name": "eNASCAR Road to Pro Qual Series - Round 1",
-    "series_short_name": "RTP Qual Series - Round 1"
-  },
-  {
-    "allowed_licenses": [
-      {
         "license_group": 1,
         "min_license_level": 1,
         "max_license_level": 4,
@@ -3385,6 +3520,26 @@
     "series_id": 182,
     "series_name": "Street Stock Fanatec Series - R",
     "series_short_name": "Street Stock Fanatec Series - R"
+  },
+  {
+    "allowed_licenses": [
+      {
+        "license_group": 5,
+        "min_license_level": 18,
+        "max_license_level": 20,
+        "group_name": "Class A"
+      }
+    ],
+    "category": "oval",
+    "category_id": 1,
+    "eligible": true,
+    "max_starters": 35,
+    "min_starters": 6,
+    "oval_caution_type": 3,
+    "road_caution_type": 2,
+    "series_id": 439,
+    "series_name": "eNASCAR Road to Pro Qual Series - Round 2",
+    "series_short_name": "RTP Qual Series - Round 2"
   },
   {
     "allowed_licenses": [
@@ -3755,8 +3910,8 @@
     "road_caution_type": 0,
     "search_filters": "dirtoval",
     "series_id": 446,
-    "series_name": "Rookie DIRTcar Street Stock Extreme Simracing Series - Fixed",
-    "series_short_name": "Rookie DIRTcar Street Stock Extreme Simracing Series - Fixed"
+    "series_name": "Rookie DIRTcar Street Stock Series - Fixed",
+    "series_short_name": "Rookie DIRTcar Street Stock Series - Fixed"
   },
   {
     "allowed_licenses": [
@@ -3789,7 +3944,7 @@
     "category_id": 1,
     "eligible": true,
     "forum_url": "https://forums.iracing.com/categories/NextGen",
-    "max_starters": 32,
+    "max_starters": 30,
     "min_starters": 8,
     "oval_caution_type": 3,
     "road_caution_type": 2,
@@ -3835,7 +3990,7 @@
     "category_id": 2,
     "eligible": true,
     "forum_url": "https://forums.iracing.com/categories/imsa-sports-car-series",
-    "max_starters": 40,
+    "max_starters": 50,
     "min_starters": 10,
     "oval_caution_type": 0,
     "road_caution_type": 2,
@@ -4685,6 +4840,56 @@
   {
     "allowed_licenses": [
       {
+        "license_group": 2,
+        "min_license_level": 8,
+        "max_license_level": 8,
+        "group_name": "Class D"
+      },
+      {
+        "license_group": 3,
+        "min_license_level": 9,
+        "max_license_level": 12,
+        "group_name": "Class C"
+      },
+      {
+        "license_group": 4,
+        "min_license_level": 13,
+        "max_license_level": 16,
+        "group_name": "Class B"
+      },
+      {
+        "license_group": 5,
+        "min_license_level": 17,
+        "max_license_level": 20,
+        "group_name": "Class A"
+      },
+      {
+        "license_group": 6,
+        "min_license_level": 21,
+        "max_license_level": 24,
+        "group_name": "Pro"
+      },
+      {
+        "license_group": 7,
+        "min_license_level": 25,
+        "max_license_level": 28,
+        "group_name": "Pro/WC"
+      }
+    ],
+    "category": "road",
+    "category_id": 2,
+    "eligible": true,
+    "max_starters": 54,
+    "min_starters": 10,
+    "oval_caution_type": 0,
+    "road_caution_type": 2,
+    "series_id": 469,
+    "series_name": "Global Endurance Pure Driving School Series",
+    "series_short_name": "Global Endurance Pure Driving School Series"
+  },
+  {
+    "allowed_licenses": [
+      {
         "license_group": 1,
         "min_license_level": 1,
         "max_license_level": 4,
@@ -5500,8 +5705,8 @@
     "oval_caution_type": 0,
     "road_caution_type": 1,
     "series_id": 497,
-    "series_name": "Formula D - Ricmotech iR-04 Challenge",
-    "series_short_name": "Formula D - Ricmotech iR-04 Challenge"
+    "series_name": "FIA Formula 4 Challenge",
+    "series_short_name": "FIA Formula 4 Challenge"
   },
   {
     "allowed_licenses": [
@@ -5557,8 +5762,8 @@
     "oval_caution_type": 0,
     "road_caution_type": 1,
     "series_id": 498,
-    "series_name": "Formula D - Ricmotech iR-04 Challenge - Fixed",
-    "series_short_name": "Formula D - Ricmotech iR-04 Challenge - Fixed"
+    "series_name": "FIA Formula 4 Challenge - Fixed",
+    "series_short_name": "FIA Formula 4 Challenge - Fixed"
   },
   {
     "allowed_licenses": [
@@ -5609,8 +5814,8 @@
     "road_caution_type": 0,
     "search_filters": "dirtoval",
     "series_id": 500,
-    "series_name": "Dirt Super Late Model Tour - Fixed",
-    "series_short_name": "Dirt Super Late Model Tour - Fixed"
+    "series_name": "Dirt Super Late Model Tour",
+    "series_short_name": "Dirt Super Late Model Tour"
   },
   {
     "allowed_licenses": [
@@ -5661,8 +5866,8 @@
     "road_caution_type": 0,
     "search_filters": "dirtoval",
     "series_id": 501,
-    "series_name": "Dirt 410 Sprint Car Tour - Fixed",
-    "series_short_name": "Dirt 410 Sprint Car Tour - Fixed"
+    "series_name": "Dirt 410 Sprint Car Tour",
+    "series_short_name": "Dirt 410 Sprint Car Tour"
   },
   {
     "allowed_licenses": [
@@ -5707,13 +5912,13 @@
     "category_id": 2,
     "eligible": true,
     "forum_url": "https://forums.iracing.com/categories/gt4-general-discussion",
-    "max_starters": 30,
+    "max_starters": 40,
     "min_starters": 6,
     "oval_caution_type": 0,
     "road_caution_type": 1,
     "series_id": 502,
-    "series_name": "GT4 Falken Tyre Challenge",
-    "series_short_name": "GT4 Falken Tyre Challenge"
+    "series_name": "Falken Tyre Sports Car Challenge",
+    "series_short_name": "Falken Tyre Sports Car Challenge"
   },
   {
     "allowed_licenses": [

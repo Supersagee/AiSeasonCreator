@@ -2,18 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace AiSeasonCreator.JsonClasses.FullSchedule
 {
     public class CarRestrictions
     {
-        public int car_id { get; set; }
-        public int race_setup_id { get; set; }
-        public int qual_setup_id { get; set; }
-        public int max_pct_fuel_fill { get; set; }
-        public int weight_penalty_kg { get; set; }
-        public int power_adjust_pct { get; set; }
-        public int max_dry_tire_sets { get; set; }
+        [JsonPropertyName("car_id")]
+        public int CarId { get; set; }
+        [JsonPropertyName("race_setup_id")]
+        public int RaceSetupId { get; set; }
+        [JsonPropertyName("qual_setup_id")]
+        public int QualSetupId { get; set; }
+        [JsonPropertyName("max_pct_fuel_fill")]
+        public int MaxPctFuelFill { get; set; }
+        [JsonPropertyName("weight_penalty_kg")]
+        public int WeightPenaltyKg { get; set; }
+        [JsonPropertyName("power_adjust_pct")]
+        public double PowerAdjustPct { get; set; }
+        [JsonPropertyName("max_dry_tire_sets")]
+        public int MaxDryTireSets { get; set; }
     }
 }

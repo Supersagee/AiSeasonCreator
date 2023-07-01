@@ -271,7 +271,7 @@
             consistentWeatherCheckBox.Size = new Size(129, 19);
             consistentWeatherCheckBox.TabIndex = 6;
             consistentWeatherCheckBox.Text = "Consistent Weather";
-            toolTip1.SetToolTip(consistentWeatherCheckBox, "Checking this box will set the weather to 78 degrees, with 55% humity for every race. This may help the AI to race more consistently. ");
+            toolTip1.SetToolTip(consistentWeatherCheckBox, "Checking this box will set the weather to 78 degrees, with 55% humidity for every race. This may help the AI to race more consistently. ");
             consistentWeatherCheckBox.UseVisualStyleBackColor = true;
             // 
             // toolTip1

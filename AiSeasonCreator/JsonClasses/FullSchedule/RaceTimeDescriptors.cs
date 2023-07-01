@@ -1,19 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace AiSeasonCreator.JsonClasses.FullSchedule
 {
     public class RaceTimeDescriptors
     {
-        public bool repeating { get; set; }
-        public bool super_session { get; set; }
-        public int session_minutes { get; set; }
-        public string start_date { get; set; }
-        public List<int> day_offset { get; set; }
-        public string first_session_time { get; set; }
-        public int repeat_minutes { get; set; }
+        [JsonPropertyName("repeating")]
+        public bool IsRepeating { get; set; }
+
+        [JsonPropertyName("super_session")]
+        public bool IsSuperSession { get; set; }
+
+        [JsonPropertyName("session_minutes")]
+        public int SessionMinutes { get; set; }
+        [JsonPropertyName("session_times")]
+        public DateTimeOffset[]? SessionTimes { get; set; }
+        [JsonPropertyName("start_date")]
+        public string StartDate { get; set; } = default!;
+        [JsonPropertyName("day_offset")]
+        public int[]? DayOffset { get; set; }
+
+        [JsonPropertyName("first_session_time")]
+        public TimeSpan? FirstSessionTime { get; set; }
+
+        [JsonPropertyName("repeat_minutes")]
+        public int? RepeatMinutes { get; set; }
     }
 }

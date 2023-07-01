@@ -5,13 +5,12 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>1.1.13</Version>
-    <AssemblyVersion>1.1.13.0</AssemblyVersion>
-    <FileVersion>1.1.13.0</FileVersion>
+    <Version>1.1.14</Version>
+    <AssemblyVersion>1.1.14.0</AssemblyVersion>
+    <FileVersion>1.1.14.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aydsko.iRacingData" Version="0.8.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
@@ -22,7 +21,7 @@
     <None Update="JsonFiles\carsJson.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="JsonFiles\seasons23s2Json.json">
+    <None Update="JsonFiles\seasonScheduleJson.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\seriesListJson.json">

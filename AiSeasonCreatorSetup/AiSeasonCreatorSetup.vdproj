@@ -198,7 +198,7 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AiSeasonCreatorSetup"
-        "ProductCode" = "8:{41B09456-0C52-4D78-9985-B1213CC962B7}"
+        "ProductCode" = "8:{7F64506B-86B9-434A-B736-286E8607663B}"
         "PackageCode" = "8:{3FE8D9EB-FC2E-48CF-B7E0-144E4FF94083}"
         "UpgradeCode" = "8:{9FD9925F-28BE-4257-869A-68FD3C962274}"
         "AspNetVersion" = "8:2.0.50727.0"
