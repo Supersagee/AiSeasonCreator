@@ -54,6 +54,8 @@
             exitToolStripMenuItem = new ToolStripMenuItem();
             consistentWeatherCheckBox = new CheckBox();
             toolTip1 = new ToolTip(components);
+            qualiAloneCheckBox = new CheckBox();
+            selectTracksCheckBox = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)aiMinTrackBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)aiMaxTrackBar).BeginInit();
             menuStrip1.SuspendLayout();
@@ -73,7 +75,7 @@
             // 
             // createSeason
             // 
-            createSeason.Location = new Point(232, 406);
+            createSeason.Location = new Point(232, 428);
             createSeason.Name = "createSeason";
             createSeason.Size = new Size(135, 23);
             createSeason.TabIndex = 10;
@@ -127,7 +129,7 @@
             // aiSkillLevelLabel
             // 
             aiSkillLevelLabel.AutoSize = true;
-            aiSkillLevelLabel.Location = new Point(15, 282);
+            aiSkillLevelLabel.Location = new Point(15, 312);
             aiSkillLevelLabel.Name = "aiSkillLevelLabel";
             aiSkillLevelLabel.Size = new Size(72, 30);
             aiSkillLevelLabel.TabIndex = 9;
@@ -136,7 +138,7 @@
             // minSkillLabel
             // 
             minSkillLabel.AutoSize = true;
-            minSkillLabel.Location = new Point(59, 260);
+            minSkillLabel.Location = new Point(59, 297);
             minSkillLabel.Name = "minSkillLabel";
             minSkillLabel.Size = new Size(28, 15);
             minSkillLabel.TabIndex = 10;
@@ -145,7 +147,7 @@
             // maxSkillLabel
             // 
             maxSkillLabel.AutoSize = true;
-            maxSkillLabel.Location = new Point(57, 312);
+            maxSkillLabel.Location = new Point(59, 342);
             maxSkillLabel.Name = "maxSkillLabel";
             maxSkillLabel.Size = new Size(30, 15);
             maxSkillLabel.TabIndex = 11;
@@ -154,7 +156,7 @@
             // minSkillBox
             // 
             minSkillBox.Enabled = false;
-            minSkillBox.Location = new Point(337, 260);
+            minSkillBox.Location = new Point(337, 297);
             minSkillBox.Name = "minSkillBox";
             minSkillBox.Size = new Size(30, 23);
             minSkillBox.TabIndex = 12;
@@ -162,7 +164,7 @@
             // maxSkillBox
             // 
             maxSkillBox.Enabled = false;
-            maxSkillBox.Location = new Point(337, 312);
+            maxSkillBox.Location = new Point(337, 339);
             maxSkillBox.Name = "maxSkillBox";
             maxSkillBox.Size = new Size(30, 23);
             maxSkillBox.TabIndex = 13;
@@ -170,7 +172,7 @@
             // filePathLabel
             // 
             filePathLabel.AutoSize = true;
-            filePathLabel.Location = new Point(20, 365);
+            filePathLabel.Location = new Point(20, 390);
             filePathLabel.Name = "filePathLabel";
             filePathLabel.Size = new Size(67, 15);
             filePathLabel.TabIndex = 14;
@@ -178,7 +180,7 @@
             // 
             // filePathTextBox
             // 
-            filePathTextBox.Location = new Point(93, 362);
+            filePathTextBox.Location = new Point(93, 387);
             filePathTextBox.Name = "filePathTextBox";
             filePathTextBox.ReadOnly = true;
             filePathTextBox.Size = new Size(274, 23);
@@ -189,7 +191,7 @@
             // disableCarDamageCheckBox
             // 
             disableCarDamageCheckBox.AutoSize = true;
-            disableCarDamageCheckBox.Location = new Point(93, 150);
+            disableCarDamageCheckBox.Location = new Point(93, 148);
             disableCarDamageCheckBox.Name = "disableCarDamageCheckBox";
             disableCarDamageCheckBox.Size = new Size(132, 19);
             disableCarDamageCheckBox.TabIndex = 4;
@@ -199,7 +201,7 @@
             // aiAvoidPlayerCheckBox
             // 
             aiAvoidPlayerCheckBox.AutoSize = true;
-            aiAvoidPlayerCheckBox.Location = new Point(93, 188);
+            aiAvoidPlayerCheckBox.Location = new Point(93, 173);
             aiAvoidPlayerCheckBox.Name = "aiAvoidPlayerCheckBox";
             aiAvoidPlayerCheckBox.Size = new Size(111, 19);
             aiAvoidPlayerCheckBox.TabIndex = 5;
@@ -208,7 +210,7 @@
             // 
             // aiMinTrackBar
             // 
-            aiMinTrackBar.Location = new Point(93, 260);
+            aiMinTrackBar.Location = new Point(93, 282);
             aiMinTrackBar.Maximum = 125;
             aiMinTrackBar.Name = "aiMinTrackBar";
             aiMinTrackBar.Size = new Size(238, 45);
@@ -218,7 +220,7 @@
             // 
             // aiMaxTrackBar
             // 
-            aiMaxTrackBar.Location = new Point(93, 311);
+            aiMaxTrackBar.Location = new Point(93, 326);
             aiMaxTrackBar.Maximum = 125;
             aiMaxTrackBar.Name = "aiMaxTrackBar";
             aiMaxTrackBar.Size = new Size(238, 45);
@@ -245,28 +247,28 @@
             // settingsToolStripMenuItem
             // 
             settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            settingsToolStripMenuItem.Size = new Size(116, 22);
+            settingsToolStripMenuItem.Size = new Size(180, 22);
             settingsToolStripMenuItem.Text = "&Settings";
             settingsToolStripMenuItem.Click += settingsToolStripMenuItem_Click;
             // 
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(116, 22);
+            aboutToolStripMenuItem.Size = new Size(180, 22);
             aboutToolStripMenuItem.Text = "&About";
             aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(116, 22);
+            exitToolStripMenuItem.Size = new Size(180, 22);
             exitToolStripMenuItem.Text = "E&xit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // consistentWeatherCheckBox
             // 
             consistentWeatherCheckBox.AutoSize = true;
-            consistentWeatherCheckBox.Location = new Point(93, 226);
+            consistentWeatherCheckBox.Location = new Point(93, 198);
             consistentWeatherCheckBox.Name = "consistentWeatherCheckBox";
             consistentWeatherCheckBox.Size = new Size(129, 19);
             consistentWeatherCheckBox.TabIndex = 6;
@@ -280,11 +282,33 @@
             toolTip1.InitialDelay = 10;
             toolTip1.ReshowDelay = 10;
             // 
+            // qualiAloneCheckBox
+            // 
+            qualiAloneCheckBox.AutoSize = true;
+            qualiAloneCheckBox.Location = new Point(93, 223);
+            qualiAloneCheckBox.Name = "qualiAloneCheckBox";
+            qualiAloneCheckBox.Size = new Size(98, 19);
+            qualiAloneCheckBox.TabIndex = 22;
+            qualiAloneCheckBox.Text = "Qualify Alone";
+            qualiAloneCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // selectTracksCheckBox
+            // 
+            selectTracksCheckBox.AutoSize = true;
+            selectTracksCheckBox.Location = new Point(93, 248);
+            selectTracksCheckBox.Name = "selectTracksCheckBox";
+            selectTracksCheckBox.Size = new Size(92, 19);
+            selectTracksCheckBox.TabIndex = 23;
+            selectTracksCheckBox.Text = "Select Tracks";
+            selectTracksCheckBox.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(384, 441);
+            ClientSize = new Size(384, 463);
+            Controls.Add(selectTracksCheckBox);
+            Controls.Add(qualiAloneCheckBox);
             Controls.Add(consistentWeatherCheckBox);
             Controls.Add(aiMaxTrackBar);
             Controls.Add(aiMinTrackBar);
@@ -347,5 +371,7 @@
         private ToolStripMenuItem exitToolStripMenuItem;
         private CheckBox consistentWeatherCheckBox;
         private ToolTip toolTip1;
+        private CheckBox qualiAloneCheckBox;
+        private CheckBox selectTracksCheckBox;
     }
 }

@@ -18,7 +18,7 @@ namespace AiSeasonCreator
             InitializeComponent();
         }
 
-        private async void MainForm_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             var updater = new Updater();
             updater.CheckForUpdates();
@@ -53,6 +53,7 @@ namespace AiSeasonCreator
             DisableDamage = disableCarDamageCheckBox.Checked;
             AiAvoids = aiAvoidPlayerCheckBox.Checked;
             ConsistentWeather = consistentWeatherCheckBox.Checked;
+            QualiAlone = qualiAloneCheckBox.Checked;
 
             try
             {
@@ -60,6 +61,12 @@ namespace AiSeasonCreator
                 {
                     MessageBox.Show($"Please finish filling out the form before attempting to create a season. Make sure the minimum AI skill is less than or equal to the maximum.");
                     return;
+                }
+
+                if (selectTracksCheckBox.Checked)
+                {
+                    var trackSelection = new TrackSelectionForm();
+                    trackSelection.ShowDialog();
                 }
 
                 var ss = IRacingService.SeasonBuilder();
@@ -70,7 +77,7 @@ namespace AiSeasonCreator
                 {
                     if (IRacingService.CarClassIds.Count > 1)
                     {
-                        MessageBox.Show(@$"A Multi-Class season was created. Before starting the season, in iRacing, go to ""Opponent Rosters"" under the AI Racing tab and click on the {SeasonName} roster. Click ""Save Edits"" at the bottom right to set AI driver attributes. ");
+                        MessageBox.Show(@$"A Multi-Class season was created. Before starting the season, in iRacing, go to ""Opponent Rosters"" under the AI Racing tab and click on the {SeasonName} roster. Click ""Save Edits"" at the bottom right to set AI driver attributes. Restart iRacing if it is currently open.");
                     }
                     NotAllowedTracksMessage();
                     return;
@@ -246,9 +253,11 @@ namespace AiSeasonCreator
         public static bool DisableDamage { get; set; }
         public static bool AiAvoids { get; set; }
         public static bool ConsistentWeather { get; set; }
+        public static bool QualiAlone { get; set; }
         public static int SeasonSeriesIndex { get; set; }
+        public static List<int>? UnselectedTracks { get; set; }
         public static JsonClasses.CarClasses.CarClasses[] CarClasses { get; set; }
-        public static CarDetails[] CarDetails { get; set; } 
+        public static CarDetails[] CarDetails { get; set; }
         public static FullSchedule[] FullSchedule { get; set; }
         public static SeriesDetails[] SeriesDetails { get; set; }
         public static TrackDetails[] TrackDetails { get; set; }

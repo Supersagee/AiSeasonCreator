@@ -44,7 +44,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(367, 252);
+            ClientSize = new Size(370, 260);
             Controls.Add(textBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;

@@ -33,5 +33,7 @@ namespace AiSeasonCreator.ScheduleClasses
         public Weather Weather { get; set; }
         [JsonPropertyName("time_of_day")]
         public int TimeOfDay { get; set; }
+        [JsonPropertyName("qualify_length")]
+        public int QualifyLength { get; set; }
     }
 }

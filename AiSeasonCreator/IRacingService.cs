@@ -19,19 +19,31 @@ namespace AiSeasonCreator
 
         public static List<string> GetAllSeries()
         {
-            var list = new List<string>();
-            var getSeriesNames = MainForm.FullSchedule;
+            var seriesList = new List<string>();
+            var schedules = MainForm.FullSchedule;
+            var carClasses = MainForm.CarClasses;
+            var carDetails = MainForm.CarDetails;
 
-            for (var i =  0; i < getSeriesNames.Length; i++)
+            foreach (var schedule in schedules)
             {
-                if (getSeriesNames[i].Schedules[0].Track.Category == "oval" || getSeriesNames[i].Schedules[0].Track.Category == "road")
+                var carIds = schedule.CarClassIds;
+                var carsInSeries = carClasses
+                    .Where(cc => carIds.Contains(cc.CarClassId))
+                    .SelectMany(cc => cc.CarsInClass.Select(car => car.CarId))
+                    .ToList();
+
+                var aiCarsInSeries = carDetails
+                    .Where(cd => carsInSeries.Contains(cd.CarId) && cd.AiEnabled)
+                    .ToList();
+
+                if (aiCarsInSeries.Any())
                 {
-                    list.Add(getSeriesNames[i].Schedules[0].SeriesName);
+                    seriesList.Add(schedule.Schedules[0].SeriesName);
                 }
             }
 
-            list.Sort();
-            return list;
+            seriesList.Sort();
+            return seriesList;
         }
 
         public static void CreateCarSettings()
@@ -117,6 +129,11 @@ namespace AiSeasonCreator
 
             for (var j = 0; j < ss.Schedules.Count; j++)
             {
+                if (MainForm.UnselectedTracks.Contains(j))
+                {
+                    continue;
+                }
+                
                 if (!notAllowedTracks.Contains(ss.Schedules[j].Track.TrackId))
                 {
                     var loopEvent = new Events();
@@ -125,7 +142,16 @@ namespace AiSeasonCreator
                     loopEvent.PaceCar = CreatePaceCar(j);
                     loopEvent.ShortParadeLap = false;
                     loopEvent.MustUseDiffTireTypesInRace = ss.MustUseDiffTireTypesInRace;
-                    loopEvent.Subsessions = new List<int> { 3, 5, 6 };
+
+                    if (MainForm.QualiAlone)
+                    {
+                        loopEvent.Subsessions = new List<int> { 3, 4, 6 };
+                    }
+                    else
+                    {
+                        loopEvent.Subsessions = new List<int> { 3, 5, 6 };
+                    }
+                    
                     loopEvent.EventId = Guid.NewGuid().ToString();
 
                     if (ss.Schedules[j].RaceLapLimit == null)
@@ -144,6 +170,19 @@ namespace AiSeasonCreator
                     loopEvent.Weather = CreateWeather(i, j);
                     loopEvent.TimeOfDay = ss.Schedules[j].Weather.TimeOfDay;
 
+                    if (ss.Schedules[j].Track.TrackName.Contains("Combined") || ss.Schedules[j].Track.TrackName.Contains("Nordschleife"))
+                    {
+                        loopEvent.QualifyLength = 20;
+                    }
+                    else if (ss.Schedules[j].Track.Category == "oval")
+                    {
+                        loopEvent.QualifyLength = 5;
+                    }
+                    else
+                    {
+                        loopEvent.QualifyLength = 8;
+                    }
+
                     events.Add(loopEvent);
                 }
                 else
@@ -151,54 +190,48 @@ namespace AiSeasonCreator
                     MainForm.NotAvailableTracks.Add($"{ss.Schedules[j].Track.TrackName} - {ss.Schedules[j].Track.ConfigName}");
                 }
             }
-                
+
+            MainForm.UnselectedTracks = new List<int> { };
+
+            if (events.Count <= 0)
+            {
+                throw new Exception();
+            }
+
             return events;
         }
 
         public static List<string> PopulateCarComboBox()
         {
-            var ss = MainForm.FullSchedule;
-            var cc = MainForm.CarClasses;
-            var cars = MainForm.CarDetails;
+            var schedules = MainForm.FullSchedule;
+            var carClasses = MainForm.CarClasses;
+            var carDetails = MainForm.CarDetails;
 
             var carClassIds = new List<int>();
             var carIds = new List<int>();
             var carNames = new List<string>();
 
-            for (var i = 0; i < ss.Length; i++)
+            var seriesSchedule = schedules.FirstOrDefault(ss => ss.Schedules[0].SeriesName == MainForm.SeriesName);
+
+            if (seriesSchedule != null)
             {
-                if (ss[i].Schedules[0].SeriesName == MainForm.SeriesName)
+                carClassIds = seriesSchedule.CarClassIds;
+                MainForm.SeasonSeriesIndex = Array.IndexOf(schedules, seriesSchedule);
+            }
+
+            foreach (var carClass in carClasses)
+            {
+                if (carClassIds.Contains(carClass.CarClassId))
                 {
-                    for (var j = 0; j < ss[i].CarClassIds.Count; j++)
-                    {
-                        carClassIds.Add(ss[i].CarClassIds[j]);
-                    }
-                    MainForm.SeasonSeriesIndex = i;
+                    carIds.AddRange(carClass.CarsInClass.Select(car => car.CarId));
                 }
             }
 
-            for (var i = 0; i < cc.Length; i++)
+            foreach (var car in carDetails)
             {
-                for (var j = 0; j < carClassIds.Count; j++)
+                if (carIds.Contains(car.CarId) && car.AiEnabled)
                 {
-                    if (cc[i].CarClassId == carClassIds[j])
-                    {
-                        for (var k = 0; k < cc[i].CarsInClass.Length; k++)
-                        {
-                            carIds.Add(cc[i].CarsInClass[k].CarId);
-                        }                        
-                    }
-                }
-            }
-
-            for (var i = 0; i < cars.Length; i++)
-            {
-                for (var j = 0; j < carIds.Count; j++)
-                {
-                    if (cars[i].CarId == carIds[j])
-                    {
-                        carNames.Add(cars[i].CarName);
-                    }
+                    carNames.Add(car.CarName);
                 }
             }
 
@@ -408,32 +441,25 @@ namespace AiSeasonCreator
             if (c.CarClassIds.Count == 1)
             {
                 s.AiCarClassId = c.CarClassIds[0];
-                s.AiCarClassIds = new List<int> { };
+                s.AiCarClassIds = new List<int>();
                 s.UserCarClassId = null;
             }
             else
             {
                 s.AiCarClassId = null;
                 s.AiCarClassIds = CarClassIds;
-                        
-                for (var j = 0; j < carClasses.Length; j++)
+
+                var matchingCarClass = carClasses.FirstOrDefault(cc => s.AiCarClassIds.Contains(cc.CarClassId));
+                if (matchingCarClass != null)
                 {
-                    for (var k = 0; k < s.AiCarClassIds.Count; k++)
+                    var userCarInClass = matchingCarClass.CarsInClass.FirstOrDefault(car => car.CarId == s.CarId);
+                    if (userCarInClass != null)
                     {
-                        if (s.AiCarClassIds[k] == carClasses[j].CarClassId)
-                        {
-                            for (var n = 0; n < carClasses[j].CarsInClass.Length; n++)
-                            {
-                                if (carClasses[j].CarsInClass[n].CarId == s.CarId)
-                                {
-                                    s.UserCarClassId = carClasses[j].CarClassId;
-                                }
-                            }
-                        }
+                        s.UserCarClassId = matchingCarClass.CarClassId;
                     }
                 }
             }
-      
+
             var carIds = new List<int>();
 
             if (CarSettingsList.Any())
@@ -454,7 +480,6 @@ namespace AiSeasonCreator
                 s.CarSettings = CarSettingsList;
             }
                     
-
             if (MainForm.DisableDamage)
             {
                 s.DamageModel = 3;
@@ -489,7 +514,7 @@ namespace AiSeasonCreator
             s.StartOnQualTire = c.StartOnQualTire;
             s.UnsportConductRuleMode = 0;
             s.PracticeLength = 3;
-            s.QualifyLaps = 3;
+            s.QualifyLaps = 2;
             s.QualifyLength = 8;
 
             //sets race by by lap count or time limit
@@ -551,3 +576,4 @@ namespace AiSeasonCreator
 
     }
 }
+ 

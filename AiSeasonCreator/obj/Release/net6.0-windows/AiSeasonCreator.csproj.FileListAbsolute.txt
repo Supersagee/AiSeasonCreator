@@ -25,3 +25,4 @@ C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Release\net6.0-w
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Release\net6.0-windows\AiSeasonCreator.SettingsForm.resources
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Release\net6.0-windows\AiSeasonCreator.UpdateForm.resources
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Release\net6.0-windows\JsonFiles\seasonScheduleJson.json
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Release\net6.0-windows\AiSeasonCreator.TrackSelectionForm.resources
