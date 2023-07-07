@@ -128,8 +128,9 @@ namespace AiSeasonCreator
             var ss = MainForm.FullSchedule[i];
 
             for (var j = 0; j < ss.Schedules.Count; j++)
-            {
-                if (MainForm.UnselectedTracks.Contains(j))
+            {   
+                
+                if (MainForm.UnselectedTracks != null && MainForm.UnselectedTracks.Contains(j))
                 {
                     continue;
                 }
@@ -168,6 +169,8 @@ namespace AiSeasonCreator
                     }
 
                     loopEvent.Weather = CreateWeather(i, j);
+                    loopEvent.StartZone = ss.Schedules[j].HasStartZone;
+                    loopEvent.FullCourseCautions = ss.Schedules[j].HasFullCourseCautions;
                     loopEvent.TimeOfDay = ss.Schedules[j].Weather.TimeOfDay;
 
                     if (ss.Schedules[j].Track.TrackName.Contains("Combined") || ss.Schedules[j].Track.TrackName.Contains("Nordschleife"))

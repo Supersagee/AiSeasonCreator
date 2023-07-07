@@ -40,13 +40,13 @@ namespace AiSeasonCreator.JsonClasses.FullSchedule
         [JsonPropertyName("qual_attached")]
         public bool QualifyingIsAttached { get; set; }
         [JsonPropertyName("full_course_cautions")]
-        public bool? HasFullCourseCautions { get; set; }
+        public bool HasFullCourseCautions { get; set; }
 
         [JsonPropertyName("special_event_type")]
         public int? SpecialEventType { get; set; }
 
         [JsonPropertyName("start_zone")]
-        public bool? HasStartZone { get; set; }
+        public bool HasStartZone { get; set; }
 
         [JsonPropertyName("enable_pitlane_collisions")]
         public bool? PitlaneCollisionsEnabled { get; set; }

@@ -31,6 +31,10 @@ namespace AiSeasonCreator.ScheduleClasses
         public int RaceLengthType { get; set; }
         [JsonPropertyName("weather")]
         public Weather Weather { get; set; }
+        [JsonPropertyName("startZone")]
+        public bool StartZone { get; set; }
+        [JsonPropertyName("full_course_cautions")]
+        public bool FullCourseCautions { get; set;}
         [JsonPropertyName("time_of_day")]
         public int TimeOfDay { get; set; }
         [JsonPropertyName("qualify_length")]
