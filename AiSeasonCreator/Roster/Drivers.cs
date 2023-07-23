@@ -31,5 +31,9 @@ namespace AiSeasonCreator.Roster
         public string SuitDesign { get; set; }
         [JsonPropertyName("disableCarDecals")]
         public bool DisableCarDecals { get; set;}
+        [JsonPropertyName("sponsor1")]
+        public int Sponsor1 { get; set; }
+        [JsonPropertyName("sponsor2")]
+        public int Sponsor2 { get; set; }
     }
 }

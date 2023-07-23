@@ -115,6 +115,8 @@ namespace AiSeasonCreator
         {
             var events = new List<Events>();
             var notAllowedTracks = new List<int>();
+
+            var ss = MainForm.FullSchedule[i];
             var tracks = MainForm.TrackDetails;
 
             for (var j = 0; j < tracks.Length; j++)
@@ -124,8 +126,6 @@ namespace AiSeasonCreator
                     notAllowedTracks.Add(tracks[j].TrackId);
                 }                
             }
-
-            var ss = MainForm.FullSchedule[i];
 
             for (var j = 0; j < ss.Schedules.Count; j++)
             {   
@@ -282,14 +282,25 @@ namespace AiSeasonCreator
                 "Anthony Scott", "Isaac Green", "Grayson Adams", "Joseph Baker", "Aiden Nelson", "Ethan Mitchell", "Leo Ramirez", "Carter Carter",
                 "Mason Roberts", "Josiah Phillips", "Andrew Evans", "Thomas Torres", "Joshua Hughes", "Christopher Morris", "Ian Price", "Hudson Sanchez",
                 "Nathan Perry", "Aaron Reed", "Julian Bryant", "Levi Cruz", "David Long", "Jaxon Foster", "Adam Ward", "Jonathan Howard",
-                "Nolan Jenkins", "Elias Rogers", "Mateo Cook", "Nicholas Bailey", "Dominic Diaz", "Landon Richardson", "John Brooks",
-                "Robert Watson", "Tyler Wood", "Gavin Gray", "Dylan James", "Jackson Bennett", "Maxwell Ramirez", "Connor Collins", "Cameron Ryan",
                 "Christian Grant", "Lincoln Cooper", "Jordan Rivera", "Ezra Hayes", "Xavier Simmons", "Brayden Griffin", "Micah West", "Brandon Brooks",
                 "Miles Kelly", "Easton Spencer", "Harrison Alexander", "Wesley Hoffman", "Emmett Weaver", "Caleb Chapman", "Declan Gardner",
-                "Owen Kelley", "Charles Snyder", "Ayden Vasquez", "Caden Hawkins", "Blake Guerrero", "Cooper Silva", "Ryder Lawson",
-                "Colton Fisher", "Zachary Mason", "Maddox Diaz", "Olivia Holland", "Sophia Warren", "Emma Luna", "Ava May", "Isabella Ray",
-                "Amelia Daniels", "Mia Cummings", "Charlotte Harmon", "Harper George", "Evelyn Reid", "Abigail Armstrong", "Emily Ellis",
-                "Avery Porter", "Scarlett Sanchez", "Lily Hunt", "Chloe Murphy", "Sophie Romero", "Layla Cole", "Riley Douglas", "Zoey Stone"
+                "Colton Fisher", "Zachary Mason", "Olivia Holland", "Billy Sage", "Emma Luna", "Ava May", "Isabella Ray","Amelia Daniels",
+                "Charlotte Harmon", "Harper George", "Evelyn Reid"
+            };
+
+            var designs = new List<string>()
+            {
+                "9A0000,35005D,BCBCBC", "447ac0,ffffff,ee3442", "111111,ffffff,5481fc", "391c83,111111,ccff00", "ffffff,013990,4bd3fd", "5e5e5e,135324,111111",
+                "4bd3fd,013990,ffffff", "184252,111111,03bbbd", "111111,ffee47,0300c2", "981a9b,00f0e7,ffffff", "135324,5e5e5e,111111", "0300c2,111111,ffee47",
+                "284a94,b82f37,111111", "f06e34,ffffff,111111", "28536B,FFD838,21EDE5", "111111,ffffff,f06e34", "111111,03bbbd,184252", "111111,391c83,ccff00",
+                "135324,5e5e5e,111111", "5e5e5e,111111,135324", "ffffff,0ada00,111111", "b82f37,111111,284a94", "d7162d,efd600,111111", "ffee47,0300c2,111111",
+                "0ada00,111111,ffffff", "F9D10F,031163,FFFFFF", "7de54c,1f2892,ffffff", "111111,ccff00,391c83", "FFFFFF,184B91,D82520", "4bd3fd,013990,ffffff",
+                "1f2892,ffffff,7de54c", "dff000,1a4b9b,ffffff", "ffffff,4bd3fd,013990", "391c83,ccff00,111111", "d7162d,efd600,111111", "ccff00,111111,391c83",
+                "ffffff,ee3442,447ac0", "f1732e,372a75,ffffff", "447ac0,ffffff,ee3442", "5e5e5e,135324,111111", "ffee47,111111,0300c2", "1f2892,7de54c,ffffff",
+                "447ac0,ffffff,ee3442", "f26522,00aeef,0a0a0a", "f1732e,372a75,ffffff", "013990,ffffff,4bd3fd", "ffffff,447ac0,ee3442", "EBDA28,000000,000000",
+                "5481fc,ffffff,111111", "ed1c24,111111,cccccc", "111111,d7162d,efd600", "000000,2A3795,2A3795", "111111,135324,5e5e5e", "000000,0090FF,E7F700",
+                "5481fc,111111,ffffff", "111111,d7162d,efd600", "f06e34,ffffff,111111", "FFFFFF,FFFFFF,FFFFFF", "000000,000000,000000", "000000,FFFFFF,000000",
+                "000000,FFFFFF,FFFFFF", "ffffff,111111,5481fc", "111111,ffffff,fc0706", "b82f37,111111,284a94", "d7162d,efd600,111111", "ffee47,0300c2,111111"
             };
 
             var cc = MainForm.CarClasses;
@@ -303,17 +314,14 @@ namespace AiSeasonCreator
                 for (var j = 0; j < split; j++)
                 {   
                     var num = new Random().Next(1, 20);
-                    var nameNum = new Random().Next(0, names.Count - 1);
-                    var color1 = String.Format("{0:X6}", new Random().Next(0x1000000));
-                    var color2 = String.Format("{0:X6}", new Random().Next(0x1000000));
-                    var color3 = String.Format("{0:X6}", new Random().Next(0x1000000));
-                    var design = $"{num},{color1},{color2},{color3}";
-
+                    var randIndex = new Random().Next(0, names.Count);
                     var d = new Drivers();
 
                     carNum++;
-                    d.DriverName = $"{names[nameNum]}";
-                    names.RemoveAt(nameNum);
+                    d.DriverName = $"{names[randIndex]}";
+                    var design = $"{num},{designs[randIndex]}";
+                    names.RemoveAt(randIndex);
+                    designs.RemoveAt(randIndex);
                     d.CarNumber = carNum.ToString();
 
                     //asign random cars to proper classes
@@ -328,7 +336,7 @@ namespace AiSeasonCreator
                             }
                             else
                             {
-                                var pickOne = new Random().Next(0, cc[k].CarsInClass.Length - 1);
+                                var pickOne = new Random().Next(0, cc[k].CarsInClass.Length);
                                 d.CarId = cc[k].CarsInClass[pickOne].CarId;
                                 d.CarPath = cc[k].CarsInClass[pickOne].CarDirpath;
                             }
@@ -343,7 +351,13 @@ namespace AiSeasonCreator
                     d.HelmetDesign = design;
                     d.SuitDesign = design;
                     d.NumberDesign = "0,0,ffffff,AAAAAA,000000";
-                    d.DisableCarDecals = true;
+                    d.DisableCarDecals = false;
+
+                    var s1 = new Random().Next(2, 221);
+                    var s2 = new Random().Next(2, 221);
+
+                    d.Sponsor1 = s1;
+                    d.Sponsor2 = s2;
 
                     drivers.Add(d);
                 }
@@ -557,7 +571,7 @@ namespace AiSeasonCreator
             if (s.AiCarClassIds.Any())
             {
                 s.RosterName = MainForm.SeasonName;
-                CreateRoster(s.AiCarClassIds, s.MaxDrivers);
+                CreateRoster(CarClassIds, s.MaxDrivers);
             }
             else
             {

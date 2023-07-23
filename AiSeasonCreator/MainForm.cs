@@ -23,6 +23,8 @@ namespace AiSeasonCreator
             var updater = new Updater();
             updater.CheckForUpdates();
 
+            SetRedLocations();
+
             minSkillBox.Text = aiMinTrackBar.Value.ToString();
             maxSkillBox.Text = aiMaxTrackBar.Value.ToString();
 
@@ -42,64 +44,35 @@ namespace AiSeasonCreator
 
         private async void createSeason_Click(object sender, EventArgs e)
         {
-            Cursor = Cursors.WaitCursor;
+            VariableSetter();
 
-            SeasonName = seasonNameTextBox.Text;
-            SeriesName = seriesListCombo.Text;
-            CarName = carListCombo.Text;
-            AiMin = aiMinTrackBar.Value;
-            AiMax = aiMaxTrackBar.Value;
-            FilePath = filePathTextBox.Text;
-            DisableDamage = disableCarDamageCheckBox.Checked;
-            AiAvoids = aiAvoidPlayerCheckBox.Checked;
-            ConsistentWeather = consistentWeatherCheckBox.Checked;
-            QualiAlone = qualiAloneCheckBox.Checked;
+            if (IsFormBlank())
+            {
+                incompleteFormLabel.Text = "Please complete the form.";
+                return;
+            }
+
+            incompleteFormLabel.Text = "";
 
             try
             {
-                if (BlankFormChecker() == false)
-                {
-                    MessageBox.Show($"Please finish filling out the form before attempting to create a season. Make sure the minimum AI skill is less than or equal to the maximum.");
-                    return;
-                }
-
                 if (selectTracksCheckBox.Checked)
                 {
                     var trackSelection = new TrackSelectionForm();
                     trackSelection.ShowDialog();
                 }
 
-                var ss = IRacingService.SeasonBuilder();
+                var sb = IRacingService.SeasonBuilder();
                 string filePath = $@"{FilePath}\{SeasonName}.json";
-                await IRacingService.SaveSeasonScheduleToJson(ss, filePath);
-
-                if (NotAvailableTracks.Any())
-                {
-                    if (IRacingService.CarClassIds.Count > 1)
-                    {
-                        MessageBox.Show(@$"A Multi-Class season was created. Before starting the season, in iRacing, go to ""Opponent Rosters"" under the AI Racing tab and click on the {SeasonName} roster. Click ""Save Edits"" at the bottom right to set AI driver attributes. Restart iRacing if it is currently open.");
-                    }
-                    NotAllowedTracksMessage();
-                    return;
-                }
-                else if (IRacingService.CarClassIds.Count > 1)
-                {
-                    MessageBox.Show(@$"A Multi-Class season was created. Before starting the season, in iRacing, go to ""Opponent Rosters"" under the AI Racing tab and click on the '{SeasonName}' roster. Click ""Save Edits"" at the bottom right to set AI driver attributes. Restart iRacing if it is currently open.");
-                    return;
-                }
-                else
-                {
-                    MessageBox.Show("Season created successfully! Restart iRacing if it is currently open.");
-                }
+                await IRacingService.SaveSeasonScheduleToJson(sb, filePath);
             }
             catch
             {
                 MessageBox.Show("ATTENTION: Unable to create season. Please try again.");
+                return;
             }
-            finally
-            {
-                Cursor = Cursors.Default;
-            }
+
+            SeasonCreationPrompt();
         }
 
         private static void LoadJsonFiles()
@@ -122,36 +95,113 @@ namespace AiSeasonCreator
             TrackDetails = JsonSerializer.Deserialize<TrackDetails[]>(File.ReadAllText(tracksFilePath));
         }
 
-        private static bool BlankFormChecker()
+        private bool IsFormBlank()
         {
-            if (SeasonName == "" || SeasonName == null)
-                return false;
-            if (SeriesName == "" || SeriesName == null)
-                return false;
-            if (CarName == "" || CarName == null)
-                return false;
-            if (FilePath == @"Double click to add folder path. iRacing\aiseasons" || FilePath == null)
-                return false;
-            if (AiMin > AiMax)
-                return false;
+            var blank = false;
+            var red = Color.IndianRed;
 
-            return true;
+            if (SeasonName == "")
+            {
+                seasonNamePanel.BackColor = red;
+                blank = true;
+            }
+            else
+            {
+                seasonNamePanel.BackColor = SystemColors.Control;
+            }
+
+            if (SeriesName == "")
+            {
+                blank = true;
+                seriesPanel.BackColor = red;
+            }
+            else
+            {
+                seriesPanel.BackColor = SystemColors.Control;
+            }
+
+            if (CarName == "")
+            {
+                blank = true;
+                carPanel.BackColor = red;
+            }
+            else
+            {
+                carPanel.BackColor = SystemColors.Control;
+            }
+
+            if (FilePath == "Double click to add folder path. iRacing\\aiseasons")
+            {
+                blank = true;
+                folderPathPanel.BackColor = red;
+            }
+            else
+            {
+                folderPathPanel.BackColor = SystemColors.Control;
+            }
+
+            return blank;
         }
 
-        private static void NotAllowedTracksMessage()
+        private static void SeasonCreationPrompt()
         {
             var builder = new StringBuilder();
             builder.AppendLine("Season created successfully!");
             builder.AppendLine("");
-            builder.AppendLine("The following tracks were not included in the season as they are not available for AI racing:");
-            builder.AppendLine("");
-            foreach (var track in NotAvailableTracks)
-            {
-                builder.Append($"-{track.ToString()}").AppendLine();
-            }
-            MessageBox.Show($"{builder}");
 
-            NotAvailableTracks.Clear();
+            if (IRacingService.CarClassIds.Count > 1)
+            {
+                builder.AppendLine("----------------------------------------------------------------------------------------");
+                builder.AppendLine("");
+                builder.AppendLine(@$"A Multi-Class season was created. Before starting the season, in iRacing, go to ""Opponent Rosters"" under the AI Racing tab and click on the {SeasonName} roster. Click ""Save Edits"" at the bottom right to set AI driver attributes.");
+                builder.AppendLine("");
+            }
+
+            if (NotAvailableTracks.Any())
+            {
+                builder.AppendLine("----------------------------------------------------------------------------------------");
+                builder.AppendLine("");
+                builder.AppendLine("The following tracks were not included in the season as they are not available for AI racing:");
+                builder.AppendLine("");
+
+                foreach (var track in NotAvailableTracks)
+                {
+                    builder.AppendLine($"-{track.ToString()}");
+                }
+
+                NotAvailableTracks.Clear();
+            }
+
+            MessageBox.Show($"{builder}");
+        }
+
+        private void VariableSetter()
+        {
+            SeasonName = seasonNameTextBox.Text;
+            SeriesName = seriesListCombo.Text;
+            CarName = carListCombo.Text;
+            AiMin = aiMinTrackBar.Value;
+            AiMax = aiMaxTrackBar.Value;
+            FilePath = filePathTextBox.Text;
+            DisableDamage = disableCarDamageCheckBox.Checked;
+            AiAvoids = aiAvoidPlayerCheckBox.Checked;
+            ConsistentWeather = consistentWeatherCheckBox.Checked;
+            QualiAlone = qualiAloneCheckBox.Checked;
+        }
+
+        private void SetRedLocations()
+        {
+            seasonNamePanel.Location = new Point(seasonNameTextBox.Location.X - 2, seasonNameTextBox.Location.Y - 2);
+            seasonNamePanel.Size = new Size(seasonNameTextBox.Size.Width + 4, seasonNameTextBox.Size.Height + 4);
+
+            seriesPanel.Location = new Point(seriesListCombo.Location.X - 2, seriesListCombo.Location.Y - 2);
+            seriesPanel.Size = new Size(seriesListCombo.Size.Width + 4, seriesListCombo.Size.Height + 4);
+
+            carPanel.Location = new Point(carListCombo.Location.X - 2, carListCombo.Location.Y - 2);
+            carPanel.Size = new Size(carListCombo.Size.Width + 4, carListCombo.Size.Height + 4);
+
+            folderPathPanel.Location = new Point(filePathTextBox.Location.X - 2, filePathTextBox.Location.Y - 2);
+            folderPathPanel.Size = new Size(filePathTextBox.Size.Width + 4, filePathTextBox.Size.Height + 4);
         }
 
         private void filePathTextBox_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -220,11 +270,23 @@ namespace AiSeasonCreator
         private void aiMinTrackBar_Scroll(object sender, EventArgs e)
         {
             minSkillBox.Text = aiMinTrackBar.Value.ToString();
+
+            if (aiMinTrackBar.Value > aiMaxTrackBar.Value)
+            {
+                aiMaxTrackBar.Value = aiMinTrackBar.Value;
+                maxSkillBox.Text = aiMaxTrackBar.Value.ToString();
+            }
         }
 
         private void aiMaxTrackBar_Scroll(object sender, EventArgs e)
         {
             maxSkillBox.Text = aiMaxTrackBar.Value.ToString();
+
+            if (aiMaxTrackBar.Value < aiMinTrackBar.Value)
+            {
+                aiMinTrackBar.Value = aiMaxTrackBar.Value;
+                minSkillBox.Text = aiMinTrackBar.Value.ToString();
+            }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

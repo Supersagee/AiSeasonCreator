@@ -76,7 +76,7 @@
             ShowIcon = false;
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
-            Text = "TrackSelectionForm";
+            Text = "Track Selection";
             Load += TrackSelectionForm_Load;
             ResumeLayout(false);
             PerformLayout();

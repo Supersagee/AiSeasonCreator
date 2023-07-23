@@ -56,6 +56,11 @@
             toolTip1 = new ToolTip(components);
             qualiAloneCheckBox = new CheckBox();
             selectTracksCheckBox = new CheckBox();
+            incompleteFormLabel = new Label();
+            carPanel = new Panel();
+            seriesPanel = new Panel();
+            seasonNamePanel = new Panel();
+            folderPathPanel = new Panel();
             ((System.ComponentModel.ISupportInitialize)aiMinTrackBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)aiMaxTrackBar).BeginInit();
             menuStrip1.SuspendLayout();
@@ -110,6 +115,7 @@
             // 
             // carListCombo
             // 
+            carListCombo.BackColor = SystemColors.Window;
             carListCombo.DropDownStyle = ComboBoxStyle.DropDownList;
             carListCombo.FormattingEnabled = true;
             carListCombo.Location = new Point(93, 112);
@@ -241,27 +247,27 @@
             // 
             fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { settingsToolStripMenuItem, aboutToolStripMenuItem, exitToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(37, 20);
-            fileToolStripMenuItem.Text = "&File";
+            fileToolStripMenuItem.Size = new Size(53, 20);
+            fileToolStripMenuItem.Text = "MENU";
             // 
             // settingsToolStripMenuItem
             // 
             settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            settingsToolStripMenuItem.Size = new Size(180, 22);
+            settingsToolStripMenuItem.Size = new Size(116, 22);
             settingsToolStripMenuItem.Text = "&Settings";
             settingsToolStripMenuItem.Click += settingsToolStripMenuItem_Click;
             // 
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(180, 22);
+            aboutToolStripMenuItem.Size = new Size(116, 22);
             aboutToolStripMenuItem.Text = "&About";
             aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(180, 22);
+            exitToolStripMenuItem.Size = new Size(116, 22);
             exitToolStripMenuItem.Text = "E&xit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -302,11 +308,51 @@
             selectTracksCheckBox.Text = "Select Tracks";
             selectTracksCheckBox.UseVisualStyleBackColor = true;
             // 
+            // incompleteFormLabel
+            // 
+            incompleteFormLabel.AutoSize = true;
+            incompleteFormLabel.ForeColor = Color.IndianRed;
+            incompleteFormLabel.Location = new Point(77, 432);
+            incompleteFormLabel.Name = "incompleteFormLabel";
+            incompleteFormLabel.Size = new Size(0, 15);
+            incompleteFormLabel.TabIndex = 24;
+            // 
+            // carPanel
+            // 
+            carPanel.BackColor = SystemColors.Control;
+            carPanel.Location = new Point(357, 198);
+            carPanel.Name = "carPanel";
+            carPanel.Size = new Size(27, 27);
+            carPanel.TabIndex = 25;
+            // 
+            // seriesPanel
+            // 
+            seriesPanel.BackColor = SystemColors.Control;
+            seriesPanel.Location = new Point(357, 173);
+            seriesPanel.Name = "seriesPanel";
+            seriesPanel.Size = new Size(27, 27);
+            seriesPanel.TabIndex = 26;
+            // 
+            // seasonNamePanel
+            // 
+            seasonNamePanel.Location = new Point(357, 148);
+            seasonNamePanel.Name = "seasonNamePanel";
+            seasonNamePanel.Size = new Size(27, 27);
+            seasonNamePanel.TabIndex = 27;
+            // 
+            // folderPathPanel
+            // 
+            folderPathPanel.Location = new Point(357, 223);
+            folderPathPanel.Name = "folderPathPanel";
+            folderPathPanel.Size = new Size(27, 27);
+            folderPathPanel.TabIndex = 28;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(384, 463);
+            Controls.Add(incompleteFormLabel);
             Controls.Add(selectTracksCheckBox);
             Controls.Add(qualiAloneCheckBox);
             Controls.Add(consistentWeatherCheckBox);
@@ -315,6 +361,7 @@
             Controls.Add(aiAvoidPlayerCheckBox);
             Controls.Add(disableCarDamageCheckBox);
             Controls.Add(filePathTextBox);
+            Controls.Add(folderPathPanel);
             Controls.Add(filePathLabel);
             Controls.Add(maxSkillBox);
             Controls.Add(minSkillBox);
@@ -323,11 +370,14 @@
             Controls.Add(aiSkillLevelLabel);
             Controls.Add(carListLabel);
             Controls.Add(carListCombo);
+            Controls.Add(carPanel);
             Controls.Add(seasonNameLabel);
             Controls.Add(seasonNameTextBox);
+            Controls.Add(seasonNamePanel);
             Controls.Add(seriesListLabel);
             Controls.Add(createSeason);
             Controls.Add(seriesListCombo);
+            Controls.Add(seriesPanel);
             Controls.Add(menuStrip1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MainMenuStrip = menuStrip1;
@@ -373,5 +423,10 @@
         private ToolTip toolTip1;
         private CheckBox qualiAloneCheckBox;
         private CheckBox selectTracksCheckBox;
+        private Label incompleteFormLabel;
+        private Panel carPanel;
+        private Panel seriesPanel;
+        private Panel seasonNamePanel;
+        private Panel folderPathPanel;
     }
 }
