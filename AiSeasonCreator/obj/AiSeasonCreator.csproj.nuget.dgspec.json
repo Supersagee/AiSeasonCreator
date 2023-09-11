@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\Billy\\source\\repos\\AiSeasonCreator\\AiSeasonCreator\\AiSeasonCreator.csproj": {
-      "version": "23.3.2",
+      "version": "23.4.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\Billy\\source\\repos\\AiSeasonCreator\\AiSeasonCreator\\AiSeasonCreator.csproj",
         "projectName": "AiSeasonCreator",
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -47,6 +48,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
+            },
+            "ReaLTaiizor": {
+              "target": "Package",
+              "version": "[3.7.9.5, )"
             }
           },
           "imports": [

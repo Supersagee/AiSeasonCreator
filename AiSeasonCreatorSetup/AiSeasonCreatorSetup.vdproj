@@ -21,6 +21,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_71A9DC694E5E41BA9E731FD8814D4F7C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_8FBF2DB0D90045DF9123CE72616316AD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -122,6 +128,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_71A9DC694E5E41BA9E731FD8814D4F7C"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Downloads\\aiSCicon.ico"
+            "TargetName" = "8:aiSCicon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_35846792C2D540ABAD4335AD3079DB77"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8FBF2DB0D90045DF9123CE72616316AD"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Downloads\\racing_helmet_icon_135270.ico"
@@ -198,15 +224,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AiSeasonCreatorSetup"
-        "ProductCode" = "8:{F2F36911-0CC6-4092-9734-D143EEBB921F}"
-        "PackageCode" = "8:{ACB4C2B1-2377-4B61-9D75-26505F5A7F8A}"
+        "ProductCode" = "8:{AA345292-911A-46A6-95AD-6490F639774A}"
+        "PackageCode" = "8:{E9F3FBDB-7695-4DC8-BFBD-1501BB09C455}"
         "UpgradeCode" = "8:{9FD9925F-28BE-4257-869A-68FD3C962274}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:23.2.2"
+        "ProductVersion" = "8:23.4.0"
         "Manufacturer" = "8:Sage SRS"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -330,7 +356,7 @@
             "Target" = "8:_14AAB8F96D8242C790D6EB69641E8F3E"
             "Folder" = "8:_92C57AE1A84A410EB5006DB4A526320B"
             "WorkingFolder" = "8:_35846792C2D540ABAD4335AD3079DB77"
-            "Icon" = "8:_8FBF2DB0D90045DF9123CE72616316AD"
+            "Icon" = "8:_71A9DC694E5E41BA9E731FD8814D4F7C"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B76D9025DE84442582B017A209E5DDFB"
@@ -344,7 +370,7 @@
             "Target" = "8:_14AAB8F96D8242C790D6EB69641E8F3E"
             "Folder" = "8:_0D7D4739843A4863849DD453973CF4B3"
             "WorkingFolder" = "8:_35846792C2D540ABAD4335AD3079DB77"
-            "Icon" = "8:_8FBF2DB0D90045DF9123CE72616316AD"
+            "Icon" = "8:_71A9DC694E5E41BA9E731FD8814D4F7C"
             "Feature" = "8:"
             }
         }
@@ -748,7 +774,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_14AAB8F96D8242C790D6EB69641E8F3E"
             {
-            "SourcePath" = "8:..\\AiSeasonCreator\\obj\\Release\\net6.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\AiSeasonCreator\\obj\\Debug\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_35846792C2D540ABAD4335AD3079DB77"

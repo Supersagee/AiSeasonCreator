@@ -73,5 +73,10 @@ namespace AiSeasonCreator
 
             Close();
         }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

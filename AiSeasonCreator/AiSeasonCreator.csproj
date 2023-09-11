@@ -5,13 +5,14 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>23.3.2</Version>
-    <AssemblyVersion>23.3.2.0</AssemblyVersion>
-    <FileVersion>23.3.2.0</FileVersion>
+    <Version>23.4.0</Version>
+    <AssemblyVersion>23.4.0.0</AssemblyVersion>
+    <FileVersion>23.4.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="ReaLTaiizor" Version="3.7.9.5" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,10 +37,22 @@
     <None Update="JsonFiles\carsJson.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="JsonFiles\seasonScheduleJson.json">
+    <None Update="JsonFiles\Schedules\2023 - Season 2.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="JsonFiles\seriesListJson.json">
+    <None Update="JsonFiles\Schedules\2023 - Season 3.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="JsonFiles\Schedules\2023 - Season 4.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="JsonFiles\SeriesDetails\23s2_series.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="JsonFiles\SeriesDetails\23s3_series.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="JsonFiles\SeriesDetails\23s4_series.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\tracksJson.json">

@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Text.Json;
-using System.Collections.Generic;
-using System.Linq;
 using AiSeasonCreator.ScheduleClasses;
-using System.Reflection;
-using System.Diagnostics;
 using AiSeasonCreator.Roster;
 
 namespace AiSeasonCreator
@@ -82,22 +78,15 @@ namespace AiSeasonCreator
             var weather = new Weather();
             var ss = MainForm.FullSchedule[i].Schedules[j].Weather;
 
-            weather.Type = ss.Type;
             weather.TempUnits = ss.TempUnits;
-            weather.TempValue = ss.TempValue;
-            weather.RelHumidity = ss.RelHumidity;
             weather.Fog = ss.Fog;
-            weather.WindDir = ss.WindDir;
             weather.WindUnits = ss.WindUnits;
-            weather.WindValue = ss.WindValue;
             weather.Skies = ss.Skies;
-            weather.SimulatedStartTime = ss.SimulatedStartTime;
             weather.SimulatedTimeMultiplier = ss.SimulatedTimeMultiplier;
             weather.SimulatedTimeOffsets = ss.SimulatedTimeOffsets.ToList();
             weather.Version = ss.Version;
             weather.WeatherVarInitial = ss.WeatherVarInitial;
             weather.WeatherVarOngoing = ss.WeatherVarOngoing;
-            weather.TimeOfDay = ss.TimeOfDay;
 
             if (MainForm.ConsistentWeather)
             {
@@ -106,6 +95,25 @@ namespace AiSeasonCreator
                 weather.RelHumidity = 55;
                 weather.WindDir = 0;
                 weather.WindValue = 2;
+            }
+            else
+            {
+                weather.Type = ss.Type;
+                weather.TempValue = ss.TempValue;
+                weather.RelHumidity = ss.RelHumidity;
+                weather.WindDir = ss.WindDir;
+                weather.WindValue = ss.WindValue;
+            }
+
+            if (MainForm.AfternoonRaces)
+            {
+                weather.SimulatedStartTime = DateTime.Parse(ss.SimulatedStartTime.ToString("yyyy-MM-ddTHH:mm:ss").Substring(0, 11) + "14:00:00");
+                weather.TimeOfDay = 0;
+            }
+            else
+            {
+                weather.SimulatedStartTime = ss.SimulatedStartTime;
+                weather.TimeOfDay = ss.TimeOfDay;
             }
 
             return weather;
@@ -141,7 +149,8 @@ namespace AiSeasonCreator
                     loopEvent.TrackId = ss.Schedules[j].Track.TrackId;
                     loopEvent.NumOptLaps = 0;
                     loopEvent.PaceCar = CreatePaceCar(j);
-                    loopEvent.ShortParadeLap = false;
+                    loopEvent.ShortParadeLap = MainForm.ShortParade ? true : false;
+                    
                     loopEvent.MustUseDiffTireTypesInRace = ss.MustUseDiffTireTypesInRace;
 
                     if (MainForm.QualiAlone)
@@ -171,7 +180,7 @@ namespace AiSeasonCreator
                     loopEvent.Weather = CreateWeather(i, j);
                     loopEvent.StartZone = ss.Schedules[j].HasStartZone;
                     loopEvent.FullCourseCautions = ss.Schedules[j].HasFullCourseCautions;
-                    loopEvent.TimeOfDay = ss.Schedules[j].Weather.TimeOfDay;
+                    loopEvent.TimeOfDay = MainForm.AfternoonRaces ? 0 : ss.Schedules[j].Weather.TimeOfDay;
 
                     if (ss.Schedules[j].Track.TrackName.Contains("Combined") || ss.Schedules[j].Track.TrackName.Contains("Nordschleife"))
                     {
@@ -273,6 +282,102 @@ namespace AiSeasonCreator
             return paceCar;
         }
 
+        private static Drivers DriverAttributes(Drivers d, Random rand)
+        {
+            var min = MainForm.AiMin.Value;
+            var max = MainForm.AiMax.Value;
+            var total = ((min + max) / 2) * 2;
+
+            if (total < 50)
+            {
+                total = 50;
+            }
+
+            var a1 = 0;
+            var a2 = 0;
+            var a3 = 0;
+
+            var balance = rand.Next(3, 6);
+
+            for ( var i = 0; i < total; i++)
+            {
+                var choice = rand.Next(balance);
+
+                if (choice < 1)
+                {
+                    a1++;
+                }
+                else if (choice < 2)
+                {
+                    a2++;
+                }
+                else
+                {
+                    if (a3 > 99)
+                    {
+                        if (a1 > 99)
+                        {
+                            a2++;
+                            continue;
+                        }
+                        a1++;
+                        continue;
+                    }
+                    a3++;
+                }
+            }
+
+            var aos = new List<int>() { a1, a2, a3 };
+            aos = aos.OrderBy(x => rand.Next()).ToList();
+
+            d.DriverAggression = aos[0];
+            d.DriverOptimism = aos[1];
+            d.DriverSmoothness = aos[2];
+
+            //set pit skills
+            var psTotal = Convert.ToInt32(((min + max) / 2) * 1.33);
+            if (psTotal < 40)
+            {
+                psTotal = 40;
+            }
+            else if (psTotal > 160)
+            {
+                psTotal = 160;
+            }
+
+            var psBalance = rand.Next(3, 5);
+            var p1 = 0;
+            var p2 = 0;
+
+            for ( var i = 0; i < psTotal; i++)
+            {
+                var choice = rand.Next(balance);
+
+                if (choice < 2)
+                {
+                    if (p1 > 99) { p2++; continue; }
+                    p1++;
+                }
+                else
+                {
+                    if (p2 > 99) { p1++; continue; }
+                    p2++; 
+                }
+            }
+
+            var ps = new List<int>() { p1 , p2 };
+            ps = ps.OrderBy(x => rand.Next()).ToList();
+
+            d.PitCrewSkill = ps[0];
+            d.StrategyRiskiness = ps[1];
+
+            //set relative and age skills
+            d.DriverSkill = rand.Next(1, 101);
+            d.DriverAge = rand.Next(18, 70);
+
+            return d;
+        }
+
         public static void CreateRoster(List<int> carClassIds, int maxDrivers)
         {
             var names = new List<string>()
@@ -307,16 +412,18 @@ namespace AiSeasonCreator
             var drivers = new List<Drivers>();
             var carNum = 0;
 
+            var rand = new Random();
             var split = maxDrivers / carClassIds.Count;
 
             for (var i = 0; i < carClassIds.Count; i++)
             {
                 for (var j = 0; j < split; j++)
                 {   
-                    var num = new Random().Next(1, 20);
-                    var randIndex = new Random().Next(0, names.Count);
+                    var num = rand.Next(1, 20);
+                    var randIndex = rand.Next(0, names.Count);
                     var d = new Drivers();
 
+                    d.RowIndex = carNum;
                     carNum++;
                     d.DriverName = $"{names[randIndex]}";
                     var design = $"{num},{designs[randIndex]}";
@@ -336,7 +443,7 @@ namespace AiSeasonCreator
                             }
                             else
                             {
-                                var pickOne = new Random().Next(0, cc[k].CarsInClass.Length);
+                                var pickOne = rand.Next(0, cc[k].CarsInClass.Length);
                                 d.CarId = cc[k].CarsInClass[pickOne].CarId;
                                 d.CarPath = cc[k].CarsInClass[pickOne].CarDirpath;
                             }
@@ -353,11 +460,13 @@ namespace AiSeasonCreator
                     d.NumberDesign = "0,0,ffffff,AAAAAA,000000";
                     d.DisableCarDecals = false;
 
-                    var s1 = new Random().Next(2, 221);
-                    var s2 = new Random().Next(2, 221);
+                    var s1 = rand.Next(2, 221);
+                    var s2 = rand.Next(2, 221);
 
                     d.Sponsor1 = s1;
                     d.Sponsor2 = s2;
+
+                    d = DriverAttributes(d, rand);
 
                     drivers.Add(d);
                 }
@@ -459,25 +568,30 @@ namespace AiSeasonCreator
             {
                 s.AiCarClassId = c.CarClassIds[0];
                 s.AiCarClassIds = new List<int>();
-                s.UserCarClassId = null;
+                s.UserCarClassId = c.CarClassIds[0];
             }
             else
             {
                 s.AiCarClassId = null;
                 s.AiCarClassIds = CarClassIds;
 
-                var matchingCarClass = carClasses.FirstOrDefault(cc => s.AiCarClassIds.Contains(cc.CarClassId));
-                if (matchingCarClass != null)
+                for (var j = 0; j < carClasses.Length; j++)
                 {
-                    var userCarInClass = matchingCarClass.CarsInClass.FirstOrDefault(car => car.CarId == s.CarId);
-                    if (userCarInClass != null)
+                    for (var k = 0; k < s.AiCarClassIds.Count; k++)
                     {
-                        s.UserCarClassId = matchingCarClass.CarClassId;
+                        if (s.AiCarClassIds[k] == carClasses[j].CarClassId)
+                        {
+                            for (var n = 0; n < carClasses[j].CarsInClass.Length; n++)
+                            {
+                                if (carClasses[j].CarsInClass[n].CarId == s.CarId)
+                                {
+                                    s.UserCarClassId = carClasses[j].CarClassId;
+                                }
+                            }
+                        }
                     }
                 }
             }
-
-            var carIds = new List<int>();
 
             if (CarSettingsList.Any())
             {
@@ -492,19 +606,11 @@ namespace AiSeasonCreator
                     carSettings.MaxPctFuelFill = 100;
                     carSettings.MaxDryTireSets = 0;
                     CarSettingsList.Add(carSettings);
-                    carIds.Add(id);
                 }
                 s.CarSettings = CarSettingsList;
             }
-                    
-            if (MainForm.DisableDamage)
-            {
-                s.DamageModel = 3;
-            }
-            else
-            {
-                s.DamageModel = 0;
-            }
+
+            s.DamageModel = MainForm.DisableDamage ? 3 : 0;
 
             s.TrackState = CreateTrackState();
             s.TimeOfDay = 0;
@@ -568,17 +674,10 @@ namespace AiSeasonCreator
                 s.RollingStarts = false;
             }
 
-            if (s.AiCarClassIds.Any())
-            {
-                s.RosterName = MainForm.SeasonName;
-                CreateRoster(CarClassIds, s.MaxDrivers);
-            }
-            else
-            {
-                s.RosterName = null;
-            }
+            s.RosterName = MainForm.SeasonName;
+            CreateRoster(CarClassIds, s.MaxDrivers);
 
-            s.ShortParadeLap = c.Schedules[0].HasShortParadeLap;
+            s.ShortParadeLap = MainForm.ShortParade ? true : false;
             s.NoLapperWaveArounds = false;
             s.DoNotCountCautionLaps = c.CautionLapsDoNotCount;
             s.Subsessions = new List<int> { 3, 5, 6 };
@@ -590,7 +689,6 @@ namespace AiSeasonCreator
                   
             return s;
         }
-
     }
 }
  

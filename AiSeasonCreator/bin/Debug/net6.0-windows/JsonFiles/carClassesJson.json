@@ -98,20 +98,6 @@
     "short_name": "Rookie Solstice"
   },
   {
-    "car_class_id": 14,
-    "cars_in_class": [
-      {
-        "car_dirpath": "latemodel",
-        "car_id": 12,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "Monte Carlo SS",
-    "relative_speed": 50,
-    "short_name": "Late Model"
-  },
-  {
     "car_class_id": 15,
     "cars_in_class": [
       {
@@ -180,6 +166,20 @@
     "name": "Impala SS Class A",
     "relative_speed": 80,
     "short_name": "Cup"
+  },
+  {
+    "car_class_id": 22,
+    "cars_in_class": [
+      {
+        "car_dirpath": "lotus79",
+        "car_id": 25,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Lotus 79",
+    "relative_speed": 125,
+    "short_name": "Lotus 79"
   },
   {
     "car_class_id": 0,
@@ -908,26 +908,37 @@
         "car_dirpath": "porsche992rgt3",
         "car_id": 169,
         "retired": false
+      },
+      {
+        "car_dirpath": "acuraarx06gtp",
+        "car_id": 170,
+        "retired": false
+      },
+      {
+        "car_dirpath": "superformulasf23\\toyota",
+        "car_id": 171,
+        "retired": false
+      },
+      {
+        "car_dirpath": "ferrari296gt3",
+        "car_id": 173,
+        "retired": false
+      },
+      {
+        "car_dirpath": "porsche963gtp",
+        "car_id": 174,
+        "retired": false
+      },
+      {
+        "car_dirpath": "stockcars\\pontiacgrandprix87",
+        "car_id": 175,
+        "retired": false
       }
     ],
     "cust_id": 0,
     "name": "Hosted All Cars Class",
     "relative_speed": 100,
     "short_name": "Hosted All Cars"
-  },
-  {
-    "car_class_id": 22,
-    "cars_in_class": [
-      {
-        "car_dirpath": "lotus79",
-        "car_id": 25,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "Lotus 79",
-    "relative_speed": 125,
-    "short_name": "Lotus 79"
   },
   {
     "car_class_id": 23,
@@ -2411,30 +2422,6 @@
     "short_name": "Pro 2 Lite Truck"
   },
   {
-    "car_class_id": 1455,
-    "cars_in_class": [
-      {
-        "car_dirpath": "stockcars2\\camaro2019",
-        "car_id": 114,
-        "retired": false
-      },
-      {
-        "car_dirpath": "stockcars2\\mustang2019",
-        "car_id": 115,
-        "retired": false
-      },
-      {
-        "car_dirpath": "stockcars2\\supra2019",
-        "car_id": 116,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "XFINITY Series",
-    "relative_speed": 65,
-    "short_name": "XFINITY Series"
-  },
-  {
     "car_class_id": 71,
     "cars_in_class": [
       {
@@ -2585,55 +2572,6 @@
     "name": "[Legacy] GT3 Nurb",
     "relative_speed": 52,
     "short_name": "[L] GT3 Nurb"
-  },
-  {
-    "car_class_id": 2708,
-    "cars_in_class": [
-      {
-        "car_dirpath": "ferrarievogt3",
-        "car_id": 144,
-        "retired": false
-      },
-      {
-        "car_dirpath": "bmwm4gt3",
-        "car_id": 132,
-        "retired": false
-      },
-      {
-        "car_dirpath": "lamborghinievogt3",
-        "car_id": 133,
-        "retired": false
-      },
-      {
-        "car_dirpath": "audir8gt3",
-        "car_id": 73,
-        "retired": false
-      },
-      {
-        "car_dirpath": "porsche992rgt3",
-        "car_id": 169,
-        "retired": false
-      },
-      {
-        "car_dirpath": "mclarenmp4",
-        "car_id": 43,
-        "retired": false
-      },
-      {
-        "car_dirpath": "fordgt\\gt3",
-        "car_id": 59,
-        "retired": false
-      },
-      {
-        "car_dirpath": "mercedesamgevogt3",
-        "car_id": 156,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "GT3 Class",
-    "relative_speed": 52,
-    "short_name": "GT3 Class"
   },
   {
     "car_class_id": 2709,
@@ -2798,58 +2736,6 @@
     "short_name": "GT4 Class"
   },
   {
-    "car_class_id": 2269,
-    "cars_in_class": [
-      {
-        "car_dirpath": "stockcars\\buicklesabre87",
-        "car_id": 154,
-        "retired": false
-      },
-      {
-        "car_dirpath": "stockcars\\chevymontecarlo87",
-        "car_id": 124,
-        "retired": false
-      },
-      {
-        "car_dirpath": "stockcars\\fordthunderbird87",
-        "car_id": 125,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "NASCAR Classic 1987",
-    "relative_speed": 52,
-    "short_name": "NASCAR 1987"
-  },
-  {
-    "car_class_id": 2270,
-    "cars_in_class": [
-      {
-        "car_dirpath": "stockcars\\chevymontecarlo87",
-        "car_id": 124,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "NASCAR Chevrolet Monte Carlo - 1987",
-    "relative_speed": 50,
-    "short_name": "1987 Monte Carlo"
-  },
-  {
-    "car_class_id": 2271,
-    "cars_in_class": [
-      {
-        "car_dirpath": "stockcars\\fordthunderbird87",
-        "car_id": 125,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "NASCAR Ford Thunderbird - 1987",
-    "relative_speed": 50,
-    "short_name": "1987 Ford T-bird"
-  },
-  {
     "car_class_id": 4018,
     "cars_in_class": [
       {
@@ -2890,39 +2776,6 @@
     "name": "Porsche 911 GT3 R (992)",
     "relative_speed": 52,
     "short_name": "Porsche 992GT3R"
-  },
-  {
-    "car_class_id": 4029,
-    "cars_in_class": [
-      {
-        "car_dirpath": "cadillacvseriesrgtp",
-        "car_id": 168,
-        "retired": false
-      },
-      {
-        "car_dirpath": "bmwlmdh",
-        "car_id": 159,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "GTP",
-    "relative_speed": 179,
-    "short_name": "GTP"
-  },
-  {
-    "car_class_id": 4035,
-    "cars_in_class": [
-      {
-        "car_dirpath": "hyundaielantracn7",
-        "car_id": 146,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "Ring Meister 2023",
-    "relative_speed": 52,
-    "short_name": "RingMeister23"
   },
   {
     "car_class_id": 2522,
@@ -3507,20 +3360,6 @@
     "short_name": "Veloster N TC"
   },
   {
-    "car_class_id": 3243,
-    "cars_in_class": [
-      {
-        "car_dirpath": "stockcars\\buicklesabre87",
-        "car_id": 154,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "NASCAR Buick LeSabre 1987",
-    "relative_speed": 50,
-    "short_name": "Buick LeSabre 87"
-  },
-  {
     "car_class_id": 3244,
     "cars_in_class": [
       {
@@ -3552,30 +3391,6 @@
     "name": "Stock Car Brasil",
     "relative_speed": 65,
     "short_name": "Stock Car Brasil"
-  },
-  {
-    "car_class_id": 3256,
-    "cars_in_class": [
-      {
-        "car_dirpath": "amvantagegt4",
-        "car_id": 150,
-        "retired": false
-      },
-      {
-        "car_dirpath": "porsche718gt4",
-        "car_id": 119,
-        "retired": false
-      },
-      {
-        "car_dirpath": "bmwm4gt4",
-        "car_id": 122,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "Crev22",
-    "relative_speed": 49,
-    "short_name": "Crev22"
   },
   {
     "car_class_id": 3283,
@@ -3767,6 +3582,34 @@
     "short_name": "Gen 4 Cup"
   },
   {
+    "car_class_id": 4039,
+    "cars_in_class": [
+      {
+        "car_dirpath": "streetstock",
+        "car_id": 36,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Ring Meister 2023S4",
+    "relative_speed": 56,
+    "short_name": "RingMeister23S4"
+  },
+  {
+    "car_class_id": 4040,
+    "cars_in_class": [
+      {
+        "car_dirpath": "stockcars\\fordthunderbird87",
+        "car_id": 125,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Draft Master 2023S4",
+    "relative_speed": 52,
+    "short_name": "DraftMaster23S4"
+  },
+  {
     "car_class_id": 4010,
     "cars_in_class": [
       {
@@ -3809,45 +3652,6 @@
     "short_name": "Mercedes-AMG W13"
   },
   {
-    "car_class_id": 4011,
-    "cars_in_class": [
-      {
-        "car_dirpath": "ferrarievogt3",
-        "car_id": 144,
-        "retired": false
-      },
-      {
-        "car_dirpath": "bmwm4gt3",
-        "car_id": 132,
-        "retired": false
-      },
-      {
-        "car_dirpath": "lamborghinievogt3",
-        "car_id": 133,
-        "retired": false
-      },
-      {
-        "car_dirpath": "audir8gt3",
-        "car_id": 73,
-        "retired": false
-      },
-      {
-        "car_dirpath": "porsche992rgt3",
-        "car_id": 169,
-        "retired": false
-      },
-      {
-        "car_dirpath": "mercedesamgevogt3",
-        "car_id": 156,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "IMSA23",
-    "relative_speed": 52,
-    "short_name": "IMSA23"
-  },
-  {
     "car_class_id": 26,
     "cars_in_class": [
       {
@@ -3860,6 +3664,35 @@
     "name": "[Legacy] Dallara IR-05",
     "relative_speed": 150,
     "short_name": "[L] DallaraIR05"
+  },
+  {
+    "car_class_id": 2269,
+    "cars_in_class": [
+      {
+        "car_dirpath": "stockcars\\buicklesabre87",
+        "car_id": 154,
+        "retired": false
+      },
+      {
+        "car_dirpath": "stockcars\\chevymontecarlo87",
+        "car_id": 124,
+        "retired": false
+      },
+      {
+        "car_dirpath": "stockcars\\fordthunderbird87",
+        "car_id": 125,
+        "retired": false
+      },
+      {
+        "car_dirpath": "stockcars\\pontiacgrandprix87",
+        "car_id": 175,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "NASCAR Legends 1987",
+    "relative_speed": 52,
+    "short_name": "NASCAR 1987"
   },
   {
     "car_class_id": 4014,
@@ -3884,6 +3717,34 @@
     "name": "RoarTouringCar",
     "relative_speed": 45,
     "short_name": "RoarTouringCar"
+  },
+  {
+    "car_class_id": 2270,
+    "cars_in_class": [
+      {
+        "car_dirpath": "stockcars\\chevymontecarlo87",
+        "car_id": 124,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "NASCAR Legends Chevrolet Monte Carlo - 1987",
+    "relative_speed": 50,
+    "short_name": "1987 Monte Carlo"
+  },
+  {
+    "car_class_id": 2271,
+    "cars_in_class": [
+      {
+        "car_dirpath": "stockcars\\fordthunderbird87",
+        "car_id": 125,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "NASCAR Legends Ford Thunderbird - 1987",
+    "relative_speed": 50,
+    "short_name": "1987 Ford T-bird"
   },
   {
     "car_class_id": 20,
@@ -3961,30 +3822,6 @@
     "short_name": "Late Model Stock"
   },
   {
-    "car_class_id": 4022,
-    "cars_in_class": [
-      {
-        "car_dirpath": "bmwm4gt3",
-        "car_id": 132,
-        "retired": false
-      },
-      {
-        "car_dirpath": "porsche992rgt3",
-        "car_id": 169,
-        "retired": false
-      },
-      {
-        "car_dirpath": "mercedesamgevogt3",
-        "car_id": 156,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "NECGT323",
-    "relative_speed": 52,
-    "short_name": "NECGT323"
-  },
-  {
     "car_class_id": 21,
     "cars_in_class": [
       {
@@ -4040,5 +3877,344 @@
     "name": "USAC Sprint",
     "relative_speed": 75,
     "short_name": "USAC Sprint"
+  },
+  {
+    "car_class_id": 2708,
+    "cars_in_class": [
+      {
+        "car_dirpath": "bmwm4gt3",
+        "car_id": 132,
+        "retired": false
+      },
+      {
+        "car_dirpath": "lamborghinievogt3",
+        "car_id": 133,
+        "retired": false
+      },
+      {
+        "car_dirpath": "audir8gt3",
+        "car_id": 73,
+        "retired": false
+      },
+      {
+        "car_dirpath": "porsche992rgt3",
+        "car_id": 169,
+        "retired": false
+      },
+      {
+        "car_dirpath": "mclarenmp4",
+        "car_id": 43,
+        "retired": false
+      },
+      {
+        "car_dirpath": "fordgt\\gt3",
+        "car_id": 59,
+        "retired": false
+      },
+      {
+        "car_dirpath": "mercedesamgevogt3",
+        "car_id": 156,
+        "retired": false
+      },
+      {
+        "car_dirpath": "ferrari296gt3",
+        "car_id": 173,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "GT3 Class",
+    "relative_speed": 52,
+    "short_name": "GT3 Class"
+  },
+  {
+    "car_class_id": 4011,
+    "cars_in_class": [
+      {
+        "car_dirpath": "bmwm4gt3",
+        "car_id": 132,
+        "retired": false
+      },
+      {
+        "car_dirpath": "lamborghinievogt3",
+        "car_id": 133,
+        "retired": false
+      },
+      {
+        "car_dirpath": "audir8gt3",
+        "car_id": 73,
+        "retired": false
+      },
+      {
+        "car_dirpath": "porsche992rgt3",
+        "car_id": 169,
+        "retired": false
+      },
+      {
+        "car_dirpath": "mercedesamgevogt3",
+        "car_id": 156,
+        "retired": false
+      },
+      {
+        "car_dirpath": "ferrari296gt3",
+        "car_id": 173,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "IMSA23",
+    "relative_speed": 52,
+    "short_name": "IMSA23"
+  },
+  {
+    "car_class_id": 4022,
+    "cars_in_class": [
+      {
+        "car_dirpath": "bmwm4gt3",
+        "car_id": 132,
+        "retired": false
+      },
+      {
+        "car_dirpath": "porsche992rgt3",
+        "car_id": 169,
+        "retired": false
+      },
+      {
+        "car_dirpath": "mercedesamgevogt3",
+        "car_id": 156,
+        "retired": false
+      },
+      {
+        "car_dirpath": "ferrari296gt3",
+        "car_id": 173,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "NECGT323",
+    "relative_speed": 52,
+    "short_name": "NECGT323"
+  },
+  {
+    "car_class_id": 4029,
+    "cars_in_class": [
+      {
+        "car_dirpath": "cadillacvseriesrgtp",
+        "car_id": 168,
+        "retired": false
+      },
+      {
+        "car_dirpath": "acuraarx06gtp",
+        "car_id": 170,
+        "retired": false
+      },
+      {
+        "car_dirpath": "porsche963gtp",
+        "car_id": 174,
+        "retired": false
+      },
+      {
+        "car_dirpath": "bmwlmdh",
+        "car_id": 159,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "GTP",
+    "relative_speed": 179,
+    "short_name": "GTP"
+  },
+  {
+    "car_class_id": 4031,
+    "cars_in_class": [
+      {
+        "car_dirpath": "acuraarx06gtp",
+        "car_id": 170,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Acura ARX-06 GTP",
+    "relative_speed": 165,
+    "short_name": "Acura ARX-06 GTP"
+  },
+  {
+    "car_class_id": 4032,
+    "cars_in_class": [
+      {
+        "car_dirpath": "superformulasf23\\toyota",
+        "car_id": 171,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Super Formula SF23",
+    "relative_speed": 160,
+    "short_name": "Super SF23"
+  },
+  {
+    "car_class_id": 4033,
+    "cars_in_class": [
+      {
+        "car_dirpath": "superformulasf23\\toyota",
+        "car_id": 171,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Super Formula SF23 - Toyota",
+    "relative_speed": 160,
+    "short_name": "Super SF23T"
+  },
+  {
+    "car_class_id": 4036,
+    "cars_in_class": [
+      {
+        "car_dirpath": "ferrari296gt3",
+        "car_id": 173,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Ferrari 296 GT3",
+    "relative_speed": 52,
+    "short_name": "Ferrari 296 GT3"
+  },
+  {
+    "car_class_id": 4037,
+    "cars_in_class": [
+      {
+        "car_dirpath": "porsche963gtp",
+        "car_id": 174,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Porsche 963 GTP",
+    "relative_speed": 165,
+    "short_name": "Porsche 963 GTP"
+  },
+  {
+    "car_class_id": 4038,
+    "cars_in_class": [
+      {
+        "car_dirpath": "stockcars\\pontiacgrandprix87",
+        "car_id": 175,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "NASCAR Legends Pontiac Grand Prix - 1987",
+    "relative_speed": 50,
+    "short_name": "Pontiac GP 1987"
+  },
+  {
+    "car_class_id": 3243,
+    "cars_in_class": [
+      {
+        "car_dirpath": "stockcars\\buicklesabre87",
+        "car_id": 154,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "NASCAR Legends Buick LeSabre 1987",
+    "relative_speed": 50,
+    "short_name": "Buick LeSabre 87"
+  },
+  {
+    "car_class_id": 4043,
+    "cars_in_class": [
+      {
+        "car_dirpath": "renaultcliocup",
+        "car_id": 162,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "French Connection 2023 S4",
+    "relative_speed": 50,
+    "short_name": "French Co 2023S4"
+  },
+  {
+    "car_class_id": 4042,
+    "cars_in_class": [
+      {
+        "car_dirpath": "fr500s",
+        "car_id": 30,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Shiny New Shakedown 2023 S4",
+    "relative_speed": 50,
+    "short_name": "Shiny 2023S4"
+  },
+  {
+    "car_class_id": 4044,
+    "cars_in_class": [
+      {
+        "car_dirpath": "streetstock",
+        "car_id": 36,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Shake Up 2023 S4",
+    "relative_speed": 50,
+    "short_name": "Shake Up 2023S4"
+  },
+  {
+    "car_class_id": 14,
+    "cars_in_class": [
+      {
+        "car_dirpath": "latemodel",
+        "car_id": 12,
+        "retired": true
+      }
+    ],
+    "cust_id": 0,
+    "name": "[Retired] Monte Carlo SS",
+    "relative_speed": 50,
+    "short_name": "[R] Late Model"
+  },
+  {
+    "car_class_id": 1455,
+    "cars_in_class": [
+      {
+        "car_dirpath": "stockcars2\\camaro2019",
+        "car_id": 114,
+        "retired": false
+      },
+      {
+        "car_dirpath": "stockcars2\\nwford2013",
+        "car_id": 51,
+        "retired": false
+      },
+      {
+        "car_dirpath": "stockcars2\\mustang2019",
+        "car_id": 115,
+        "retired": false
+      },
+      {
+        "car_dirpath": "stockcars2\\supra2019",
+        "car_id": 116,
+        "retired": false
+      },
+      {
+        "car_dirpath": "stockcars2\\camry2015",
+        "car_id": 69,
+        "retired": false
+      },
+      {
+        "car_dirpath": "stockcars2\\nwcamaro2014",
+        "car_id": 58,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "XFINITY Series",
+    "relative_speed": 65,
+    "short_name": "XFINITY Series"
   }
 ]

@@ -3086,7 +3086,7 @@
     "sku": 10406
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_number_colors": true,
     "allow_number_font": true,
     "allow_sponsor1": true,
@@ -3151,7 +3151,7 @@
     "sku": 10410
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_number_colors": true,
     "allow_number_font": true,
     "allow_sponsor1": true,
@@ -5782,7 +5782,7 @@
     "car_id": 124,
     "car_make": "Chevrolet",
     "car_model": "Monte Carlo",
-    "car_name": "NASCAR Chevrolet Monte Carlo - 1987",
+    "car_name": "NASCAR Legends Chevrolet Monte Carlo - 1987",
     "car_name_abbreviated": "C87",
     "car_types": [
       {
@@ -5849,7 +5849,7 @@
     "car_id": 125,
     "car_make": "Ford",
     "car_model": "Thunderbird",
-    "car_name": "NASCAR Ford Thunderbird - 1987",
+    "car_name": "NASCAR Legends Ford Thunderbird - 1987",
     "car_name_abbreviated": "F87",
     "car_types": [
       {
@@ -7729,7 +7729,7 @@
     "car_id": 154,
     "car_make": "Buick",
     "car_model": "LeSabre",
-    "car_name": "NASCAR Buick LeSabre - 1987",
+    "car_name": "NASCAR Legends Buick LeSabre - 1987",
     "car_name_abbreviated": "B87",
     "car_types": [
       {
@@ -8118,6 +8118,15 @@
         "car_type": "gtp"
       },
       {
+        "car_type": "gtp"
+      },
+      {
+        "car_type": "lmdh"
+      },
+      {
+        "car_type": "prototype"
+      },
+      {
         "car_type": "road"
       },
       {
@@ -8129,7 +8138,7 @@
       "road"
     ],
     "created": "2022-08-11T07:49:48Z",
-    "first_sale": "2022-12-06T15:47:01Z",
+    "first_sale": "2022-12-06T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/bmw-m-hybrid-v8",
     "free_with_subscription": false,
     "has_headlights": true,
@@ -8163,7 +8172,7 @@
     "price": 11.95,
     "price_display": "$11.95",
     "retired": false,
-    "search_filters": "road,sportscar,gtp",
+    "search_filters": "road,sportscar,gtp,prototype,lmdh,gtp",
     "site_url": "https://www.bmw-motorsport.com/en/home.html",
     "sku": 10543
   },
@@ -8194,7 +8203,7 @@
       "road"
     ],
     "created": "2022-10-13T15:10:11Z",
-    "first_sale": "2022-12-06T15:47:01Z",
+    "first_sale": "2022-12-06T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/toyota-gr86",
     "free_with_subscription": true,
     "has_headlights": true,
@@ -8271,7 +8280,7 @@
       "road"
     ],
     "created": "2022-10-20T11:21:59Z",
-    "first_sale": "2022-12-06T15:47:01Z",
+    "first_sale": "2022-12-06T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/mercedes-amg-w13-e-performance",
     "free_with_subscription": false,
     "has_headlights": false,
@@ -8750,7 +8759,7 @@
     "sku": 10552
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_number_colors": true,
     "allow_number_font": true,
     "allow_sponsor1": true,
@@ -8815,6 +8824,12 @@
     "car_name": "Cadillac V-Series.R GTP",
     "car_name_abbreviated": "CGTP",
     "car_types": [
+      {
+        "car_type": "gtp"
+      },
+      {
+        "car_type": "lmdh"
+      },
       {
         "car_type": "prototype"
       },
@@ -8904,7 +8919,7 @@
     "price": 11.95,
     "price_display": "$11.95",
     "retired": false,
-    "search_filters": "road,sportscar,prototype",
+    "search_filters": "road,sportscar,prototype,lmdh,gtp",
     "sku": 10554
   },
   {
@@ -8964,5 +8979,332 @@
     "retired": false,
     "search_filters": "road,sportscar",
     "sku": 10555
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "acuraarx06gtp",
+    "car_id": 170,
+    "car_make": "Acura",
+    "car_model": "ARX-06 GTP",
+    "car_name": "Acura ARX-06 GTP",
+    "car_name_abbreviated": "AGTP",
+    "car_types": [
+      {
+        "car_type": "gtp"
+      },
+      {
+        "car_type": "lmdh"
+      },
+      {
+        "car_type": "road"
+      }
+    ],
+    "car_weight": 2447,
+    "categories": [
+      "road"
+    ],
+    "created": "2023-05-11T13:20:13Z",
+    "first_sale": "2023-09-06T00:00:00Z",
+    "forum_url": "https://forums.iracing.com/categories/acura-arx-06-gtp",
+    "free_with_subscription": false,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "hp": 665,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 442,
+    "paint_rules": {
+      "1": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+      },
+      "2": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+      }
+    },
+    "patterns": 24,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "retired": false,
+    "search_filters": "road,gtp,lmdh",
+    "sku": 10558
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "superformulasf23\\toyota",
+    "car_id": 171,
+    "car_make": "Dallara",
+    "car_model": "Super Formula SF23 - Toyota",
+    "car_name": "Super Formula SF23 - Toyota",
+    "car_name_abbreviated": "SF23T",
+    "car_types": [
+      {
+        "car_type": "road"
+      }
+    ],
+    "car_weight": 1322,
+    "categories": [
+      "road"
+    ],
+    "created": "2023-05-11T13:31:59Z",
+    "first_sale": "2023-09-06T00:00:00Z",
+    "forum_url": "https://forums.iracing.com/categories/super-formula-sf23-toyota",
+    "free_with_subscription": false,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "hp": 570,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 444,
+    "paint_rules": {
+      "1": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+      }
+    },
+    "patterns": 24,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "retired": false,
+    "search_filters": "road",
+    "sku": 10559
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": false,
+    "allow_sponsor2": false,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "ferrari296gt3",
+    "car_id": 173,
+    "car_make": "Ferrari",
+    "car_model": "Ferrari 296 GT3",
+    "car_name": "Ferrari 296 GT3",
+    "car_name_abbreviated": "F296",
+    "car_types": [
+      {
+        "car_type": "gt3"
+      },
+      {
+        "car_type": "road"
+      },
+      {
+        "car_type": "sportscar"
+      }
+    ],
+    "car_weight": 2978,
+    "categories": [
+      "road"
+    ],
+    "created": "2023-06-16T13:56:17Z",
+    "first_sale": "2023-09-06T00:00:00Z",
+    "forum_url": "https://forums.iracing.com/categories/Ferrari296GT3",
+    "free_with_subscription": false,
+    "has_headlights": true,
+    "has_multiple_dry_tire_types": false,
+    "hp": 524,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 449,
+    "paint_rules": {
+      "1": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+      },
+      "2": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+      }
+    },
+    "patterns": 24,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "retired": false,
+    "search_filters": "road,sportscar,gt3",
+    "sku": 10563
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "porsche963gtp",
+    "car_id": 174,
+    "car_make": "Porsche",
+    "car_model": "Porsche 963 GTP",
+    "car_name": "Porsche 963 GTP",
+    "car_name_abbreviated": "PGTP",
+    "car_types": [
+      {
+        "car_type": "gtp"
+      },
+      {
+        "car_type": "lmdh"
+      },
+      {
+        "car_type": "road"
+      }
+    ],
+    "car_weight": 2469,
+    "categories": [
+      "road"
+    ],
+    "created": "2023-07-12T10:45:55Z",
+    "first_sale": "2023-09-06T00:00:00Z",
+    "forum_url": "https://forums.iracing.com/categories/porsche-963-gtp",
+    "free_with_subscription": false,
+    "has_headlights": true,
+    "has_multiple_dry_tire_types": false,
+    "hp": 665,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 451,
+    "paint_rules": {
+      "1": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+      },
+      "2": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+      },
+      "3": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+      }
+    },
+    "patterns": 24,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "retired": false,
+    "search_filters": "road,gtp,lmdh",
+    "sku": 10564
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "stockcars\\pontiacgrandprix87",
+    "car_id": 175,
+    "car_make": "Pontiac",
+    "car_model": "NASCAR Legends Pontiac Grand Prix - 1987",
+    "car_name": "NASCAR Legends Pontiac Grand Prix - 1987",
+    "car_name_abbreviated": "P87",
+    "car_types": [
+      {
+        "car_type": "nascar"
+      },
+      {
+        "car_type": "road"
+      }
+    ],
+    "car_weight": 3700,
+    "categories": [
+      "road"
+    ],
+    "created": "2023-08-07T09:58:03Z",
+    "first_sale": "2023-09-06T00:00:00Z",
+    "forum_url": "https://forums.iracing.com/categories/87Cars",
+    "free_with_subscription": false,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "hp": 650,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 454,
+    "patterns": 24,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "retired": false,
+    "search_filters": "road,nascar",
+    "sku": 10566
   }
 ]

@@ -25,10 +25,7 @@ namespace AiSeasonCreator
             string releaseName = _latestReleaseInfo["name"].ToString();
             string releaseNotes = _latestReleaseInfo["body"].ToString();
 
-            // Set the form's title
-            this.Text = $"Update Available: {releaseName}";
-
-            // Set the TextBox content
+            updateLabel.Text = $"Update Available: {releaseName}";
             releaseNotesTextBox.Text = releaseNotes;
         }
 

@@ -1,6 +1,5 @@
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\carClassesJson.json
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\carsJson.json
-C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\seriesListJson.json
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\tracksJson.json
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\AiSeasonCreator.exe
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\AiSeasonCreator.deps.json
@@ -21,9 +20,14 @@ C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-win
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.pdb
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.genruntimeconfig.cache
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\ref\AiSeasonCreator.dll
-C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.AboutForm.resources
-C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.SettingsForm.resources
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.UpdateForm.resources
-C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\seasonScheduleJson.json
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.TrackSelectionForm.resources
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.Properties.Resources.resources
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\SeriesDetails\23s3_series.json
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\Schedules\2023 - Season 2.json
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\SeriesDetails\23s2_series.json
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\Schedules\2023 - Season 3.json
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\ReaLTaiizor.dll
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.CompletionForm.resources
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\Schedules\2023 - Season 4.json
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\SeriesDetails\23s4_series.json

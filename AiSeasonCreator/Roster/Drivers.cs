@@ -35,5 +35,21 @@ namespace AiSeasonCreator.Roster
         public int Sponsor1 { get; set; }
         [JsonPropertyName("sponsor2")]
         public int Sponsor2 { get; set; }
+        [JsonPropertyName("rowIndex")]
+        public int RowIndex { get; set; }
+        [JsonPropertyName("driverSkill")]
+        public int DriverSkill { get; set; }
+        [JsonPropertyName("driverAggression")]
+        public int DriverAggression { get; set; }
+        [JsonPropertyName("driverOptimism")]
+        public int DriverOptimism { get; set; }
+        [JsonPropertyName("driverSmoothness")]
+        public int DriverSmoothness { get; set; }
+        [JsonPropertyName("pitCrewSkill")]
+        public int PitCrewSkill { get; set; }
+        [JsonPropertyName("strategyRiskiness")]
+        public int StrategyRiskiness { get; set; }
+        [JsonPropertyName("driverAge")]
+        public int DriverAge { get; set; }
     }
 }

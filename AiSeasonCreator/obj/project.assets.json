@@ -14,6 +14,22 @@
             "related": ".xml"
           }
         }
+      },
+      "ReaLTaiizor/3.7.9.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-windows7.0/ReaLTaiizor.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/ReaLTaiizor.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
       }
     }
   },
@@ -47,11 +63,38 @@
         "newtonsoft.json.nuspec",
         "packageIcon.png"
       ]
+    },
+    "ReaLTaiizor/3.7.9.5": {
+      "sha512": "E8UUOqL4jmc7KLbdvesCNKNpeNyn7gVNTDz/8n4dyuArxV+seHleEFeRWiBz+W+obFO7CdUtaVZOhxwlU/59NQ==",
+      "type": "package",
+      "path": "realtaiizor/3.7.9.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.MD",
+        "Taiizor.png",
+        "lib/net48/ReaLTaiizor.dll",
+        "lib/net48/ReaLTaiizor.xml",
+        "lib/net481/ReaLTaiizor.dll",
+        "lib/net481/ReaLTaiizor.xml",
+        "lib/net6.0-windows7.0/ReaLTaiizor.dll",
+        "lib/net6.0-windows7.0/ReaLTaiizor.xml",
+        "lib/net7.0-windows7.0/ReaLTaiizor.dll",
+        "lib/net7.0-windows7.0/ReaLTaiizor.xml",
+        "lib/net8.0-windows7.0/ReaLTaiizor.dll",
+        "lib/net8.0-windows7.0/ReaLTaiizor.xml",
+        "lib/netcoreapp3.1/ReaLTaiizor.dll",
+        "lib/netcoreapp3.1/ReaLTaiizor.xml",
+        "realtaiizor.3.7.9.5.nupkg.sha512",
+        "realtaiizor.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-      "Newtonsoft.Json >= 13.0.3"
+      "Newtonsoft.Json >= 13.0.3",
+      "ReaLTaiizor >= 3.7.9.5"
     ]
   },
   "packageFolders": {
@@ -59,7 +102,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "23.3.2",
+    "version": "23.4.0",
     "restore": {
       "projectUniqueName": "C:\\Users\\Billy\\source\\repos\\AiSeasonCreator\\AiSeasonCreator\\AiSeasonCreator.csproj",
       "projectName": "AiSeasonCreator",
@@ -80,6 +123,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -101,6 +145,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
+          },
+          "ReaLTaiizor": {
+            "target": "Package",
+            "version": "[3.7.9.5, )"
           }
         },
         "imports": [
