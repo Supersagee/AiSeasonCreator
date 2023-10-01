@@ -18,12 +18,14 @@ namespace AiSeasonCreator
         }
 
         private string Completion;
+        private string NewSeasonName;
         private List<string> NotAvailableTracks;
-        public CompletionForm(string completion, List<string> notAvailableTracks)
+        public CompletionForm(string completion, string newSeasonName, List<string> notAvailableTracks)
         {
             InitializeComponent();
 
             Completion = completion;
+            NewSeasonName = newSeasonName;
             NotAvailableTracks = notAvailableTracks;
         }
 
@@ -36,6 +38,19 @@ namespace AiSeasonCreator
 
                 builder.AppendLine("Season created successfully!");
                 builder.AppendLine("");
+
+                if (NewSeasonName  != "")
+                {
+                    builder.AppendLine("----------------------------------------------------------------------------");
+                    builder.AppendLine("");
+                    builder.AppendLine($"The season was renamed to '{NewSeasonName}'");
+                    builder.AppendLine("");
+
+                    if (!NotAvailableTracks.Any())
+                    {
+                        builder.AppendLine("");
+                    }
+                }
 
                 if (NotAvailableTracks.Any())
                 {
@@ -54,9 +69,24 @@ namespace AiSeasonCreator
                     NotAvailableTracks.Clear();
                 }
             }
-            else
+            else if (Completion == "createRoster")
             {
                 builder.AppendLine("Roster created successfully!");
+                builder.AppendLine("");
+            }
+            else if (Completion == "updateRoster")
+            {
+                builder.AppendLine("Roster updated successfully!");
+                builder.AppendLine("");
+            }
+            else if (Completion == "error")
+            {
+                builder.AppendLine("ATTENTION: An error has occurred. Please try again.");
+                builder.AppendLine("");
+            }
+            else
+            {
+                builder.AppendLine("Jobs done!");
                 builder.AppendLine("");
             }
 

@@ -27,8 +27,8 @@ namespace AiSeasonCreator
             updater.CheckForUpdates();
 
             SetTheme();
-
             SetRedLocations();
+            AboutDescription();
 
             versionLabel.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString(3);
 
@@ -49,22 +49,27 @@ namespace AiSeasonCreator
             }
 
             LoadUserDefaultSettings();
+            CheckFolderPaths();
         }
 
         private async void createSeason_Click(object sender, EventArgs e)
         {
-            VariableSetter();
+            SeasonCreationSetter();
+            RosterCreationSetter();
 
-            aiMaxTrackBar.Select();
-
-            if (IsFormBlank())
+            if (IsSeasonFormBlank())
             {
-                incompleteFormLabel.ForeColor = Color.FromArgb(255, 128, 187, 0);
-                incompleteFormLabel.Text = "Please complete the form";
                 return;
             }
 
+            if (useExistingRosterCheckBox.Checked && useExistingRosterComboBox.Text == "")
+            {
+                useExistingRosterCheckBox.Checked = false;
+            }
+
             incompleteFormLabel.Text = "";
+            var newSeasonName = "";
+            var completionString = "season";
 
             try
             {
@@ -74,18 +79,106 @@ namespace AiSeasonCreator
                     trackSelection.ShowDialog();
                 }
 
+                string baseFileName = SeasonName;
+                string filePath = $@"{SeasonFolderPath}\{baseFileName}.json";
+
+                int fileCounter = 0;
+                while (File.Exists(filePath))
+                {
+                    fileCounter++;
+                    baseFileName = $"{SeasonName} ({fileCounter})";
+                    filePath = $@"{SeasonFolderPath}\{baseFileName}.json";
+                }
+
+                if (fileCounter > 0)
+                {
+                    SeasonName = $"{SeasonName} ({fileCounter})";
+                    newSeasonName = SeasonName;
+                }
+
                 var sb = IRacingService.SeasonBuilder();
-                string filePath = $@"{FilePath}\{SeasonName}.json";
                 await IRacingService.SaveSeasonScheduleToJson(sb, filePath);
             }
             catch
             {
-                MessageBox.Show("ATTENTION: Unable to create season. Please try again.");
+                completionString = "error";
+            }
+
+            var completion = new CompletionForm(completionString, newSeasonName, NotAvailableTracks);
+            completion.ShowDialog();
+        }
+
+        private void createRosterButton_Click(object sender, EventArgs e)
+        {
+            RosterCreationSetter();
+
+            if (IsRosterFormBlank())
+            {
                 return;
             }
 
-            var completion = new CompletionForm("season", NotAvailableTracks);
+            var completionString = "createRoster";
+
+            try
+            {
+                if (whatSourceComboBox.SelectedIndex == 0)
+                {
+                    var carClasses = new List<int>();
+
+                    for (var i = 0; i < RosterFullSchedule.Length; i++)
+                    {
+                        if (RosterFullSchedule[i].Schedules[0].SeriesName == rosterSeriesComboBox.Text)
+                        {
+                            for (var j = 0; j < RosterFullSchedule[i].CarClassIds.Count; j++)
+                            {
+                                carClasses.Add(RosterFullSchedule[i].CarClassIds[j]);
+                            }
+                            break;
+                        }
+                    }
+
+                    if (customCarRosterCheckBox.Checked)
+                    {
+                        IRacingService.CreateRoster(carClasses, customCarRosterTrackBar.Value, true);
+                    }
+                    else
+                    {
+                        var dc = 12;
+
+                        for (var i = 0; i < RosterSeriesDetails.Length; i++)
+                        {
+                            if (RosterSeriesDetails[i].SeriesName == rosterSeriesComboBox.Text)
+                            {
+                                dc = RosterSeriesDetails[i].MaxStarters;
+                                break;
+                            }
+                        }
+                        IRacingService.CreateRoster(carClasses, dc, true);
+                    }
+                }
+                else
+                {
+                    completionString = "updateRoster";
+                    var roster = Path.Combine(rosterFolderPathTextBox.Text, rosterSeriesComboBox.Text, "roster.json");
+
+                    if (File.Exists(roster))
+                    {
+                        IRacingService.UpdateRoster(roster);
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
+            catch
+            {
+                completionString = "error";
+            }
+
+            var completion = new CompletionForm(completionString, "", new List<string> { });
             completion.ShowDialog();
+
         }
 
         private List<SeasonsAndSeries> SelectSeason()
@@ -119,6 +212,12 @@ namespace AiSeasonCreator
 
             if (isPageLoad)
             {
+                var rosterScheduleFilePath = Path.Combine(basePath, "JsonFiles", "Schedules", $"{season}.json");
+                RosterFullSchedule = JsonSerializer.Deserialize<FullSchedule[]>(File.ReadAllText(rosterScheduleFilePath));
+
+                var rosterSeriesFilePath = Path.Combine(basePath, "JsonFiles", "SeriesDetails", $"{series}.json");
+                RosterSeriesDetails = JsonSerializer.Deserialize<SeriesDetails[]>(File.ReadAllText(rosterSeriesFilePath));
+
                 var carClassesFilePath = Path.Combine(basePath, "JsonFiles", "carClassesJson.json");
                 CarClasses = JsonSerializer.Deserialize<JsonClasses.CarClasses.CarClasses[]>(File.ReadAllText(carClassesFilePath));
 
@@ -136,103 +235,112 @@ namespace AiSeasonCreator
             SeriesDetails = JsonSerializer.Deserialize<SeriesDetails[]>(File.ReadAllText(seriesFilePath));
         }
 
-        private bool IsFormBlank()
+        private void CheckFolderPaths()
+        {
+            if (seasonFolderPathTextBox.Text == "Click to add folder path. iRacing\\aiseasons" || rosterFolderPathTextBox.Text == "Click to add folder path. iRacing\\airosters")
+            {
+                mainTabControl.SelectedTab = mainTabControl.TabPages["settingsTabPage"];
+                checkFolderPathLabel.Text = "Please set the seasons and rosters folder locations";
+                Blink();
+            }
+            else
+            {
+                checkFolderPathLabel.Text = "";
+            }
+        }
+
+        private async void Blink()
+        {
+            for (var i = 0; i < 6; i++)
+            {
+                await Task.Delay(100);
+                checkFolderPathLabel.ForeColor = checkFolderPathLabel.ForeColor == Color.FromArgb(128, 187, 0) ? Color.Black : Color.FromArgb(128, 187, 0);
+            }
+        }
+
+        private bool IsSeasonFormBlank()
         {
             var blank = false;
-            var empty = Color.FromArgb(255, 128, 187, 0);
-            var filled = Color.Transparent;
 
             if (SeasonName == "")
             {
-                seasonNamePanel.BackColor = empty;
+                seasonNamePanel.Visible = true;
                 blank = true;
             }
             else
             {
-                seasonNamePanel.BackColor = filled;
+                seasonNamePanel.Visible = false;
             }
 
             if (SeriesName == "")
             {
+                seriesPanel.Visible = true;
                 blank = true;
-                seriesPanel.BackColor = empty;
             }
             else
             {
-                seriesPanel.BackColor = filled;
+                seriesPanel.Visible = false;
             }
 
             if (CarName == "")
             {
                 blank = true;
-                carPanel.BackColor = empty;
+                carPanel.Visible = true;
             }
             else
             {
-                carPanel.BackColor = filled;
+                carPanel.Visible = false;
             }
 
-            if (FilePath == "Click to add folder path. iRacing\aiseasons")
+            if (seasonFolderPathTextBox.Text == "Click to add folder path. iRacing\\aiseasons" || rosterFolderPathTextBox.Text == "Click to add folder path. iRacing\\airosters")
             {
                 blank = true;
-                folderPathPanel.BackColor = empty;
-            }
-            else
-            {
-                folderPathPanel.BackColor = filled;
             }
 
             return blank;
         }
 
-        private void SetTheme()
+        private bool IsRosterFormBlank()
         {
-            var t = Color.Transparent;
+            var blank = false;
 
-            seasonNameLabel.BackColor = t;
-            seasonLabel.BackColor = t;
-            seriesListLabel.BackColor = t;
-            carListLabel.BackColor = t;
-            filePathLabel.BackColor = t;
-            closeButton.BackColor = t;
-            minimizeButton.BackColor = t;
-            forumLinkLabel.BackColor = t;
-            versionLabel.BackColor = t;
+            if (rosterNameTextBox.Text == "")
+            {
+                blank = true;
+                rosterNamePanel.Visible = true;
+            }
+            else
+            {
+                rosterNamePanel.Visible = false;
+            }
+
+            if (whatSourceComboBox.Text == "")
+            {
+                blank = true;
+                whatSourcePanel.Visible = true;
+            }
+            else
+            {
+                whatSourcePanel.Visible = false;
+            }
+
+            if (rosterSeriesComboBox.Text == "")
+            {
+                blank = true;
+                rosterSeriesPanel.Visible = true;
+            }
+            else
+            {
+                rosterSeriesPanel.Visible = false;
+            }
+
+            return blank;
         }
 
-        private void VariableSetter()
+        private void FolderPathTextBox_Click(object sender, EventArgs e)
         {
-            SeasonName = seasonNameTextBox.Text;
-            SeriesName = seriesListCombo.Text;
-            CarName = carListCombo.Text;
-            AiMin = aiMinTrackBar.Value;
-            AiMax = aiMaxTrackBar.Value;
-            FilePath = filePathTextBox.Text;
-            DisableDamage = disableCarDamageCheckBox.Checked;
-            AiAvoids = aiAvoidPlayerCheckBox.Checked;
-            ConsistentWeather = consistentWeatherCheckBox.Checked;
-            AfternoonRaces = afternoonRacesCheckBox.Checked;
-            QualiAlone = qualiAloneCheckBox.Checked;
-            ShortParade = shortParadeCheckBox.Checked;
-        }
+            var fp = sender as PoisonTextBox;
 
-        private void SetRedLocations()
-        {
-            seasonNamePanel.Location = new Point(seasonNameTextBox.Location.X - 2, seasonNameTextBox.Location.Y - 2);
-            seasonNamePanel.Size = new Size(seasonNameTextBox.Size.Width + 4, seasonNameTextBox.Size.Height + 4);
-
-            seriesPanel.Location = new Point(seriesListCombo.Location.X - 2, seriesListCombo.Location.Y - 2);
-            seriesPanel.Size = new Size(seriesListCombo.Size.Width + 4, seriesListCombo.Size.Height + 4);
-
-            carPanel.Location = new Point(carListCombo.Location.X - 2, carListCombo.Location.Y - 2);
-            carPanel.Size = new Size(carListCombo.Size.Width + 4, carListCombo.Size.Height + 4);
-
-            folderPathPanel.Location = new Point(filePathTextBox.Location.X - 2, filePathTextBox.Location.Y - 2);
-            folderPathPanel.Size = new Size(filePathTextBox.Size.Width + 4, filePathTextBox.Size.Height + 4);
-        }
-
-        private void filePathTextBox_Click(object sender, EventArgs e)
-        {
             using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
             {
                 folderBrowserDialog.Description = "Select a folder";
@@ -242,9 +350,21 @@ namespace AiSeasonCreator
 
                 if (result == DialogResult.OK)
                 {
-                    filePathTextBox.Text = folderBrowserDialog.SelectedPath;
-                    SaveSelectedFolderPath(folderBrowserDialog.SelectedPath);
+                    fp.Text = folderBrowserDialog.SelectedPath;
                 }
+            }
+
+            CheckFolderPaths();
+        }
+
+        private void mainTabControl_Selected(object sender, TabControlEventArgs e)
+        {
+            var tab = sender as PoisonTabControl;
+
+            if (tab.SelectedTab.Name == "seasonTabPage" || tab.SelectedTab.Name == "rosterTabPage")
+            {
+                CheckFolderPaths();
+                return;
             }
         }
 
@@ -259,6 +379,7 @@ namespace AiSeasonCreator
             carListCombo.Text = "";
             carListCombo.Visible = false;
             carListCombo.Visible = true;
+            carListCombo.Enabled = false;
 
             var selectedSeason = SelectSeason();
 
@@ -274,6 +395,117 @@ namespace AiSeasonCreator
             }
         }
 
+        private void poisonCheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            useExistingRosterComboBox.Items.Clear();
+
+            if (useExistingRosterCheckBox.Checked)
+            {
+                useExistingRosterComboBox.Enabled = true;
+                excludeRosterCheckBox.Checked = false;
+                excludeRosterCheckBox.Enabled = false;
+                useRosterAttributesCheckBox.Checked = false;
+                useRosterAttributesCheckBox.Enabled = false;
+
+                var rosters = Directory.GetDirectories(rosterFolderPathTextBox.Text);
+
+                foreach (var roster in rosters)
+                {
+                    useExistingRosterComboBox.Items.Add(Path.GetFileName(roster));
+                }
+            }
+            else
+            {
+                useExistingRosterComboBox.Enabled = false;
+                useExistingRosterComboBox.Text = "";
+                useExistingRosterComboBox.Visible = false;
+                useExistingRosterComboBox.Visible = true;
+
+                excludeRosterCheckBox.Enabled = true;
+                useRosterAttributesCheckBox.Enabled = true;
+            }
+
+        }
+
+        private void whatSourceComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rosterSeriesComboBox.Items.Clear();
+            rosterSeriesComboBox.Text = "";
+            rosterSeriesComboBox.Visible = false;
+            rosterSeriesComboBox.Visible = true;
+            rosterSeriesComboBox.Enabled = true;
+            rosterNameTextBox.Enabled = true;
+
+            if (whatSourceComboBox.SelectedIndex == 0)
+            {
+                foreach (var item in IRacingService.GetAllSeries())
+                {
+                    rosterSeriesComboBox.Items.Add(item);
+                }
+
+                customCarRosterPanel.Enabled = true;
+
+                ShowHideAttributeCheckBoxes(false);
+
+            }
+            else
+            {
+                customCarRosterPanel.Enabled = false;
+                customCarRosterCheckBox.Checked = false;
+                rosterNameTextBox.Enabled = false;
+                rosterNameTextBox.Text = "";
+
+                ShowHideAttributeCheckBoxes(true);
+
+                var rosters = Directory.GetDirectories(rosterFolderPathTextBox.Text);
+
+                foreach (var roster in rosters)
+                {
+                    rosterSeriesComboBox.Items.Add(Path.GetFileName(roster));
+                }
+            }
+        }
+
+        private void rosterSeriesComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (whatSourceComboBox.SelectedIndex == 1)
+            {
+                rosterNameTextBox.Text = rosterSeriesComboBox.Text;
+            }
+        }
+
+        private void ShowHideAttributeCheckBoxes(bool showBoxes)
+        {
+            if (showBoxes)
+            {
+                relativeSkillCheckBox.Visible = true;
+                aggressionCheckBox.Visible = true;
+                optimismCheckBox.Visible = true;
+                smoothnessCheckBox.Visible = true;
+                ageCheckBox.Visible = true;
+                pitCrewCheckBox.Visible = true;
+                pitStratCheckBox.Visible = true;
+            }
+            else
+            {
+                relativeSkillCheckBox.Visible = false;
+                aggressionCheckBox.Visible = false;
+                optimismCheckBox.Visible = false;
+                smoothnessCheckBox.Visible = false;
+                ageCheckBox.Visible = false;
+                pitCrewCheckBox.Visible = false;
+                pitStratCheckBox.Visible = false;
+            }
+
+            relativeSkillCheckBox.Checked = true;
+            aggressionCheckBox.Checked = true;
+            optimismCheckBox.Checked = true;
+            smoothnessCheckBox.Checked = true;
+            ageCheckBox.Checked = true;
+            pitCrewCheckBox.Checked = true;
+            pitStratCheckBox.Checked = true;
+        }
+
         private void seriesListCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             SeriesName = seriesListCombo.SelectedItem.ToString();
@@ -283,6 +515,7 @@ namespace AiSeasonCreator
             carListCombo.Text = "";
             carListCombo.Visible = false;
             carListCombo.Visible = true;
+            carListCombo.Enabled = true;
 
             foreach (var car in carList)
             {
@@ -295,103 +528,21 @@ namespace AiSeasonCreator
             }
         }
 
-        private void SaveSelectedFolderPath(string folderPath)
-        {
-            string appDataFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string appSpecificFolderPath = Path.Combine(appDataFolderPath, "AiSeasonCreator");
-
-            if (!Directory.Exists(appSpecificFolderPath))
-            {
-                Directory.CreateDirectory(appSpecificFolderPath);
-            }
-
-            string configFilePath = Path.Combine(appSpecificFolderPath, "AiSeasonCreatorConfig.txt");
-            File.WriteAllText(configFilePath, folderPath);
-        }
-        private void SaveUserDefaultSettings()
-        {
-            string appDataFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string appSpecificFolderPath = Path.Combine(appDataFolderPath, "AiSeasonCreator");
-
-            if (!Directory.Exists(appSpecificFolderPath))
-            {
-                Directory.CreateDirectory(appSpecificFolderPath);
-            }
-
-            var ud = new UserDefaultSettings();
-
-            ud.SettingsVersion = 1;
-            ud.DisableCarDamage = disableCarDamageCheckBox.Checked;
-            ud.AiAvoidsPlayer = aiAvoidPlayerCheckBox.Checked;
-            ud.ConsistentWeather = consistentWeatherCheckBox.Checked;
-            ud.AfternoonRaces = afternoonRacesCheckBox.Checked;
-            ud.QualifyAlone = qualiAloneCheckBox.Checked;
-            ud.SelectTracks = selectTracksCheckBox.Checked;
-            ud.ShortParade = shortParadeCheckBox.Checked;
-            ud.AiMinSkill = aiMinTrackBar.Value;
-            ud.AiMaxSkill = aiMaxTrackBar.Value;
-            ud.WindowLocation = new WindowLocation
-            {
-                X = Location.X,
-                Y = Location.Y
-            };
-
-            string configFilePath = Path.Combine(appSpecificFolderPath, "UserDefaultSettings.json");
-            string jsonSettings = JsonSerializer.Serialize(ud, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(configFilePath, jsonSettings);
-        }
-        private void LoadUserDefaultSettings()
-        {
-            string appDataFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string appSpecificFolderPath = Path.Combine(appDataFolderPath, "AiSeasonCreator");
-            string udPath = Path.Combine(appSpecificFolderPath, "UserDefaultSettings.json");
-            string userFolderPath = Path.Combine(appSpecificFolderPath, "AiSeasonCreatorConfig.txt");
-
-            if (File.Exists(udPath))
-            {
-                var ud = JsonSerializer.Deserialize<UserDefaultSettings>(File.ReadAllText(udPath));
-
-                disableCarDamageCheckBox.Checked = ud.DisableCarDamage;
-                aiAvoidPlayerCheckBox.Checked = ud.AiAvoidsPlayer;
-                consistentWeatherCheckBox.Checked = ud.ConsistentWeather;
-                afternoonRacesCheckBox.Checked = ud.AfternoonRaces;
-                qualiAloneCheckBox.Checked = ud.QualifyAlone;
-                selectTracksCheckBox.Checked = ud.SelectTracks;
-                shortParadeCheckBox.Checked = ud.ShortParade;
-                aiMinTrackBar.Value = ud.AiMinSkill;
-                aiMaxTrackBar.Value = ud.AiMaxSkill;
-                Location = new Point(ud.WindowLocation.X, ud.WindowLocation.Y);
-            }
-
-            if (File.Exists(userFolderPath))
-            {
-                filePathTextBox.Text = File.ReadAllText(userFolderPath);
-            }
-
-            aiSkillBox.Text = $"{aiMinTrackBar.Value}%-{aiMaxTrackBar.Value}%";
-        }
-
-        private void aiMinTrackBar_Scroll(object sender, EventArgs e)
-        {
-            aiSkillBox.Text = $"{aiMinTrackBar.Value}%-{aiMaxTrackBar.Value}%";
-
-            if (aiMinTrackBar.Value > aiMaxTrackBar.Value)
-            {
-                aiMaxTrackBar.Value = aiMinTrackBar.Value;
-                aiSkillBox.Text = $"{aiMinTrackBar.Value}%-{aiMaxTrackBar.Value}%";
-            }
-        }
-
         private void aiMaxTrackBar_Scroll(object sender, EventArgs e)
         {
-            aiSkillBox.Text = $"{aiMinTrackBar.Value}%-{aiMaxTrackBar.Value}%";
-
-            if (aiMaxTrackBar.Value < aiMinTrackBar.Value)
-            {
-                aiMinTrackBar.Value = aiMaxTrackBar.Value;
-                aiSkillBox.Text = $"{aiMinTrackBar.Value}%-{aiMaxTrackBar.Value}%";
-            }
+            MaxTrackBar(aiSkillPerLabel, aiSkillMinTrackBar, aiSkillMaxTrackBar);
         }
+
+        private void relativeSkillMinTrackBar_Scroll(object sender, EventArgs e)
+        {
+            MinTrackBar(relativeSkillPerLabel, relativeSkillMinTrackBar, relativeSkillMaxTrackBar);
+        }
+
+        private void relativeSkillMaxTrackBar_Scroll(object sender, EventArgs e)
+        {
+            MaxTrackBar(relativeSkillPerLabel, relativeSkillMinTrackBar, relativeSkillMaxTrackBar);
+        }
+
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -469,6 +620,309 @@ namespace AiSeasonCreator
             SaveUserDefaultSettings();
         }
 
+        private void AttributesCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            var cb = sender as PoisonCheckBox;
+
+            var minName = cb.Name.Substring(0, cb.Name.Length - 8) + "MinTrackBar";
+            var maxName = cb.Name.Substring(0, cb.Name.Length - 8) + "MaxTrackBar";
+
+            var minSlider = Controls.Find(minName, true).FirstOrDefault() as PoisonTrackBar;
+            var maxSlider = Controls.Find(maxName, true).FirstOrDefault() as PoisonTrackBar;
+
+            minSlider.Enabled = cb.Checked;
+            maxSlider.Enabled = cb.Checked;
+        }
+
+        private void MinTrackBar(PoisonLabel label, PoisonTrackBar minTrack, PoisonTrackBar maxTrack)
+        {
+            label.Text = label.Name.StartsWith("age") ? $"{minTrack.Value}-{maxTrack.Value} years" : $"{minTrack.Value}%-{maxTrack.Value}%";
+
+            if (minTrack.Value > maxTrack.Value)
+            {
+                maxTrack.Value = minTrack.Value;
+                label.Text = label.Name.StartsWith("age") ? $"{minTrack.Value}-{maxTrack.Value} years" : $"{minTrack.Value}%-{maxTrack.Value}%";
+            }
+        }
+
+        private void MaxTrackBar(PoisonLabel label, PoisonTrackBar minTrack, PoisonTrackBar maxTrack)
+        {
+            label.Text = label.Name.StartsWith("age") ? $"{minTrack.Value}-{maxTrack.Value} years" : $"{minTrack.Value}%-{maxTrack.Value}%";
+
+            if (maxTrack.Value < minTrack.Value)
+            {
+                minTrack.Value = maxTrack.Value;
+                label.Text = label.Name.StartsWith("age") ? $"{minTrack.Value}-{maxTrack.Value} years" : $"{minTrack.Value}%-{maxTrack.Value}%";
+            }
+        }
+
+        private void TrackBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            var slider = sender as PoisonTrackBar;
+            var labelName = slider.Name.Substring(0, slider.Name.Length - 11) + "PerLabel";
+            PoisonLabel label = Controls.Find(labelName, true).FirstOrDefault() as PoisonLabel;
+
+            if (slider.Name.Contains("Min"))
+            {
+                var maxName = slider.Name.Replace("Min", "Max");
+                PoisonTrackBar maxSlider = Controls.Find(maxName, true).FirstOrDefault() as PoisonTrackBar;
+                MinTrackBar(label, slider, maxSlider);
+            }
+            else
+            {
+                var minName = slider.Name.Replace("Max", "Min");
+                PoisonTrackBar minSlider = Controls.Find(minName, true).FirstOrDefault() as PoisonTrackBar;
+                MaxTrackBar(label, minSlider, slider);
+            }
+        }
+
+        private void customCarSeasonTrackBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            customCarCountSeasonLabel.Text = customCarSeasonTrackBar.Value.ToString();
+        }
+
+        private void customCarRosterTrackBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            customCarCountRosterLabel.Text = customCarRosterTrackBar.Value.ToString();
+        }
+
+        private void AboutDescription()
+        {
+            var builder = new StringBuilder();
+
+            builder.AppendLine("The purpose of this program is to create AI seasons and rosters based on the iRacing multiplayer seasons, " +
+                "along with editing existing user rosters with minimal effort.");
+
+            builder.AppendLine("");
+            builder.AppendLine("The AI seasons that are created will contain the proper tracks, cars, time/laps, etc. in order to match the multiplayer series. " +
+                "All seasons will also automatically create a roster, except when the 'Exclude Roster' checkbox is checked.");
+
+            builder.AppendLine("");
+            builder.AppendLine("Individual AI rosters can also be created based on a series, and existing rosters can also be updated with different attributes. " +
+                "The attribute sliders in the 'Roster' tab are min and max ranges for a particular attribute. " +
+                "For example, if 'Aggression' is set to 25%-75%, all drivers in that roster will have their aggression set randomly between those percentages. " +
+                "When updating a roster, unchecking an attribute will leave that particular attribute as is for all drivers.");
+
+            builder.AppendLine("");
+            builder.AppendLine("Keep in mind that some cars and tracks are not AI enabled.");
+
+            aboutSectionLabel.Text = builder.ToString();
+        }
+
+        private void SetTheme()
+        {
+            var t = Color.Transparent;
+
+            seasonNameLabel.BackColor = t;
+            seasonLabel.BackColor = t;
+            seriesListLabel.BackColor = t;
+            carListLabel.BackColor = t;
+            seasonFolderPathLabel.BackColor = t;
+            closeButton.BackColor = t;
+            minimizeButton.BackColor = t;
+            forumLinkLabel.BackColor = t;
+            versionLabel.BackColor = t;
+        }
+
+        private void SeasonCreationSetter()
+        {
+            SeasonFolderPath = seasonFolderPathTextBox.Text;
+            RosterFolderPath = rosterFolderPathTextBox.Text;
+            SeasonName = seasonNameTextBox.Text;
+            SeriesName = seriesListCombo.Text;
+            CarName = carListCombo.Text;
+            AiMin = aiSkillMinTrackBar.Value;
+            AiMax = aiSkillMaxTrackBar.Value;
+            DisableDamage = disableCarDamageCheckBox.Checked;
+            AiAvoids = aiAvoidPlayerCheckBox.Checked;
+            ConsistentWeather = consistentWeatherCheckBox.Checked;
+            AfternoonRaces = afternoonRacesCheckBox.Checked;
+            QualiAlone = qualiAloneCheckBox.Checked;
+            ShortParade = shortParadeCheckBox.Checked;
+            ExcludeRoster = excludeRosterCheckBox.Checked;
+            UseRosterTabAtt = useRosterAttributesCheckBox.Checked;
+            ExistingRosterName = useExistingRosterComboBox.Text;
+            UseExistingRoster = useExistingRosterCheckBox.Checked;
+            CustCarCountSeason = customCarSeasonCheckBox.Checked;
+            CustCarCountValue = customCarSeasonTrackBar.Value;
+        }
+
+        private void RosterCreationSetter()
+        {
+            SeasonFolderPath = seasonFolderPathTextBox.Text;
+            RosterFolderPath = rosterFolderPathTextBox.Text;
+            RosterName = rosterNameTextBox.Text;
+            RelateiveSkillMin = relativeSkillMinTrackBar.Value;
+            RelativeSkillMax = relativeSkillMaxTrackBar.Value;
+            AggressionMin = aggressionMinTrackBar.Value;
+            AggressionMax = aggressionMaxTrackBar.Value;
+            OptimismMin = optimismMinTrackBar.Value;
+            OptimismMax = optimismMaxTrackBar.Value;
+            SmoothnessMin = smoothnessMinTrackBar.Value;
+            SmoothnessMax = smoothnessMaxTrackBar.Value;
+            AgeMin = ageMinTrackBar.Value;
+            AgaMax = ageMaxTrackBar.Value;
+            PitCrewMin = pitCrewMinTrackBar.Value;
+            PitCrewMax = pitCrewMaxTrackBar.Value;
+            PitStratMin = pitStratMinTrackBar.Value;
+            PitStratMax = pitStratMaxTrackBar.Value;
+            UseRelativeSkill = relativeSkillCheckBox.Checked;
+            UseAggression = aggressionCheckBox.Checked;
+            UseOptimism = optimismCheckBox.Checked;
+            UseSmoothness = smoothnessCheckBox.Checked;
+            UseAge = ageCheckBox.Checked;
+            UsePitCrew = pitCrewCheckBox.Checked;
+            UsePitStrat = pitStratCheckBox.Checked;
+        }
+
+        private void SetRedLocations()
+        {
+            seasonNamePanel.Location = new Point(seasonNameTextBox.Location.X - 2, seasonNameTextBox.Location.Y - 2);
+            seasonNamePanel.Size = new Size(seasonNameTextBox.Size.Width + 4, seasonNameTextBox.Size.Height + 4);
+
+            seriesPanel.Location = new Point(seriesListCombo.Location.X - 2, seriesListCombo.Location.Y - 2);
+            seriesPanel.Size = new Size(seriesListCombo.Size.Width + 4, seriesListCombo.Size.Height + 4);
+
+            carPanel.Location = new Point(carListCombo.Location.X - 2, carListCombo.Location.Y - 2);
+            carPanel.Size = new Size(carListCombo.Size.Width + 4, carListCombo.Size.Height + 4);
+
+            rosterNamePanel.Location = new Point(rosterNameTextBox.Location.X - 2, rosterNameTextBox.Location.Y - 2);
+            rosterNamePanel.Size = new Size(rosterNameTextBox.Size.Width + 4, rosterNameTextBox.Size.Height + 4);
+
+            whatSourcePanel.Location = new Point(whatSourceComboBox.Location.X - 2, whatSourceComboBox.Location.Y - 2);
+            whatSourcePanel.Size = new Size(whatSourceComboBox.Size.Width + 4, whatSourceComboBox.Size.Height + 4);
+
+            rosterSeriesPanel.Location = new Point(rosterSeriesComboBox.Location.X - 2, rosterSeriesComboBox.Location.Y - 2);
+            rosterSeriesPanel.Size = new Size(rosterSeriesComboBox.Size.Width + 4, rosterSeriesComboBox.Size.Height + 4);
+        }
+
+        private void SetTrackBarValueText()
+        {
+            aiSkillPerLabel.Text = $"{aiSkillMinTrackBar.Value}%-{aiSkillMaxTrackBar.Value}%";
+            customCarCountSeasonLabel.Text = $"{customCarSeasonTrackBar.Value}";
+            customCarCountRosterLabel.Text = $"{customCarRosterTrackBar.Value}";
+            relativeSkillPerLabel.Text = $"{relativeSkillMinTrackBar.Value}%-{relativeSkillMaxTrackBar.Value}%";
+            aggressionPerLabel.Text = $"{aggressionMinTrackBar.Value}%-{aggressionMaxTrackBar.Value}%";
+            optimismPerLabel.Text = $"{optimismMinTrackBar.Value}%-{optimismMaxTrackBar.Value}%";
+            smoothnessPerLabel.Text = $"{smoothnessMinTrackBar.Value}%-{smoothnessMaxTrackBar.Value}%";
+            agePerLabel.Text = $"{ageMinTrackBar.Value}-{ageMaxTrackBar.Value} years";
+            pitCrewPerLabel.Text = $"{pitCrewMinTrackBar.Value}%-{pitCrewMaxTrackBar.Value}%";
+            pitStratPerLabel.Text = $"{pitStratMinTrackBar.Value}%-{pitStratMaxTrackBar.Value}%";
+        }
+
+        private void SaveUserDefaultSettings()
+        {
+            string appDataFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string appSpecificFolderPath = Path.Combine(appDataFolderPath, "AiSeasonCreator");
+
+            if (!Directory.Exists(appSpecificFolderPath))
+            {
+                Directory.CreateDirectory(appSpecificFolderPath);
+            }
+
+            var ud = new UserDefaultSettings();
+
+            ud.SettingsVersion = 1;
+
+            ud.CheckBoxesUserValues = new CheckBoxesUserValues
+            {
+                DisableCarDamage = disableCarDamageCheckBox.Checked,
+                AiAvoidsPlayer = aiAvoidPlayerCheckBox.Checked,
+                ConsistentWeather = consistentWeatherCheckBox.Checked,
+                AfternoonRaces = afternoonRacesCheckBox.Checked,
+                QualifyAlone = qualiAloneCheckBox.Checked,
+                ShortParade = shortParadeCheckBox.Checked,
+                SelectTracks = selectTracksCheckBox.Checked,
+                ExcludeRoster = excludeRosterCheckBox.Checked,
+                UseRosterTabAtt = useRosterAttributesCheckBox.Checked
+            };
+
+            ud.TrackBarUserValues = new TrackBarUserValues
+            {
+                AiMinSkill = aiSkillMinTrackBar.Value,
+                AiMaxSkill = aiSkillMaxTrackBar.Value,
+                RelativeMinSkill = relativeSkillMinTrackBar.Value,
+                RelativeMaxSkill = relativeSkillMaxTrackBar.Value,
+                AggressionMinSkill = aggressionMinTrackBar.Value,
+                AggressionMaxSkill = aggressionMaxTrackBar.Value,
+                OptimismMinSkill = optimismMinTrackBar.Value,
+                OptimismMaxSkill = optimismMaxTrackBar.Value,
+                SmoothnessMinSkill = smoothnessMinTrackBar.Value,
+                SmoothnessMaxSkill = smoothnessMaxTrackBar.Value,
+                AgeMinSkill = ageMinTrackBar.Value,
+                AgeMaxSkill = ageMaxTrackBar.Value,
+                PitCrewMinSkill = pitCrewMinTrackBar.Value,
+                PitCrewMaxSkill = pitCrewMaxTrackBar.Value,
+                PitStratMinSkill = pitStratMinTrackBar.Value,
+                PitStratMaxSkill = pitStratMaxTrackBar.Value
+            };
+
+            ud.FolderLocations = new FolderLocations
+            {
+                SeasonsFolder = seasonFolderPathTextBox.Text,
+                RostersFolder = rosterFolderPathTextBox.Text
+            };
+
+            ud.WindowLocation = new WindowLocation
+            {
+                X = Location.X,
+                Y = Location.Y
+            };
+
+            string configFilePath = Path.Combine(appSpecificFolderPath, "UserDefaultSettings.json");
+            string jsonSettings = JsonSerializer.Serialize(ud, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(configFilePath, jsonSettings);
+        }
+        private void LoadUserDefaultSettings()
+        {
+            string appDataFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string appSpecificFolderPath = Path.Combine(appDataFolderPath, "AiSeasonCreator");
+            string udPath = Path.Combine(appSpecificFolderPath, "UserDefaultSettings.json");
+            string userFolderPath = Path.Combine(appSpecificFolderPath, "AiSeasonCreatorConfig.txt");
+
+            try
+            {
+                if (File.Exists(udPath))
+                {
+                    var ud = JsonSerializer.Deserialize<UserDefaultSettings>(File.ReadAllText(udPath));
+
+                    disableCarDamageCheckBox.Checked = ud.CheckBoxesUserValues.DisableCarDamage;
+                    aiAvoidPlayerCheckBox.Checked = ud.CheckBoxesUserValues.AiAvoidsPlayer;
+                    consistentWeatherCheckBox.Checked = ud.CheckBoxesUserValues.ConsistentWeather;
+                    afternoonRacesCheckBox.Checked = ud.CheckBoxesUserValues.AfternoonRaces;
+                    qualiAloneCheckBox.Checked = ud.CheckBoxesUserValues.QualifyAlone;
+                    selectTracksCheckBox.Checked = ud.CheckBoxesUserValues.SelectTracks;
+                    shortParadeCheckBox.Checked = ud.CheckBoxesUserValues.ShortParade;
+                    excludeRosterCheckBox.Checked = ud.CheckBoxesUserValues.ExcludeRoster;
+                    useRosterAttributesCheckBox.Checked = ud.CheckBoxesUserValues.UseRosterTabAtt;
+
+                    aiSkillMinTrackBar.Value = ud.TrackBarUserValues.AiMinSkill;
+                    aiSkillMaxTrackBar.Value = ud.TrackBarUserValues.AiMaxSkill;
+                    relativeSkillMinTrackBar.Value = ud.TrackBarUserValues.RelativeMinSkill;
+                    relativeSkillMaxTrackBar.Value = ud.TrackBarUserValues.RelativeMaxSkill;
+                    aggressionMinTrackBar.Value = ud.TrackBarUserValues.AggressionMinSkill;
+                    aggressionMaxTrackBar.Value = ud.TrackBarUserValues.AggressionMaxSkill;
+                    optimismMinTrackBar.Value = ud.TrackBarUserValues.OptimismMinSkill;
+                    optimismMaxTrackBar.Value = ud.TrackBarUserValues.OptimismMaxSkill;
+                    smoothnessMinTrackBar.Value = ud.TrackBarUserValues.SmoothnessMinSkill;
+                    smoothnessMaxTrackBar.Value = ud.TrackBarUserValues.SmoothnessMaxSkill;
+                    ageMinTrackBar.Value = ud.TrackBarUserValues.AgeMinSkill;
+                    ageMaxTrackBar.Value = ud.TrackBarUserValues.AgeMaxSkill;
+                    pitCrewMinTrackBar.Value = ud.TrackBarUserValues.PitCrewMinSkill;
+                    pitCrewMaxTrackBar.Value = ud.TrackBarUserValues.PitCrewMaxSkill;
+                    pitStratMinTrackBar.Value = ud.TrackBarUserValues.PitStratMinSkill;
+                    pitStratMaxTrackBar.Value = ud.TrackBarUserValues.PitStratMaxSkill;
+
+                    seasonFolderPathTextBox.Text = ud.FolderLocations.SeasonsFolder;
+                    rosterFolderPathTextBox.Text = ud.FolderLocations.RostersFolder;
+
+                    Location = new Point(ud.WindowLocation.X, ud.WindowLocation.Y);
+                }
+            }
+            catch { }
+
+            SetTrackBarValueText();
+        }
         public class SeasonsAndSeries
         {
             public string Season { get; set; }
@@ -476,23 +930,54 @@ namespace AiSeasonCreator
         }
 
         public static string? SeasonName { get; set; }
+        public static string RosterName { get; set; }
         public static string? SeriesName { get; set; }
         public static string? CarName { get; set; }
         public static int? AiMin { get; set; }
         public static int? AiMax { get; set; }
-        public static string? FilePath { get; set; }
+        public static int RelateiveSkillMin { get; set; }
+        public static int RelativeSkillMax { get; set; }
+        public static int AggressionMin { get; set; }
+        public static int AggressionMax { get; set; }
+        public static int OptimismMin { get; set; }
+        public static int OptimismMax { get; set; }
+        public static int SmoothnessMin { get; set; }
+        public static int SmoothnessMax { get; set; }
+        public static int AgeMin { get; set; }
+        public static int AgaMax { get; set; }
+        public static int PitCrewMin { get; set; }
+        public static int PitCrewMax { get; set; }
+        public static int PitStratMin { get; set; }
+        public static int PitStratMax { get; set; }
+        public static string? SeasonFolderPath { get; set; }
+        public static string RosterFolderPath { get; set; }
         public static bool DisableDamage { get; set; }
         public static bool AiAvoids { get; set; }
         public static bool ConsistentWeather { get; set; }
         public static bool AfternoonRaces { get; set; }
         public static bool QualiAlone { get; set; }
         public static bool ShortParade { get; set; }
+        public static bool ExcludeRoster { get; set; }
+        public static bool CustCarCountSeason { get; set; }
+        public static int CustCarCountValue { get; set; }
+        public static string ExistingRosterName { get; set; }
+        public static bool UseExistingRoster { get; set; }
+        public static bool UseRosterTabAtt { get; set; }
+        public static bool UseRelativeSkill { get; set; } = true;
+        public static bool UseAggression { get; set; } = true;
+        public static bool UseOptimism { get; set; } = true;
+        public static bool UseSmoothness { get; set; } = true;
+        public static bool UseAge { get; set; } = true;
+        public static bool UsePitCrew { get; set; } = true;
+        public static bool UsePitStrat { get; set; } = true;
         public static int SeasonSeriesIndex { get; set; }
         public static List<int>? UnselectedTracks { get; set; }
         public static JsonClasses.CarClasses.CarClasses[] CarClasses { get; set; }
         public static CarDetails[] CarDetails { get; set; }
         public static FullSchedule[] FullSchedule { get; set; }
+        public static FullSchedule[] RosterFullSchedule { get; set; }
         public static SeriesDetails[] SeriesDetails { get; set; }
+        public static SeriesDetails[] RosterSeriesDetails { get; set; }
         public static TrackDetails[] TrackDetails { get; set; }
         public static List<string> NotAvailableTracks { get; set; } = new List<string>();
     }

@@ -2,6 +2,7 @@
 using System.Text.Json;
 using AiSeasonCreator.ScheduleClasses;
 using AiSeasonCreator.Roster;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace AiSeasonCreator
 {
@@ -378,8 +379,42 @@ namespace AiSeasonCreator
             return d;
         }
 
-        public static void CreateRoster(List<int> carClassIds, int maxDrivers)
+        private static Drivers AttributesFromRanges(Drivers d, Random rand)
         {
+            d.DriverSkill = rand.Next(MainForm.RelateiveSkillMin, MainForm.RelativeSkillMax + 1);
+            d.DriverAggression = rand.Next(MainForm.AggressionMin, MainForm.AggressionMax + 1);
+            d.DriverOptimism = rand.Next(MainForm.OptimismMin, MainForm.OptimismMax + 1);
+            d.DriverSmoothness = rand.Next(MainForm.SmoothnessMin, MainForm.SmoothnessMax + 1);
+            d.DriverAge = rand.Next(MainForm.AgeMin, MainForm.AgaMax + 1);
+            d.PitCrewSkill = rand.Next(MainForm.PitCrewMin, MainForm.PitCrewMax + 1);
+            d.StrategyRiskiness = rand.Next(MainForm.PitStratMin, MainForm.PitStratMax + 1);
+
+            return d;
+        }
+
+        public static void UpdateRoster(string rosterName)
+        {
+            var rand = new Random();
+            var roster = JsonSerializer.Deserialize<DriverRoster>(File.ReadAllText(rosterName));
+            var drivers = roster.Drivers;
+
+            foreach (var d in drivers)
+            {
+                d.DriverSkill = MainForm.UseRelativeSkill ? rand.Next(MainForm.RelateiveSkillMin, MainForm.RelativeSkillMax + 1) : d.DriverSkill;
+                d.DriverAggression = MainForm.UseAggression ? rand.Next(MainForm.AggressionMin, MainForm.AggressionMax + 1) : d.DriverAggression;
+                d.DriverOptimism = MainForm.UseOptimism ? rand.Next(MainForm.OptimismMin, MainForm.OptimismMax + 1) : d.DriverOptimism;
+                d.DriverSmoothness = MainForm.UseSmoothness ? rand.Next(MainForm.SmoothnessMin, MainForm.SmoothnessMax + 1) : d.DriverSmoothness;
+                d.DriverAge = MainForm.UseAge ? rand.Next(MainForm.AgeMin, MainForm.AgaMax + 1) : d.DriverAge;
+                d.PitCrewSkill = MainForm.UsePitCrew ? rand.Next(MainForm.PitCrewMin, MainForm.PitCrewMax + 1) : d.PitCrewSkill;
+                d.StrategyRiskiness = MainForm.UsePitStrat ? rand.Next(MainForm.PitStratMin, MainForm.PitStratMax + 1) : d.StrategyRiskiness;
+            }
+
+            DriverRoster newRoster = new DriverRoster { Drivers = drivers };
+            SaveRosterToJson(newRoster, rosterName); 
+        }
+
+        public static void CreateRoster(List<int> carClassIds, int maxDrivers, bool rosterButton)
+        {   
             var names = new List<string>()
             {
                 "Liam Johnson", "Noah Martinez", "Oliver Thompson", "Elijah Taylor", "William Anderson", "James White", "Benjamin Harris", "Lucas Clark",
@@ -466,56 +501,20 @@ namespace AiSeasonCreator
                     d.Sponsor1 = s1;
                     d.Sponsor2 = s2;
 
-                    d = DriverAttributes(d, rand);
+                    d = rosterButton || MainForm.UseRosterTabAtt ? AttributesFromRanges(d, rand) : DriverAttributes(d, rand);
 
                     drivers.Add(d);
                 }
             }
 
-            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string airostersPath = Path.Combine(documentsPath, "iRacing", "airosters");
-
-            // Check if the default folder path exists
-            if (!Directory.Exists(airostersPath))
-            {
-                MessageBox.Show($@"The default folder path for iRacing could not be found for saving the season roster. Please select the folder where the ""{MainForm.SeasonName}"" folder should be created.", "Select Folder", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Prompt the user to select a folder path if the default one doesn't exist
-                string selectedFolderPath = GetFolderPathFromUser();
-                if (selectedFolderPath != null)
-                {
-                    airostersPath = selectedFolderPath;
-                }
-                else
-                {
-                    return;
-                }
-            }
-
-            Directory.CreateDirectory(airostersPath);
-
-            string seasonName = MainForm.SeasonName;
-            string newFolderPath = Path.Combine(airostersPath, seasonName);
+            string seasonName = rosterButton ? MainForm.RosterName : MainForm.SeasonName;
+            string newFolderPath = Path.Combine(MainForm.RosterFolderPath, seasonName);
             Directory.CreateDirectory(newFolderPath);
 
             string filePath = Path.Combine(newFolderPath, "roster.json");
 
             DriverRoster roster = new DriverRoster { Drivers = drivers };
             SaveRosterToJson(roster, filePath);
-        }
-
-        public static string GetFolderPathFromUser()
-        {
-            using (var folderBrowserDialog = new FolderBrowserDialog())
-            {
-                DialogResult result = folderBrowserDialog.ShowDialog();
-
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
-                {
-                    return folderBrowserDialog.SelectedPath;
-                }
-            }
-            return null;
         }
 
         public static async Task SaveRosterToJson(DriverRoster drivers, string filePath)
@@ -619,15 +618,22 @@ namespace AiSeasonCreator
             s.GridPosition = 1;
             s.LuckyDog = c.LuckyDog;
 
-            for (var j = 0; j < seriesDetails.Length; j++)
+            if (MainForm.CustCarCountSeason)
             {
-                if (seriesDetails[j].SeriesShortName == MainForm.SeriesName)
-                {
-                    s.MaxDrivers = seriesDetails[j].MaxStarters;
-                    s.PointsSystemId = seriesDetails[j].CategoryId + 2;
-                    break;
-                }
+                s.MaxDrivers = MainForm.CustCarCountValue;
             }
+            else
+            {
+                for (var j = 0; j < seriesDetails.Length; j++)
+                {
+                    if (seriesDetails[j].SeriesShortName == MainForm.SeriesName)
+                    {
+                        s.MaxDrivers = seriesDetails[j].MaxStarters;
+                        s.PointsSystemId = seriesDetails[j].CategoryId + 2;
+                        break;
+                    }
+                }
+            }     
 
             s.NumFastTows = -1;
             s.AvoidUser = MainForm.AiAvoids;
@@ -674,8 +680,19 @@ namespace AiSeasonCreator
                 s.RollingStarts = false;
             }
 
-            s.RosterName = MainForm.SeasonName;
-            CreateRoster(CarClassIds, s.MaxDrivers);
+            if (MainForm.ExcludeRoster)
+            {
+                s.RosterName = null;
+            }
+            else if (MainForm.UseExistingRoster && MainForm.ExistingRosterName != "")
+            {
+                s.RosterName = MainForm.ExistingRosterName;
+            }
+            else
+            {
+                s.RosterName = MainForm.SeasonName;
+                CreateRoster(CarClassIds, s.MaxDrivers, false);
+            }
 
             s.ShortParadeLap = MainForm.ShortParade ? true : false;
             s.NoLapperWaveArounds = false;

@@ -102,7 +102,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "23.4.0",
+    "version": "23.4.1",
     "restore": {
       "projectUniqueName": "C:\\Users\\Billy\\source\\repos\\AiSeasonCreator\\AiSeasonCreator\\AiSeasonCreator.csproj",
       "projectName": "AiSeasonCreator",
