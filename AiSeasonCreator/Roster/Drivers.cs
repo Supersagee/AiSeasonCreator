@@ -23,6 +23,8 @@ namespace AiSeasonCreator.Roster
         public string Id { get; set; }
         [JsonPropertyName("carDesign")]
         public string CarDesign { get; set; }
+        [JsonPropertyName("carTgaName")]
+        public string CarTgaName { get; set; }
         [JsonPropertyName("numberDesign")]
         public string NumberDesign { get; set; }
         [JsonPropertyName("helmetDesign")]
