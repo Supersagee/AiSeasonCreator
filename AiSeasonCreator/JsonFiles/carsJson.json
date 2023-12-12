@@ -214,7 +214,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "legends\\ford34c",
     "car_id": 5,
     "car_make": "Legends",
@@ -259,7 +259,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": false,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "solstice\\rookie",
     "car_id": 10,
     "car_make": "Pontiac",
@@ -349,7 +349,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "latemodel",
     "car_id": 12,
     "car_make": "Chevrolet",
@@ -401,7 +401,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": false,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "radical\\sr8",
     "car_id": 13,
     "car_make": "Radical ",
@@ -1415,13 +1415,13 @@
     "sku": 10268
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_number_colors": false,
     "allow_number_font": false,
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "hpdarx01c",
     "car_id": 39,
     "car_make": "HPD",
@@ -1926,7 +1926,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "rufrt12r\\track",
     "car_id": 50,
     "car_make": "Ruf",
@@ -2518,7 +2518,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "trucks\\tundra2015",
     "car_id": 62,
     "car_make": "Toyota",
@@ -2803,7 +2803,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "c7vettedp",
     "car_id": 70,
     "car_make": "Chevrolet",
@@ -2991,12 +2991,12 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "audir8gt3",
     "car_id": 73,
     "car_make": "Audi",
     "car_model": "R8 GT3",
-    "car_name": "Audi R8 LMS GT3",
+    "car_name": "[Legacy] Audi R8 LMS GT3",
     "car_name_abbreviated": "AR8",
     "car_types": [
       {
@@ -3029,8 +3029,8 @@
     "min_power_adjust_pct": -5,
     "package_id": 201,
     "patterns": 23,
-    "price": 11.95,
-    "price_display": "$11.95",
+    "price": 2.95,
+    "price_display": "$2.95",
     "retired": false,
     "search_filters": "road,sportscar,gt3,gtd",
     "site_url": "http://www.audi-motorsport.com/de/en/gt-sport.html",
@@ -3043,7 +3043,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "formularenault20",
     "car_id": 74,
     "car_make": "Renault",
@@ -3510,7 +3510,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "legends\\dirtford34c",
     "car_id": 82,
     "car_make": "Legends",
@@ -4328,7 +4328,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "audir18",
     "car_id": 98,
     "car_make": "Audi",
@@ -4440,7 +4440,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "porsche919",
     "car_id": 100,
     "car_make": "Porsche",
@@ -6489,7 +6489,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "vwbeetlegrc\\lite",
     "car_id": 138,
     "car_make": "Volkswagen",
@@ -6809,7 +6809,7 @@
     "allow_sponsor1": false,
     "allow_sponsor2": false,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "ferrarievogt3",
     "car_id": 144,
     "car_make": "Ferrari",
@@ -6861,7 +6861,7 @@
     "allow_sponsor1": false,
     "allow_sponsor2": false,
     "allow_wheel_color": false,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "mercedesw12",
     "car_id": 145,
     "car_make": "Mercedes",
@@ -9002,6 +9002,9 @@
         "car_type": "lmdh"
       },
       {
+        "car_type": "prototype"
+      },
+      {
         "car_type": "road"
       }
     ],
@@ -9013,7 +9016,7 @@
     "first_sale": "2023-09-06T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/acura-arx-06-gtp",
     "free_with_subscription": false,
-    "has_headlights": false,
+    "has_headlights": true,
     "has_multiple_dry_tire_types": false,
     "hp": 665,
     "is_ps_purchasable": true,
@@ -9023,33 +9026,44 @@
     "package_id": 442,
     "paint_rules": {
       "1": {
-        "PaintCarAvailable": false,
         "Color1": "FF0000",
         "Color2": "00FF00",
         "Color3": "0000FF",
-        "Sponsor1Available": false,
-        "Sponsor2Available": false,
+        "PaintCarAvailable": false,
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers.",
         "Sponsor1": "0",
+        "Sponsor1Available": false,
         "Sponsor2": "0",
-        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+        "Sponsor2Available": false
       },
       "2": {
-        "PaintCarAvailable": false,
         "Color1": "FF0000",
         "Color2": "00FF00",
         "Color3": "0000FF",
-        "Sponsor1Available": false,
-        "Sponsor2Available": false,
+        "PaintCarAvailable": false,
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers.",
         "Sponsor1": "0",
+        "Sponsor1Available": false,
         "Sponsor2": "0",
-        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+        "Sponsor2Available": false
+      },
+      "3": {
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "PaintCarAvailable": false,
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers.",
+        "Sponsor1": "0",
+        "Sponsor1Available": false,
+        "Sponsor2": "0",
+        "Sponsor2Available": false
       }
     },
-    "patterns": 24,
+    "patterns": 26,
     "price": 11.95,
     "price_display": "$11.95",
     "retired": false,
-    "search_filters": "road,gtp,lmdh",
+    "search_filters": "road,gtp,lmdh,prototype",
     "sku": 10558
   },
   {
@@ -9068,10 +9082,13 @@
     "car_name_abbreviated": "SF23T",
     "car_types": [
       {
+        "car_type": "openwheel"
+      },
+      {
         "car_type": "road"
       }
     ],
-    "car_weight": 1322,
+    "car_weight": 1477,
     "categories": [
       "road"
     ],
@@ -9081,7 +9098,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
-    "hp": 570,
+    "hp": 550,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
     "max_weight_penalty_kg": 250,
@@ -9104,7 +9121,65 @@
     "price": 11.95,
     "price_display": "$11.95",
     "retired": false,
-    "search_filters": "road",
+    "search_filters": "road,openwheel",
+    "sku": 10559
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "superformulasf23\\honda",
+    "car_id": 172,
+    "car_make": "Dallara",
+    "car_model": "Super Formula SF23 - Honda",
+    "car_name": "Super Formula SF23 - Honda",
+    "car_name_abbreviated": "SF23H",
+    "car_types": [
+      {
+        "car_type": "openwheel"
+      },
+      {
+        "car_type": "road"
+      }
+    ],
+    "car_weight": 1477,
+    "categories": [
+      "road"
+    ],
+    "created": "2023-05-11T13:34:35Z",
+    "first_sale": "2023-09-27T00:00:00Z",
+    "forum_url": "https://forums.iracing.com/categories/super-formula-sf23-toyota",
+    "free_with_subscription": false,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "hp": 550,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 444,
+    "paint_rules": {
+      "1": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+      }
+    },
+    "patterns": 24,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "retired": false,
+    "search_filters": "road,openwheel",
     "sku": 10559
   },
   {
@@ -9201,6 +9276,9 @@
         "car_type": "lmdh"
       },
       {
+        "car_type": "prototype"
+      },
+      {
         "car_type": "road"
       }
     ],
@@ -9259,7 +9337,7 @@
     "price": 11.95,
     "price_display": "$11.95",
     "retired": false,
-    "search_filters": "road,gtp,lmdh",
+    "search_filters": "road,gtp,lmdh,prototype",
     "sku": 10564
   },
   {
@@ -9281,12 +9359,12 @@
         "car_type": "nascar"
       },
       {
-        "car_type": "road"
+        "car_type": "oval"
       }
     ],
     "car_weight": 3700,
     "categories": [
-      "road"
+      "oval"
     ],
     "created": "2023-08-07T09:58:03Z",
     "first_sale": "2023-09-06T00:00:00Z",
@@ -9304,7 +9382,58 @@
     "price": 11.95,
     "price_display": "$11.95",
     "retired": false,
-    "search_filters": "road,nascar",
+    "search_filters": "oval,nascar",
     "sku": 10566
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "audir8lmsevo2gt3",
+    "car_id": 176,
+    "car_make": "Audi",
+    "car_model": "Audi R8 LMS EVO II GT3",
+    "car_name": "Audi R8 LMS EVO II GT3",
+    "car_name_abbreviated": "AEVO2",
+    "car_types": [
+      {
+        "car_type": "audi"
+      },
+      {
+        "car_type": "gt"
+      },
+      {
+        "car_type": "gt3"
+      },
+      {
+        "car_type": "sportscar"
+      }
+    ],
+    "car_weight": 2910,
+    "categories": [
+      "road"
+    ],
+    "created": "2023-10-04T14:07:37Z",
+    "first_sale": "2023-12-06T15:39:45Z",
+    "forum_url": "https://forums.iracing.com/categories/audi-r8-lms-evo-ii-gt3",
+    "free_with_subscription": false,
+    "has_headlights": true,
+    "has_multiple_dry_tire_types": false,
+    "hp": 518,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 456,
+    "patterns": 26,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "retired": false,
+    "search_filters": "gt3,audi,gt,sportscar",
+    "sku": 10567
   }
 ]

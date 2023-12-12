@@ -5,9 +5,9 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>23.4.2</Version>
-    <AssemblyVersion>23.4.2.0</AssemblyVersion>
-    <FileVersion>23.4.2.0</FileVersion>
+    <Version>24.1.0</Version>
+    <AssemblyVersion>24.1.0.0</AssemblyVersion>
+    <FileVersion>24.1.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -46,6 +46,9 @@
     <None Update="JsonFiles\Schedules\2023 - Season 4.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="JsonFiles\Schedules\2024 - Season 1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="JsonFiles\SeriesDetails\23s2_series.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -53,6 +56,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\SeriesDetails\23s4_series.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="JsonFiles\SeriesDetails\24s1_series.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\tracksJson.json">

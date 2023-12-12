@@ -920,6 +920,11 @@
         "retired": false
       },
       {
+        "car_dirpath": "superformulasf23\\honda",
+        "car_id": 172,
+        "retired": false
+      },
+      {
         "car_dirpath": "ferrari296gt3",
         "car_id": 173,
         "retired": false
@@ -932,6 +937,11 @@
       {
         "car_dirpath": "stockcars\\pontiacgrandprix87",
         "car_id": 175,
+        "retired": false
+      },
+      {
+        "car_dirpath": "audir8lmsevo2gt3",
+        "car_id": 176,
         "retired": false
       }
     ],
@@ -1819,20 +1829,6 @@
     "short_name": "[L] AMG GT3"
   },
   {
-    "car_class_id": 80,
-    "cars_in_class": [
-      {
-        "car_dirpath": "audir8gt3",
-        "car_id": 73,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "Audi R8 GT3",
-    "relative_speed": 52,
-    "short_name": "Audi R8 GT3"
-  },
-  {
     "car_class_id": 81,
     "cars_in_class": [
       {
@@ -2174,6 +2170,20 @@
     "short_name": "Dallara IR18"
   },
   {
+    "car_class_id": 4035,
+    "cars_in_class": [
+      {
+        "car_dirpath": "mercedesamgevogt3",
+        "car_id": 156,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Ring Meister 2023",
+    "relative_speed": 52,
+    "short_name": "RingMeister23"
+  },
+  {
     "car_class_id": 472,
     "cars_in_class": [
       {
@@ -2505,6 +2515,20 @@
     "name": "Porsche 718 Cayman GT4 Clubsport MR",
     "relative_speed": 49,
     "short_name": "Porsche 718"
+  },
+  {
+    "car_class_id": 4034,
+    "cars_in_class": [
+      {
+        "car_dirpath": "superformulasf23\\honda",
+        "car_id": 172,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Super Formula SF23 - Honda",
+    "relative_speed": 160,
+    "short_name": "Super SF23H"
   },
   {
     "car_class_id": 2040,
@@ -3582,32 +3606,18 @@
     "short_name": "Gen 4 Cup"
   },
   {
-    "car_class_id": 4039,
+    "car_class_id": 4042,
     "cars_in_class": [
       {
-        "car_dirpath": "streetstock",
-        "car_id": 36,
+        "car_dirpath": "amvantagegt4",
+        "car_id": 150,
         "retired": false
       }
     ],
     "cust_id": 0,
-    "name": "Ring Meister 2023S4",
-    "relative_speed": 56,
-    "short_name": "RingMeister23S4"
-  },
-  {
-    "car_class_id": 4040,
-    "cars_in_class": [
-      {
-        "car_dirpath": "stockcars\\fordthunderbird87",
-        "car_id": 125,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "Draft Master 2023S4",
-    "relative_speed": 52,
-    "short_name": "DraftMaster23S4"
+    "name": "Shiny New Shakedown 2023 S4",
+    "relative_speed": 50,
+    "short_name": "Shiny 2023S4"
   },
   {
     "car_class_id": 4010,
@@ -3695,6 +3705,83 @@
     "short_name": "NASCAR 1987"
   },
   {
+    "car_class_id": 80,
+    "cars_in_class": [
+      {
+        "car_dirpath": "audir8gt3",
+        "car_id": 73,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "[Legacy] Audi R8 GT3",
+    "relative_speed": 52,
+    "short_name": "[L] Audi R8 GT3"
+  },
+  {
+    "car_class_id": 2708,
+    "cars_in_class": [
+      {
+        "car_dirpath": "audir8lmsevo2gt3",
+        "car_id": 176,
+        "retired": false
+      },
+      {
+        "car_dirpath": "bmwm4gt3",
+        "car_id": 132,
+        "retired": false
+      },
+      {
+        "car_dirpath": "lamborghinievogt3",
+        "car_id": 133,
+        "retired": false
+      },
+      {
+        "car_dirpath": "porsche992rgt3",
+        "car_id": 169,
+        "retired": false
+      },
+      {
+        "car_dirpath": "mclarenmp4",
+        "car_id": 43,
+        "retired": false
+      },
+      {
+        "car_dirpath": "fordgt\\gt3",
+        "car_id": 59,
+        "retired": false
+      },
+      {
+        "car_dirpath": "mercedesamgevogt3",
+        "car_id": 156,
+        "retired": false
+      },
+      {
+        "car_dirpath": "ferrari296gt3",
+        "car_id": 173,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "GT3 Class",
+    "relative_speed": 52,
+    "short_name": "GT3 Class"
+  },
+  {
+    "car_class_id": 4046,
+    "cars_in_class": [
+      {
+        "car_dirpath": "audir8lmsevo2gt3",
+        "car_id": 176,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Audi R8 LMS EVO II GT3",
+    "relative_speed": 52,
+    "short_name": "Audi R8 EVO2 GT3"
+  },
+  {
     "car_class_id": 4014,
     "cars_in_class": [
       {
@@ -3759,6 +3846,78 @@
     "name": "Spec Racer Ford",
     "relative_speed": 39,
     "short_name": "SRF"
+  },
+  {
+    "car_class_id": 4040,
+    "cars_in_class": [
+      {
+        "car_dirpath": "trucks\\fordf150",
+        "car_id": 123,
+        "retired": false
+      },
+      {
+        "car_dirpath": "trucks\\toyotatundra2022",
+        "car_id": 155,
+        "retired": false
+      },
+      {
+        "car_dirpath": "trucks\\silverado2019",
+        "car_id": 111,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Draft Master 2023S4",
+    "relative_speed": 52,
+    "short_name": "DraftMaster23S4"
+  },
+  {
+    "car_class_id": 4047,
+    "cars_in_class": [
+      {
+        "car_dirpath": "amvantagegt4",
+        "car_id": 150,
+        "retired": false
+      },
+      {
+        "car_dirpath": "porsche718gt4",
+        "car_id": 119,
+        "retired": false
+      },
+      {
+        "car_dirpath": "mclaren570sgt4",
+        "car_id": 135,
+        "retired": false
+      },
+      {
+        "car_dirpath": "bmwm4gt4",
+        "car_id": 122,
+        "retired": false
+      },
+      {
+        "car_dirpath": "mercedesamggt4",
+        "car_id": 157,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Special2024",
+    "relative_speed": 52,
+    "short_name": "Special2024"
+  },
+  {
+    "car_class_id": 4048,
+    "cars_in_class": [
+      {
+        "car_dirpath": "rt2000",
+        "car_id": 1,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Ring Meister 2024S1",
+    "relative_speed": 52,
+    "short_name": "RingMeister24S1"
   },
   {
     "car_class_id": 4020,
@@ -3879,58 +4038,14 @@
     "short_name": "USAC Sprint"
   },
   {
-    "car_class_id": 2708,
-    "cars_in_class": [
-      {
-        "car_dirpath": "bmwm4gt3",
-        "car_id": 132,
-        "retired": false
-      },
-      {
-        "car_dirpath": "lamborghinievogt3",
-        "car_id": 133,
-        "retired": false
-      },
-      {
-        "car_dirpath": "audir8gt3",
-        "car_id": 73,
-        "retired": false
-      },
-      {
-        "car_dirpath": "porsche992rgt3",
-        "car_id": 169,
-        "retired": false
-      },
-      {
-        "car_dirpath": "mclarenmp4",
-        "car_id": 43,
-        "retired": false
-      },
-      {
-        "car_dirpath": "fordgt\\gt3",
-        "car_id": 59,
-        "retired": false
-      },
-      {
-        "car_dirpath": "mercedesamgevogt3",
-        "car_id": 156,
-        "retired": false
-      },
-      {
-        "car_dirpath": "ferrari296gt3",
-        "car_id": 173,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "GT3 Class",
-    "relative_speed": 52,
-    "short_name": "GT3 Class"
-  },
-  {
     "car_class_id": 4011,
     "cars_in_class": [
       {
+        "car_dirpath": "audir8lmsevo2gt3",
+        "car_id": 176,
+        "retired": false
+      },
+      {
         "car_dirpath": "bmwm4gt3",
         "car_id": 132,
         "retired": false
@@ -3938,11 +4053,6 @@
       {
         "car_dirpath": "lamborghinievogt3",
         "car_id": 133,
-        "retired": false
-      },
-      {
-        "car_dirpath": "audir8gt3",
-        "car_id": 73,
         "retired": false
       },
       {
@@ -4039,34 +4149,6 @@
     "short_name": "Acura ARX-06 GTP"
   },
   {
-    "car_class_id": 4032,
-    "cars_in_class": [
-      {
-        "car_dirpath": "superformulasf23\\toyota",
-        "car_id": 171,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "Super Formula SF23",
-    "relative_speed": 160,
-    "short_name": "Super SF23"
-  },
-  {
-    "car_class_id": 4033,
-    "cars_in_class": [
-      {
-        "car_dirpath": "superformulasf23\\toyota",
-        "car_id": 171,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "Super Formula SF23 - Toyota",
-    "relative_speed": 160,
-    "short_name": "Super SF23T"
-  },
-  {
     "car_class_id": 4036,
     "cars_in_class": [
       {
@@ -4109,6 +4191,39 @@
     "short_name": "Pontiac GP 1987"
   },
   {
+    "car_class_id": 4032,
+    "cars_in_class": [
+      {
+        "car_dirpath": "superformulasf23\\toyota",
+        "car_id": 171,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Super Formula SF23 - Toyota",
+    "relative_speed": 160,
+    "short_name": "Super SF23T"
+  },
+  {
+    "car_class_id": 4033,
+    "cars_in_class": [
+      {
+        "car_dirpath": "superformulasf23\\toyota",
+        "car_id": 171,
+        "retired": false
+      },
+      {
+        "car_dirpath": "superformulasf23\\honda",
+        "car_id": 172,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Super Formula SF23",
+    "relative_speed": 160,
+    "short_name": "Super SF23"
+  },
+  {
     "car_class_id": 3243,
     "cars_in_class": [
       {
@@ -4126,8 +4241,8 @@
     "car_class_id": 4043,
     "cars_in_class": [
       {
-        "car_dirpath": "renaultcliocup",
-        "car_id": 162,
+        "car_dirpath": "legends\\ford34c",
+        "car_id": 5,
         "retired": false
       }
     ],
@@ -4135,34 +4250,6 @@
     "name": "French Connection 2023 S4",
     "relative_speed": 50,
     "short_name": "French Co 2023S4"
-  },
-  {
-    "car_class_id": 4042,
-    "cars_in_class": [
-      {
-        "car_dirpath": "fr500s",
-        "car_id": 30,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "Shiny New Shakedown 2023 S4",
-    "relative_speed": 50,
-    "short_name": "Shiny 2023S4"
-  },
-  {
-    "car_class_id": 4044,
-    "cars_in_class": [
-      {
-        "car_dirpath": "streetstock",
-        "car_id": 36,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "Shake Up 2023 S4",
-    "relative_speed": 50,
-    "short_name": "Shake Up 2023S4"
   },
   {
     "car_class_id": 14,
@@ -4187,11 +4274,6 @@
         "retired": false
       },
       {
-        "car_dirpath": "stockcars2\\nwford2013",
-        "car_id": 51,
-        "retired": false
-      },
-      {
         "car_dirpath": "stockcars2\\mustang2019",
         "car_id": 115,
         "retired": false
@@ -4200,21 +4282,25 @@
         "car_dirpath": "stockcars2\\supra2019",
         "car_id": 116,
         "retired": false
-      },
-      {
-        "car_dirpath": "stockcars2\\camry2015",
-        "car_id": 69,
-        "retired": false
-      },
-      {
-        "car_dirpath": "stockcars2\\nwcamaro2014",
-        "car_id": 58,
-        "retired": false
       }
     ],
     "cust_id": 0,
     "name": "XFINITY Series",
     "relative_speed": 65,
     "short_name": "XFINITY Series"
+  },
+  {
+    "car_class_id": 4044,
+    "cars_in_class": [
+      {
+        "car_dirpath": "dirtsprint\\winged\\305",
+        "car_id": 80,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Shake Up 2023 S4",
+    "relative_speed": 50,
+    "short_name": "Shake Up 2023S4"
   }
 ]

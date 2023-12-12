@@ -373,10 +373,10 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(80, 30, 30, 30);
+            panel1.Controls.Add(customCarCountSeasonLabel);
             panel1.Controls.Add(customCarSeasonLabel);
             panel1.Controls.Add(customCarSeasonCheckBox);
             panel1.Controls.Add(customCarSeasonTrackBar);
-            panel1.Controls.Add(customCarCountSeasonLabel);
             panel1.Location = new Point(7, 18);
             panel1.Name = "panel1";
             panel1.Size = new Size(366, 28);
@@ -435,7 +435,7 @@
             customCarCountSeasonLabel.BackColor = Color.Transparent;
             customCarCountSeasonLabel.Font = new Font("Arial", 9F, FontStyle.Italic, GraphicsUnit.Point);
             customCarCountSeasonLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
-            customCarCountSeasonLabel.Location = new Point(212, 3);
+            customCarCountSeasonLabel.Location = new Point(208, 3);
             customCarCountSeasonLabel.Name = "customCarCountSeasonLabel";
             customCarCountSeasonLabel.Size = new Size(17, 19);
             customCarCountSeasonLabel.TabIndex = 26;
@@ -723,10 +723,10 @@
             aboutTabPage.Controls.Add(aboutSectionLabel);
             aboutTabPage.Controls.Add(versionLabel);
             aboutTabPage.Controls.Add(forumLinkLabel);
-            aboutTabPage.Location = new Point(4, 38);
+            aboutTabPage.Location = new Point(4, 35);
             aboutTabPage.Name = "aboutTabPage";
             aboutTabPage.Padding = new Padding(3);
-            aboutTabPage.Size = new Size(412, 555);
+            aboutTabPage.Size = new Size(412, 558);
             aboutTabPage.TabIndex = 1;
             aboutTabPage.Text = "About";
             aboutTabPage.UseVisualStyleBackColor = true;
