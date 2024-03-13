@@ -41,5 +41,23 @@ namespace AiSeasonCreator.ScheduleClasses
         public int WeatherVarOngoing { get; set; }
         [JsonPropertyName("time_of_day")]
         public int TimeOfDay { get; set; }
+        [JsonPropertyName("track_water")]
+        public int TrackWater { get; set; }
+        [JsonPropertyName("weather_id")]
+        public string WeatherId { get; set; }
+        [JsonPropertyName("guided_parameters")]
+        public GuidedParameters GuidedParameters { get; set; }
+        [JsonPropertyName("allow_fog")]
+        public bool AllowFog { get; set; }
+        [JsonPropertyName("precip_option")]
+        public int PrecipOption { get; set; }
+        [JsonPropertyName("weather_seed")]
+        public long? WeatherSeed { get; set; }
+        [JsonPropertyName("event_id")]
+        public string EventId { get; set; }
+        [JsonPropertyName("loading")]
+        public bool Loading { get; set; }
+        [JsonPropertyName("keyframes")]
+        public List<Keyframes> Keyframes { get; set; }
     }
 }

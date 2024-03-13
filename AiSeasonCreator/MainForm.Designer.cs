@@ -36,6 +36,7 @@
             toolTip1 = new ToolTip(components);
             consistentWeatherCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             afternoonRacesCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
+            useRosterAttributesCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             aiAvoidPlayerCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             incompleteFormLabel = new Label();
             carPanel = new Panel();
@@ -47,12 +48,11 @@
             groupBox1 = new GroupBox();
             useExistingRosterComboBox = new ReaLTaiizor.Controls.PoisonComboBox();
             panel1 = new Panel();
+            customCarCountSeasonLabel = new ReaLTaiizor.Controls.PoisonLabel();
             customCarSeasonLabel = new ReaLTaiizor.Controls.PoisonLabel();
             customCarSeasonCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             customCarSeasonTrackBar = new ReaLTaiizor.Controls.PoisonTrackBar();
-            customCarCountSeasonLabel = new ReaLTaiizor.Controls.PoisonLabel();
             useExistingRosterCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
-            useRosterAttributesCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             disableCarDamageCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             excludeRosterCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             selectTracksCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
@@ -74,6 +74,7 @@
             forumLinkLabel = new ReaLTaiizor.Controls.PoisonLinkLabel();
             mainTabControl = new ReaLTaiizor.Controls.PoisonTabControl();
             rosterTabPage = new TabPage();
+            driversLabel = new Label();
             rosterSeriesLabel = new Label();
             rosterSourceLabel = new Label();
             rosterNameLabel = new Label();
@@ -128,6 +129,7 @@
             customCarCountRosterLabel = new ReaLTaiizor.Controls.PoisonLabel();
             rosterSeriesComboBox = new ReaLTaiizor.Controls.PoisonComboBox();
             whatSourceComboBox = new ReaLTaiizor.Controls.PoisonComboBox();
+            driversComboBox = new ReaLTaiizor.Controls.PoisonComboBox();
             rosterNameTextBox = new ReaLTaiizor.Controls.PoisonTextBox();
             rosterNamePanel = new Panel();
             whatSourcePanel = new Panel();
@@ -143,6 +145,7 @@
             topBarPanel = new ReaLTaiizor.Controls.PoisonPanel();
             titleLabel = new ReaLTaiizor.Controls.PoisonLabel();
             minimizeButton = new ReaLTaiizor.Controls.PoisonButton();
+            neverRainsCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             seasonTabPage.SuspendLayout();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
@@ -237,6 +240,23 @@
             afternoonRacesCheckBox.UseCustomBackColor = true;
             afternoonRacesCheckBox.UseSelectable = true;
             afternoonRacesCheckBox.UseVisualStyleBackColor = false;
+            // 
+            // useRosterAttributesCheckBox
+            // 
+            useRosterAttributesCheckBox.AutoSize = true;
+            useRosterAttributesCheckBox.BackColor = Color.Transparent;
+            useRosterAttributesCheckBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonCheckBoxSize.Medium;
+            useRosterAttributesCheckBox.Location = new Point(10, 172);
+            useRosterAttributesCheckBox.Name = "useRosterAttributesCheckBox";
+            useRosterAttributesCheckBox.Size = new Size(183, 19);
+            useRosterAttributesCheckBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
+            useRosterAttributesCheckBox.TabIndex = 17;
+            useRosterAttributesCheckBox.Text = "Attr. Ranges In Roster Tab";
+            useRosterAttributesCheckBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            toolTip1.SetToolTip(useRosterAttributesCheckBox, "Uses the attribute ranges in the roster tab as opposed to using random values.");
+            useRosterAttributesCheckBox.UseCustomBackColor = true;
+            useRosterAttributesCheckBox.UseSelectable = true;
+            useRosterAttributesCheckBox.UseVisualStyleBackColor = false;
             // 
             // aiAvoidPlayerCheckBox
             // 
@@ -335,6 +355,7 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.Transparent;
+            groupBox1.Controls.Add(neverRainsCheckBox);
             groupBox1.Controls.Add(useExistingRosterComboBox);
             groupBox1.Controls.Add(panel1);
             groupBox1.Controls.Add(useExistingRosterCheckBox);
@@ -381,6 +402,20 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(366, 28);
             panel1.TabIndex = 50;
+            // 
+            // customCarCountSeasonLabel
+            // 
+            customCarCountSeasonLabel.AutoSize = true;
+            customCarCountSeasonLabel.BackColor = Color.Transparent;
+            customCarCountSeasonLabel.Font = new Font("Arial", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            customCarCountSeasonLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
+            customCarCountSeasonLabel.Location = new Point(208, 3);
+            customCarCountSeasonLabel.Name = "customCarCountSeasonLabel";
+            customCarCountSeasonLabel.Size = new Size(17, 19);
+            customCarCountSeasonLabel.TabIndex = 26;
+            customCarCountSeasonLabel.Text = "0";
+            customCarCountSeasonLabel.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            customCarCountSeasonLabel.UseCustomBackColor = true;
             // 
             // customCarSeasonLabel
             // 
@@ -429,20 +464,6 @@
             customCarSeasonTrackBar.Value = 30;
             customCarSeasonTrackBar.Scroll += customCarSeasonTrackBar_Scroll;
             // 
-            // customCarCountSeasonLabel
-            // 
-            customCarCountSeasonLabel.AutoSize = true;
-            customCarCountSeasonLabel.BackColor = Color.Transparent;
-            customCarCountSeasonLabel.Font = new Font("Arial", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            customCarCountSeasonLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
-            customCarCountSeasonLabel.Location = new Point(208, 3);
-            customCarCountSeasonLabel.Name = "customCarCountSeasonLabel";
-            customCarCountSeasonLabel.Size = new Size(17, 19);
-            customCarCountSeasonLabel.TabIndex = 26;
-            customCarCountSeasonLabel.Text = "0";
-            customCarCountSeasonLabel.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            customCarCountSeasonLabel.UseCustomBackColor = true;
-            // 
             // useExistingRosterCheckBox
             // 
             useExistingRosterCheckBox.AutoSize = true;
@@ -459,22 +480,6 @@
             useExistingRosterCheckBox.UseSelectable = true;
             useExistingRosterCheckBox.UseVisualStyleBackColor = false;
             useExistingRosterCheckBox.CheckedChanged += poisonCheckBox1_CheckedChanged;
-            // 
-            // useRosterAttributesCheckBox
-            // 
-            useRosterAttributesCheckBox.AutoSize = true;
-            useRosterAttributesCheckBox.BackColor = Color.Transparent;
-            useRosterAttributesCheckBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonCheckBoxSize.Medium;
-            useRosterAttributesCheckBox.Location = new Point(10, 172);
-            useRosterAttributesCheckBox.Name = "useRosterAttributesCheckBox";
-            useRosterAttributesCheckBox.Size = new Size(258, 19);
-            useRosterAttributesCheckBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
-            useRosterAttributesCheckBox.TabIndex = 17;
-            useRosterAttributesCheckBox.Text = "Use Attribute Ranges From Roster Tab";
-            useRosterAttributesCheckBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            useRosterAttributesCheckBox.UseCustomBackColor = true;
-            useRosterAttributesCheckBox.UseSelectable = true;
-            useRosterAttributesCheckBox.UseVisualStyleBackColor = false;
             // 
             // disableCarDamageCheckBox
             // 
@@ -497,7 +502,7 @@
             excludeRosterCheckBox.AutoSize = true;
             excludeRosterCheckBox.BackColor = Color.Transparent;
             excludeRosterCheckBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonCheckBoxSize.Medium;
-            excludeRosterCheckBox.Location = new Point(221, 142);
+            excludeRosterCheckBox.Location = new Point(221, 172);
             excludeRosterCheckBox.Name = "excludeRosterCheckBox";
             excludeRosterCheckBox.Size = new Size(113, 19);
             excludeRosterCheckBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -545,7 +550,7 @@
             shortParadeCheckBox.AutoSize = true;
             shortParadeCheckBox.BackColor = Color.Transparent;
             shortParadeCheckBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonCheckBoxSize.Medium;
-            shortParadeCheckBox.Location = new Point(221, 112);
+            shortParadeCheckBox.Location = new Point(221, 142);
             shortParadeCheckBox.Name = "shortParadeCheckBox";
             shortParadeCheckBox.Size = new Size(130, 19);
             shortParadeCheckBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -791,6 +796,7 @@
             rosterTabPage.BackColor = Color.Transparent;
             rosterTabPage.BackgroundImage = (Image)resources.GetObject("rosterTabPage.BackgroundImage");
             rosterTabPage.BackgroundImageLayout = ImageLayout.Stretch;
+            rosterTabPage.Controls.Add(driversLabel);
             rosterTabPage.Controls.Add(rosterSeriesLabel);
             rosterTabPage.Controls.Add(rosterSourceLabel);
             rosterTabPage.Controls.Add(rosterNameLabel);
@@ -799,6 +805,7 @@
             rosterTabPage.Controls.Add(customCarRosterPanel);
             rosterTabPage.Controls.Add(rosterSeriesComboBox);
             rosterTabPage.Controls.Add(whatSourceComboBox);
+            rosterTabPage.Controls.Add(driversComboBox);
             rosterTabPage.Controls.Add(rosterNameTextBox);
             rosterTabPage.Controls.Add(rosterNamePanel);
             rosterTabPage.Controls.Add(whatSourcePanel);
@@ -809,11 +816,22 @@
             rosterTabPage.TabIndex = 2;
             rosterTabPage.Text = "Roster";
             // 
+            // driversLabel
+            // 
+            driversLabel.AutoSize = true;
+            driversLabel.ForeColor = SystemColors.ControlDark;
+            driversLabel.Location = new Point(47, 162);
+            driversLabel.Name = "driversLabel";
+            driversLabel.Size = new Size(43, 15);
+            driversLabel.TabIndex = 64;
+            driversLabel.Text = "Drivers";
+            driversLabel.Visible = false;
+            // 
             // rosterSeriesLabel
             // 
             rosterSeriesLabel.AutoSize = true;
             rosterSeriesLabel.ForeColor = SystemColors.ControlDark;
-            rosterSeriesLabel.Location = new Point(15, 124);
+            rosterSeriesLabel.Location = new Point(15, 118);
             rosterSeriesLabel.Name = "rosterSeriesLabel";
             rosterSeriesLabel.Size = new Size(75, 15);
             rosterSeriesLabel.TabIndex = 59;
@@ -823,7 +841,7 @@
             // 
             rosterSourceLabel.AutoSize = true;
             rosterSourceLabel.ForeColor = SystemColors.ControlDark;
-            rosterSourceLabel.Location = new Point(11, 78);
+            rosterSourceLabel.Location = new Point(11, 74);
             rosterSourceLabel.Name = "rosterSourceLabel";
             rosterSourceLabel.Size = new Size(79, 15);
             rosterSourceLabel.TabIndex = 58;
@@ -833,7 +851,7 @@
             // 
             rosterNameLabel.AutoSize = true;
             rosterNameLabel.ForeColor = SystemColors.ControlDark;
-            rosterNameLabel.Location = new Point(15, 33);
+            rosterNameLabel.Location = new Point(15, 31);
             rosterNameLabel.Name = "rosterNameLabel";
             rosterNameLabel.Size = new Size(75, 15);
             rosterNameLabel.TabIndex = 57;
@@ -1512,6 +1530,7 @@
             customCarRosterPanel.Name = "customCarRosterPanel";
             customCarRosterPanel.Size = new Size(380, 28);
             customCarRosterPanel.TabIndex = 49;
+            customCarRosterPanel.Visible = false;
             // 
             // customCarRosterLabel
             // 
@@ -1581,7 +1600,7 @@
             rosterSeriesComboBox.FormattingEnabled = true;
             rosterSeriesComboBox.IntegralHeight = false;
             rosterSeriesComboBox.ItemHeight = 23;
-            rosterSeriesComboBox.Location = new Point(96, 110);
+            rosterSeriesComboBox.Location = new Point(96, 104);
             rosterSeriesComboBox.Name = "rosterSeriesComboBox";
             rosterSeriesComboBox.Size = new Size(300, 29);
             rosterSeriesComboBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -1597,7 +1616,7 @@
             whatSourceComboBox.IntegralHeight = false;
             whatSourceComboBox.ItemHeight = 23;
             whatSourceComboBox.Items.AddRange(new object[] { "Create from iRacing series", "Update from existing roster" });
-            whatSourceComboBox.Location = new Point(96, 64);
+            whatSourceComboBox.Location = new Point(96, 60);
             whatSourceComboBox.Name = "whatSourceComboBox";
             whatSourceComboBox.Size = new Size(300, 29);
             whatSourceComboBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -1605,6 +1624,21 @@
             whatSourceComboBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             whatSourceComboBox.UseSelectable = true;
             whatSourceComboBox.SelectedIndexChanged += whatSourceComboBox_SelectedIndexChanged;
+            // 
+            // driversComboBox
+            // 
+            driversComboBox.DropDownHeight = 415;
+            driversComboBox.FormattingEnabled = true;
+            driversComboBox.IntegralHeight = false;
+            driversComboBox.ItemHeight = 23;
+            driversComboBox.Location = new Point(96, 148);
+            driversComboBox.Name = "driversComboBox";
+            driversComboBox.Size = new Size(300, 29);
+            driversComboBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
+            driversComboBox.TabIndex = 63;
+            driversComboBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            driversComboBox.UseSelectable = true;
+            driversComboBox.Visible = false;
             // 
             // rosterNameTextBox
             // 
@@ -1621,7 +1655,7 @@
             rosterNameTextBox.CustomButton.UseSelectable = true;
             rosterNameTextBox.CustomButton.Visible = false;
             rosterNameTextBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonTextBoxSize.Medium;
-            rosterNameTextBox.Location = new Point(96, 19);
+            rosterNameTextBox.Location = new Point(96, 17);
             rosterNameTextBox.MaxLength = 32767;
             rosterNameTextBox.Name = "rosterNameTextBox";
             rosterNameTextBox.PasswordChar = '\0';
@@ -1855,6 +1889,23 @@
             minimizeButton.UseVisualStyleBackColor = false;
             minimizeButton.Click += minimizeButton_Click;
             // 
+            // neverRainsCheckBox
+            // 
+            neverRainsCheckBox.AutoSize = true;
+            neverRainsCheckBox.BackColor = Color.Transparent;
+            neverRainsCheckBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonCheckBoxSize.Medium;
+            neverRainsCheckBox.Location = new Point(221, 112);
+            neverRainsCheckBox.Name = "neverRainsCheckBox";
+            neverRainsCheckBox.Size = new Size(97, 19);
+            neverRainsCheckBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
+            neverRainsCheckBox.TabIndex = 51;
+            neverRainsCheckBox.Text = "Never Rains";
+            neverRainsCheckBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            toolTip1.SetToolTip(neverRainsCheckBox, "Sets all races to 2pm. This can help the Ai to race more consistently.");
+            neverRainsCheckBox.UseCustomBackColor = true;
+            neverRainsCheckBox.UseSelectable = true;
+            neverRainsCheckBox.UseVisualStyleBackColor = false;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -2028,5 +2079,8 @@
         private ReaLTaiizor.Controls.PoisonCheckBox useExistingRosterCheckBox;
         private GroupBox groupBox1;
         private Label aboutSectionLabel;
+        private ReaLTaiizor.Controls.PoisonComboBox driversComboBox;
+        private Label driversLabel;
+        private ReaLTaiizor.Controls.PoisonCheckBox neverRainsCheckBox;
     }
 }

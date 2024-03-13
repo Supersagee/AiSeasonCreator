@@ -33,6 +33,14 @@ namespace AiSeasonCreator.JsonClasses.FullSchedule
         public int WeatherVarInitial { get; set; }
         [JsonPropertyName("weather_var_ongoing")]
         public int WeatherVarOngoing { get; set; }
+        [JsonPropertyName("allow_fog")]
+        public bool AllowFog { get; set; }
+        [JsonPropertyName("precip_option")]
+        public int PrecipOption { get; set; }
+        [JsonPropertyName("weather_summary")]
+        public WeatherSummary WeatherSummary { get; set; }
+        [JsonPropertyName("forecast_options")]
+        public ForecastOptions ForecastOptions { get; set; }
         [JsonPropertyName("time_of_day")]
         public int TimeOfDay { get; set; }
         [JsonPropertyName("simulated_start_time")]
@@ -43,5 +51,7 @@ namespace AiSeasonCreator.JsonClasses.FullSchedule
         public int SimulatedTimeMultiplier { get; set; }
         [JsonPropertyName("simulated_start_utc_time")]
         public DateTime SimulatedStartUtcTime { get; set; }
+        [JsonPropertyName("weather_url")]
+        public Uri WeatherURL { get; set; }
     }
 }

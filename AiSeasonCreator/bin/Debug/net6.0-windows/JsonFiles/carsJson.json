@@ -30,7 +30,7 @@
     ],
     "car_weight": 1250,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2006-05-03T19:10:00Z",
     "first_sale": "2008-02-03T00:00:00Z",
@@ -38,6 +38,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 132,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -47,6 +48,7 @@
     "patterns": 3,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,openwheel,skippy,sbrs,rt2000",
     "sku": 10009
@@ -89,6 +91,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 370,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -111,6 +114,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,mod, sk mod",
     "sku": 10010
@@ -122,7 +126,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": false,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "solstice",
     "car_id": 3,
     "car_make": "Pontiac",
@@ -139,7 +143,7 @@
     ],
     "car_weight": 2948,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2006-10-17T19:30:00Z",
     "first_sale": "2008-02-04T00:00:00Z",
@@ -147,6 +151,7 @@
     "free_with_subscription": true,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 177,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -156,6 +161,7 @@
     "patterns": 30,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar",
     "sku": 10011
@@ -185,7 +191,7 @@
     ],
     "car_weight": 1320,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2007-11-17T00:00:00Z",
     "first_sale": "2008-02-03T00:00:00Z",
@@ -193,6 +199,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 248,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -202,6 +209,7 @@
     "patterns": 30,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,openwheel,starmazda",
     "site_url": "k",
@@ -239,6 +247,7 @@
     "free_with_subscription": true,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 125,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -248,6 +257,7 @@
     "patterns": 24,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,legends",
     "sku": 10008
@@ -276,7 +286,7 @@
     ],
     "car_weight": 2948,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2007-08-19T15:30:00Z",
     "first_sale": "2008-02-04T00:00:00Z",
@@ -284,6 +294,7 @@
     "free_with_subscription": true,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 177,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -293,6 +304,7 @@
     "patterns": 30,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar",
     "sku": 10011
@@ -329,6 +341,7 @@
     "free_with_subscription": true,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 125,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -338,6 +351,7 @@
     "patterns": 24,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,legends",
     "sku": 10008
@@ -382,6 +396,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 370,
     "is_ps_purchasable": false,
     "max_power_adjust_pct": 0,
@@ -390,6 +405,7 @@
     "package_id": 30,
     "patterns": 33,
     "price": 0,
+    "rain_enabled": false,
     "retired": true,
     "search_filters": "oval,nascar,lm,latemodel,chevy",
     "sku": 0
@@ -418,7 +434,7 @@
     ],
     "car_weight": 1750,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2008-05-01T03:20:00Z",
     "first_sale": "2008-02-03T00:00:00Z",
@@ -426,6 +442,7 @@
     "free_with_subscription": true,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 360,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -435,6 +452,7 @@
     "patterns": 30,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,prototype",
     "site_url": " ",
@@ -470,6 +488,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 819,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -479,6 +498,7 @@
     "patterns": 33,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,usac",
     "sku": 10043
@@ -521,6 +541,7 @@
     "free_with_subscription": true,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 625,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -530,6 +551,7 @@
     "patterns": 33,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,truck,chevy",
     "sku": 10054
@@ -564,7 +586,7 @@
     ],
     "car_weight": 2275,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2008-10-15T13:17:33Z",
     "first_sale": "2009-02-11T00:00:00Z",
@@ -572,6 +594,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 500,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -581,6 +604,7 @@
     "patterns": 33,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,prototype,daytonaprototype,dp",
     "site_url": "http://www.rileytech.com/",
@@ -627,6 +651,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 750,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -636,6 +661,7 @@
     "patterns": 36,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,cupcar,COT,chevy",
     "sku": 10068
@@ -666,7 +692,7 @@
     ],
     "car_weight": 1560,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2009-03-31T08:42:32Z",
     "first_sale": "2009-04-27T00:00:00Z",
@@ -674,6 +700,7 @@
     "free_with_subscription": true,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 135,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -683,6 +710,7 @@
     "patterns": 24,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,prototype,srf",
     "sku": 10087
@@ -725,6 +753,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 650,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -734,6 +763,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,arca,chevy",
     "sku": 10088
@@ -774,7 +804,7 @@
     ],
     "car_weight": 1268,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2009-06-08T11:00:37Z",
     "first_sale": "2009-07-28T00:00:00Z",
@@ -782,6 +812,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 475,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -791,6 +822,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,openwheel,L79,f1,formula1,formulaone",
     "site_url": "www.lotus.com",
@@ -826,7 +858,7 @@
     ],
     "car_weight": 2275,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2009-06-22T10:26:32Z",
     "first_sale": "2009-10-29T00:00:00Z",
@@ -834,6 +866,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 500,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -843,6 +876,7 @@
     "patterns": 33,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gt1,chevy",
     "site_url": "http://www.prattmiller.com/motorsports/",
@@ -872,7 +906,7 @@
     ],
     "car_weight": 3041,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2009-06-22T10:28:55Z",
     "first_sale": "2009-06-22T00:00:00Z",
@@ -880,6 +914,7 @@
     "free_with_subscription": true,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 170,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -889,6 +924,7 @@
     "patterns": 1,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar",
     "site_url": "http://www.vw.com/vwhype/motorsport/en/us/#/jetta_tdi_cup/welcome/",
@@ -927,7 +963,7 @@
     ],
     "car_weight": 2987,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2009-06-22T10:30:43Z",
     "first_sale": "2009-06-22T00:00:00Z",
@@ -935,6 +971,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 635,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -944,6 +981,7 @@
     "patterns": 33,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,aussiev8,supercars,v8sc",
     "site_url": "http://www.fpr.com.au/",
@@ -979,7 +1017,7 @@
     ],
     "car_weight": 1600,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2009-08-21T15:30:46Z",
     "first_sale": "2009-10-29T00:00:00Z",
@@ -987,6 +1025,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 650,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -996,6 +1035,7 @@
     "patterns": 33,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,road,openwheel,dallara",
     "site_url": "www.dallara.it",
@@ -1028,7 +1068,7 @@
     ],
     "car_weight": 3600,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2010-04-13T09:45:25Z",
     "first_sale": "2010-06-22T00:00:00Z",
@@ -1036,6 +1076,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 325,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1045,6 +1086,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,mustanggt",
     "site_url": "http://www.ford.com",
@@ -1088,6 +1130,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 612,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1110,6 +1153,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,mod,tour mod",
     "sku": 10010
@@ -1147,7 +1191,7 @@
     ],
     "car_weight": 1331,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2010-08-05T10:10:05Z",
     "first_sale": "2010-10-26T00:00:00Z",
@@ -1155,6 +1199,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 750,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1167,6 +1212,7 @@
     "patterns": 2,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,openwheel,f1,formula1,formulaone",
     "site_url": "http://www.attwilliams.com/",
@@ -1202,14 +1248,15 @@
     ],
     "car_weight": 2600,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2010-09-30T11:12:05Z",
     "first_sale": "2010-10-26T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/%5Blegacy%5D-road-cars",
-    "free_with_subscription": false,
+    "free_with_subscription": true,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 170,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1217,8 +1264,9 @@
     "min_power_adjust_pct": -5,
     "package_id": 102,
     "patterns": 20,
-    "price": 2.95,
-    "price_display": "$2.95",
+    "price": 0,
+    "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,miata,mx5",
     "site_url": "http://www.mazda.com",
@@ -1254,14 +1302,15 @@
     ],
     "car_weight": 2600,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2010-09-30T11:13:36Z",
     "first_sale": "2010-10-26T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/%5Blegacy%5D-road-cars",
-    "free_with_subscription": false,
+    "free_with_subscription": true,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 170,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1269,8 +1318,9 @@
     "min_power_adjust_pct": -5,
     "package_id": 102,
     "patterns": 20,
-    "price": 2.95,
-    "price_display": "$2.95",
+    "price": 0,
+    "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,miata,mx5",
     "site_url": "http://www.mazda.com",
@@ -1306,6 +1356,7 @@
     "free_with_subscription": true,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 375,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1315,6 +1366,7 @@
     "patterns": 20,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,ss",
     "site_url": "http://www.iracing.com",
@@ -1347,6 +1399,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 820,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1356,6 +1409,7 @@
     "patterns": 26,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval",
     "site_url": "http://www.iracing.com",
@@ -1401,6 +1455,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 650,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1410,6 +1465,7 @@
     "patterns": 22,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,nationwide,xfinity,chevy",
     "sku": 10268
@@ -1441,7 +1497,7 @@
     ],
     "car_weight": 1819,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2011-06-15T14:16:15Z",
     "first_sale": "2011-07-29T00:00:00Z",
@@ -1449,6 +1505,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 480,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1458,6 +1515,7 @@
     "patterns": 22,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,prototype,lmp2",
     "site_url": "http://racing.honda.com/hpd/",
@@ -1493,7 +1551,7 @@
     ],
     "car_weight": 2727,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2011-06-15T14:19:30Z",
     "first_sale": "2011-07-29T00:00:00Z",
@@ -1501,6 +1559,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 500,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1510,6 +1569,7 @@
     "patterns": 21,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gte,gtlm",
     "site_url": "http://www.ford.com/",
@@ -1539,7 +1599,7 @@
     ],
     "car_weight": 3200,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2012-02-28T11:02:39Z",
     "first_sale": "2012-04-24T00:00:00Z",
@@ -1547,6 +1607,7 @@
     "free_with_subscription": true,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 460,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1556,6 +1617,7 @@
     "patterns": 21,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar",
     "site_url": "http://www.cadillac.com/v-series-racing.html",
@@ -1597,7 +1659,7 @@
     ],
     "car_weight": 1200,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2012-09-25T16:01:16Z",
     "first_sale": "2013-07-18T00:00:00Z",
@@ -1605,6 +1667,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 400,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1614,6 +1677,7 @@
     "patterns": 23,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,openwheel,L49,f1,formula1,formulaone",
     "site_url": "http://www.iracing.com",
@@ -1649,7 +1713,7 @@
     ],
     "car_weight": 2725,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2012-09-28T14:11:54Z",
     "first_sale": "2012-12-18T00:00:00Z",
@@ -1657,6 +1721,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 550,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1666,6 +1731,7 @@
     "patterns": 23,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gt3,gtd",
     "site_url": "http://mclarengt.com/",
@@ -1698,7 +1764,7 @@
     ],
     "car_weight": 3000,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2012-12-19T12:54:16Z",
     "first_sale": "2013-04-18T00:00:00Z",
@@ -1706,6 +1772,7 @@
     "free_with_subscription": true,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 375,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1715,6 +1782,7 @@
     "patterns": 24,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gs",
     "site_url": "http://www.iracing.com",
@@ -1758,6 +1826,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 875,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1767,6 +1836,7 @@
     "patterns": 24,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,cupcar,chevy",
     "site_url": "http://www.iracing.com",
@@ -1807,6 +1877,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 750,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1816,6 +1887,7 @@
     "patterns": 24,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,cupcar",
     "site_url": "http://www.iracing.com",
@@ -1848,7 +1920,7 @@
     ],
     "car_weight": 3100,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2013-05-31T08:29:32Z",
     "first_sale": "2014-01-27T00:00:00Z",
@@ -1856,6 +1928,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 675,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1865,6 +1938,7 @@
     "patterns": 23,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,911",
     "site_url": "http://www.iracing.com",
@@ -1897,7 +1971,7 @@
     ],
     "car_weight": 3100,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2013-07-01T15:39:18Z",
     "first_sale": "2013-12-18T00:00:00Z",
@@ -1905,6 +1979,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 675,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1914,6 +1989,7 @@
     "patterns": 23,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,911",
     "site_url": "http://www.iracing.com",
@@ -1946,7 +2022,7 @@
     ],
     "car_weight": 2645,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2013-07-01T15:40:33Z",
     "first_sale": "2013-12-18T00:00:00Z",
@@ -1954,6 +2030,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 493,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1963,6 +2040,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,911",
     "site_url": "http://www.iracing.com",
@@ -2006,6 +2084,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 650,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -2028,6 +2107,7 @@
     "patterns": 25,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,xfinity,nationwide",
     "site_url": "http://www.iracing.com",
@@ -2040,7 +2120,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "rufrt12r\\track\\cspec",
     "car_id": 52,
     "car_make": "Ruf",
@@ -2060,7 +2140,7 @@
     ],
     "car_weight": 2645,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2013-11-21T13:43:02Z",
     "first_sale": "2013-12-18T00:00:00Z",
@@ -2068,6 +2148,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 435,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -2077,6 +2158,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,911",
     "site_url": "http://www.ruf-automobile.de/",
@@ -2113,6 +2195,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 550,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -2122,6 +2205,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,slm",
     "site_url": "http://www.iracing.com/",
@@ -2157,7 +2241,7 @@
     ],
     "car_weight": 2646,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2014-03-10T10:22:22Z",
     "first_sale": "2014-04-28T00:00:00Z",
@@ -2165,6 +2249,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 515,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -2174,6 +2259,7 @@
     "patterns": 25,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gt3,gtd",
     "site_url": "http://www.iracing.com",
@@ -2186,7 +2272,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "stockcars\\toyotacamry",
     "car_id": 56,
     "car_make": "Toyota",
@@ -2217,6 +2303,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 750,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -2226,6 +2313,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,cupcar,classa",
     "site_url": "http://www.iracing.com",
@@ -2258,8 +2346,7 @@
     ],
     "car_weight": 1570,
     "categories": [
-      "oval",
-      "road"
+      "formula_car"
     ],
     "created": "2014-04-28T14:20:06Z",
     "first_sale": "2014-05-17T00:00:00Z",
@@ -2267,6 +2354,7 @@
     "free_with_subscription": true,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 700,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -2289,6 +2377,7 @@
     "patterns": 25,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,road,openwheel",
     "site_url": "https://www.dallara.it/",
@@ -2335,6 +2424,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 650,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -2344,6 +2434,7 @@
     "patterns": 24,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,xfinity,nationwide,chevy",
     "site_url": "http://www.iracing.com",
@@ -2379,7 +2470,7 @@
     ],
     "car_weight": 2624,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2014-07-23T13:28:07Z",
     "first_sale": "2014-10-20T00:00:00Z",
@@ -2387,6 +2478,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 475,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -2396,6 +2488,7 @@
     "patterns": 21,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gtd,gt3",
     "site_url": "http://www.ford.com/",
@@ -2434,7 +2527,7 @@
     ],
     "car_weight": 3109,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2014-09-17T11:54:02Z",
     "first_sale": "2014-10-20T00:00:00Z",
@@ -2442,6 +2535,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 635,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -2451,6 +2545,7 @@
     "patterns": 24,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,aussiev8,supercars,v8sc",
     "site_url": "http://www.iracing.com",
@@ -2489,7 +2584,7 @@
     ],
     "car_weight": 3109,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2014-11-03T15:10:32Z",
     "first_sale": "2014-12-08T00:00:00Z",
@@ -2497,6 +2592,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 635,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -2506,6 +2602,7 @@
     "patterns": 24,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,aussiev8,supercars,v8sc",
     "site_url": "http://www.iracing.com",
@@ -2545,6 +2642,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 650,
     "is_ps_purchasable": false,
     "max_power_adjust_pct": 0,
@@ -2588,6 +2686,7 @@
     },
     "patterns": 27,
     "price": 0,
+    "rain_enabled": false,
     "retired": true,
     "search_filters": "oval,nascar,truck",
     "site_url": "http://www.iracing.com",
@@ -2630,6 +2729,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 625,
     "is_ps_purchasable": false,
     "max_power_adjust_pct": 0,
@@ -2638,6 +2738,7 @@
     "package_id": 177,
     "patterns": 24,
     "price": 0,
+    "rain_enabled": false,
     "retired": true,
     "search_filters": "oval,nascar,truck,chevy",
     "site_url": "http://www.iracing.com",
@@ -2670,7 +2771,7 @@
     ],
     "car_weight": 2579,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2015-04-07T15:46:33Z",
     "first_sale": "2015-06-08T00:00:00Z",
@@ -2678,6 +2779,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 600,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -2687,6 +2789,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gt1",
     "site_url": "http://www.astonmartin.com/racing",
@@ -2722,7 +2825,7 @@
     ],
     "car_weight": 1967,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2015-05-18T13:08:08Z",
     "first_sale": "2016-03-07T00:00:00Z",
@@ -2730,6 +2833,7 @@
     "free_with_subscription": true,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 181,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -2739,6 +2843,7 @@
     "patterns": 24,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,miata,mx5",
     "site_url": "http://www.mazdamotorsports.com/",
@@ -2782,6 +2887,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 650,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -2791,6 +2897,7 @@
     "patterns": 24,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,xfinity,nationwide",
     "site_url": "http://www.iracing.com/",
@@ -2829,7 +2936,7 @@
     ],
     "car_weight": 2290,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2015-08-14T14:40:57Z",
     "first_sale": "2015-09-04T00:00:00Z",
@@ -2837,6 +2944,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 600,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -2859,6 +2967,7 @@
     "patterns": 24,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,prototype,daytonaprototype,dp,chevy",
     "site_url": "http://www.imsa.com",
@@ -2871,7 +2980,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "mclarenmp430",
     "car_id": 71,
     "car_make": "McLaren",
@@ -2897,7 +3006,7 @@
     ],
     "car_weight": 1548,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2015-11-10T15:31:56Z",
     "first_sale": "2015-12-07T00:00:00Z",
@@ -2905,6 +3014,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": true,
+    "has_rain_capable_tire_types": false,
     "hp": 700,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -2927,6 +3037,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,openwheel,f1,formula1,formulaone",
     "site_url": "http://www.mclaren.com/formula1/car/",
@@ -2962,7 +3073,7 @@
     ],
     "car_weight": 2932,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2016-01-11T08:40:51Z",
     "first_sale": "2016-03-07T00:00:00Z",
@@ -2970,6 +3081,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 500,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -2979,6 +3091,7 @@
     "patterns": 24,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gt3,gtd",
     "site_url": "http://www.mercedes-amg.com/lifestyle_racing.php",
@@ -3014,7 +3127,7 @@
     ],
     "car_weight": 2799,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2016-01-29T14:03:49Z",
     "first_sale": "2016-03-07T00:00:00Z",
@@ -3022,6 +3135,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 576,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -3031,6 +3145,7 @@
     "patterns": 23,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gt3,gtd",
     "site_url": "http://www.audi-motorsport.com/de/en/gt-sport.html",
@@ -3063,7 +3178,7 @@
     ],
     "car_weight": 1115,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2016-02-03T08:17:14Z",
     "first_sale": "2016-03-07T00:00:00Z",
@@ -3071,6 +3186,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 210,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -3080,6 +3196,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,openwheel,fr2.0",
     "site_url": "http://www.worldseriesbyrenault.com",
@@ -3115,7 +3232,7 @@
     ],
     "car_weight": 2659,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2016-07-12T09:32:42Z",
     "first_sale": "2016-09-09T00:00:00Z",
@@ -3123,6 +3240,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 710,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -3145,6 +3263,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gto,imsa",
     "site_url": "http://www.audi-motorsport.com/",
@@ -3180,7 +3299,7 @@
     ],
     "car_weight": 2097,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2016-07-28T14:54:24Z",
     "first_sale": "2017-09-09T00:00:00Z",
@@ -3188,6 +3307,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 795,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -3210,6 +3330,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,prototype,gtp,imsa",
     "site_url": "http://www.iracing.com",
@@ -3242,7 +3363,7 @@
     ],
     "car_weight": 2250,
     "categories": [
-      "oval"
+      "dirt_oval"
     ],
     "created": "2016-07-29T13:54:41Z",
     "first_sale": "2017-03-28T00:00:00Z",
@@ -3250,6 +3371,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 400,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -3283,6 +3405,7 @@
     "patterns": 26,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,dirtoval,dlm",
     "site_url": "http://www.iracing.com",
@@ -3310,7 +3433,7 @@
     ],
     "car_weight": 3075,
     "categories": [
-      "oval"
+      "dirt_oval"
     ],
     "created": "2016-10-03T14:26:41Z",
     "first_sale": "2017-03-28T00:00:00Z",
@@ -3318,6 +3441,7 @@
     "free_with_subscription": true,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 425,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -3327,6 +3451,7 @@
     "patterns": 24,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,dirtoval",
     "site_url": "http://www.iracing.com",
@@ -3359,7 +3484,7 @@
     ],
     "car_weight": 1550,
     "categories": [
-      "oval"
+      "dirt_oval"
     ],
     "created": "2016-10-03T14:28:04Z",
     "first_sale": "2017-03-28T00:00:00Z",
@@ -3367,6 +3492,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 458,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -3389,6 +3515,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,dirtoval,wingedsprintcar",
     "site_url": "http://www.iracing.com",
@@ -3424,7 +3551,7 @@
     ],
     "car_weight": 3000,
     "categories": [
-      "road"
+      "dirt_road"
     ],
     "created": "2016-10-03T14:29:52Z",
     "first_sale": "2017-12-04T00:00:00Z",
@@ -3432,6 +3559,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 600,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -3498,6 +3626,7 @@
     "patterns": 29,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,dirtroad,rallycross,irx",
     "site_url": "http://www.iracing.com",
@@ -3530,13 +3659,14 @@
     ],
     "car_weight": 1300,
     "categories": [
-      "oval"
+      "dirt_oval"
     ],
     "created": "2016-10-06T09:20:47Z",
     "first_sale": "2008-02-05T00:00:00Z",
     "free_with_subscription": true,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 125,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -3546,6 +3676,7 @@
     "patterns": 24,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,dirtoval,legends",
     "sku": 10008
@@ -3577,7 +3708,7 @@
     ],
     "car_weight": 2250,
     "categories": [
-      "oval"
+      "dirt_oval"
     ],
     "created": "2016-11-08T14:03:16Z",
     "first_sale": "2017-03-28T00:00:00Z",
@@ -3585,6 +3716,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 700,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -3618,6 +3750,7 @@
     "patterns": 26,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,dirtoval,dlm",
     "site_url": "http://www.iracing.com",
@@ -3650,13 +3783,14 @@
     ],
     "car_weight": 2250,
     "categories": [
-      "oval"
+      "dirt_oval"
     ],
     "created": "2016-11-08T14:04:36Z",
     "first_sale": "2017-03-28T00:00:00Z",
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 850,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -3690,6 +3824,7 @@
     "patterns": 26,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,dirtoval,dlm",
     "site_url": "http://www.iracing.com",
@@ -3722,7 +3857,7 @@
     ],
     "car_weight": 1500,
     "categories": [
-      "oval"
+      "dirt_oval"
     ],
     "created": "2016-11-08T14:07:20Z",
     "first_sale": "2017-03-28T00:00:00Z",
@@ -3730,6 +3865,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 720,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -3752,6 +3888,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,dirtoval,wingedsprintcar",
     "site_url": "http://www.iracing.com",
@@ -3784,7 +3921,7 @@
     ],
     "car_weight": 1400,
     "categories": [
-      "oval"
+      "dirt_oval"
     ],
     "created": "2016-11-08T14:09:15Z",
     "first_sale": "2017-03-28T00:00:00Z",
@@ -3792,6 +3929,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 892,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -3814,6 +3952,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,dirtoval,wingedsprintcar",
     "site_url": "http://www.iracing.com",
@@ -3846,7 +3985,7 @@
     ],
     "car_weight": 1375,
     "categories": [
-      "oval"
+      "dirt_oval"
     ],
     "created": "2016-11-08T14:10:46Z",
     "first_sale": "2017-04-21T00:00:00Z",
@@ -3854,6 +3993,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 720,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -3863,6 +4003,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,dirtoval,sprintcar",
     "site_url": "http://www.iracing.com",
@@ -3895,7 +4036,7 @@
     ],
     "car_weight": 2878,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2016-12-23T08:55:47Z",
     "first_sale": "2017-01-26T00:00:00Z",
@@ -3903,6 +4044,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 485,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -3925,6 +4067,7 @@
     "patterns": 25,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,supercup",
     "site_url": "http://www.porsche.com/",
@@ -3957,7 +4100,7 @@
     ],
     "car_weight": 1475,
     "categories": [
-      "oval"
+      "dirt_oval"
     ],
     "created": "2017-01-18T13:13:16Z",
     "first_sale": "2017-04-21T00:00:00Z",
@@ -3965,6 +4108,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 821,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -3974,6 +4118,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,dirtoval,sprintcar",
     "site_url": "http://www.iracing.com",
@@ -4009,7 +4154,7 @@
     ],
     "car_weight": 3000,
     "categories": [
-      "road"
+      "dirt_road"
     ],
     "created": "2017-03-31T15:10:51Z",
     "first_sale": "2017-12-04T00:00:00Z",
@@ -4017,6 +4162,7 @@
     "free_with_subscription": true,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 600,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -4039,6 +4185,7 @@
     "patterns": 24,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,dirtroad,rallycross,irx",
     "site_url": "http://www.iracing.com/",
@@ -4074,7 +4221,7 @@
     ],
     "car_weight": 2745,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2017-05-04T12:41:47Z",
     "first_sale": "2017-06-06T00:00:00Z",
@@ -4082,6 +4229,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 530,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -4104,6 +4252,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gte,gtlm",
     "site_url": "http://performance.ford.com/home.html",
@@ -4139,7 +4288,7 @@
     ],
     "car_weight": 2778,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2017-05-16T15:47:54Z",
     "first_sale": "2017-06-06T00:00:00Z",
@@ -4147,6 +4296,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 490,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -4156,6 +4306,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gte,gtlm",
     "site_url": "http://races.ferrari.com/en/",
@@ -4191,7 +4342,7 @@
     ],
     "car_weight": 2803,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2017-07-28T13:12:40Z",
     "first_sale": "2017-09-05T00:00:00Z",
@@ -4199,6 +4350,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 560,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -4208,6 +4360,7 @@
     "patterns": 24,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gt3,gtd",
     "site_url": "http://races.ferrari.com/en/",
@@ -4237,7 +4390,7 @@
     ],
     "car_weight": 2400,
     "categories": [
-      "oval"
+      "dirt_oval"
     ],
     "created": "2017-08-10T14:12:09Z",
     "first_sale": "2017-09-05T00:00:00Z",
@@ -4245,6 +4398,7 @@
     "free_with_subscription": true,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 750,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -4254,6 +4408,7 @@
     "patterns": 24,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,dirtoval",
     "site_url": "http://www.iracing.com",
@@ -4286,7 +4441,7 @@
     ],
     "car_weight": 1035,
     "categories": [
-      "oval"
+      "dirt_oval"
     ],
     "created": "2017-09-26T13:21:43Z",
     "first_sale": "2017-12-04T00:00:00Z",
@@ -4294,6 +4449,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 400,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -4316,6 +4472,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,dirtoval,midget",
     "site_url": "http://www.iracing.com",
@@ -4348,7 +4505,7 @@
     ],
     "car_weight": 1929,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2018-02-05T09:26:47Z",
     "first_sale": "2018-03-05T00:00:00Z",
@@ -4356,6 +4513,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 503,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -4378,6 +4536,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,prototype,lmp1",
     "site_url": "http://www.audi-motorsport.com/",
@@ -4410,8 +4569,7 @@
     ],
     "car_weight": 1590,
     "categories": [
-      "oval",
-      "road"
+      "formula_car"
     ],
     "created": "2018-02-05T14:48:33Z",
     "first_sale": "2018-03-05T00:00:00Z",
@@ -4419,6 +4577,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": true,
+    "has_rain_capable_tire_types": false,
     "hp": 700,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -4428,6 +4587,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,road,openwheel",
     "site_url": "https://www.dallara.it",
@@ -4460,7 +4620,7 @@
     ],
     "car_weight": 1929,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2018-02-21T13:13:23Z",
     "first_sale": "2018-03-05T00:00:00Z",
@@ -4468,6 +4628,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 900,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -4490,6 +4651,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,prototype,lmp1",
     "site_url": "https://www.porsche.com/international/motorsportandevents/motorsport/",
@@ -4528,7 +4690,7 @@
     ],
     "car_weight": 2860,
     "categories": [
-      "road"
+      "dirt_road"
     ],
     "created": "2018-04-27T14:03:06Z",
     "first_sale": "2018-06-04T00:00:00Z",
@@ -4536,6 +4698,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 585,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -4569,6 +4732,7 @@
     "patterns": 26,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,dirtroad,subi,rallycross,irx",
     "site_url": "https://vtcar.com/",
@@ -4604,7 +4768,7 @@
     ],
     "car_weight": 2740,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2018-05-09T14:10:32Z",
     "first_sale": "2018-06-04T00:00:00Z",
@@ -4612,6 +4776,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 510,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -4656,6 +4821,7 @@
     "patterns": 27,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gte,gtlm",
     "site_url": "https://www.porsche.com/international/motorsportandevents/motorsport/",
@@ -4668,7 +4834,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "stockcars\\camarozl12018",
     "car_id": 103,
     "car_make": "Chevrolet",
@@ -4702,6 +4868,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 750,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -4711,6 +4878,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,cupcar,classa,chevy",
     "sku": 10447
@@ -4747,7 +4915,7 @@
     ],
     "car_weight": 4000,
     "categories": [
-      "road"
+      "dirt_road"
     ],
     "created": "2018-10-17T08:30:01Z",
     "first_sale": "2019-06-03T00:00:00Z",
@@ -4755,6 +4923,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 800,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -4764,6 +4933,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,road,dirtroad,offroad,offroadtruck",
     "site_url": "http://www.iracing.com/",
@@ -4776,7 +4946,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "formularenault35",
     "car_id": 105,
     "car_make": "Renault",
@@ -4796,7 +4966,7 @@
     ],
     "car_weight": 1567,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2018-10-17T08:37:58Z",
     "first_sale": "2018-12-03T00:00:00Z",
@@ -4804,6 +4974,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 530,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -4813,6 +4984,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,openwheel,fr3.5",
     "sku": 10451
@@ -4844,7 +5016,7 @@
     ],
     "car_weight": 1213,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2018-10-17T08:39:58Z",
     "first_sale": "2018-12-03T00:00:00Z",
@@ -4852,6 +5024,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 220,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -4861,6 +5034,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,openwheel,formula3",
     "site_url": "https://www.dallara.it/",
@@ -4898,7 +5072,7 @@
     ],
     "car_weight": 4000,
     "categories": [
-      "road"
+      "dirt_road"
     ],
     "created": "2018-10-17T08:30:01Z",
     "first_sale": "2019-06-03T00:00:00Z",
@@ -4906,6 +5080,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 800,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -4915,6 +5090,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,road,dirtroad,offroad,offroadtruck",
     "site_url": "http://www.iracing.com/",
@@ -4950,7 +5126,7 @@
     ],
     "car_weight": 2640,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2019-02-05T11:15:02Z",
     "first_sale": "2019-03-04T00:00:00Z",
@@ -4958,6 +5134,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 560,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -4991,6 +5168,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gte,gtlm",
     "site_url": "http://www.iracing.com",
@@ -5003,7 +5181,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "stockcars\\fordmustang2019",
     "car_id": 110,
     "car_make": "Ford",
@@ -5034,6 +5212,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 750,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5043,6 +5222,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,cupcar,classa",
     "site_url": "http://www.iracing.com",
@@ -5089,6 +5269,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 650,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5098,6 +5279,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,truck,craftsman,chevy",
     "sku": 10459
@@ -5114,7 +5296,7 @@
     "car_id": 112,
     "car_make": "Audi",
     "car_model": "RS 3 LMS",
-    "car_name": "Audi RS 3 LMS",
+    "car_name": "Audi RS 3 LMS TCR",
     "car_name_abbreviated": "RS3",
     "car_types": [
       {
@@ -5129,7 +5311,7 @@
     ],
     "car_weight": 2673,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2019-06-26T12:05:38Z",
     "first_sale": "2019-09-04T00:00:00Z",
@@ -5137,6 +5319,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 350,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5146,6 +5329,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,tcr",
     "site_url": "https://www.audi.com/en/experience-audi/audi-sport/audi-racing-models/rs-3-lms.html",
@@ -5183,7 +5367,7 @@
     ],
     "car_weight": 4000,
     "categories": [
-      "road"
+      "dirt_road"
     ],
     "created": "2019-08-12T13:22:36Z",
     "first_sale": "2019-09-04T00:00:00Z",
@@ -5191,6 +5375,7 @@
     "free_with_subscription": true,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 400,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5200,6 +5385,7 @@
     "patterns": 24,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,road,dirtroad,offroad,offroadtruck",
     "site_url": "http://www.iracing.com/",
@@ -5249,6 +5435,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 650,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5258,6 +5445,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,xfinity,nationwide,classb,chevy",
     "site_url": "http://www.iracing.com",
@@ -5304,6 +5492,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 650,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5313,6 +5502,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,xfinity,nationwide,classb",
     "site_url": "http://www.iracing.com",
@@ -5359,6 +5549,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 650,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5368,6 +5559,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,xfinity,nationwide,classb",
     "site_url": "http://www.iracing.com",
@@ -5403,7 +5595,7 @@
     ],
     "car_weight": 3076,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2019-09-18T12:19:11Z",
     "first_sale": "2019-12-02T00:00:00Z",
@@ -5411,6 +5603,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 635,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5420,6 +5613,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,aussiev8,v8sc",
     "site_url": "http://www.iracing.com",
@@ -5455,7 +5649,7 @@
     ],
     "car_weight": 3076,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2019-11-20T09:39:29Z",
     "first_sale": "2019-12-02T00:00:00Z",
@@ -5463,6 +5657,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 635,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5472,6 +5667,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,aussiev8,v8sc",
     "site_url": "http://www.iracing.com",
@@ -5507,7 +5703,7 @@
     ],
     "car_weight": 2910,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2019-12-23T15:07:35Z",
     "first_sale": "2020-03-02T00:00:00Z",
@@ -5515,6 +5711,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 425,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5537,6 +5734,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gt4,gs",
     "site_url": "http://www.porsche.com/",
@@ -5569,7 +5767,7 @@
     ],
     "car_weight": 1100,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2020-03-31T14:54:20Z",
     "first_sale": "2020-06-01T00:00:00Z",
@@ -5577,6 +5775,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 275,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5586,6 +5785,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,openwheel,oval",
     "site_url": "https://www.usf2000.com/about/road-to-indy",
@@ -5621,7 +5821,7 @@
     ],
     "car_weight": 1100,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2020-03-31T14:56:46Z",
     "first_sale": "2020-06-01T00:00:00Z",
@@ -5629,6 +5829,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 175,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5638,6 +5839,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,openwheel,oval,f2000",
     "site_url": "https://www.usf2000.com/about/road-to-indy",
@@ -5673,7 +5875,7 @@
     ],
     "car_weight": 3153,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2020-04-24T13:09:18Z",
     "first_sale": "2020-06-01T00:00:00Z",
@@ -5681,6 +5883,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 431,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5714,6 +5917,7 @@
     "patterns": 26,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gt4,gs",
     "site_url": "https://www.bmw-motorsport.com/en/home.html",
@@ -5757,6 +5961,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 650,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5766,6 +5971,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,truck,craftsman",
     "sku": 10481
@@ -5811,6 +6017,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 650,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5833,6 +6040,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,cupcar,winstoncup,chevy",
     "sku": 10482
@@ -5875,6 +6083,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 650,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5897,6 +6106,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,cupcar,winstoncup",
     "sku": 10483
@@ -5934,7 +6144,7 @@
     ],
     "car_weight": 2750,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2020-07-16T11:19:49Z",
     "first_sale": "2020-09-08T00:00:00Z",
@@ -5942,6 +6152,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 550,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5975,6 +6186,7 @@
     "patterns": 26,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gte,gtlm,chevy",
     "site_url": "http://www.iracing.com",
@@ -6013,7 +6225,7 @@
     ],
     "car_weight": 2360,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2020-08-05T13:35:01Z",
     "first_sale": "2020-09-08T00:00:00Z",
@@ -6021,6 +6233,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 600,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -6030,6 +6243,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,prototype,p2,prototype,lmp2",
     "site_url": "https://www.dallara.it/",
@@ -6062,7 +6276,7 @@
     ],
     "car_weight": 1575,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2020-08-14T10:39:13Z",
     "first_sale": "2020-12-08T00:00:00Z",
@@ -6070,6 +6284,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": true,
+    "has_rain_capable_tire_types": false,
     "hp": 900,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -6114,6 +6329,7 @@
     "patterns": 27,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,oval,openwheel",
     "site_url": "https://www.dallara.it/",
@@ -6143,7 +6359,7 @@
     ],
     "car_weight": 2646,
     "categories": [
-      "oval"
+      "dirt_oval"
     ],
     "created": "2020-10-07T15:26:10Z",
     "first_sale": "2020-12-08T00:00:00Z",
@@ -6151,6 +6367,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 757,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -6160,6 +6377,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,dirtoval",
     "site_url": "http://www.iracing.com/",
@@ -6195,7 +6413,7 @@
     ],
     "car_weight": 3013,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2020-10-28T10:53:04Z",
     "first_sale": "2020-12-16T00:00:00Z",
@@ -6203,6 +6421,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 500,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -6225,6 +6444,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,gt3,sportscar,gtd",
     "site_url": "https://www.bmw-motorsport.com/en/home.html",
@@ -6263,7 +6483,7 @@
     ],
     "car_weight": 3013,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2020-11-05T18:36:47Z",
     "first_sale": "2020-12-08T00:00:00Z",
@@ -6271,6 +6491,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 500,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -6280,6 +6501,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,gt3,sportscar,gtd,huracan",
     "site_url": "https://www.lamborghini.com/en-en/motorsport/motorsport-models/",
@@ -6309,7 +6531,7 @@
     ],
     "car_weight": 2551,
     "categories": [
-      "oval"
+      "dirt_oval"
     ],
     "created": "2020-11-09T18:26:42Z",
     "first_sale": "2020-12-08T00:00:00Z",
@@ -6317,6 +6539,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 510,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -6326,6 +6549,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,dirtoval",
     "site_url": "https://www.iracing.com/",
@@ -6361,7 +6585,7 @@
     ],
     "car_weight": 1425,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2021-01-25T00:00:00Z",
     "first_sale": "2021-03-10T00:00:00Z",
@@ -6369,6 +6593,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 461,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -6401,6 +6626,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gt4,gs",
     "site_url": "https://www.mclaren.com/",
@@ -6436,7 +6662,7 @@
     ],
     "car_weight": 2822,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2021-04-05T14:38:09Z",
     "first_sale": "2021-06-08T00:00:00Z",
@@ -6444,6 +6670,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 500,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -6477,6 +6704,7 @@
     "patterns": 24,
     "price": 2.95,
     "price_display": "$2.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gt3,gtd",
     "site_url": "https://www.porsche.com/",
@@ -6512,7 +6740,7 @@
     ],
     "car_weight": 1371,
     "categories": [
-      "road"
+      "dirt_road"
     ],
     "created": "2021-04-13T13:58:02Z",
     "first_sale": "2021-06-08T00:00:00Z",
@@ -6520,6 +6748,7 @@
     "free_with_subscription": true,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 262,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -6542,6 +6771,7 @@
     "patterns": 25,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "dirt,dirtroad,rallycross,irx",
     "site_url": "http://www.iracing.com/",
@@ -6585,6 +6815,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 670,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -6594,6 +6825,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,cupcar,chevy",
     "sku": 10503
@@ -6633,6 +6865,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 670,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -6642,6 +6875,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,cupcar",
     "sku": 10504
@@ -6681,6 +6915,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 670,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -6690,6 +6925,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,cupcar",
     "sku": 10505
@@ -6721,7 +6957,7 @@
     ],
     "car_weight": 825,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2021-05-06T14:01:07Z",
     "first_sale": "2021-06-08T00:00:00Z",
@@ -6729,6 +6965,7 @@
     "free_with_subscription": true,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 69,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -6738,6 +6975,7 @@
     "patterns": 24,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,formulavee,openwheel",
     "site_url": "http://www.iracing.com/",
@@ -6767,7 +7005,7 @@
     ],
     "car_weight": 2778,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2021-07-13T15:33:30Z",
     "first_sale": "2021-09-07T00:00:00Z",
@@ -6775,6 +7013,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 510,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -6797,6 +7036,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar",
     "site_url": "https://www.porsche.com/international/motorsportandevents/motorsport/",
@@ -6832,7 +7072,7 @@
     ],
     "car_weight": 2772,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2021-07-13T15:55:53Z",
     "first_sale": "2021-09-07T00:00:00Z",
@@ -6840,6 +7080,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 600,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -6849,6 +7090,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gt3,gtd",
     "site_url": "http://races.ferrari.com/en/",
@@ -6893,7 +7135,7 @@
     ],
     "car_weight": 1655,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2021-09-20T14:57:34Z",
     "first_sale": "2021-12-06T00:00:00Z",
@@ -6901,6 +7143,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": true,
+    "has_rain_capable_tire_types": false,
     "hp": 1000,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -7123,6 +7366,7 @@
     "patterns": 19,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,amg,w12,openwheel,formula,f1,formula1",
     "site_url": "http://www.mercedes-amg.com/lifestyle_racing.php",
@@ -7140,7 +7384,7 @@
     "car_id": 146,
     "car_make": "Hyundai",
     "car_model": "Elantra CN7",
-    "car_name": "Hyundai Elantra N TC",
+    "car_name": "Hyundai Elantra N TCR",
     "car_name_abbreviated": "HECN7",
     "car_types": [
       {
@@ -7155,7 +7399,7 @@
     ],
     "car_weight": 2673,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2021-09-29T09:45:03Z",
     "first_sale": "2021-12-06T00:00:00Z",
@@ -7163,6 +7407,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 350,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -7208,6 +7453,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,tcr",
     "site_url": "http://www.iracing.com",
@@ -7225,7 +7471,7 @@
     "car_id": 147,
     "car_make": "Honda",
     "car_model": "Civic Type R",
-    "car_name": "Honda Civic Type R",
+    "car_name": "Honda Civic Type R TCR",
     "car_name_abbreviated": "HCTR",
     "car_types": [
       {
@@ -7240,7 +7486,7 @@
     ],
     "car_weight": 2673,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2021-09-29T09:53:45Z",
     "first_sale": "2021-12-06T00:00:00Z",
@@ -7248,6 +7494,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 350,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -7270,6 +7517,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,tcr",
     "site_url": "http://www.iracing.com",
@@ -7299,7 +7547,7 @@
     ],
     "car_weight": 1257,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2021-10-06T13:56:13Z",
     "first_sale": "2022-03-08T00:00:00Z",
@@ -7307,6 +7555,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 160,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -7316,6 +7565,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,openwheel",
     "site_url": "https://www.fia.com/events/formula-4-certified-fia/season-2020/formula-4-certified-fia",
@@ -7345,13 +7595,14 @@
     ],
     "car_weight": 1598,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2022-01-07T17:14:01Z",
     "first_sale": "2022-06-06T00:00:00Z",
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 425,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -7389,6 +7640,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,prototype",
     "site_url": "https://www.radicalsportscars.com/our-cars/sr10",
@@ -7421,7 +7673,7 @@
     ],
     "car_weight": 3230,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2022-01-07T17:18:18Z",
     "first_sale": "2022-03-08T00:00:00Z",
@@ -7429,6 +7681,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 450,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -7474,6 +7727,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,aienabled",
     "sku": 10523
@@ -7514,7 +7768,7 @@
     ],
     "car_weight": 3053,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2022-01-07T17:31:06Z",
     "first_sale": "2022-03-08T00:00:00Z",
@@ -7522,6 +7776,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 415,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -7550,6 +7805,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "stockcarproseries,stockcarbrasil,scb,brasil,brazil,stockcar",
     "sku": 10524
@@ -7590,7 +7846,7 @@
     ],
     "car_weight": 3053,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2022-01-07T17:33:22Z",
     "first_sale": "2022-03-08T00:00:00Z",
@@ -7598,6 +7854,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 415,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -7626,6 +7883,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "stockcarproseries,stockcarbrasil,scb,brasil,brazil,stockcar",
     "sku": 10525
@@ -7642,7 +7900,7 @@
     "car_id": 153,
     "car_make": "Hyundai",
     "car_model": "Veloster N",
-    "car_name": "Hyundai Veloster N TC",
+    "car_name": "Hyundai Veloster N TCR",
     "car_name_abbreviated": "HVTC",
     "car_types": [
       {
@@ -7660,7 +7918,7 @@
     ],
     "car_weight": 2789,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2022-01-07T17:36:17Z",
     "first_sale": "2022-03-08T00:00:00Z",
@@ -7668,6 +7926,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 350,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -7713,6 +7972,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,aienabled,tcr",
     "sku": 10526
@@ -7749,6 +8009,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 650,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -7777,6 +8038,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar",
     "sku": 10527
@@ -7819,6 +8081,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 650,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -7828,6 +8091,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,truck,craftsman",
     "site_url": "https://www.toyota.com/racing/nascar-truck",
@@ -7863,7 +8127,7 @@
     ],
     "car_weight": 2833,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2022-03-29T08:28:13Z",
     "first_sale": "2022-06-06T00:00:00Z",
@@ -7871,6 +8135,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 515,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -7937,6 +8202,7 @@
     "patterns": 29,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,gt3,gtd",
     "site_url": "https://customerracing.mercedes-amg.com/en/vehicles/mercedes-amg-gt3.html",
@@ -7972,7 +8238,7 @@
     ],
     "car_weight": 3064,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2022-04-05T10:21:30Z",
     "first_sale": "2022-06-06T00:00:00Z",
@@ -7980,6 +8246,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 515,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -8035,6 +8302,7 @@
     "patterns": 28,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,gt4,gtd",
     "site_url": "https://customerracing.mercedes-amg.com/en/vehicles/mercedes-amg-gt4.html",
@@ -8061,7 +8329,7 @@
     ],
     "car_weight": 3307,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2022-07-13T11:29:07Z",
     "first_sale": "2022-09-06T00:00:00Z",
@@ -8069,6 +8337,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 1073,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -8095,6 +8364,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road",
     "sku": 10539
@@ -8135,7 +8405,7 @@
     ],
     "car_weight": 2447,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2022-08-11T07:49:48Z",
     "first_sale": "2022-12-06T00:00:00Z",
@@ -8143,6 +8413,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 665,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -8171,6 +8442,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,gtp,prototype,lmdh,gtp",
     "site_url": "https://www.bmw-motorsport.com/en/home.html",
@@ -8200,7 +8472,7 @@
     ],
     "car_weight": 2868,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2022-10-13T15:10:11Z",
     "first_sale": "2022-12-06T00:00:00Z",
@@ -8208,6 +8480,7 @@
     "free_with_subscription": true,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 228,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -8236,6 +8509,7 @@
     "patterns": 24,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,street circuit",
     "site_url": "https://www.toyota.com/gr86/",
@@ -8260,6 +8534,9 @@
         "car_type": "amg"
       },
       {
+        "car_type": "f1"
+      },
+      {
         "car_type": "formula"
       },
       {
@@ -8277,7 +8554,7 @@
     ],
     "car_weight": 1753,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2022-10-20T11:21:59Z",
     "first_sale": "2022-12-06T00:00:00Z",
@@ -8285,6 +8562,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": true,
+    "has_rain_capable_tire_types": false,
     "hp": 1070,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -8507,8 +8785,9 @@
     "patterns": 19,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
-    "search_filters": "road,amg,w12,openwheel,formula,formula1",
+    "search_filters": "road,amg,w12,openwheel,formula,formula1,f1",
     "site_url": "http://www.mercedes-amg.com/lifestyle_racing.php",
     "sku": 10545
   },
@@ -8533,7 +8812,7 @@
     ],
     "car_weight": 2271,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2023-01-09T10:46:06Z",
     "first_sale": "2023-03-07T00:00:00Z",
@@ -8541,6 +8820,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 200,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -8550,6 +8830,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road",
     "sku": 10548
@@ -8584,7 +8865,7 @@
     ],
     "car_weight": 1108,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2023-01-18T09:55:06Z",
     "first_sale": "2023-03-07T00:00:00Z",
@@ -8592,6 +8873,7 @@
     "free_with_subscription": true,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 116,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -8624,6 +8906,7 @@
     "patterns": 25,
     "price": 0,
     "price_display": "$0.00",
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,formula,ford,openwheel",
     "sku": 10549
@@ -8648,7 +8931,6 @@
     ],
     "car_weight": 3100,
     "categories": [
-      "road",
       "oval"
     ],
     "created": "2023-01-26T13:36:37Z",
@@ -8657,6 +8939,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 500,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -8689,6 +8972,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval",
     "sku": 10550
@@ -8723,7 +9007,7 @@
     ],
     "car_weight": 2094,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2023-02-08T15:43:06Z",
     "first_sale": "2023-06-06T00:00:00Z",
@@ -8731,6 +9015,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 455,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -8753,6 +9038,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,prototype,lmp3",
     "site_url": "https://ligierautomotive.com/",
@@ -8796,6 +9082,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 725,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -8805,6 +9092,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,arca,chevy",
     "sku": 10088
@@ -8842,7 +9130,7 @@
     ],
     "car_weight": 2380,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2023-03-31T09:05:52Z",
     "first_sale": "2023-06-06T00:00:00Z",
@@ -8850,6 +9138,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 670,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -8918,6 +9207,7 @@
     "patterns": 26,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,prototype,lmdh,gtp",
     "sku": 10554
@@ -8946,7 +9236,7 @@
     ],
     "car_weight": 2756,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2023-03-31T09:10:14Z",
     "first_sale": "2023-06-06T00:00:00Z",
@@ -8954,6 +9244,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 565,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -8976,6 +9267,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar",
     "sku": 10555
@@ -9010,7 +9302,7 @@
     ],
     "car_weight": 2447,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2023-05-11T13:20:13Z",
     "first_sale": "2023-09-06T00:00:00Z",
@@ -9018,6 +9310,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 665,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -9062,6 +9355,7 @@
     "patterns": 26,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,gtp,lmdh,prototype",
     "sku": 10558
@@ -9086,11 +9380,14 @@
       },
       {
         "car_type": "road"
+      },
+      {
+        "car_type": "sf"
       }
     ],
     "car_weight": 1477,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2023-05-11T13:31:59Z",
     "first_sale": "2023-09-06T00:00:00Z",
@@ -9098,6 +9395,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 550,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -9120,8 +9418,9 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
-    "search_filters": "road,openwheel",
+    "search_filters": "road,openwheel,sf",
     "sku": 10559
   },
   {
@@ -9144,11 +9443,14 @@
       },
       {
         "car_type": "road"
+      },
+      {
+        "car_type": "sf"
       }
     ],
     "car_weight": 1477,
     "categories": [
-      "road"
+      "formula_car"
     ],
     "created": "2023-05-11T13:34:35Z",
     "first_sale": "2023-09-27T00:00:00Z",
@@ -9156,6 +9458,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 550,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -9178,8 +9481,9 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
-    "search_filters": "road,openwheel",
+    "search_filters": "road,openwheel,sf",
     "sku": 10559
   },
   {
@@ -9209,7 +9513,7 @@
     ],
     "car_weight": 2978,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2023-06-16T13:56:17Z",
     "first_sale": "2023-09-06T00:00:00Z",
@@ -9217,6 +9521,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 524,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -9250,6 +9555,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,gt3",
     "sku": 10563
@@ -9284,7 +9590,7 @@
     ],
     "car_weight": 2469,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2023-07-12T10:45:55Z",
     "first_sale": "2023-09-06T00:00:00Z",
@@ -9292,6 +9598,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 665,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -9336,6 +9643,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,gtp,lmdh,prototype",
     "sku": 10564
@@ -9372,6 +9680,7 @@
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
     "hp": 650,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -9381,6 +9690,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar",
     "sku": 10566
@@ -9415,7 +9725,7 @@
     ],
     "car_weight": 2910,
     "categories": [
-      "road"
+      "sports_car"
     ],
     "created": "2023-10-04T14:07:37Z",
     "first_sale": "2023-12-06T15:39:45Z",
@@ -9423,6 +9733,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 518,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -9432,8 +9743,210 @@
     "patterns": 26,
     "price": 11.95,
     "price_display": "$11.95",
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "gt3,audi,gt,sportscar",
     "sku": 10567
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": false,
+    "allow_number_font": false,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "superformulalights324",
+    "car_id": 178,
+    "car_make": "Dallara",
+    "car_model": "324",
+    "car_name": "Super Formula Lights",
+    "car_name_abbreviated": "SFL324",
+    "car_types": [
+      {
+        "car_type": "openwheel"
+      },
+      {
+        "car_type": "road"
+      },
+      {
+        "car_type": "sf"
+      },
+      {
+        "car_type": "sfl"
+      }
+    ],
+    "car_weight": 1290,
+    "categories": [
+      "formula_car"
+    ],
+    "created": "2023-12-15T13:39:16Z",
+    "first_sale": "2024-03-05T16:53:58Z",
+    "forum_url": "https://forums.iracing.com/categories/super-formula-lights",
+    "free_with_subscription": false,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
+    "hp": 276,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 463,
+    "patterns": 24,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "rain_enabled": true,
+    "retired": false,
+    "search_filters": "road,openwheel,sf,sfl",
+    "sku": 10571
+  },
+  {
+    "ai_enabled": false,
+    "allow_number_colors": false,
+    "allow_number_font": false,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "srx",
+    "car_id": 179,
+    "car_make": "SRX",
+    "car_model": "SRX",
+    "car_name": "SRX",
+    "car_name_abbreviated": "SRX",
+    "car_types": [
+      {
+        "car_type": "road"
+      },
+      {
+        "car_type": "srx"
+      },
+      {
+        "car_type": "superstar racing experience"
+      }
+    ],
+    "car_weight": 3250,
+    "categories": [
+      "oval"
+    ],
+    "created": "2024-01-02T13:53:17Z",
+    "first_sale": "2024-03-05T16:53:58Z",
+    "forum_url": "https://forums.iracing.com/categories/srx",
+    "free_with_subscription": false,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
+    "hp": 700,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 465,
+    "patterns": 1,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "rain_enabled": false,
+    "retired": false,
+    "search_filters": "road,superstar racing experience,srx",
+    "sku": 10572
+  },
+  {
+    "ai_enabled": false,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "dirtmicrosprint\\winged",
+    "car_id": 180,
+    "car_model": "Winged",
+    "car_name": "Dirt Micro Sprint Car - Winged",
+    "car_name_abbreviated": "MSCW",
+    "car_types": [
+      {
+        "car_type": "dirt"
+      },
+      {
+        "car_type": "dirtoval"
+      },
+      {
+        "car_type": "sprintcar"
+      }
+    ],
+    "car_weight": 780,
+    "categories": [
+      "dirt_oval"
+    ],
+    "created": "2024-01-02T14:14:22Z",
+    "first_sale": "2024-03-05T21:26:21Z",
+    "forum_url": "https://forums.iracing.com/categories/dirt-micro-sprint-car-winged-non-winged",
+    "free_with_subscription": true,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
+    "hp": 167,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 467,
+    "patterns": 24,
+    "price": 0,
+    "price_display": "$0.00",
+    "rain_enabled": false,
+    "retired": false,
+    "search_filters": "dirt,dirtoval,sprintcar",
+    "sku": 10573
+  },
+  {
+    "ai_enabled": false,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "dirtmicrosprint\\nonwinged",
+    "car_id": 181,
+    "car_model": "Non-Winged",
+    "car_name": "Dirt Micro Sprint Car - Non-Winged",
+    "car_name_abbreviated": "MSCNW",
+    "car_types": [
+      {
+        "car_type": "dirt"
+      },
+      {
+        "car_type": "dirtoval"
+      },
+      {
+        "car_type": "sprintcar"
+      }
+    ],
+    "car_weight": 775,
+    "categories": [
+      "dirt_oval"
+    ],
+    "created": "2024-01-02T14:18:27Z",
+    "first_sale": "2024-03-05T21:26:21Z",
+    "forum_url": "https://forums.iracing.com/categories/dirt-micro-sprint-car-winged-non-winged",
+    "free_with_subscription": true,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
+    "hp": 167,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 467,
+    "patterns": 24,
+    "price": 0,
+    "price_display": "$0.00",
+    "rain_enabled": false,
+    "retired": false,
+    "search_filters": "dirt,dirtoval,sprintcar",
+    "sku": 10573
   }
 ]

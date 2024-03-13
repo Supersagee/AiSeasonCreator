@@ -64,5 +64,7 @@ namespace AiSeasonCreator.JsonClasses.FullSchedule
         public List<RaceTimeDescriptors> RaceTimeDescriptors { get; set; }
         [JsonPropertyName("car_restrictions")]
         public List<CarRestrictions> CarRestrictions { get; set; }
+        [JsonPropertyName("race_week_cars")]
+        public List<RaceWeekCars> RaceWeekCars { get; set; }
     }
 }

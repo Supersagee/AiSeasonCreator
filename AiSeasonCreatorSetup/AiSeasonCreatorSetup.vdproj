@@ -224,15 +224,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AiSeasonCreatorSetup"
-        "ProductCode" = "8:{97CCD408-A9D3-4CBF-9B9E-4A9677E0BF8A}"
-        "PackageCode" = "8:{79FC4D20-E5C1-495C-9E29-C2683EF6A770}"
+        "ProductCode" = "8:{82D836F3-CD9D-44F4-AC35-4F5180A46D11}"
+        "PackageCode" = "8:{D8F6EE87-1596-46DE-A177-25864C793372}"
         "UpgradeCode" = "8:{9FD9925F-28BE-4257-869A-68FD3C962274}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:24.1.0"
+        "ProductVersion" = "8:24.2.0"
         "Manufacturer" = "8:Sage SRS"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -774,7 +774,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_14AAB8F96D8242C790D6EB69641E8F3E"
             {
-            "SourcePath" = "8:..\\AiSeasonCreator\\obj\\Debug\\net6.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\AiSeasonCreator\\obj\\Release\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_35846792C2D540ABAD4335AD3079DB77"

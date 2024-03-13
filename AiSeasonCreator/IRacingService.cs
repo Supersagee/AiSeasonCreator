@@ -74,36 +74,42 @@ namespace AiSeasonCreator
             return ts;
         }
 
-        private static Weather CreateWeather(int i, int j)
+        private static Weather CreateWeather(int i, int j, string eventGuid)
         {
             var weather = new Weather();
+            var gp = new GuidedParameters();
             var ss = MainForm.FullSchedule[i].Schedules[j].Weather;
 
             weather.TempUnits = ss.TempUnits;
-            weather.Fog = ss.Fog;
             weather.WindUnits = ss.WindUnits;
-            weather.Skies = ss.Skies;
             weather.SimulatedTimeMultiplier = ss.SimulatedTimeMultiplier;
             weather.SimulatedTimeOffsets = ss.SimulatedTimeOffsets.ToList();
-            weather.Version = ss.Version;
             weather.WeatherVarInitial = ss.WeatherVarInitial;
             weather.WeatherVarOngoing = ss.WeatherVarOngoing;
 
             if (MainForm.ConsistentWeather)
             {
+                weather.Version = 2;
                 weather.Type = 3;
                 weather.TempValue = 78;
-                weather.RelHumidity = 55;
+                weather.RelHumidity = 45;
                 weather.WindDir = 0;
                 weather.WindValue = 2;
+                weather.Skies = 0;
+                weather.Fog = 0;
+                weather.AllowFog = false;
             }
             else
             {
+                weather.Version = ss.Version;
                 weather.Type = ss.Type;
                 weather.TempValue = ss.TempValue;
                 weather.RelHumidity = ss.RelHumidity;
                 weather.WindDir = ss.WindDir;
                 weather.WindValue = ss.WindValue;
+                weather.Skies = ss.Skies;
+                weather.Fog = ss.Fog;
+                weather.AllowFog = ss.AllowFog;
             }
 
             if (MainForm.AfternoonRaces)
@@ -116,6 +122,20 @@ namespace AiSeasonCreator
                 weather.SimulatedStartTime = ss.SimulatedStartTime;
                 weather.TimeOfDay = ss.TimeOfDay;
             }
+
+            weather.TrackWater = 0;
+            weather.WeatherId = null;
+            weather.EventId = eventGuid;
+            weather.Loading = false;
+
+            if (ss.ForecastOptions != null)
+            {
+                weather.GuidedParameters = CreateGuidedParameters(j);
+                weather.WeatherSeed = ss.ForecastOptions.WeatherSeed;
+                weather.PrecipOption = ss.PrecipOption;
+                weather.Keyframes = CreateKeyframes(j, ss.ForecastOptions.WeatherSeed);
+            }
+            
 
             return weather;
         }
@@ -163,7 +183,8 @@ namespace AiSeasonCreator
                         loopEvent.Subsessions = new List<int> { 3, 5, 6 };
                     }
                     
-                    loopEvent.EventId = Guid.NewGuid().ToString();
+                    var eventGuid = Guid.NewGuid().ToString();
+                    loopEvent.EventId = eventGuid;
 
                     if (ss.Schedules[j].RaceLapLimit == null)
                     {
@@ -178,7 +199,7 @@ namespace AiSeasonCreator
                         loopEvent.RaceLengthType = 3;
                     }
 
-                    loopEvent.Weather = CreateWeather(i, j);
+                    loopEvent.Weather = CreateWeather(i, j, eventGuid);
                     loopEvent.StartZone = ss.Schedules[j].HasStartZone;
                     loopEvent.FullCourseCautions = ss.Schedules[j].HasFullCourseCautions;
                     loopEvent.TimeOfDay = MainForm.AfternoonRaces ? 0 : ss.Schedules[j].Weather.TimeOfDay;
@@ -251,6 +272,140 @@ namespace AiSeasonCreator
             CarIds = carIds;
             CarClassIds = carClassIds;
             return carNames;
+        }
+
+        private static List<Keyframes> CreateKeyframes(int j, long ws)
+        {
+            var ss = MainForm.FullSchedule;
+            var i = MainForm.SeasonSeriesIndex;
+            var lkf = new List<Keyframes>();
+
+            var client = new HttpClient();
+            var wu = ss[i].Schedules[j].Weather.WeatherURL;
+
+            Task<string> task = Task.Run(async () =>
+            {
+                var response = await client.GetAsync(wu);
+                response.EnsureSuccessStatusCode();
+                return await response.Content.ReadAsStringAsync();
+
+            });
+
+            var getData = task.GetAwaiter().GetResult();
+
+            var wkf = JsonSerializer.Deserialize<List<JsonClasses.FullSchedule.WebKeyframes>>(getData);
+            var index = 0;
+
+            foreach (var f in wkf)
+            {
+                var kf = new Keyframes();
+                kf.Index = index;
+                kf.Timestamp = f.Timestamp;
+                kf.TimeOffset = f.TimeOffset;
+                kf.AllowPrecip = MainForm.NeverRain ? false : f.AllowPrecip;
+                kf.ValidStats = f.ValidStats;
+                kf.AffectsSession = f.AffectsSession;
+                kf.CloudCover = f.CloudCover;
+                kf.AirTemp = f.AirTemp;
+                kf.RelHumidity = f.RelHumidity;
+                kf.Pressure = f.Pressure;
+                kf.WindDir = f.WindDir;
+                kf.WindSpeed = f.WindSpeed;
+                kf.PrecipChance = MainForm.NeverRain ? 0 : f.PrecipChance;
+                kf.PrecipAmount = f.PrecipAmount;
+                kf.RawAirTemp = f.RawAirTemp;
+                kf.IsSunUp = f.IsSunUp;
+                kf.WeatherSeed = ws;
+                lkf.Add(kf);
+                index++;
+
+                kf = new Keyframes();
+                kf.Index = index;
+                kf.Timestamp = f.Timestamp.AddMinutes(15);
+                kf.TimeOffset = f.TimeOffset + 15;
+                kf.AllowPrecip = f.AllowPrecip;
+                kf.ValidStats = f.ValidStats;
+                kf.AffectsSession = f.AffectsSession;
+                kf.CloudCover = f.CloudCover;
+                kf.AirTemp = f.AirTemp;
+                kf.RelHumidity = f.RelHumidity;
+                kf.Pressure = f.Pressure;
+                kf.WindDir = f.WindDir;
+                kf.WindSpeed = f.WindSpeed;
+                kf.PrecipChance = MainForm.NeverRain ? 0 : f.PrecipChance;
+                kf.PrecipAmount = f.PrecipAmount;
+                kf.RawAirTemp = f.RawAirTemp;
+                kf.IsSunUp = f.IsSunUp;
+                kf.WeatherSeed = ws;
+                lkf.Add(kf);
+                index++;
+
+                kf = new Keyframes();
+                kf.Index = index;
+                kf.Timestamp = f.Timestamp.AddMinutes(30);
+                kf.TimeOffset = f.TimeOffset + 30;
+                kf.AllowPrecip = f.AllowPrecip;
+                kf.ValidStats = f.ValidStats;
+                kf.AffectsSession = f.AffectsSession;
+                kf.CloudCover = f.CloudCover;
+                kf.AirTemp = f.AirTemp;
+                kf.RelHumidity = f.RelHumidity;
+                kf.Pressure = f.Pressure;
+                kf.WindDir = f.WindDir;
+                kf.WindSpeed = f.WindSpeed;
+                kf.PrecipChance = MainForm.NeverRain ? 0 : f.PrecipChance;
+                kf.PrecipAmount = f.PrecipAmount;
+                kf.RawAirTemp = f.RawAirTemp;
+                kf.IsSunUp = f.IsSunUp;
+                kf.WeatherSeed = ws;
+                lkf.Add(kf);
+                index++;
+
+                kf = new Keyframes();
+                kf.Index = index;
+                kf.Timestamp = f.Timestamp.AddMinutes(45);
+                kf.TimeOffset = f.TimeOffset + 45;
+                kf.AllowPrecip = f.AllowPrecip;
+                kf.ValidStats = f.ValidStats;
+                kf.AffectsSession = f.AffectsSession;
+                kf.CloudCover = f.CloudCover;
+                kf.AirTemp = f.AirTemp;
+                kf.RelHumidity = f.RelHumidity;
+                kf.Pressure = f.Pressure;
+                kf.WindDir = f.WindDir;
+                kf.WindSpeed = f.WindSpeed;
+                kf.PrecipChance = MainForm.NeverRain ? 0 : f.PrecipChance;
+                kf.PrecipAmount = f.PrecipAmount;
+                kf.RawAirTemp = f.RawAirTemp;
+                kf.IsSunUp = f.IsSunUp;
+                kf.WeatherSeed = ws;
+                lkf.Add(kf);
+                index++;
+            }
+
+            return lkf;
+        }
+
+        private static GuidedParameters CreateGuidedParameters(int j)
+        {
+            var ss = MainForm.FullSchedule;
+            var i = MainForm.SeasonSeriesIndex;
+            var gp = new GuidedParameters();
+
+            //if (ss[i].Schedules[j].Weather.ForecastOptions == null)
+            //{
+            //    return gp;
+            //}
+
+            gp.Temperature = ss[i].Schedules[j].Weather.ForecastOptions.Temperature;
+            gp.WindDir = ss[i].Schedules[j].Weather.ForecastOptions.WindDir;
+            gp.WindSpeed = ss[i].Schedules[j].Weather.ForecastOptions.WindSpeed;
+            gp.Skies = ss[i].Schedules[j].Weather.ForecastOptions.Skies;
+            gp.Precipitation = MainForm.NeverRain ? 1 : ss[i].Schedules[j].Weather.ForecastOptions.Precipitation;
+            gp.StopPrecip = ss[i].Schedules[j].Weather.ForecastOptions.StopPrecip;
+            gp.AllowFog = ss[i].Schedules[j].Weather.AllowFog;
+
+            return gp;
         }
 
         private static PaceCar CreatePaceCar(int j)
@@ -385,7 +540,7 @@ namespace AiSeasonCreator
             d.DriverAggression = rand.Next(MainForm.AggressionMin, MainForm.AggressionMax + 1);
             d.DriverOptimism = rand.Next(MainForm.OptimismMin, MainForm.OptimismMax + 1);
             d.DriverSmoothness = rand.Next(MainForm.SmoothnessMin, MainForm.SmoothnessMax + 1);
-            d.DriverAge = rand.Next(MainForm.AgeMin, MainForm.AgaMax + 1);
+            d.DriverAge = rand.Next(MainForm.AgeMin, MainForm.AgeMax + 1);
             d.PitCrewSkill = rand.Next(MainForm.PitCrewMin, MainForm.PitCrewMax + 1);
             d.StrategyRiskiness = rand.Next(MainForm.PitStratMin, MainForm.PitStratMax + 1);
 
@@ -398,15 +553,34 @@ namespace AiSeasonCreator
             var roster = JsonSerializer.Deserialize<DriverRoster>(File.ReadAllText(rosterName));
             var drivers = roster.Drivers;
 
-            foreach (var d in drivers)
+            if (MainForm.DriversComboBoxName == "Update All Drivers")
             {
-                d.DriverSkill = MainForm.UseRelativeSkill ? rand.Next(MainForm.RelateiveSkillMin, MainForm.RelativeSkillMax + 1) : d.DriverSkill;
-                d.DriverAggression = MainForm.UseAggression ? rand.Next(MainForm.AggressionMin, MainForm.AggressionMax + 1) : d.DriverAggression;
-                d.DriverOptimism = MainForm.UseOptimism ? rand.Next(MainForm.OptimismMin, MainForm.OptimismMax + 1) : d.DriverOptimism;
-                d.DriverSmoothness = MainForm.UseSmoothness ? rand.Next(MainForm.SmoothnessMin, MainForm.SmoothnessMax + 1) : d.DriverSmoothness;
-                d.DriverAge = MainForm.UseAge ? rand.Next(MainForm.AgeMin, MainForm.AgaMax + 1) : d.DriverAge;
-                d.PitCrewSkill = MainForm.UsePitCrew ? rand.Next(MainForm.PitCrewMin, MainForm.PitCrewMax + 1) : d.PitCrewSkill;
-                d.StrategyRiskiness = MainForm.UsePitStrat ? rand.Next(MainForm.PitStratMin, MainForm.PitStratMax + 1) : d.StrategyRiskiness;
+                foreach (var d in drivers)
+                {
+                    d.DriverSkill = MainForm.UseRelativeSkill ? rand.Next(MainForm.RelateiveSkillMin, MainForm.RelativeSkillMax + 1) : d.DriverSkill;
+                    d.DriverAggression = MainForm.UseAggression ? rand.Next(MainForm.AggressionMin, MainForm.AggressionMax + 1) : d.DriverAggression;
+                    d.DriverOptimism = MainForm.UseOptimism ? rand.Next(MainForm.OptimismMin, MainForm.OptimismMax + 1) : d.DriverOptimism;
+                    d.DriverSmoothness = MainForm.UseSmoothness ? rand.Next(MainForm.SmoothnessMin, MainForm.SmoothnessMax + 1) : d.DriverSmoothness;
+                    d.DriverAge = MainForm.UseAge ? rand.Next(MainForm.AgeMin, MainForm.AgeMax + 1) : d.DriverAge;
+                    d.PitCrewSkill = MainForm.UsePitCrew ? rand.Next(MainForm.PitCrewMin, MainForm.PitCrewMax + 1) : d.PitCrewSkill;
+                    d.StrategyRiskiness = MainForm.UsePitStrat ? rand.Next(MainForm.PitStratMin, MainForm.PitStratMax + 1) : d.StrategyRiskiness;
+                }
+            }
+            else
+            {
+                foreach (var d in drivers)
+                {
+                    if (d.DriverName == MainForm.DriversComboBoxName)
+                    {
+                        d.DriverSkill = MainForm.UseRelativeSkill ? rand.Next(MainForm.RelateiveSkillMin, MainForm.RelativeSkillMax + 1) : d.DriverSkill;
+                        d.DriverAggression = MainForm.UseAggression ? rand.Next(MainForm.AggressionMin, MainForm.AggressionMax + 1) : d.DriverAggression;
+                        d.DriverOptimism = MainForm.UseOptimism ? rand.Next(MainForm.OptimismMin, MainForm.OptimismMax + 1) : d.DriverOptimism;
+                        d.DriverSmoothness = MainForm.UseSmoothness ? rand.Next(MainForm.SmoothnessMin, MainForm.SmoothnessMax + 1) : d.DriverSmoothness;
+                        d.DriverAge = MainForm.UseAge ? rand.Next(MainForm.AgeMin, MainForm.AgeMax + 1) : d.DriverAge;
+                        d.PitCrewSkill = MainForm.UsePitCrew ? rand.Next(MainForm.PitCrewMin, MainForm.PitCrewMax + 1) : d.PitCrewSkill;
+                        d.StrategyRiskiness = MainForm.UsePitStrat ? rand.Next(MainForm.PitStratMin, MainForm.PitStratMax + 1) : d.StrategyRiskiness;
+                    }
+                }
             }
 
             DriverRoster newRoster = new DriverRoster { Drivers = drivers };
@@ -613,7 +787,7 @@ namespace AiSeasonCreator
 
             s.TrackState = CreateTrackState();
             s.TimeOfDay = 0;
-            s.Weather = CreateWeather(i, 0);
+            s.Weather = CreateWeather(i, 0, "");
             s.FullCourseCautions = c.Schedules[0].HasFullCourseCautions;
             s.GridPosition = 1;
             s.LuckyDog = c.LuckyDog;
