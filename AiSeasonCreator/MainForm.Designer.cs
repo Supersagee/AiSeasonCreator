@@ -37,6 +37,7 @@
             consistentWeatherCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             afternoonRacesCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             useRosterAttributesCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
+            neverRainsCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             aiAvoidPlayerCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             incompleteFormLabel = new Label();
             carPanel = new Panel();
@@ -145,7 +146,6 @@
             topBarPanel = new ReaLTaiizor.Controls.PoisonPanel();
             titleLabel = new ReaLTaiizor.Controls.PoisonLabel();
             minimizeButton = new ReaLTaiizor.Controls.PoisonButton();
-            neverRainsCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             seasonTabPage.SuspendLayout();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
@@ -214,10 +214,10 @@
             consistentWeatherCheckBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonCheckBoxSize.Medium;
             consistentWeatherCheckBox.Location = new Point(10, 82);
             consistentWeatherCheckBox.Name = "consistentWeatherCheckBox";
-            consistentWeatherCheckBox.Size = new Size(145, 19);
+            consistentWeatherCheckBox.Size = new Size(113, 19);
             consistentWeatherCheckBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
             consistentWeatherCheckBox.TabIndex = 11;
-            consistentWeatherCheckBox.Text = "Consistent Weather";
+            consistentWeatherCheckBox.Text = "Static Weather";
             consistentWeatherCheckBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             toolTip1.SetToolTip(consistentWeatherCheckBox, "Sets all races to 78 degees F and 55% humidity. This can help the Ai to race more consistently.");
             consistentWeatherCheckBox.UseCustomBackColor = true;
@@ -257,6 +257,23 @@
             useRosterAttributesCheckBox.UseCustomBackColor = true;
             useRosterAttributesCheckBox.UseSelectable = true;
             useRosterAttributesCheckBox.UseVisualStyleBackColor = false;
+            // 
+            // neverRainsCheckBox
+            // 
+            neverRainsCheckBox.AutoSize = true;
+            neverRainsCheckBox.BackColor = Color.Transparent;
+            neverRainsCheckBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonCheckBoxSize.Medium;
+            neverRainsCheckBox.Location = new Point(221, 112);
+            neverRainsCheckBox.Name = "neverRainsCheckBox";
+            neverRainsCheckBox.Size = new Size(97, 19);
+            neverRainsCheckBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
+            neverRainsCheckBox.TabIndex = 51;
+            neverRainsCheckBox.Text = "Never Rains";
+            neverRainsCheckBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            toolTip1.SetToolTip(neverRainsCheckBox, "Sets all races to 2pm. This can help the Ai to race more consistently.");
+            neverRainsCheckBox.UseCustomBackColor = true;
+            neverRainsCheckBox.UseSelectable = true;
+            neverRainsCheckBox.UseVisualStyleBackColor = false;
             // 
             // aiAvoidPlayerCheckBox
             // 
@@ -1888,23 +1905,6 @@
             minimizeButton.UseSelectable = true;
             minimizeButton.UseVisualStyleBackColor = false;
             minimizeButton.Click += minimizeButton_Click;
-            // 
-            // neverRainsCheckBox
-            // 
-            neverRainsCheckBox.AutoSize = true;
-            neverRainsCheckBox.BackColor = Color.Transparent;
-            neverRainsCheckBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonCheckBoxSize.Medium;
-            neverRainsCheckBox.Location = new Point(221, 112);
-            neverRainsCheckBox.Name = "neverRainsCheckBox";
-            neverRainsCheckBox.Size = new Size(97, 19);
-            neverRainsCheckBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
-            neverRainsCheckBox.TabIndex = 51;
-            neverRainsCheckBox.Text = "Never Rains";
-            neverRainsCheckBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            toolTip1.SetToolTip(neverRainsCheckBox, "Sets all races to 2pm. This can help the Ai to race more consistently.");
-            neverRainsCheckBox.UseCustomBackColor = true;
-            neverRainsCheckBox.UseSelectable = true;
-            neverRainsCheckBox.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
