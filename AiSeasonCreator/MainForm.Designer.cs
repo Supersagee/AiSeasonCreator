@@ -250,7 +250,7 @@
             useRosterAttributesCheckBox.Name = "useRosterAttributesCheckBox";
             useRosterAttributesCheckBox.Size = new Size(183, 19);
             useRosterAttributesCheckBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
-            useRosterAttributesCheckBox.TabIndex = 17;
+            useRosterAttributesCheckBox.TabIndex = 18;
             useRosterAttributesCheckBox.Text = "Attr. Ranges In Roster Tab";
             useRosterAttributesCheckBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             toolTip1.SetToolTip(useRosterAttributesCheckBox, "Uses the attribute ranges in the roster tab as opposed to using random values.");
@@ -267,7 +267,7 @@
             neverRainsCheckBox.Name = "neverRainsCheckBox";
             neverRainsCheckBox.Size = new Size(97, 19);
             neverRainsCheckBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
-            neverRainsCheckBox.TabIndex = 51;
+            neverRainsCheckBox.TabIndex = 15;
             neverRainsCheckBox.Text = "Never Rains";
             neverRainsCheckBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             toolTip1.SetToolTip(neverRainsCheckBox, "Sets all races to 2pm. This can help the Ai to race more consistently.");
@@ -389,7 +389,7 @@
             groupBox1.Location = new Point(13, 242);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(380, 274);
-            groupBox1.TabIndex = 53;
+            groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "Optionals";
             // 
@@ -404,7 +404,7 @@
             useExistingRosterComboBox.Name = "useExistingRosterComboBox";
             useExistingRosterComboBox.Size = new Size(366, 29);
             useExistingRosterComboBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
-            useExistingRosterComboBox.TabIndex = 19;
+            useExistingRosterComboBox.TabIndex = 21;
             useExistingRosterComboBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             useExistingRosterComboBox.UseSelectable = true;
             // 
@@ -418,7 +418,7 @@
             panel1.Location = new Point(7, 18);
             panel1.Name = "panel1";
             panel1.Size = new Size(366, 28);
-            panel1.TabIndex = 50;
+            panel1.TabIndex = 1;
             // 
             // customCarCountSeasonLabel
             // 
@@ -490,7 +490,7 @@
             useExistingRosterCheckBox.Name = "useExistingRosterCheckBox";
             useExistingRosterCheckBox.Size = new Size(141, 19);
             useExistingRosterCheckBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
-            useExistingRosterCheckBox.TabIndex = 18;
+            useExistingRosterCheckBox.TabIndex = 20;
             useExistingRosterCheckBox.Text = "Use Existing Roster";
             useExistingRosterCheckBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             useExistingRosterCheckBox.UseCustomBackColor = true;
@@ -523,7 +523,7 @@
             excludeRosterCheckBox.Name = "excludeRosterCheckBox";
             excludeRosterCheckBox.Size = new Size(113, 19);
             excludeRosterCheckBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
-            excludeRosterCheckBox.TabIndex = 16;
+            excludeRosterCheckBox.TabIndex = 19;
             excludeRosterCheckBox.Text = "Exclude Roster";
             excludeRosterCheckBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             excludeRosterCheckBox.UseCustomBackColor = true;
@@ -539,7 +539,7 @@
             selectTracksCheckBox.Name = "selectTracksCheckBox";
             selectTracksCheckBox.Size = new Size(101, 19);
             selectTracksCheckBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
-            selectTracksCheckBox.TabIndex = 15;
+            selectTracksCheckBox.TabIndex = 16;
             selectTracksCheckBox.Text = "Select Tracks";
             selectTracksCheckBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             selectTracksCheckBox.UseCustomBackColor = true;
@@ -571,7 +571,7 @@
             shortParadeCheckBox.Name = "shortParadeCheckBox";
             shortParadeCheckBox.Size = new Size(130, 19);
             shortParadeCheckBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
-            shortParadeCheckBox.TabIndex = 14;
+            shortParadeCheckBox.TabIndex = 17;
             shortParadeCheckBox.Text = "Short Parade Lap";
             shortParadeCheckBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             shortParadeCheckBox.UseCustomBackColor = true;
@@ -584,7 +584,7 @@
             createSeason.Name = "createSeason";
             createSeason.Size = new Size(135, 23);
             createSeason.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
-            createSeason.TabIndex = 20;
+            createSeason.TabIndex = 22;
             createSeason.Text = "Create Season";
             createSeason.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             createSeason.UseSelectable = true;
@@ -600,7 +600,7 @@
             aiSkillPanel.Location = new Point(13, 194);
             aiSkillPanel.Name = "aiSkillPanel";
             aiSkillPanel.Size = new Size(380, 44);
-            aiSkillPanel.TabIndex = 43;
+            aiSkillPanel.TabIndex = 5;
             // 
             // aiSkillMinTrackBar
             // 
@@ -1847,7 +1847,7 @@
             closeButton.Name = "closeButton";
             closeButton.Size = new Size(24, 24);
             closeButton.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
-            closeButton.TabIndex = 37;
+            closeButton.TabIndex = 46;
             closeButton.Text = "X";
             closeButton.TextAlign = ContentAlignment.TopCenter;
             closeButton.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;

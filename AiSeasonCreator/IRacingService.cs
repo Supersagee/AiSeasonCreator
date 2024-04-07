@@ -74,7 +74,7 @@ namespace AiSeasonCreator
             return ts;
         }
 
-        private static Weather CreateWeather(int i, int j, string eventGuid, HttpClient client)
+        private static Weather CreateWeather(int i, int j, string eventGuid)
         {
             var weather = new Weather();
             var gp = new GuidedParameters();
@@ -124,7 +124,7 @@ namespace AiSeasonCreator
             }
 
             weather.TrackWater = 0;
-            weather.WeatherId = null;
+            weather.WeatherId = "564678_" + Guid.NewGuid().ToString();
             weather.EventId = eventGuid;
             weather.Loading = false;
 
@@ -133,14 +133,14 @@ namespace AiSeasonCreator
                 weather.GuidedParameters = CreateGuidedParameters(j);
                 weather.WeatherSeed = ss.ForecastOptions.WeatherSeed;
                 weather.PrecipOption = ss.PrecipOption;
-                weather.Keyframes = CreateKeyframes(j, ss.ForecastOptions.WeatherSeed, client);
+                weather.Keyframes = CreateKeyframes(j, ss.ForecastOptions.WeatherSeed);
             }
             
 
             return weather;
         }
 
-        private static List<Events> CreateEvents(int i, HttpClient client)
+        private static List<Events> CreateEvents(int i)
         {
             var events = new List<Events>();
             var notAllowedTracks = new List<int>();
@@ -199,7 +199,7 @@ namespace AiSeasonCreator
                         loopEvent.RaceLengthType = 3;
                     }
 
-                    loopEvent.Weather = CreateWeather(i, j, eventGuid, client);
+                    loopEvent.Weather = CreateWeather(i, j, eventGuid);
                     loopEvent.StartZone = ss.Schedules[j].HasStartZone;
                     loopEvent.FullCourseCautions = ss.Schedules[j].HasFullCourseCautions;
                     loopEvent.TimeOfDay = MainForm.AfternoonRaces ? 0 : ss.Schedules[j].Weather.TimeOfDay;
@@ -274,25 +274,12 @@ namespace AiSeasonCreator
             return carNames;
         }
 
-        private static List<Keyframes> CreateKeyframes(int j, long ws, HttpClient client)
+        private static List<Keyframes> CreateKeyframes(int j, long ws)
         {
-            var ss = MainForm.FullSchedule;
             var i = MainForm.SeasonSeriesIndex;
             var lkf = new List<Keyframes>();
 
-            var wu = ss[i].Schedules[j].Weather.WeatherURL;
-
-            Task<string> task = Task.Run(async () =>
-            {
-                var response = await client.GetAsync(wu);
-                response.EnsureSuccessStatusCode();
-                return await response.Content.ReadAsStringAsync();
-
-            });
-
-            var getData = task.GetAwaiter().GetResult();
-
-            var wkf = JsonSerializer.Deserialize<List<JsonClasses.FullSchedule.WebKeyframes>>(getData);
+            var wkf = MainForm.WeatherSchedule.Series[i].Events[j].Keyframes;
             var index = 0;
 
             foreach (var f in wkf)
@@ -314,7 +301,10 @@ namespace AiSeasonCreator
                 kf.PrecipAmount = f.PrecipAmount;
                 kf.RawAirTemp = f.RawAirTemp;
                 kf.IsSunUp = f.IsSunUp;
-                kf.WeatherSeed = ws;
+                if (index == 0)
+                {
+                    kf.WeatherSeed = ws;
+                }
                 lkf.Add(kf);
                 index++;
 
@@ -335,7 +325,6 @@ namespace AiSeasonCreator
                 kf.PrecipAmount = f.PrecipAmount;
                 kf.RawAirTemp = f.RawAirTemp;
                 kf.IsSunUp = f.IsSunUp;
-                kf.WeatherSeed = ws;
                 lkf.Add(kf);
                 index++;
 
@@ -356,7 +345,6 @@ namespace AiSeasonCreator
                 kf.PrecipAmount = f.PrecipAmount;
                 kf.RawAirTemp = f.RawAirTemp;
                 kf.IsSunUp = f.IsSunUp;
-                kf.WeatherSeed = ws;
                 lkf.Add(kf);
                 index++;
 
@@ -377,7 +365,6 @@ namespace AiSeasonCreator
                 kf.PrecipAmount = f.PrecipAmount;
                 kf.RawAirTemp = f.RawAirTemp;
                 kf.IsSunUp = f.IsSunUp;
-                kf.WeatherSeed = ws;
                 lkf.Add(kf);
                 index++;
             }
@@ -786,7 +773,7 @@ namespace AiSeasonCreator
 
             s.TrackState = CreateTrackState();
             s.TimeOfDay = 0;
-            s.Weather = CreateWeather(i, 0, "", client);
+            s.Weather = CreateWeather(i, 0, "");
             s.FullCourseCautions = c.Schedules[0].HasFullCourseCautions;
             s.GridPosition = 1;
             s.LuckyDog = c.LuckyDog;
@@ -873,7 +860,7 @@ namespace AiSeasonCreator
             s.Subsessions = new List<int> { 3, 5, 6 };
             s.StartZone = 0;
 
-            s.Events = CreateEvents(i, client);
+            s.Events = CreateEvents(i);
 
             s.Name = MainForm.SeasonName;
                   

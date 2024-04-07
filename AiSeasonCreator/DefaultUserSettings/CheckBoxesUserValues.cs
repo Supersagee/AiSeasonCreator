@@ -17,6 +17,8 @@ namespace AiSeasonCreator.DefaultUserSettings
         public bool ConsistentWeather { get; set; }
         [JsonPropertyName("afternoonRaces")]
         public bool AfternoonRaces { get; set; }
+        [JsonPropertyName("neverRain")]
+        public bool NeverRain { get; set; }
         [JsonPropertyName("qualifyAlone")]
         public bool QualifyAlone { get; set; }
         [JsonPropertyName("shortParade")]

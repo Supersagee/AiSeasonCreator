@@ -13,6 +13,7 @@ using ReaLTaiizor.Controls;
 using System.Diagnostics;
 using AiSeasonCreator.Roster;
 using static ReaLTaiizor.Controls.ExtendedPanel;
+using iRacingWeatherURLParser.WeatherSchedule;
 
 namespace AiSeasonCreator
 {
@@ -73,38 +74,38 @@ namespace AiSeasonCreator
             var newSeasonName = "";
             var completionString = "season";
 
-            //try
-            //{
-            if (selectTracksCheckBox.Checked)
+            try
             {
-                var trackSelection = new TrackSelectionForm();
-                trackSelection.ShowDialog();
+                if (selectTracksCheckBox.Checked)
+                {
+                    var trackSelection = new TrackSelectionForm();
+                    trackSelection.ShowDialog();
+                }
+
+                string baseFileName = SeasonName;
+                string filePath = $@"{SeasonFolderPath}\{baseFileName}.json";
+
+                int fileCounter = 0;
+                while (File.Exists(filePath))
+                {
+                    fileCounter++;
+                    baseFileName = $"{SeasonName} ({fileCounter})";
+                    filePath = $@"{SeasonFolderPath}\{baseFileName}.json";
+                }
+
+                if (fileCounter > 0)
+                {
+                    SeasonName = $"{SeasonName} ({fileCounter})";
+                    newSeasonName = SeasonName;
+                }
+
+                var sb = IRacingService.SeasonBuilder();
+                await IRacingService.SaveSeasonScheduleToJson(sb, filePath);
             }
-
-            string baseFileName = SeasonName;
-            string filePath = $@"{SeasonFolderPath}\{baseFileName}.json";
-
-            int fileCounter = 0;
-            while (File.Exists(filePath))
+            catch
             {
-                fileCounter++;
-                baseFileName = $"{SeasonName} ({fileCounter})";
-                filePath = $@"{SeasonFolderPath}\{baseFileName}.json";
+                completionString = "error";
             }
-
-            if (fileCounter > 0)
-            {
-                SeasonName = $"{SeasonName} ({fileCounter})";
-                newSeasonName = SeasonName;
-            }
-
-            var sb = IRacingService.SeasonBuilder();
-            await IRacingService.SaveSeasonScheduleToJson(sb, filePath);
-            //}
-            //catch
-            //{
-            //completionString = "error";
-            //}
 
             var completion = new CompletionForm(completionString, newSeasonName, NotAvailableTracks);
             completion.ShowDialog();
@@ -235,6 +236,14 @@ namespace AiSeasonCreator
 
             var seriesFilePath = Path.Combine(basePath, "JsonFiles", "SeriesDetails", $"{series}.json");
             SeriesDetails = JsonSerializer.Deserialize<SeriesDetails[]>(File.ReadAllText(seriesFilePath));
+
+            var weatherFilePath = Path.Combine(basePath, "JsonFiles", "WeatherSchedules", $"WeatherSchedule {season}.json");
+            if (File.Exists(weatherFilePath))
+            {
+                WeatherSchedule = JsonSerializer.Deserialize<WeatherSchedule>(File.ReadAllText(weatherFilePath));
+            }
+
+            var bp = 1;
         }
 
         private void CheckFolderPaths()
@@ -853,6 +862,7 @@ namespace AiSeasonCreator
                 AiAvoidsPlayer = aiAvoidPlayerCheckBox.Checked,
                 ConsistentWeather = consistentWeatherCheckBox.Checked,
                 AfternoonRaces = afternoonRacesCheckBox.Checked,
+                NeverRain = neverRainsCheckBox.Checked,
                 QualifyAlone = qualiAloneCheckBox.Checked,
                 ShortParade = shortParadeCheckBox.Checked,
                 SelectTracks = selectTracksCheckBox.Checked,
@@ -913,6 +923,7 @@ namespace AiSeasonCreator
                     aiAvoidPlayerCheckBox.Checked = ud.CheckBoxesUserValues.AiAvoidsPlayer;
                     consistentWeatherCheckBox.Checked = ud.CheckBoxesUserValues.ConsistentWeather;
                     afternoonRacesCheckBox.Checked = ud.CheckBoxesUserValues.AfternoonRaces;
+                    neverRainsCheckBox.Checked = ud.CheckBoxesUserValues.NeverRain;
                     qualiAloneCheckBox.Checked = ud.CheckBoxesUserValues.QualifyAlone;
                     selectTracksCheckBox.Checked = ud.CheckBoxesUserValues.SelectTracks;
                     shortParadeCheckBox.Checked = ud.CheckBoxesUserValues.ShortParade;
@@ -1004,6 +1015,7 @@ namespace AiSeasonCreator
         public static SeriesDetails[] SeriesDetails { get; set; }
         public static SeriesDetails[] RosterSeriesDetails { get; set; }
         public static TrackDetails[] TrackDetails { get; set; }
+        public static WeatherSchedule WeatherSchedule { get; set; }
         public static List<string> NotAvailableTracks { get; set; } = new List<string>();
     }
 }
