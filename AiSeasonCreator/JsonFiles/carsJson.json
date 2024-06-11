@@ -1336,7 +1336,7 @@
     "award_exempt": false,
     "car_dirpath": "streetstock",
     "car_id": 36,
-    "car_name": "Street Stock",
+    "car_name": "Street Stock - Panther C1",
     "car_name_abbreviated": "SS",
     "car_types": [
       {
@@ -1721,7 +1721,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
-    "has_rain_capable_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 550,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1731,7 +1731,7 @@
     "patterns": 23,
     "price": 11.95,
     "price_display": "$11.95",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,gt3,gtd",
     "site_url": "http://mclarengt.com/",
@@ -2478,7 +2478,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
-    "has_rain_capable_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 475,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -2488,7 +2488,7 @@
     "patterns": 21,
     "price": 11.95,
     "price_display": "$11.95",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,gtd,gt3",
     "site_url": "http://www.ford.com/",
@@ -2833,7 +2833,7 @@
     "free_with_subscription": true,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
-    "has_rain_capable_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 181,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -2843,7 +2843,7 @@
     "patterns": 24,
     "price": 0,
     "price_display": "$0.00",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,miata,mx5",
     "site_url": "http://www.mazdamotorsports.com/",
@@ -5711,7 +5711,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
-    "has_rain_capable_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 425,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5734,7 +5734,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,gt4,gs",
     "site_url": "http://www.porsche.com/",
@@ -5883,7 +5883,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
-    "has_rain_capable_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 431,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5917,7 +5917,7 @@
     "patterns": 26,
     "price": 11.95,
     "price_display": "$11.95",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,gt4,gs",
     "site_url": "https://www.bmw-motorsport.com/en/home.html",
@@ -6583,7 +6583,7 @@
         "car_type": "sportscar"
       }
     ],
-    "car_weight": 1425,
+    "car_weight": 3086,
     "categories": [
       "sports_car"
     ],
@@ -6593,7 +6593,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
-    "has_rain_capable_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 461,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -6626,7 +6626,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,gt4,gs",
     "site_url": "https://www.mclaren.com/",
@@ -7036,7 +7036,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar",
     "site_url": "https://www.porsche.com/international/motorsportandevents/motorsport/",
@@ -7681,7 +7681,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
-    "has_rain_capable_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 450,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -7727,7 +7727,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,aienabled",
     "sku": 10523
@@ -8246,7 +8246,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
-    "has_rain_capable_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 515,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -8302,7 +8302,7 @@
     "patterns": 28,
     "price": 11.95,
     "price_display": "$11.95",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,gt4,gtd",
     "site_url": "https://customerracing.mercedes-amg.com/en/vehicles/mercedes-amg-gt4.html",
@@ -9038,7 +9038,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,prototype,lmp3",
     "site_url": "https://ligierautomotive.com/",
@@ -9728,7 +9728,7 @@
       "sports_car"
     ],
     "created": "2023-10-04T14:07:37Z",
-    "first_sale": "2023-12-06T15:39:45Z",
+    "first_sale": "2023-12-06T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/audi-r8-lms-evo-ii-gt3",
     "free_with_subscription": false,
     "has_headlights": true,
@@ -9781,7 +9781,7 @@
       "formula_car"
     ],
     "created": "2023-12-15T13:39:16Z",
-    "first_sale": "2024-03-05T16:53:58Z",
+    "first_sale": "2024-03-05T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/super-formula-lights",
     "free_with_subscription": false,
     "has_headlights": false,
@@ -9802,7 +9802,7 @@
     "sku": 10571
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_number_colors": false,
     "allow_number_font": false,
     "allow_sponsor1": true,
@@ -9831,7 +9831,7 @@
       "oval"
     ],
     "created": "2024-01-02T13:53:17Z",
-    "first_sale": "2024-03-05T16:53:58Z",
+    "first_sale": "2024-03-05T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/srx",
     "free_with_subscription": false,
     "has_headlights": false,
@@ -9880,13 +9880,13 @@
       "dirt_oval"
     ],
     "created": "2024-01-02T14:14:22Z",
-    "first_sale": "2024-03-05T21:26:21Z",
+    "first_sale": "2024-03-05T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/dirt-micro-sprint-car-winged-non-winged",
     "free_with_subscription": true,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
     "has_rain_capable_tire_types": false,
-    "hp": 167,
+    "hp": 120,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
     "max_weight_penalty_kg": 250,
@@ -9924,12 +9924,61 @@
         "car_type": "sprintcar"
       }
     ],
-    "car_weight": 775,
+    "car_weight": 755,
     "categories": [
       "dirt_oval"
     ],
     "created": "2024-01-02T14:18:27Z",
-    "first_sale": "2024-03-05T21:26:21Z",
+    "first_sale": "2024-03-05T00:00:00Z",
+    "forum_url": "https://forums.iracing.com/categories/dirt-micro-sprint-car-winged-non-winged",
+    "free_with_subscription": true,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
+    "hp": 120,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 467,
+    "patterns": 24,
+    "price": 0,
+    "price_display": "$0.00",
+    "rain_enabled": false,
+    "retired": false,
+    "search_filters": "dirt,dirtoval,sprintcar",
+    "sku": 10573
+  },
+  {
+    "ai_enabled": false,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "dirtmicrosprint\\winged\\outlaw",
+    "car_id": 182,
+    "car_model": "Winged",
+    "car_name": "Dirt Outlaw Micro Sprint Car - Winged",
+    "car_name_abbreviated": "MSCOW",
+    "car_types": [
+      {
+        "car_type": "dirt"
+      },
+      {
+        "car_type": "dirtoval"
+      },
+      {
+        "car_type": "sprintcar"
+      }
+    ],
+    "car_weight": 780,
+    "categories": [
+      "dirt_oval"
+    ],
+    "created": "2024-03-20T09:56:19Z",
+    "first_sale": "2024-04-02T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/dirt-micro-sprint-car-winged-non-winged",
     "free_with_subscription": true,
     "has_headlights": false,
@@ -9948,5 +9997,283 @@
     "retired": false,
     "search_filters": "dirt,dirtoval,sprintcar",
     "sku": 10573
+  },
+  {
+    "ai_enabled": false,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "dirtmicrosprint\\nonwinged\\outlaw",
+    "car_id": 183,
+    "car_model": "Non-Winged",
+    "car_name": "Dirt Outlaw Micro Sprint Car - Non-Winged",
+    "car_name_abbreviated": "MSCONW",
+    "car_types": [
+      {
+        "car_type": "dirt"
+      },
+      {
+        "car_type": "dirtoval"
+      },
+      {
+        "car_type": "sprintcar"
+      }
+    ],
+    "car_weight": 755,
+    "categories": [
+      "dirt_oval"
+    ],
+    "created": "2024-03-20T09:57:56Z",
+    "first_sale": "2024-04-02T00:00:00Z",
+    "forum_url": "https://forums.iracing.com/categories/dirt-micro-sprint-car-winged-non-winged",
+    "free_with_subscription": true,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
+    "hp": 167,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 467,
+    "patterns": 24,
+    "price": 0,
+    "price_display": "$0.00",
+    "rain_enabled": false,
+    "retired": false,
+    "search_filters": "dirt,dirtoval,sprintcar",
+    "sku": 10573
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "chevyvettez06rgt3",
+    "car_id": 184,
+    "car_make": "Chevrolet",
+    "car_model": "Chevrolet Corvette Z06 GT3.R",
+    "car_name": "Chevrolet Corvette Z06 GT3.R",
+    "car_name_abbreviated": "CZ06",
+    "car_types": [
+      {
+        "car_type": "chevy"
+      },
+      {
+        "car_type": "gt3"
+      },
+      {
+        "car_type": "road"
+      }
+    ],
+    "car_weight": 2943,
+    "categories": [
+      "sports_car"
+    ],
+    "created": "2024-03-26T15:14:21Z",
+    "first_sale": "2024-06-04T14:17:23Z",
+    "forum_url": "https://forums.iracing.com/categories/chevrolet-corvette-z06-gt3-r",
+    "free_with_subscription": false,
+    "has_headlights": true,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
+    "hp": 522,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 471,
+    "paint_rules": {
+      "1": {
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "PaintCarAvailable": false,
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers.",
+        "Sponsor1": "0",
+        "Sponsor1Available": false,
+        "Sponsor2": "0",
+        "Sponsor2Available": false
+      },
+      "2": {
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "PaintCarAvailable": false,
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers.",
+        "Sponsor1": "0",
+        "Sponsor1Available": false,
+        "Sponsor2": "0",
+        "Sponsor2Available": false
+      }
+    },
+    "patterns": 24,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "rain_enabled": true,
+    "retired": false,
+    "search_filters": "road,gt3,chevy",
+    "sku": 10576
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "fordmustanggt3",
+    "car_id": 185,
+    "car_make": "Ford",
+    "car_model": "Ford Mustang GT3",
+    "car_name": "Ford Mustang GT3",
+    "car_name_abbreviated": "FMGT3",
+    "car_types": [
+      {
+        "car_type": "gt3"
+      },
+      {
+        "car_type": "road"
+      },
+      {
+        "car_type": "sportscar"
+      }
+    ],
+    "car_weight": 2900,
+    "categories": [
+      "sports_car"
+    ],
+    "created": "2024-05-06T14:26:58Z",
+    "first_sale": "2024-06-04T14:17:42Z",
+    "forum_url": "https://forums.iracing.com/categories/ford-mustang-gt3",
+    "free_with_subscription": false,
+    "has_headlights": true,
+    "has_multiple_dry_tire_types": true,
+    "has_rain_capable_tire_types": true,
+    "hp": 516,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 476,
+    "paint_rules": {
+      "1": {
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "PaintCarAvailable": false,
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers.",
+        "Sponsor1": "0",
+        "Sponsor1Available": false,
+        "Sponsor2": "0",
+        "Sponsor2Available": false
+      }
+    },
+    "patterns": 25,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "rain_enabled": true,
+    "retired": false,
+    "search_filters": "road,sportscar,gt3",
+    "sku": 10580
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "streetstock\\streetstock2",
+    "car_id": 186,
+    "car_model": "Street Stock - Casino",
+    "car_name": "Street Stock - Casino M2",
+    "car_name_abbreviated": "SSC",
+    "car_types": [
+      {
+        "car_type": "oval"
+      },
+      {
+        "car_type": "ss"
+      }
+    ],
+    "car_weight": 3400,
+    "categories": [
+      "oval"
+    ],
+    "created": "2024-05-06T15:21:23Z",
+    "first_sale": "2024-06-04T14:18:29Z",
+    "forum_url": "https://forums.iracing.com/categories/street-stock/",
+    "free_with_subscription": false,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
+    "hp": 375,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 482,
+    "patterns": 24,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "rain_enabled": false,
+    "retired": false,
+    "search_filters": "oval,ss",
+    "sku": 10581
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "streetstock\\streetstock3",
+    "car_id": 187,
+    "car_model": "Street Stock - Eagle",
+    "car_name": "Street Stock - Eagle T3",
+    "car_name_abbreviated": "SSE",
+    "car_types": [
+      {
+        "car_type": "oval"
+      },
+      {
+        "car_type": "ss"
+      }
+    ],
+    "car_weight": 3400,
+    "categories": [
+      "oval"
+    ],
+    "created": "2024-05-06T15:25:13Z",
+    "first_sale": "2024-06-04T14:18:29Z",
+    "forum_url": "https://forums.iracing.com/categories/street-stock/",
+    "free_with_subscription": false,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
+    "hp": 375,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 482,
+    "patterns": 24,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "rain_enabled": false,
+    "retired": false,
+    "search_filters": "oval,ss",
+    "sku": 10581
   }
 ]

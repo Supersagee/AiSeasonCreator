@@ -5,9 +5,9 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>24.2.2</Version>
-    <AssemblyVersion>24.2.2.0</AssemblyVersion>
-    <FileVersion>24.2.2.0</FileVersion>
+    <Version>24.3.0</Version>
+    <AssemblyVersion>24.3.0.0</AssemblyVersion>
+    <FileVersion>24.3.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -37,9 +37,6 @@
     <None Update="JsonFiles\carsJson.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="JsonFiles\Schedules\2023 - Season 3.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Update="JsonFiles\Schedules\2023 - Season 4.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -49,7 +46,7 @@
     <None Update="JsonFiles\Schedules\2024 - Season 2.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="JsonFiles\SeriesDetails\23s3_series.json">
+    <None Update="JsonFiles\Schedules\2024 - Season 3.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\SeriesDetails\23s4_series.json">
@@ -61,10 +58,16 @@
     <None Update="JsonFiles\SeriesDetails\24s2_series.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="JsonFiles\SeriesDetails\24s3_series.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="JsonFiles\tracksJson.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\WeatherSchedules\WeatherSchedule 2024 - Season 2.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="JsonFiles\WeatherSchedules\WeatherSchedule 2024 - Season 3.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

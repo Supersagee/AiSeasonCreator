@@ -827,9 +827,9 @@
             rosterTabPage.Controls.Add(rosterNamePanel);
             rosterTabPage.Controls.Add(whatSourcePanel);
             rosterTabPage.Controls.Add(rosterSeriesPanel);
-            rosterTabPage.Location = new Point(4, 35);
+            rosterTabPage.Location = new Point(4, 38);
             rosterTabPage.Name = "rosterTabPage";
-            rosterTabPage.Size = new Size(412, 558);
+            rosterTabPage.Size = new Size(412, 555);
             rosterTabPage.TabIndex = 2;
             rosterTabPage.Text = "Roster";
             // 
@@ -1047,6 +1047,8 @@
             // 
             relativeSkillMinTrackBar.BackColor = Color.Transparent;
             relativeSkillMinTrackBar.Location = new Point(117, 6);
+            relativeSkillMinTrackBar.Maximum = 20;
+            relativeSkillMinTrackBar.Minimum = -20;
             relativeSkillMinTrackBar.Name = "relativeSkillMinTrackBar";
             relativeSkillMinTrackBar.Size = new Size(260, 16);
             relativeSkillMinTrackBar.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -1054,13 +1056,15 @@
             relativeSkillMinTrackBar.Text = "poisonTrackBar1";
             relativeSkillMinTrackBar.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             relativeSkillMinTrackBar.UseCustomBackColor = true;
-            relativeSkillMinTrackBar.Value = 40;
+            relativeSkillMinTrackBar.Value = 20;
             relativeSkillMinTrackBar.Scroll += TrackBar_Scroll;
             // 
             // relativeSkillMaxTrackBar
             // 
             relativeSkillMaxTrackBar.BackColor = Color.Transparent;
             relativeSkillMaxTrackBar.Location = new Point(117, 22);
+            relativeSkillMaxTrackBar.Maximum = 20;
+            relativeSkillMaxTrackBar.Minimum = -20;
             relativeSkillMaxTrackBar.Name = "relativeSkillMaxTrackBar";
             relativeSkillMaxTrackBar.Size = new Size(260, 16);
             relativeSkillMaxTrackBar.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -1068,7 +1072,7 @@
             relativeSkillMaxTrackBar.Text = "poisonTrackBar2";
             relativeSkillMaxTrackBar.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             relativeSkillMaxTrackBar.UseCustomBackColor = true;
-            relativeSkillMaxTrackBar.Value = 60;
+            relativeSkillMaxTrackBar.Value = 20;
             relativeSkillMaxTrackBar.Scroll += TrackBar_Scroll;
             // 
             // smoothnessPanel

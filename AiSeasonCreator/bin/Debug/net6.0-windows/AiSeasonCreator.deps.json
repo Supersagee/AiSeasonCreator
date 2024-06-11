@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "AiSeasonCreator/24.2.1": {
+      "AiSeasonCreator/24.3.0": {
         "dependencies": {
           "Newtonsoft.Json": "13.0.3",
           "ReaLTaiizor": "3.7.9.5"
@@ -34,7 +34,7 @@
     }
   },
   "libraries": {
-    "AiSeasonCreator/24.2.1": {
+    "AiSeasonCreator/24.3.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
