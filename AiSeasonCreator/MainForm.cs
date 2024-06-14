@@ -932,8 +932,8 @@ namespace AiSeasonCreator
 
                     aiSkillMinTrackBar.Value = ud.TrackBarUserValues.AiMinSkill;
                     aiSkillMaxTrackBar.Value = ud.TrackBarUserValues.AiMaxSkill;
-                    relativeSkillMinTrackBar.Value = ud.TrackBarUserValues.RelativeMinSkill;
-                    relativeSkillMaxTrackBar.Value = ud.TrackBarUserValues.RelativeMaxSkill;
+                    relativeSkillMinTrackBar.Value = ud.TrackBarUserValues.RelativeMinSkill < 0 ? 0 : ud.TrackBarUserValues.RelativeMinSkill;
+                    relativeSkillMaxTrackBar.Value = ud.TrackBarUserValues.RelativeMaxSkill < 0 ? 0 : ud.TrackBarUserValues.RelativeMaxSkill;
                     aggressionMinTrackBar.Value = ud.TrackBarUserValues.AggressionMinSkill;
                     aggressionMaxTrackBar.Value = ud.TrackBarUserValues.AggressionMaxSkill;
                     optimismMinTrackBar.Value = ud.TrackBarUserValues.OptimismMinSkill;
