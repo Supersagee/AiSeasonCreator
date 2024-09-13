@@ -29,7 +29,7 @@ namespace AiSeasonCreator.JsonClasses.FullSchedule
         [JsonPropertyName("wind_units")]
         public int WindUnits { get; set; }
         [JsonPropertyName("precip_chance")]
-        public int PrecipChance { get; set; }
+        public double PrecipChance { get; set; }
         [JsonPropertyName("max_precip_rate")]
         public double MaxPrecipRate { get; set; }
         [JsonPropertyName("max_precip_rate_desc")]

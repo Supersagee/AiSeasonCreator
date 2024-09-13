@@ -34,7 +34,7 @@ namespace AiSeasonCreator.ScheduleClasses
         [JsonPropertyName("wind_speed")]
         public int WindSpeed { get; set; }
         [JsonPropertyName("precip_chance")]
-        public int PrecipChance { get; set; }
+        public double PrecipChance { get; set; }
         [JsonPropertyName("precip_amount")]
         public int PrecipAmount { get; set; }
         [JsonPropertyName("raw_air_temp")]

@@ -1076,7 +1076,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
-    "has_rain_capable_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 325,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -1086,7 +1086,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,mustanggt",
     "site_url": "http://www.ford.com",
@@ -1690,12 +1690,12 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "mclarenmp4",
     "car_id": 43,
     "car_make": "McLaren",
     "car_model": "MP4-12C",
-    "car_name": "McLaren MP4-12C GT3",
+    "car_name": "[Legacy] McLaren MP4-12C GT3",
     "car_name_abbreviated": "MP4",
     "car_types": [
       {
@@ -1729,8 +1729,8 @@
     "min_power_adjust_pct": -5,
     "package_id": 133,
     "patterns": 23,
-    "price": 11.95,
-    "price_display": "$11.95",
+    "price": 2.95,
+    "price_display": "$2.95",
     "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,gt3,gtd",
@@ -5319,7 +5319,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
-    "has_rain_capable_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 350,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -5329,7 +5329,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,tcr",
     "site_url": "https://www.audi.com/en/experience-audi/audi-sport/audi-racing-models/rs-3-lms.html",
@@ -5857,7 +5857,7 @@
     "car_id": 122,
     "car_make": "BMW",
     "car_model": "M4 GT4",
-    "car_name": "BMW M4 GT4",
+    "car_name": "BMW M4 F82 GT4 - 2018",
     "car_name_abbreviated": "BMWM4",
     "car_types": [
       {
@@ -7407,7 +7407,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
-    "has_rain_capable_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 350,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -7453,7 +7453,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,tcr",
     "site_url": "http://www.iracing.com",
@@ -7494,7 +7494,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
-    "has_rain_capable_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 350,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -7517,7 +7517,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,tcr",
     "site_url": "http://www.iracing.com",
@@ -7926,7 +7926,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
-    "has_rain_capable_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 350,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -7972,7 +7972,7 @@
     "patterns": 25,
     "price": 11.95,
     "price_display": "$11.95",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,sportscar,aienabled,tcr",
     "sku": 10526
@@ -8820,7 +8820,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
-    "has_rain_capable_tire_types": false,
+    "has_rain_capable_tire_types": true,
     "hp": 200,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
@@ -8830,7 +8830,7 @@
     "patterns": 24,
     "price": 11.95,
     "price_display": "$11.95",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road",
     "sku": 10548
@@ -10275,5 +10275,266 @@
     "retired": false,
     "search_filters": "oval,ss",
     "sku": 10581
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "mclaren720sgt3",
+    "car_id": 188,
+    "car_make": "Mclaren",
+    "car_model": "McLaren 720S GT3 EVO",
+    "car_name": "McLaren 720S GT3 EVO",
+    "car_name_abbreviated": "720GT3",
+    "car_types": [
+      {
+        "car_type": "gt3"
+      },
+      {
+        "car_type": "road"
+      },
+      {
+        "car_type": "sportscar"
+      }
+    ],
+    "car_weight": 2932,
+    "categories": [
+      "sports_car"
+    ],
+    "created": "2024-06-12T16:09:00Z",
+    "first_sale": "2024-09-09T13:24:34Z",
+    "forum_url": "https://forums.iracing.com/categories/mclaren-720s-gt3-evo",
+    "free_with_subscription": false,
+    "has_headlights": true,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
+    "hp": 740,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 484,
+    "paint_rules": {
+      "1": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+      },
+      "2": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+      },
+      "3": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+      }
+    },
+    "patterns": 25,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "rain_enabled": true,
+    "retired": false,
+    "search_filters": "road,sportscar,gt3",
+    "sku": 10583
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": false,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "bmwm4evogt4",
+    "car_id": 189,
+    "car_make": "BMW",
+    "car_model": "BMW M4 G82 GT4",
+    "car_name": "BMW M4 G82 GT4",
+    "car_name_abbreviated": "BMWGT4",
+    "car_types": [
+      {
+        "car_type": "gt4"
+      },
+      {
+        "car_type": "road"
+      },
+      {
+        "car_type": "sportscar"
+      }
+    ],
+    "car_weight": 3377,
+    "categories": [
+      "sports_car"
+    ],
+    "created": "2024-07-03T13:38:11Z",
+    "first_sale": "2024-09-04T16:17:37Z",
+    "forum_url": "https://forums.iracing.com/categories/bmw-m4-g82-gt4",
+    "free_with_subscription": false,
+    "has_headlights": true,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
+    "hp": 520,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 486,
+    "paint_rules": {
+      "1": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+      },
+      "2": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+      }
+    },
+    "patterns": 26,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "rain_enabled": true,
+    "retired": false,
+    "search_filters": "road,sportscar,gt4",
+    "sku": 10584
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "ministock",
+    "car_id": 191,
+    "car_model": "Mini Stock",
+    "car_name": "Mini Stock",
+    "car_name_abbreviated": "MNSTK",
+    "car_types": [
+      {
+        "car_type": "mini"
+      },
+      {
+        "car_type": "oval"
+      },
+      {
+        "car_type": "rookie"
+      },
+      {
+        "car_type": "stock"
+      }
+    ],
+    "car_weight": 2350,
+    "categories": [
+      "oval"
+    ],
+    "created": "2024-07-16T11:21:04Z",
+    "forum_url": "https://forums.iracing.com/categories/mini-stock",
+    "free_with_subscription": true,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
+    "hp": 200,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 490,
+    "patterns": 24,
+    "price": 0,
+    "price_display": "$0.00",
+    "rain_enabled": false,
+    "retired": false,
+    "search_filters": "oval,stock,mini,rookie",
+    "sku": 10586
+  },
+  {
+    "ai_enabled": false,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "dirtministock",
+    "car_id": 193,
+    "car_model": "Dirt Mini Stock",
+    "car_name": "Dirt Mini Stock",
+    "car_name_abbreviated": "DMNST",
+    "car_types": [
+      {
+        "car_type": "mini"
+      },
+      {
+        "car_type": "oval"
+      },
+      {
+        "car_type": "rookie"
+      },
+      {
+        "car_type": "stock"
+      }
+    ],
+    "car_weight": 2350,
+    "categories": [
+      "oval"
+    ],
+    "created": "2024-08-12T13:32:45Z",
+    "forum_url": "https://forums.iracing.com/categories/dirt-mini-stock",
+    "free_with_subscription": true,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
+    "hp": 200,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 496,
+    "patterns": 24,
+    "price": 0,
+    "price_display": "$0.00",
+    "rain_enabled": false,
+    "retired": false,
+    "search_filters": "oval,stock,mini,rookie",
+    "sku": 10589
   }
 ]
