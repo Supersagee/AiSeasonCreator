@@ -5,9 +5,9 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>24.4.0</Version>
-    <AssemblyVersion>24.4.0.0</AssemblyVersion>
-    <FileVersion>24.4.0.0</FileVersion>
+    <Version>24.5.0</Version>
+    <AssemblyVersion>24.5.0.0</AssemblyVersion>
+    <FileVersion>24.5.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -37,9 +37,6 @@
     <None Update="JsonFiles\carsJson.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="JsonFiles\Schedules\2024 - Season 1.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Update="JsonFiles\Schedules\2024 - Season 2.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -49,7 +46,7 @@
     <None Update="JsonFiles\Schedules\2024 - Season 4.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="JsonFiles\SeriesDetails\24s1_series.json">
+    <None Update="JsonFiles\Schedules\2025 - Season 1.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\SeriesDetails\24s2_series.json">
@@ -59,6 +56,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\SeriesDetails\24s4_series.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="JsonFiles\SeriesDetails\25s1_series.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\tracksJson.json">
@@ -71,6 +71,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\WeatherSchedules\WeatherSchedule 2024 - Season 4.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="JsonFiles\WeatherSchedules\WeatherSchedule 2025 - Season 1.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

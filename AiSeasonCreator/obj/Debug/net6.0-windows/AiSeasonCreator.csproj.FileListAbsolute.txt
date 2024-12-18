@@ -25,8 +25,6 @@ C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-win
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.Properties.Resources.resources
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\ReaLTaiizor.dll
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.CompletionForm.resources
-C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\Schedules\2024 - Season 1.json
-C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\SeriesDetails\24s1_series.json
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\Schedules\2024 - Season 2.json
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\SeriesDetails\24s2_series.json
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\WeatherSchedules\WeatherSchedule 2024 - Season 2.json
@@ -36,3 +34,6 @@ C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-win
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\Schedules\2024 - Season 4.json
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\SeriesDetails\24s4_series.json
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\WeatherSchedules\WeatherSchedule 2024 - Season 4.json
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\Schedules\2025 - Season 1.json
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\SeriesDetails\25s1_series.json
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\WeatherSchedules\WeatherSchedule 2025 - Season 1.json

@@ -1159,7 +1159,7 @@
     "sku": 10010
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_number_colors": true,
     "allow_number_font": true,
     "allow_sponsor1": true,
@@ -5572,12 +5572,12 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "v8supercars\\holden2019",
     "car_id": 117,
     "car_make": "Holden",
     "car_model": "ZB Commodore",
-    "car_name": "Supercars Holden ZB Commodore",
+    "car_name": "[Legacy] Supercars Holden ZB Commodore",
     "car_name_abbreviated": "HZBC",
     "car_types": [
       {
@@ -5611,8 +5611,8 @@
     "min_power_adjust_pct": -5,
     "package_id": 302,
     "patterns": 24,
-    "price": 11.95,
-    "price_display": "$11.95",
+    "price": 2.95,
+    "price_display": "$2.95",
     "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,aussiev8,v8sc",
@@ -5626,12 +5626,12 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "v8supercars\\fordmustanggt",
     "car_id": 118,
     "car_make": "Ford",
     "car_model": "Mustang GT",
-    "car_name": "Supercars Ford Mustang GT",
+    "car_name": "[Legacy] Supercars Ford Mustang GT",
     "car_name_abbreviated": "FMGT",
     "car_types": [
       {
@@ -5665,8 +5665,8 @@
     "min_power_adjust_pct": -5,
     "package_id": 307,
     "patterns": 24,
-    "price": 11.95,
-    "price_display": "$11.95",
+    "price": 2.95,
+    "price_display": "$2.95",
     "rain_enabled": false,
     "retired": false,
     "search_filters": "road,sportscar,aussiev8,v8sc",
@@ -6223,7 +6223,7 @@
         "car_type": "road"
       }
     ],
-    "car_weight": 2360,
+    "car_weight": 2050,
     "categories": [
       "sports_car"
     ],
@@ -6975,7 +6975,7 @@
     "patterns": 24,
     "price": 0,
     "price_display": "$0.00",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,formulavee,openwheel",
     "site_url": "http://www.iracing.com/",
@@ -10176,7 +10176,7 @@
         "Sponsor2Available": false
       }
     },
-    "patterns": 25,
+    "patterns": 26,
     "price": 11.95,
     "price_display": "$11.95",
     "rain_enabled": true,
@@ -10437,6 +10437,53 @@
   },
   {
     "ai_enabled": true,
+    "allow_number_colors": false,
+    "allow_number_font": false,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "supercars\\fordmustanggen3",
+    "car_id": 190,
+    "car_make": "Ford",
+    "car_model": "Supercars Ford Mustang Gen 3",
+    "car_name": "Supercars Ford Mustang Gen 3",
+    "car_name_abbreviated": "SFMG3",
+    "car_types": [
+      {
+        "car_type": "road"
+      },
+      {
+        "car_type": "supercars"
+      }
+    ],
+    "car_weight": 1340,
+    "categories": [
+      "sports_car"
+    ],
+    "created": "2024-07-16T11:10:05Z",
+    "first_sale": "2024-12-10T14:35:03Z",
+    "forum_url": "https://forums.iracing.com/categories/gen-3-supercars-|-ford-mustang-chevy-camaro/",
+    "free_with_subscription": false,
+    "has_headlights": true,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
+    "hp": 600,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 488,
+    "patterns": 24,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "rain_enabled": true,
+    "retired": false,
+    "search_filters": "road,supercars",
+    "sku": 10585
+  },
+  {
+    "ai_enabled": true,
     "allow_number_colors": true,
     "allow_number_font": true,
     "allow_sponsor1": true,
@@ -10467,6 +10514,7 @@
       "oval"
     ],
     "created": "2024-07-16T11:21:04Z",
+    "first_sale": "2024-09-04T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/mini-stock",
     "free_with_subscription": true,
     "has_headlights": false,
@@ -10485,6 +10533,53 @@
     "retired": false,
     "search_filters": "oval,stock,mini,rookie",
     "sku": 10586
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": false,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "supercars\\chevycamarogen3",
+    "car_id": 192,
+    "car_make": "Chevrolet",
+    "car_model": "Supercars Chevrolet Camaro Gen 3",
+    "car_name": "Supercars Chevrolet Camaro Gen 3",
+    "car_name_abbreviated": "SCCG3",
+    "car_types": [
+      {
+        "car_type": "road"
+      },
+      {
+        "car_type": "supercars"
+      }
+    ],
+    "car_weight": 1340,
+    "categories": [
+      "sports_car"
+    ],
+    "created": "2024-07-17T14:23:00Z",
+    "first_sale": "2024-12-10T14:35:03Z",
+    "forum_url": "https://forums.iracing.com/categories/gen-3-supercars-|-ford-mustang-chevy-camaro/",
+    "free_with_subscription": false,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
+    "hp": 600,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 492,
+    "patterns": 24,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "rain_enabled": true,
+    "retired": false,
+    "search_filters": "road,supercars",
+    "sku": 10587
   },
   {
     "ai_enabled": false,
@@ -10518,6 +10613,7 @@
       "oval"
     ],
     "created": "2024-08-12T13:32:45Z",
+    "first_sale": "2024-09-04T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/dirt-mini-stock",
     "free_with_subscription": true,
     "has_headlights": false,
@@ -10536,5 +10632,363 @@
     "retired": false,
     "search_filters": "oval,stock,mini,rookie",
     "sku": 10589
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "acuransxevo22gt3",
+    "car_id": 194,
+    "car_make": "Acura",
+    "car_model": "acuransxevo22gt3",
+    "car_name": "Acura NSX GT3 EVO 22",
+    "car_name_abbreviated": "NSXE22",
+    "car_types": [
+      {
+        "car_type": "gt3"
+      },
+      {
+        "car_type": "road"
+      },
+      {
+        "car_type": "sports"
+      }
+    ],
+    "car_weight": 2910,
+    "categories": [
+      "sports_car"
+    ],
+    "created": "2024-09-30T14:56:51Z",
+    "first_sale": "2024-12-10T14:35:03Z",
+    "forum_url": "https://forums.iracing.com/categories/acura-nsx-gt3-evo-22/",
+    "free_with_subscription": false,
+    "has_headlights": true,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
+    "hp": 520,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 498,
+    "paint_rules": {
+      "1": {
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "PaintCarAvailable": false,
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers.",
+        "Sponsor1": "0",
+        "Sponsor1Available": false,
+        "Sponsor2": "0",
+        "Sponsor2Available": false
+      },
+      "2": {
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "PaintCarAvailable": false,
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers.",
+        "Sponsor1": "0",
+        "Sponsor1Available": false,
+        "Sponsor2": "0",
+        "Sponsor2Available": false
+      }
+    },
+    "patterns": 26,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "rain_enabled": true,
+    "retired": false,
+    "search_filters": "road,sports,gt3",
+    "sku": 10590
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "bmwm2csr",
+    "car_id": 195,
+    "car_make": "BMW",
+    "car_model": "BMW M2 CS Racing",
+    "car_name": "BMW M2 CS Racing",
+    "car_name_abbreviated": "BMWM2",
+    "car_types": [
+      {
+        "car_type": "road"
+      },
+      {
+        "car_type": "sports"
+      }
+    ],
+    "car_weight": 3405,
+    "categories": [
+      "sports_car"
+    ],
+    "created": "2024-09-30T15:01:18Z",
+    "forum_url": "https://forums.iracing.com/categories/bmw-m2-cs/",
+    "free_with_subscription": true,
+    "has_headlights": true,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
+    "hp": 365,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 500,
+    "paint_rules": {
+      "1": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "AllowNumberFontChanges": true,
+        "NumberFont": "0",
+        "AllowNumberColorChanges": true,
+        "NumberColor1": "FF0000",
+        "NumberColor2": "00FF00",
+        "NumberColor3": "0000FF",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or changes to sponsors."
+      },
+      "2": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "AllowNumberFontChanges": true,
+        "NumberFont": "0",
+        "AllowNumberColorChanges": true,
+        "NumberColor1": "FF0000",
+        "NumberColor2": "00FF00",
+        "NumberColor3": "0000FF",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or changes to sponsors."
+      },
+      "3": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "AllowNumberFontChanges": true,
+        "NumberFont": "0",
+        "AllowNumberColorChanges": true,
+        "NumberColor1": "FF0000",
+        "NumberColor2": "00FF00",
+        "NumberColor3": "0000FF",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or changes to sponsors."
+      },
+      "4": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "AllowNumberFontChanges": true,
+        "NumberFont": "0",
+        "AllowNumberColorChanges": true,
+        "NumberColor1": "FF0000",
+        "NumberColor2": "00FF00",
+        "NumberColor3": "0000FF",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or changes to sponsors."
+      },
+      "5": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "AllowNumberFontChanges": true,
+        "NumberFont": "0",
+        "AllowNumberColorChanges": true,
+        "NumberColor1": "FF0000",
+        "NumberColor2": "00FF00",
+        "NumberColor3": "0000FF",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or changes to sponsors."
+      },
+      "6": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "AllowNumberFontChanges": true,
+        "NumberFont": "0",
+        "AllowNumberColorChanges": true,
+        "NumberColor1": "FF0000",
+        "NumberColor2": "00FF00",
+        "NumberColor3": "0000FF",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or changes to sponsors."
+      },
+      "7": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "AllowNumberFontChanges": true,
+        "NumberFont": "0",
+        "AllowNumberColorChanges": true,
+        "NumberColor1": "FF0000",
+        "NumberColor2": "00FF00",
+        "NumberColor3": "0000FF",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or changes to sponsors."
+      }
+    },
+    "patterns": 24,
+    "price": 0,
+    "price_display": "$0.00",
+    "rain_enabled": true,
+    "retired": false,
+    "search_filters": "road,sports",
+    "sku": 10591
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": false,
+    "allow_sponsor2": false,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "ferrari499p",
+    "car_id": 196,
+    "car_make": "Ferrari",
+    "car_model": "Ferrari 499P",
+    "car_name": "Ferrari 499P",
+    "car_name_abbreviated": "F499P",
+    "car_types": [
+      {
+        "car_type": "road"
+      },
+      {
+        "car_type": "sports"
+      }
+    ],
+    "car_weight": 2469,
+    "categories": [
+      "sports_car"
+    ],
+    "created": "2024-10-03T08:18:33Z",
+    "first_sale": "2024-12-10T14:35:03Z",
+    "forum_url": "https://forums.iracing.com/categories/ferrari-499p/",
+    "free_with_subscription": false,
+    "has_headlights": true,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": true,
+    "hp": 665,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 502,
+    "paint_rules": {
+      "1": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "AllowNumberFontChanges": true,
+        "NumberFont": "0",
+        "AllowNumberColorChanges": true,
+        "NumberColor1": "FF0000",
+        "NumberColor2": "00FF00",
+        "NumberColor3": "0000FF",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or changes to sponsors."
+      },
+      "2": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "AllowNumberFontChanges": true,
+        "NumberFont": "0",
+        "AllowNumberColorChanges": true,
+        "NumberColor1": "FF0000",
+        "NumberColor2": "00FF00",
+        "NumberColor3": "0000FF",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or changes to sponsors."
+      },
+      "3": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "AllowNumberFontChanges": true,
+        "NumberFont": "0",
+        "AllowNumberColorChanges": true,
+        "NumberColor1": "FF0000",
+        "NumberColor2": "00FF00",
+        "NumberColor3": "0000FF",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or changes to sponsors."
+      },
+      "4": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "AllowNumberFontChanges": true,
+        "NumberFont": "0",
+        "AllowNumberColorChanges": true,
+        "NumberColor1": "FF0000",
+        "NumberColor2": "00FF00",
+        "NumberColor3": "0000FF",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or changes to sponsors."
+      }
+    },
+    "patterns": 24,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "rain_enabled": true,
+    "retired": false,
+    "search_filters": "road,sports",
+    "sku": 10592
   }
 ]
