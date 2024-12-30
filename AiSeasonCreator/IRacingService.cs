@@ -784,14 +784,11 @@ namespace AiSeasonCreator
             }
             else
             {
-                for (var j = 0; j < seriesDetails.Length; j++)
+                var matchingSeries = seriesDetails.FirstOrDefault(sd => sd.SeriesId == c.SeriesId);
+                if (matchingSeries != null)
                 {
-                    if (seriesDetails[j].SeriesShortName == MainForm.SeriesName)
-                    {
-                        s.MaxDrivers = seriesDetails[j].MaxStarters;
-                        s.PointsSystemId = seriesDetails[j].CategoryId + 2;
-                        break;
-                    }
+                    s.MaxDrivers = matchingSeries.MaxStarters;
+                    s.PointsSystemId = matchingSeries.CategoryId + 2;
                 }
             }     
 

@@ -13,11 +13,11 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("AiSeasonCreator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("24.5.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("24.5.0")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("25.1.1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("25.1.1")]
 [assembly: System.Reflection.AssemblyProductAttribute("AiSeasonCreator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AiSeasonCreator")]
-[assembly: System.Reflection.AssemblyVersionAttribute("24.5.0.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("25.1.1.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 
