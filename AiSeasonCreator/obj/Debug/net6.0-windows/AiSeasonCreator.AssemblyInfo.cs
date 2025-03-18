@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AiSeasonCreator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("25.1.1.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("25.1.1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("25.1.1+118a7af7cba34beadf7ddd8e3844c62ae4ab7363")]
 [assembly: System.Reflection.AssemblyProductAttribute("AiSeasonCreator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AiSeasonCreator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("25.1.1.0")]

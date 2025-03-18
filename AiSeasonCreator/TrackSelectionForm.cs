@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AiSeasonCreator.FormOptions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace AiSeasonCreator
 {
     public partial class TrackSelectionForm : Form
     {
-        public TrackSelectionForm()
+        private readonly UserSelectedOptions _userSelectedOptions;
+        public TrackSelectionForm(UserSelectedOptions userSelectedOptions)
         {
             InitializeComponent();
+            _userSelectedOptions = userSelectedOptions;
         }
 
         private void TrackSelectionForm_Load(object sender, EventArgs e)
@@ -24,21 +27,21 @@ namespace AiSeasonCreator
 
         private void PopulateTrackSelection()
         {
-            var ss = MainForm.FullSchedule;
-            var si = MainForm.SeasonSeriesIndex;
+            var ss = _userSelectedOptions.FullSchedule;
+            var si = _userSelectedOptions.SeasonSeriesIndex;
 
             for (int i = 0; i < ss[si].Schedules.Count; i++)
             {
-                for (int j = 0; j < MainForm.TrackDetails.Length; j++)
+                for (int j = 0; j < _userSelectedOptions.TrackDetails.Length; j++)
                 {
-                    if (ss[si].Schedules[i].Track.TrackId == MainForm.TrackDetails[j].TrackId)
+                    if (ss[si].Schedules[i].Track.TrackId == _userSelectedOptions.TrackDetails[j].TrackId)
                     {
                         var track = ss[si].Schedules[i].Track.TrackName;
-                        var item = MainForm.TrackDetails[j].AiEnabled ? track : $"*Ai UNAVAILABLE* {track}";
-                        var isChecked = MainForm.TrackDetails[j].AiEnabled;
+                        var item = _userSelectedOptions.TrackDetails[j].AiEnabled ? track : $"*Ai UNAVAILABLE* {track}";
+                        var isChecked = _userSelectedOptions.TrackDetails[j].AiEnabled;
 
                         tracksCheckedListBox.Items.Add(item, isChecked);
-                        if (!MainForm.TrackDetails[j].AiEnabled)
+                        if (!_userSelectedOptions.TrackDetails[j].AiEnabled)
                         {
                             var lastIndex = tracksCheckedListBox.Items.Count - 1;
                             tracksCheckedListBox.ItemCheck += (sender, e) =>
@@ -56,26 +59,28 @@ namespace AiSeasonCreator
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            MainForm.UnselectedTracks = new List<int> { };
+            _userSelectedOptions.UnselectedTracks = new List<int> { };
 
             for (int i = 0; i < tracksCheckedListBox.Items.Count; i++)
             {
                 if (!tracksCheckedListBox.GetItemChecked(i))
                 {
-                    MainForm.UnselectedTracks.Add(i);
+                    _userSelectedOptions.UnselectedTracks.Add(i);
                 }
             }
 
-            if (MainForm.FullSchedule[MainForm.SeasonSeriesIndex].Schedules.Count == MainForm.UnselectedTracks.Count)
+            if (_userSelectedOptions.FullSchedule[_userSelectedOptions.SeasonSeriesIndex].Schedules.Count == _userSelectedOptions.UnselectedTracks.Count)
             {
                 return;
             }
 
+            tracksCheckedListBox.Items.Clear();
             Close();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            tracksCheckedListBox.Items.Clear();
             Close();
         }
     }

@@ -101,7 +101,7 @@ namespace AiSeasonCreator.JsonClasses.FullSchedule
         [JsonPropertyName("season_id")]
         public int SeasonId { get; set; }
         [JsonPropertyName("season_name")]
-        public string SeasoName { get; set; }
+        public string SeasonName { get; set; }
         [JsonPropertyName("season_quarter")]
         public int SeasonQuarter { get; set; }
         [JsonPropertyName("season_short_name")]

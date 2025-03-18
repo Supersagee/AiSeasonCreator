@@ -98,13 +98,10 @@ namespace AiSeasonCreator
         {
             using var httpClient = new HttpClient();
 
-            // Get the installer file name from the URL
             string installerFileName = Path.GetFileName(installerUrl);
 
-            // Create the local installer path in the temp folder
             var installerPath = Path.Combine(Path.GetTempPath(), installerFileName);
 
-            // Download the installer file
             using (var response = await httpClient.GetAsync(installerUrl))
             {
                 response.EnsureSuccessStatusCode();
@@ -114,7 +111,6 @@ namespace AiSeasonCreator
                 }
             }
 
-            // Run the installer
             Process.Start("msiexec.exe", $"/i \"{installerPath}\"");
         }
     }

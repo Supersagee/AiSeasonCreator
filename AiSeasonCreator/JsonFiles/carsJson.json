@@ -237,18 +237,18 @@
         "car_type": "oval"
       }
     ],
-    "car_weight": 1300,
+    "car_weight": 1230,
     "categories": [
       "oval"
     ],
     "created": "2006-12-20T00:30:00Z",
     "first_sale": "2008-02-04T00:00:00Z",
-    "forum_url": "https://forums.iracing.com/categories/rookie-oval-cars",
+    "forum_url": "https://forums.iracing.com/categories/legends-ford-34-coupe",
     "free_with_subscription": true,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
     "has_rain_capable_tire_types": false,
-    "hp": 125,
+    "hp": 135,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
     "max_weight_penalty_kg": 250,
@@ -257,7 +257,7 @@
     "patterns": 24,
     "price": 0,
     "price_display": "$0.00",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "oval,legends",
     "sku": 10008
@@ -321,7 +321,7 @@
     "car_id": 11,
     "car_make": "Legends",
     "car_model": "Rookie",
-    "car_name": "Legends Ford '34 Coupe - Rookie",
+    "car_name": "[Retired] Legends Ford '34 Coupe - Rookie",
     "car_name_abbreviated": "LEG-R",
     "car_types": [
       {
@@ -367,7 +367,7 @@
     "car_dirpath": "latemodel",
     "car_id": 12,
     "car_make": "Chevrolet",
-    "car_name": "[Retired] - Chevrolet Monte Carlo SS",
+    "car_name": "[Retired] Chevrolet Monte Carlo SS",
     "car_name_abbreviated": "LM",
     "car_types": [
       {
@@ -710,7 +710,7 @@
     "patterns": 24,
     "price": 0,
     "price_display": "$0.00",
-    "rain_enabled": false,
+    "rain_enabled": true,
     "retired": false,
     "search_filters": "road,prototype,srf",
     "sku": 10087
@@ -722,12 +722,12 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "stockcars2\\chevy",
     "car_id": 24,
     "car_make": "Chevrolet",
     "car_model": "Impala SS",
-    "car_name": "ARCA Menards Chevrolet Impala",
+    "car_name": "[Legacy] ARCA Menards Chevrolet Impala",
     "car_name_abbreviated": "NW09",
     "car_types": [
       {
@@ -761,8 +761,8 @@
     "min_power_adjust_pct": -5,
     "package_id": 71,
     "patterns": 24,
-    "price": 11.95,
-    "price_display": "$11.95",
+    "price": 2.95,
+    "price_display": "$2.95",
     "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,arca,chevy",
@@ -1477,7 +1477,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": true,
+    "award_exempt": false,
     "car_dirpath": "hpdarx01c",
     "car_id": 39,
     "car_make": "HPD",
@@ -3639,7 +3639,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": true,
+    "award_exempt": false,
     "car_dirpath": "legends\\dirtford34c",
     "car_id": 82,
     "car_make": "Legends",
@@ -6250,7 +6250,7 @@
     "sku": 10488
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_number_colors": true,
     "allow_number_font": true,
     "allow_sponsor1": true,
@@ -6717,7 +6717,7 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": true,
+    "award_exempt": false,
     "car_dirpath": "vwbeetlegrc\\lite",
     "car_id": 138,
     "car_make": "Volkswagen",
@@ -9051,12 +9051,12 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "stockcars2\\chevy\\gen4cup",
     "car_id": 167,
     "car_make": "Chevrolet",
     "car_model": "Gen 4 Cup",
-    "car_name": "Gen 4 Cup",
+    "car_name": "[Legacy] Gen 4 Cup",
     "car_name_abbreviated": "G4CUP",
     "car_types": [
       {
@@ -9090,8 +9090,8 @@
     "min_power_adjust_pct": -5,
     "package_id": 71,
     "patterns": 24,
-    "price": 11.95,
-    "price_display": "$11.95",
+    "price": 2.95,
+    "price_display": "$2.95",
     "rain_enabled": false,
     "retired": false,
     "search_filters": "oval,nascar,arca,chevy",
@@ -10077,7 +10077,7 @@
       "sports_car"
     ],
     "created": "2024-03-26T15:14:21Z",
-    "first_sale": "2024-06-04T14:17:23Z",
+    "first_sale": "2024-06-04T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/chevrolet-corvette-z06-gt3-r",
     "free_with_subscription": false,
     "has_headlights": true,
@@ -10151,7 +10151,7 @@
       "sports_car"
     ],
     "created": "2024-05-06T14:26:58Z",
-    "first_sale": "2024-06-04T14:17:42Z",
+    "first_sale": "2024-06-04T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/ford-mustang-gt3",
     "free_with_subscription": false,
     "has_headlights": true,
@@ -10210,7 +10210,7 @@
       "oval"
     ],
     "created": "2024-05-06T15:21:23Z",
-    "first_sale": "2024-06-04T14:18:29Z",
+    "first_sale": "2024-06-04T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/street-stock/",
     "free_with_subscription": false,
     "has_headlights": false,
@@ -10256,7 +10256,7 @@
       "oval"
     ],
     "created": "2024-05-06T15:25:13Z",
-    "first_sale": "2024-06-04T14:18:29Z",
+    "first_sale": "2024-06-04T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/street-stock/",
     "free_with_subscription": false,
     "has_headlights": false,
@@ -10306,7 +10306,7 @@
       "sports_car"
     ],
     "created": "2024-06-12T16:09:00Z",
-    "first_sale": "2024-09-09T13:24:34Z",
+    "first_sale": "2024-09-09T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/mclaren-720s-gt3-evo",
     "free_with_subscription": false,
     "has_headlights": true,
@@ -10391,7 +10391,7 @@
       "sports_car"
     ],
     "created": "2024-07-03T13:38:11Z",
-    "first_sale": "2024-09-04T16:17:37Z",
+    "first_sale": "2024-09-04T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/bmw-m4-g82-gt4",
     "free_with_subscription": false,
     "has_headlights": true,
@@ -10457,12 +10457,12 @@
         "car_type": "supercars"
       }
     ],
-    "car_weight": 1340,
+    "car_weight": 2955,
     "categories": [
       "sports_car"
     ],
     "created": "2024-07-16T11:10:05Z",
-    "first_sale": "2024-12-10T14:35:03Z",
+    "first_sale": "2024-12-10T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/gen-3-supercars-|-ford-mustang-chevy-camaro/",
     "free_with_subscription": false,
     "has_headlights": true,
@@ -10556,15 +10556,15 @@
         "car_type": "supercars"
       }
     ],
-    "car_weight": 1340,
+    "car_weight": 2955,
     "categories": [
       "sports_car"
     ],
     "created": "2024-07-17T14:23:00Z",
-    "first_sale": "2024-12-10T14:35:03Z",
+    "first_sale": "2024-12-10T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/gen-3-supercars-|-ford-mustang-chevy-camaro/",
     "free_with_subscription": false,
-    "has_headlights": false,
+    "has_headlights": true,
     "has_multiple_dry_tire_types": false,
     "has_rain_capable_tire_types": true,
     "hp": 600,
@@ -10663,7 +10663,7 @@
       "sports_car"
     ],
     "created": "2024-09-30T14:56:51Z",
-    "first_sale": "2024-12-10T14:35:03Z",
+    "first_sale": "2024-12-10T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/acura-nsx-gt3-evo-22/",
     "free_with_subscription": false,
     "has_headlights": true,
@@ -10734,6 +10734,7 @@
       "sports_car"
     ],
     "created": "2024-09-30T15:01:18Z",
+    "first_sale": "2024-12-10T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/bmw-m2-cs/",
     "free_with_subscription": true,
     "has_headlights": true,
@@ -10890,6 +10891,9 @@
     "car_name_abbreviated": "F499P",
     "car_types": [
       {
+        "car_type": "prototype"
+      },
+      {
         "car_type": "road"
       },
       {
@@ -10901,7 +10905,7 @@
       "sports_car"
     ],
     "created": "2024-10-03T08:18:33Z",
-    "first_sale": "2024-12-10T14:35:03Z",
+    "first_sale": "2024-12-10T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/ferrari-499p/",
     "free_with_subscription": false,
     "has_headlights": true,
@@ -10988,7 +10992,166 @@
     "price_display": "$11.95",
     "rain_enabled": true,
     "retired": false,
-    "search_filters": "road,sports",
+    "search_filters": "road,sports,prototype",
     "sku": 10592
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "stockcars2\\arcachevy25",
+    "car_id": 198,
+    "car_make": "Chevrolet",
+    "car_model": "ARCA Chevrolet SS",
+    "car_name": "ARCA Chevrolet SS",
+    "car_name_abbreviated": "ACSS25",
+    "car_types": [
+      {
+        "car_type": "arca"
+      },
+      {
+        "car_type": "chevy"
+      },
+      {
+        "car_type": "nascar"
+      },
+      {
+        "car_type": "oval"
+      }
+    ],
+    "car_weight": 3450,
+    "categories": [
+      "oval"
+    ],
+    "created": "2025-01-16T10:26:29Z",
+    "first_sale": "2025-03-11T00:00:00Z",
+    "forum_url": "https://forums.iracing.com/categories/arca-chevrolet-ss-ford-mustang-and-toyota-camry",
+    "free_with_subscription": false,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
+    "hp": 700,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 508,
+    "patterns": 24,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "rain_enabled": false,
+    "retired": false,
+    "search_filters": "oval,nascar,arca,chevy",
+    "sku": 10598
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "stockcars2\\arcaford25",
+    "car_id": 199,
+    "car_make": "Ford",
+    "car_model": "ARCA Ford Mustang",
+    "car_name": "ARCA Ford Mustang",
+    "car_name_abbreviated": "ARCAFM",
+    "car_types": [
+      {
+        "car_type": "arca"
+      },
+      {
+        "car_type": "ford"
+      },
+      {
+        "car_type": "nascar"
+      },
+      {
+        "car_type": "oval"
+      }
+    ],
+    "car_weight": 3450,
+    "categories": [
+      "oval"
+    ],
+    "created": "2025-01-16T10:50:16Z",
+    "first_sale": "2025-03-11T00:00:00Z",
+    "forum_url": "https://forums.iracing.com/categories/arca-chevrolet-ss-ford-mustang-and-toyota-camry",
+    "free_with_subscription": false,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
+    "hp": 700,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 510,
+    "patterns": 24,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "rain_enabled": false,
+    "retired": false,
+    "search_filters": "oval,nascar,arca,ford",
+    "sku": 10599
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "stockcars2\\arcatoyota25",
+    "car_id": 200,
+    "car_make": "Toyota",
+    "car_model": "ARCA Toyota Camry",
+    "car_name": "ARCA Toyota Camry",
+    "car_name_abbreviated": "ARCATC",
+    "car_types": [
+      {
+        "car_type": "arca"
+      },
+      {
+        "car_type": "nascar"
+      },
+      {
+        "car_type": "oval"
+      },
+      {
+        "car_type": "toyota"
+      }
+    ],
+    "car_weight": 3450,
+    "categories": [
+      "oval"
+    ],
+    "created": "2025-01-16T11:02:46Z",
+    "first_sale": "2025-03-11T00:00:00Z",
+    "forum_url": "https://forums.iracing.com/categories/arca-chevrolet-ss-ford-mustang-and-toyota-camry",
+    "free_with_subscription": false,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "has_rain_capable_tire_types": false,
+    "hp": 700,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 512,
+    "patterns": 24,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "rain_enabled": false,
+    "retired": false,
+    "search_filters": "oval,nascar,arca,toyota",
+    "sku": 10600
   }
 ]

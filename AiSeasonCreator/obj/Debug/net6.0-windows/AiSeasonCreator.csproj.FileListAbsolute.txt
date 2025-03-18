@@ -14,7 +14,6 @@ C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-win
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.AssemblyInfoInputs.cache
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.AssemblyInfo.cs
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.csproj.CoreCompileInputs.cache
-C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.csproj.CopyComplete
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.dll
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\refint\AiSeasonCreator.dll
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.pdb
@@ -37,3 +36,7 @@ C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-win
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\Schedules\2025 - Season 1.json
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\SeriesDetails\25s1_series.json
 C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\JsonFiles\WeatherSchedules\WeatherSchedule 2025 - Season 1.json
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeasonCreator.sourcelink.json
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Billy\source\repos\AiSeasonCreator\AiSeasonCreator\obj\Debug\net6.0-windows\AiSeason.85D4DC19.Up2Date

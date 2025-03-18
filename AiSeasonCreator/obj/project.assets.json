@@ -1,7 +1,42 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {
+    "net8.0-windows7.0": {
+      "Microsoft.Extensions.DependencyInjection/9.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.2"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
       "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
@@ -15,15 +50,15 @@
           }
         }
       },
-      "ReaLTaiizor/3.7.9.5": {
+      "ReaLTaiizor/3.8.1.1": {
         "type": "package",
         "compile": {
-          "lib/net6.0-windows7.0/ReaLTaiizor.dll": {
+          "lib/net8.0-windows7.0/ReaLTaiizor.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0-windows7.0/ReaLTaiizor.dll": {
+          "lib/net8.0-windows7.0/ReaLTaiizor.dll": {
             "related": ".xml"
           }
         },
@@ -34,6 +69,66 @@
     }
   },
   "libraries": {
+    "Microsoft.Extensions.DependencyInjection/9.0.2": {
+      "sha512": "ZffbJrskOZ40JTzcTyKwFHS5eACSWp2bUQBBApIgGV+es8RaTD4OxUG7XxFr3RIPLXtYQ1jQzF2DjKB5fZn7Qg==",
+      "type": "package",
+      "path": "microsoft.extensions.dependencyinjection/9.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.DependencyInjection.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.targets",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.xml",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.xml",
+        "lib/net9.0/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/net9.0/Microsoft.Extensions.DependencyInjection.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.xml",
+        "microsoft.extensions.dependencyinjection.9.0.2.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2": {
+      "sha512": "MNe7GSTBf3jQx5vYrXF0NZvn6l7hUKF6J54ENfAgCO8y6xjN1XUmKKWG464LP2ye6QqDiA1dkaWEZBYnhoZzjg==",
+      "type": "package",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/9.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "microsoft.extensions.dependencyinjection.abstractions.9.0.2.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "Newtonsoft.Json/13.0.3": {
       "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "type": "package",
@@ -64,10 +159,10 @@
         "packageIcon.png"
       ]
     },
-    "ReaLTaiizor/3.7.9.5": {
-      "sha512": "E8UUOqL4jmc7KLbdvesCNKNpeNyn7gVNTDz/8n4dyuArxV+seHleEFeRWiBz+W+obFO7CdUtaVZOhxwlU/59NQ==",
+    "ReaLTaiizor/3.8.1.1": {
+      "sha512": "AiqhC/i5ySAbMICg93u8TtobxEtHGLi0VOzIZdKcxNd3eVEqmlbxT+sRHfoeNsMGKIN3guPAVKffn7I5o6s5Qg==",
       "type": "package",
-      "path": "realtaiizor/3.7.9.5",
+      "path": "realtaiizor/3.8.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -84,17 +179,20 @@
         "lib/net7.0-windows7.0/ReaLTaiizor.xml",
         "lib/net8.0-windows7.0/ReaLTaiizor.dll",
         "lib/net8.0-windows7.0/ReaLTaiizor.xml",
+        "lib/net9.0-windows7.0/ReaLTaiizor.dll",
+        "lib/net9.0-windows7.0/ReaLTaiizor.xml",
         "lib/netcoreapp3.1/ReaLTaiizor.dll",
         "lib/netcoreapp3.1/ReaLTaiizor.xml",
-        "realtaiizor.3.7.9.5.nupkg.sha512",
+        "realtaiizor.3.8.1.1.nupkg.sha512",
         "realtaiizor.nuspec"
       ]
     }
   },
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": [
+    "net8.0-windows7.0": [
+      "Microsoft.Extensions.DependencyInjection >= 9.0.2",
       "Newtonsoft.Json >= 13.0.3",
-      "ReaLTaiizor >= 3.7.9.5"
+      "ReaLTaiizor >= 3.8.1.1"
     ]
   },
   "packageFolders": {
@@ -102,7 +200,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "25.1.1",
+    "version": "25.2.0",
     "restore": {
       "projectUniqueName": "C:\\Users\\Billy\\source\\repos\\AiSeasonCreator\\AiSeasonCreator\\AiSeasonCreator.csproj",
       "projectName": "AiSeasonCreator",
@@ -119,7 +217,7 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows"
+        "net8.0-windows"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -127,8 +225,8 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0-windows7.0": {
-          "targetAlias": "net6.0-windows",
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
           "projectReferences": {}
         }
       },
@@ -136,19 +234,29 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
-      "net6.0-windows7.0": {
-        "targetAlias": "net6.0-windows",
+      "net8.0-windows7.0": {
+        "targetAlias": "net8.0-windows",
         "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": {
+            "target": "Package",
+            "version": "[9.0.2, )"
+          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
           },
           "ReaLTaiizor": {
             "target": "Package",
-            "version": "[3.7.9.5, )"
+            "version": "[3.8.1.1, )"
           }
         },
         "imports": [
@@ -170,7 +278,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

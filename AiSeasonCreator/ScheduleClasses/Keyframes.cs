@@ -43,5 +43,7 @@ namespace AiSeasonCreator.ScheduleClasses
         public long? WeatherSeed { get; set; }
         [JsonPropertyName("is_sun_up")]
         public bool IsSunUp { get; set; }
+        [JsonPropertyName("simulated_start_time")]
+        public string SimulatedStartTime { get; set; }
     }
 }

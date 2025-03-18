@@ -9,6 +9,8 @@ namespace AiSeasonCreator.DefaultUserSettings
         public int SettingsVersion { get; set; }
         [JsonPropertyName("checkBoxesUserValues")]
         public CheckBoxesUserValues CheckBoxesUserValues { get; set; }
+        [JsonPropertyName("comboBoxesUserValues")]
+        public ComboBoxesUserValues ComboBoxesUserValues { get; set; }
         [JsonPropertyName("trackBarUserValues")]
         public TrackBarUserValues TrackBarUserValues { get; set; }
         [JsonPropertyName("folderLocations")]

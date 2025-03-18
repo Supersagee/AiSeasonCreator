@@ -46,6 +46,14 @@
             seasonLabel = new Label();
             poisonStyleExtender1 = new ReaLTaiizor.Controls.PoisonStyleExtender(components);
             seasonTabPage = new TabPage();
+            aiSkillGroupBox = new GroupBox();
+            adaptiveAiCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
+            adaptiveAiComboBox = new ReaLTaiizor.Controls.PoisonComboBox();
+            aiSkillPanel = new Panel();
+            aiSkillMinTrackBar = new ReaLTaiizor.Controls.PoisonTrackBar();
+            aiSkillMaxTrackBar = new ReaLTaiizor.Controls.PoisonTrackBar();
+            aiSkillPerLabel = new ReaLTaiizor.Controls.PoisonLabel();
+            aiSkillLevelLabel = new ReaLTaiizor.Controls.PoisonLabel();
             groupBox1 = new GroupBox();
             useExistingRosterComboBox = new ReaLTaiizor.Controls.PoisonComboBox();
             panel1 = new Panel();
@@ -60,11 +68,6 @@
             qualiAloneCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             shortParadeCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             createSeason = new ReaLTaiizor.Controls.PoisonButton();
-            aiSkillPanel = new Panel();
-            aiSkillMinTrackBar = new ReaLTaiizor.Controls.PoisonTrackBar();
-            aiSkillMaxTrackBar = new ReaLTaiizor.Controls.PoisonTrackBar();
-            aiSkillPerLabel = new ReaLTaiizor.Controls.PoisonLabel();
-            aiSkillLevelLabel = new ReaLTaiizor.Controls.PoisonLabel();
             carListCombo = new ReaLTaiizor.Controls.PoisonComboBox();
             seriesListCombo = new ReaLTaiizor.Controls.PoisonComboBox();
             seasonComboBox = new ReaLTaiizor.Controls.PoisonComboBox();
@@ -147,9 +150,10 @@
             titleLabel = new ReaLTaiizor.Controls.PoisonLabel();
             minimizeButton = new ReaLTaiizor.Controls.PoisonButton();
             seasonTabPage.SuspendLayout();
+            aiSkillGroupBox.SuspendLayout();
+            aiSkillPanel.SuspendLayout();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
-            aiSkillPanel.SuspendLayout();
             aboutTabPage.SuspendLayout();
             mainTabControl.SuspendLayout();
             rosterTabPage.SuspendLayout();
@@ -171,7 +175,7 @@
             // 
             seriesListLabel.AutoSize = true;
             seriesListLabel.ForeColor = SystemColors.ControlDark;
-            seriesListLabel.Location = new Point(50, 124);
+            seriesListLabel.Location = new Point(50, 90);
             seriesListLabel.Name = "seriesListLabel";
             seriesListLabel.Size = new Size(37, 15);
             seriesListLabel.TabIndex = 2;
@@ -181,7 +185,7 @@
             // 
             seasonNameLabel.AutoSize = true;
             seasonNameLabel.ForeColor = SystemColors.ControlDark;
-            seasonNameLabel.Location = new Point(8, 34);
+            seasonNameLabel.Location = new Point(8, 20);
             seasonNameLabel.Name = "seasonNameLabel";
             seasonNameLabel.Size = new Size(79, 15);
             seasonNameLabel.TabIndex = 4;
@@ -191,7 +195,7 @@
             // 
             carListLabel.AutoSize = true;
             carListLabel.ForeColor = SystemColors.ControlDark;
-            carListLabel.Location = new Point(62, 169);
+            carListLabel.Location = new Point(62, 125);
             carListLabel.Name = "carListLabel";
             carListLabel.Size = new Size(25, 15);
             carListLabel.TabIndex = 6;
@@ -303,7 +307,7 @@
             // carPanel
             // 
             carPanel.BackColor = Color.FromArgb(128, 187, 0);
-            carPanel.Location = new Point(74, 519);
+            carPanel.Location = new Point(74, 525);
             carPanel.Name = "carPanel";
             carPanel.Size = new Size(27, 27);
             carPanel.TabIndex = 25;
@@ -312,7 +316,7 @@
             // seriesPanel
             // 
             seriesPanel.BackColor = Color.FromArgb(128, 187, 0);
-            seriesPanel.Location = new Point(41, 519);
+            seriesPanel.Location = new Point(41, 525);
             seriesPanel.Name = "seriesPanel";
             seriesPanel.Size = new Size(27, 27);
             seriesPanel.TabIndex = 26;
@@ -321,7 +325,7 @@
             // seasonNamePanel
             // 
             seasonNamePanel.BackColor = Color.FromArgb(128, 187, 0);
-            seasonNamePanel.Location = new Point(8, 519);
+            seasonNamePanel.Location = new Point(8, 525);
             seasonNamePanel.Name = "seasonNamePanel";
             seasonNamePanel.Size = new Size(27, 27);
             seasonNamePanel.TabIndex = 27;
@@ -331,7 +335,7 @@
             // 
             seasonLabel.AutoSize = true;
             seasonLabel.ForeColor = SystemColors.ControlDark;
-            seasonLabel.Location = new Point(43, 79);
+            seasonLabel.Location = new Point(43, 55);
             seasonLabel.Name = "seasonLabel";
             seasonLabel.Size = new Size(44, 15);
             seasonLabel.TabIndex = 30;
@@ -346,9 +350,9 @@
             poisonStyleExtender1.SetApplyPoisonTheme(seasonTabPage, true);
             seasonTabPage.BackgroundImage = (Image)resources.GetObject("seasonTabPage.BackgroundImage");
             seasonTabPage.BackgroundImageLayout = ImageLayout.Stretch;
+            seasonTabPage.Controls.Add(aiSkillGroupBox);
             seasonTabPage.Controls.Add(groupBox1);
             seasonTabPage.Controls.Add(createSeason);
-            seasonTabPage.Controls.Add(aiSkillPanel);
             seasonTabPage.Controls.Add(carListCombo);
             seasonTabPage.Controls.Add(seriesListCombo);
             seasonTabPage.Controls.Add(seasonComboBox);
@@ -369,6 +373,123 @@
             seasonTabPage.Text = "Season";
             seasonTabPage.UseVisualStyleBackColor = true;
             // 
+            // aiSkillGroupBox
+            // 
+            aiSkillGroupBox.Controls.Add(adaptiveAiCheckBox);
+            aiSkillGroupBox.Controls.Add(adaptiveAiComboBox);
+            aiSkillGroupBox.Controls.Add(aiSkillPanel);
+            aiSkillGroupBox.ForeColor = SystemColors.ControlDark;
+            aiSkillGroupBox.Location = new Point(13, 146);
+            aiSkillGroupBox.Name = "aiSkillGroupBox";
+            aiSkillGroupBox.Size = new Size(380, 100);
+            aiSkillGroupBox.TabIndex = 32;
+            aiSkillGroupBox.TabStop = false;
+            aiSkillGroupBox.Text = "AI Skill";
+            // 
+            // adaptiveAiCheckBox
+            // 
+            adaptiveAiCheckBox.AutoSize = true;
+            adaptiveAiCheckBox.BackColor = Color.Transparent;
+            adaptiveAiCheckBox.Enabled = false;
+            adaptiveAiCheckBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonCheckBoxSize.Medium;
+            adaptiveAiCheckBox.Location = new Point(10, 22);
+            adaptiveAiCheckBox.Name = "adaptiveAiCheckBox";
+            adaptiveAiCheckBox.Size = new Size(96, 19);
+            adaptiveAiCheckBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
+            adaptiveAiCheckBox.TabIndex = 32;
+            adaptiveAiCheckBox.Text = "Adaptive AI";
+            adaptiveAiCheckBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            adaptiveAiCheckBox.UseCustomBackColor = true;
+            adaptiveAiCheckBox.UseSelectable = true;
+            adaptiveAiCheckBox.UseVisualStyleBackColor = false;
+            adaptiveAiCheckBox.CheckedChanged += adaptiveAiCheckBox_CheckedChanged;
+            // 
+            // adaptiveAiComboBox
+            // 
+            adaptiveAiComboBox.DropDownHeight = 320;
+            adaptiveAiComboBox.Enabled = false;
+            adaptiveAiComboBox.FormattingEnabled = true;
+            adaptiveAiComboBox.IntegralHeight = false;
+            adaptiveAiComboBox.ItemHeight = 23;
+            adaptiveAiComboBox.Items.AddRange(new object[] { "Easy", "Medium", "Hard", "Extreme" });
+            adaptiveAiComboBox.Location = new Point(117, 15);
+            adaptiveAiComboBox.Name = "adaptiveAiComboBox";
+            adaptiveAiComboBox.Size = new Size(257, 29);
+            adaptiveAiComboBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
+            adaptiveAiComboBox.TabIndex = 31;
+            adaptiveAiComboBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            adaptiveAiComboBox.UseSelectable = true;
+            // 
+            // aiSkillPanel
+            // 
+            aiSkillPanel.BackColor = Color.FromArgb(80, 30, 30, 30);
+            aiSkillPanel.Controls.Add(aiSkillMinTrackBar);
+            aiSkillPanel.Controls.Add(aiSkillMaxTrackBar);
+            aiSkillPanel.Controls.Add(aiSkillPerLabel);
+            aiSkillPanel.Controls.Add(aiSkillLevelLabel);
+            aiSkillPanel.Location = new Point(1, 50);
+            aiSkillPanel.Name = "aiSkillPanel";
+            aiSkillPanel.Size = new Size(378, 44);
+            aiSkillPanel.TabIndex = 5;
+            // 
+            // aiSkillMinTrackBar
+            // 
+            aiSkillMinTrackBar.BackColor = Color.Transparent;
+            aiSkillMinTrackBar.Location = new Point(117, 6);
+            aiSkillMinTrackBar.Maximum = 125;
+            aiSkillMinTrackBar.Name = "aiSkillMinTrackBar";
+            aiSkillMinTrackBar.Size = new Size(258, 16);
+            aiSkillMinTrackBar.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
+            aiSkillMinTrackBar.TabIndex = 5;
+            aiSkillMinTrackBar.Text = "poisonTrackBar1";
+            aiSkillMinTrackBar.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            aiSkillMinTrackBar.UseCustomBackColor = true;
+            aiSkillMinTrackBar.Value = 25;
+            aiSkillMinTrackBar.Scroll += TrackBar_Scroll;
+            // 
+            // aiSkillMaxTrackBar
+            // 
+            aiSkillMaxTrackBar.BackColor = Color.Transparent;
+            aiSkillMaxTrackBar.Location = new Point(117, 22);
+            aiSkillMaxTrackBar.Maximum = 125;
+            aiSkillMaxTrackBar.Name = "aiSkillMaxTrackBar";
+            aiSkillMaxTrackBar.Size = new Size(258, 16);
+            aiSkillMaxTrackBar.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
+            aiSkillMaxTrackBar.TabIndex = 6;
+            aiSkillMaxTrackBar.Text = "poisonTrackBar2";
+            aiSkillMaxTrackBar.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            aiSkillMaxTrackBar.UseCustomBackColor = true;
+            aiSkillMaxTrackBar.Scroll += TrackBar_Scroll;
+            // 
+            // aiSkillPerLabel
+            // 
+            aiSkillPerLabel.AutoSize = true;
+            aiSkillPerLabel.BackColor = Color.Transparent;
+            aiSkillPerLabel.Font = new Font("Arial", 9F, FontStyle.Italic);
+            aiSkillPerLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
+            aiSkillPerLabel.Location = new Point(25, 22);
+            aiSkillPerLabel.Name = "aiSkillPerLabel";
+            aiSkillPerLabel.Size = new Size(17, 19);
+            aiSkillPerLabel.TabIndex = 26;
+            aiSkillPerLabel.Text = "0";
+            aiSkillPerLabel.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            aiSkillPerLabel.UseCustomBackColor = true;
+            // 
+            // aiSkillLevelLabel
+            // 
+            aiSkillLevelLabel.AutoSize = true;
+            aiSkillLevelLabel.BackColor = Color.Transparent;
+            aiSkillLevelLabel.Font = new Font("MV Boli", 9F);
+            aiSkillLevelLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
+            aiSkillLevelLabel.Location = new Point(25, 3);
+            aiSkillLevelLabel.Name = "aiSkillLevelLabel";
+            aiSkillLevelLabel.Size = new Size(86, 19);
+            aiSkillLevelLabel.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
+            aiSkillLevelLabel.TabIndex = 27;
+            aiSkillLevelLabel.Text = "Ai Skill Level:";
+            aiSkillLevelLabel.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            aiSkillLevelLabel.UseCustomBackColor = true;
+            // 
             // groupBox1
             // 
             groupBox1.BackColor = Color.Transparent;
@@ -386,7 +507,7 @@
             groupBox1.Controls.Add(qualiAloneCheckBox);
             groupBox1.Controls.Add(shortParadeCheckBox);
             groupBox1.ForeColor = SystemColors.ControlDark;
-            groupBox1.Location = new Point(13, 242);
+            groupBox1.Location = new Point(13, 248);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(380, 274);
             groupBox1.TabIndex = 6;
@@ -424,7 +545,7 @@
             // 
             customCarCountSeasonLabel.AutoSize = true;
             customCarCountSeasonLabel.BackColor = Color.Transparent;
-            customCarCountSeasonLabel.Font = new Font("Arial", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            customCarCountSeasonLabel.Font = new Font("Arial", 9F, FontStyle.Italic);
             customCarCountSeasonLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
             customCarCountSeasonLabel.Location = new Point(208, 3);
             customCarCountSeasonLabel.Name = "customCarCountSeasonLabel";
@@ -438,7 +559,7 @@
             // 
             customCarSeasonLabel.AutoSize = true;
             customCarSeasonLabel.BackColor = Color.Transparent;
-            customCarSeasonLabel.Font = new Font("MV Boli", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            customCarSeasonLabel.Font = new Font("MV Boli", 9F);
             customCarSeasonLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
             customCarSeasonLabel.Location = new Point(22, 3);
             customCarSeasonLabel.Name = "customCarSeasonLabel";
@@ -580,7 +701,7 @@
             // 
             // createSeason
             // 
-            createSeason.Location = new Point(258, 523);
+            createSeason.Location = new Point(258, 527);
             createSeason.Name = "createSeason";
             createSeason.Size = new Size(135, 23);
             createSeason.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -590,84 +711,14 @@
             createSeason.UseSelectable = true;
             createSeason.Click += createSeason_Click;
             // 
-            // aiSkillPanel
-            // 
-            aiSkillPanel.BackColor = Color.FromArgb(80, 30, 30, 30);
-            aiSkillPanel.Controls.Add(aiSkillMinTrackBar);
-            aiSkillPanel.Controls.Add(aiSkillMaxTrackBar);
-            aiSkillPanel.Controls.Add(aiSkillPerLabel);
-            aiSkillPanel.Controls.Add(aiSkillLevelLabel);
-            aiSkillPanel.Location = new Point(13, 194);
-            aiSkillPanel.Name = "aiSkillPanel";
-            aiSkillPanel.Size = new Size(380, 44);
-            aiSkillPanel.TabIndex = 5;
-            // 
-            // aiSkillMinTrackBar
-            // 
-            aiSkillMinTrackBar.BackColor = Color.Transparent;
-            aiSkillMinTrackBar.Location = new Point(117, 6);
-            aiSkillMinTrackBar.Maximum = 125;
-            aiSkillMinTrackBar.Name = "aiSkillMinTrackBar";
-            aiSkillMinTrackBar.Size = new Size(260, 16);
-            aiSkillMinTrackBar.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
-            aiSkillMinTrackBar.TabIndex = 5;
-            aiSkillMinTrackBar.Text = "poisonTrackBar1";
-            aiSkillMinTrackBar.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            aiSkillMinTrackBar.UseCustomBackColor = true;
-            aiSkillMinTrackBar.Value = 25;
-            aiSkillMinTrackBar.Scroll += TrackBar_Scroll;
-            // 
-            // aiSkillMaxTrackBar
-            // 
-            aiSkillMaxTrackBar.BackColor = Color.Transparent;
-            aiSkillMaxTrackBar.Location = new Point(117, 22);
-            aiSkillMaxTrackBar.Maximum = 125;
-            aiSkillMaxTrackBar.Name = "aiSkillMaxTrackBar";
-            aiSkillMaxTrackBar.Size = new Size(260, 16);
-            aiSkillMaxTrackBar.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
-            aiSkillMaxTrackBar.TabIndex = 6;
-            aiSkillMaxTrackBar.Text = "poisonTrackBar2";
-            aiSkillMaxTrackBar.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            aiSkillMaxTrackBar.UseCustomBackColor = true;
-            aiSkillMaxTrackBar.Scroll += TrackBar_Scroll;
-            // 
-            // aiSkillPerLabel
-            // 
-            aiSkillPerLabel.AutoSize = true;
-            aiSkillPerLabel.BackColor = Color.Transparent;
-            aiSkillPerLabel.Font = new Font("Arial", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            aiSkillPerLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
-            aiSkillPerLabel.Location = new Point(25, 22);
-            aiSkillPerLabel.Name = "aiSkillPerLabel";
-            aiSkillPerLabel.Size = new Size(17, 19);
-            aiSkillPerLabel.TabIndex = 26;
-            aiSkillPerLabel.Text = "0";
-            aiSkillPerLabel.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            aiSkillPerLabel.UseCustomBackColor = true;
-            // 
-            // aiSkillLevelLabel
-            // 
-            aiSkillLevelLabel.AutoSize = true;
-            aiSkillLevelLabel.BackColor = Color.Transparent;
-            aiSkillLevelLabel.Font = new Font("MV Boli", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            aiSkillLevelLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
-            aiSkillLevelLabel.Location = new Point(25, 3);
-            aiSkillLevelLabel.Name = "aiSkillLevelLabel";
-            aiSkillLevelLabel.Size = new Size(86, 19);
-            aiSkillLevelLabel.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
-            aiSkillLevelLabel.TabIndex = 27;
-            aiSkillLevelLabel.Text = "Ai Skill Level:";
-            aiSkillLevelLabel.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            aiSkillLevelLabel.UseCustomBackColor = true;
-            // 
             // carListCombo
             // 
-            carListCombo.DropDownHeight = 320;
+            carListCombo.DropDownHeight = 400;
             carListCombo.Enabled = false;
             carListCombo.FormattingEnabled = true;
             carListCombo.IntegralHeight = false;
             carListCombo.ItemHeight = 23;
-            carListCombo.Location = new Point(93, 155);
+            carListCombo.Location = new Point(93, 111);
             carListCombo.Name = "carListCombo";
             carListCombo.Size = new Size(300, 29);
             carListCombo.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -681,7 +732,7 @@
             seriesListCombo.FormattingEnabled = true;
             seriesListCombo.IntegralHeight = false;
             seriesListCombo.ItemHeight = 23;
-            seriesListCombo.Location = new Point(93, 110);
+            seriesListCombo.Location = new Point(93, 76);
             seriesListCombo.Name = "seriesListCombo";
             seriesListCombo.Size = new Size(300, 29);
             seriesListCombo.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -696,7 +747,7 @@
             seasonComboBox.FormattingEnabled = true;
             seasonComboBox.IntegralHeight = false;
             seasonComboBox.ItemHeight = 23;
-            seasonComboBox.Location = new Point(93, 65);
+            seasonComboBox.Location = new Point(93, 41);
             seasonComboBox.Name = "seasonComboBox";
             seasonComboBox.Size = new Size(300, 29);
             seasonComboBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -720,7 +771,7 @@
             seasonNameTextBox.CustomButton.UseSelectable = true;
             seasonNameTextBox.CustomButton.Visible = false;
             seasonNameTextBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonTextBoxSize.Medium;
-            seasonNameTextBox.Location = new Point(93, 20);
+            seasonNameTextBox.Location = new Point(93, 6);
             seasonNameTextBox.MaxLength = 32767;
             seasonNameTextBox.Name = "seasonNameTextBox";
             seasonNameTextBox.PasswordChar = '\0';
@@ -757,7 +808,7 @@
             // 
             aboutSectionLabel.AutoSize = true;
             aboutSectionLabel.BackColor = Color.Transparent;
-            aboutSectionLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            aboutSectionLabel.Font = new Font("Segoe UI", 12F);
             aboutSectionLabel.ForeColor = Color.LightGray;
             aboutSectionLabel.Location = new Point(8, 13);
             aboutSectionLabel.MaximumSize = new Size(400, 1000);
@@ -827,9 +878,9 @@
             rosterTabPage.Controls.Add(rosterNamePanel);
             rosterTabPage.Controls.Add(whatSourcePanel);
             rosterTabPage.Controls.Add(rosterSeriesPanel);
-            rosterTabPage.Location = new Point(4, 38);
+            rosterTabPage.Location = new Point(4, 35);
             rosterTabPage.Name = "rosterTabPage";
-            rosterTabPage.Size = new Size(412, 555);
+            rosterTabPage.Size = new Size(412, 558);
             rosterTabPage.TabIndex = 2;
             rosterTabPage.Text = "Roster";
             // 
@@ -908,7 +959,7 @@
             // 
             aggressionPerLabel.AutoSize = true;
             aggressionPerLabel.BackColor = Color.Transparent;
-            aggressionPerLabel.Font = new Font("Arial", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            aggressionPerLabel.Font = new Font("Arial", 9F, FontStyle.Italic);
             aggressionPerLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
             aggressionPerLabel.Location = new Point(25, 22);
             aggressionPerLabel.Name = "aggressionPerLabel";
@@ -922,7 +973,7 @@
             // 
             aggressionLabel.AutoSize = true;
             aggressionLabel.BackColor = Color.Transparent;
-            aggressionLabel.Font = new Font("MV Boli", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            aggressionLabel.Font = new Font("MV Boli", 9F);
             aggressionLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
             aggressionLabel.Location = new Point(25, 3);
             aggressionLabel.Name = "aggressionLabel";
@@ -998,7 +1049,7 @@
             // 
             relativeSkillPerLabel.AutoSize = true;
             relativeSkillPerLabel.BackColor = Color.Transparent;
-            relativeSkillPerLabel.Font = new Font("Arial", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            relativeSkillPerLabel.Font = new Font("Arial", 9F, FontStyle.Italic);
             relativeSkillPerLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
             relativeSkillPerLabel.Location = new Point(25, 22);
             relativeSkillPerLabel.Name = "relativeSkillPerLabel";
@@ -1012,7 +1063,7 @@
             // 
             relativeSkillLabel.AutoSize = true;
             relativeSkillLabel.BackColor = Color.Transparent;
-            relativeSkillLabel.Font = new Font("MV Boli", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            relativeSkillLabel.Font = new Font("MV Boli", 9F);
             relativeSkillLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
             relativeSkillLabel.Location = new Point(25, 3);
             relativeSkillLabel.Name = "relativeSkillLabel";
@@ -1088,7 +1139,7 @@
             // 
             smoothnessPerLabel.AutoSize = true;
             smoothnessPerLabel.BackColor = Color.Transparent;
-            smoothnessPerLabel.Font = new Font("Arial", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            smoothnessPerLabel.Font = new Font("Arial", 9F, FontStyle.Italic);
             smoothnessPerLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
             smoothnessPerLabel.Location = new Point(25, 22);
             smoothnessPerLabel.Name = "smoothnessPerLabel";
@@ -1102,7 +1153,7 @@
             // 
             smoothnessLabel.AutoSize = true;
             smoothnessLabel.BackColor = Color.Transparent;
-            smoothnessLabel.Font = new Font("MV Boli", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            smoothnessLabel.Font = new Font("MV Boli", 9F);
             smoothnessLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
             smoothnessLabel.Location = new Point(25, 3);
             smoothnessLabel.Name = "smoothnessLabel";
@@ -1178,7 +1229,7 @@
             // 
             agePerLabel.AutoSize = true;
             agePerLabel.BackColor = Color.Transparent;
-            agePerLabel.Font = new Font("Arial", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            agePerLabel.Font = new Font("Arial", 9F, FontStyle.Italic);
             agePerLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
             agePerLabel.Location = new Point(25, 22);
             agePerLabel.Name = "agePerLabel";
@@ -1192,7 +1243,7 @@
             // 
             ageLabel.AutoSize = true;
             ageLabel.BackColor = Color.Transparent;
-            ageLabel.Font = new Font("MV Boli", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            ageLabel.Font = new Font("MV Boli", 9F);
             ageLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
             ageLabel.Location = new Point(25, 3);
             ageLabel.Name = "ageLabel";
@@ -1271,7 +1322,7 @@
             // 
             pitStratPerLabel.AutoSize = true;
             pitStratPerLabel.BackColor = Color.Transparent;
-            pitStratPerLabel.Font = new Font("Arial", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            pitStratPerLabel.Font = new Font("Arial", 9F, FontStyle.Italic);
             pitStratPerLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
             pitStratPerLabel.Location = new Point(25, 22);
             pitStratPerLabel.Name = "pitStratPerLabel";
@@ -1285,7 +1336,7 @@
             // 
             pitStratLabel.AutoSize = true;
             pitStratLabel.BackColor = Color.Transparent;
-            pitStratLabel.Font = new Font("MV Boli", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            pitStratLabel.Font = new Font("MV Boli", 9F);
             pitStratLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
             pitStratLabel.Location = new Point(25, 3);
             pitStratLabel.Name = "pitStratLabel";
@@ -1361,7 +1412,7 @@
             // 
             optimismPerLabel.AutoSize = true;
             optimismPerLabel.BackColor = Color.Transparent;
-            optimismPerLabel.Font = new Font("Arial", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            optimismPerLabel.Font = new Font("Arial", 9F, FontStyle.Italic);
             optimismPerLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
             optimismPerLabel.Location = new Point(25, 22);
             optimismPerLabel.Name = "optimismPerLabel";
@@ -1375,7 +1426,7 @@
             // 
             optimismLabel.AutoSize = true;
             optimismLabel.BackColor = Color.Transparent;
-            optimismLabel.Font = new Font("MV Boli", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            optimismLabel.Font = new Font("MV Boli", 9F);
             optimismLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
             optimismLabel.Location = new Point(25, 3);
             optimismLabel.Name = "optimismLabel";
@@ -1451,7 +1502,7 @@
             // 
             pitCrewPerLabel.AutoSize = true;
             pitCrewPerLabel.BackColor = Color.Transparent;
-            pitCrewPerLabel.Font = new Font("Arial", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            pitCrewPerLabel.Font = new Font("Arial", 9F, FontStyle.Italic);
             pitCrewPerLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
             pitCrewPerLabel.Location = new Point(25, 22);
             pitCrewPerLabel.Name = "pitCrewPerLabel";
@@ -1465,7 +1516,7 @@
             // 
             pitCrewLabel.AutoSize = true;
             pitCrewLabel.BackColor = Color.Transparent;
-            pitCrewLabel.Font = new Font("MV Boli", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            pitCrewLabel.Font = new Font("MV Boli", 9F);
             pitCrewLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
             pitCrewLabel.Location = new Point(25, 3);
             pitCrewLabel.Name = "pitCrewLabel";
@@ -1553,7 +1604,7 @@
             // 
             customCarRosterLabel.AutoSize = true;
             customCarRosterLabel.BackColor = Color.Transparent;
-            customCarRosterLabel.Font = new Font("MV Boli", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            customCarRosterLabel.Font = new Font("MV Boli", 9F);
             customCarRosterLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
             customCarRosterLabel.Location = new Point(22, 3);
             customCarRosterLabel.Name = "customCarRosterLabel";
@@ -1600,7 +1651,7 @@
             // 
             customCarCountRosterLabel.AutoSize = true;
             customCarCountRosterLabel.BackColor = Color.Transparent;
-            customCarCountRosterLabel.Font = new Font("Arial", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            customCarCountRosterLabel.Font = new Font("Arial", 9F, FontStyle.Italic);
             customCarCountRosterLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
             customCarCountRosterLabel.Location = new Point(215, 3);
             customCarCountRosterLabel.Name = "customCarCountRosterLabel";
@@ -1766,7 +1817,10 @@
             rosterFolderPathTextBox.CustomButton.UseSelectable = true;
             rosterFolderPathTextBox.CustomButton.Visible = false;
             rosterFolderPathTextBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonTextBoxSize.Medium;
-            rosterFolderPathTextBox.Lines = new string[] { "Click to add folder path. iRacing\\airosters" };
+            rosterFolderPathTextBox.Lines = new string[]
+    {
+    "Click to add folder path. iRacing\\airosters"
+    };
             rosterFolderPathTextBox.Location = new Point(19, 90);
             rosterFolderPathTextBox.MaxLength = 32767;
             rosterFolderPathTextBox.Name = "rosterFolderPathTextBox";
@@ -1812,7 +1866,10 @@
             seasonFolderPathTextBox.CustomButton.UseSelectable = true;
             seasonFolderPathTextBox.CustomButton.Visible = false;
             seasonFolderPathTextBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonTextBoxSize.Medium;
-            seasonFolderPathTextBox.Lines = new string[] { "Click to add folder path. iRacing\\aiseasons" };
+            seasonFolderPathTextBox.Lines = new string[]
+    {
+    "Click to add folder path. iRacing\\aiseasons"
+    };
             seasonFolderPathTextBox.Location = new Point(19, 30);
             seasonFolderPathTextBox.MaxLength = 32767;
             seasonFolderPathTextBox.Name = "seasonFolderPathTextBox";
@@ -1924,12 +1981,14 @@
             Load += MainForm_Load;
             seasonTabPage.ResumeLayout(false);
             seasonTabPage.PerformLayout();
+            aiSkillGroupBox.ResumeLayout(false);
+            aiSkillGroupBox.PerformLayout();
+            aiSkillPanel.ResumeLayout(false);
+            aiSkillPanel.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            aiSkillPanel.ResumeLayout(false);
-            aiSkillPanel.PerformLayout();
             aboutTabPage.ResumeLayout(false);
             aboutTabPage.PerformLayout();
             mainTabControl.ResumeLayout(false);
@@ -2082,5 +2141,8 @@
         private ReaLTaiizor.Controls.PoisonComboBox driversComboBox;
         private Label driversLabel;
         private ReaLTaiizor.Controls.PoisonCheckBox neverRainsCheckBox;
+        private GroupBox aiSkillGroupBox;
+        private ReaLTaiizor.Controls.PoisonComboBox adaptiveAiComboBox;
+        private ReaLTaiizor.Controls.PoisonCheckBox adaptiveAiCheckBox;
     }
 }

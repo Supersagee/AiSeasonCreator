@@ -10,6 +10,6 @@ namespace AiSeasonCreator.Roster
     public class DriverRoster
     {
         [JsonPropertyName("drivers")]
-        public List<Drivers> Drivers { get; set; }
+        public List<Drivers> Drivers { get; set; } = new List<Drivers>();
     }
 }

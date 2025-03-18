@@ -1,18 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>25.1.1</Version>
-    <AssemblyVersion>25.1.1.0</AssemblyVersion>
-    <FileVersion>25.1.1.0</FileVersion>
+    <Version>25.2.0</Version>
+    <AssemblyVersion>25.2.0.0</AssemblyVersion>
+    <FileVersion>25.2.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="ReaLTaiizor" Version="3.7.9.5" />
+    <PackageReference Include="ReaLTaiizor" Version="3.8.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,9 +38,6 @@
     <None Update="JsonFiles\carsJson.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="JsonFiles\Schedules\2024 - Season 2.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Update="JsonFiles\Schedules\2024 - Season 3.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -49,7 +47,7 @@
     <None Update="JsonFiles\Schedules\2025 - Season 1.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="JsonFiles\SeriesDetails\24s2_series.json">
+    <None Update="JsonFiles\Schedules\2025 - Season 2.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\SeriesDetails\24s3_series.json">
@@ -61,10 +59,10 @@
     <None Update="JsonFiles\SeriesDetails\25s1_series.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="JsonFiles\tracksJson.json">
+    <None Update="JsonFiles\SeriesDetails\25s2_series.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="JsonFiles\WeatherSchedules\WeatherSchedule 2024 - Season 2.json">
+    <None Update="JsonFiles\tracksJson.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\WeatherSchedules\WeatherSchedule 2024 - Season 3.json">
@@ -74,6 +72,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\WeatherSchedules\WeatherSchedule 2025 - Season 1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="JsonFiles\WeatherSchedules\WeatherSchedule 2025 - Season 2.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

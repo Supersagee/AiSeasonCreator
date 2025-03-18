@@ -9,6 +9,8 @@ namespace AiSeasonCreator.DefaultUserSettings
 {
     public class CheckBoxesUserValues
     {
+        [JsonPropertyName("useAdaptiveAi")]
+        public bool UseAdaptiveAi { get; set; }
         [JsonPropertyName("disableCarDamage")]
         public bool DisableCarDamage { get; set; }
         [JsonPropertyName("aiAvoidsPlayer")]
