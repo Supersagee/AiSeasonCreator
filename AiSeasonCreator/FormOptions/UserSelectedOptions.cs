@@ -38,7 +38,7 @@ namespace AiSeasonCreator.FormOptions
         //comboboxes
         public string? SeriesName { get; set; }
         public string? CarName { get; set; }
-        public string? AdaptiveAiSkillLevel { get; set; }
+        public string? AdaptiveAiDifficulty { get; set; }
         public string? ExistingRosterName { get; set; }
         public string? DriversComboBoxName { get; set; }
         public string? RosterSeriesName { get; set; }

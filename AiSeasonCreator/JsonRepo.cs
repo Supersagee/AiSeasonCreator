@@ -9,7 +9,7 @@ using System.Text.Json;
 
 namespace AiSeasonCreator
 {
-    public class JsonService : IJsonService
+    public class JsonRepo : IJsonRepo
     {
         public T Load<T>(string filePath)
         {

@@ -14,15 +14,19 @@ using System.Threading.Tasks;
 using AiSeasonCreator.JsonClasses.CarClasses;
 using AiSeasonCreator.Interfaces;
 using AiSeasonCreator.Roster;
+using System.ComponentModel;
 
 namespace AiSeasonCreator
 {
     public class SeasonService
     {
         private readonly UserSelectedOptions _userSelectedOptions;
-        private readonly JsonService _jsonService;
+        private readonly IJsonRepo _jsonService;
         private readonly IMapper<DriverRoster> _driverRoster;
-        public SeasonService(UserSelectedOptions userSelectedOptions, JsonService jsonService, IMapper<DriverRoster> driverRoster) 
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        public SeasonService(UserSelectedOptions userSelectedOptions, IJsonRepo jsonService, IMapper<DriverRoster> driverRoster) 
         {
             _userSelectedOptions = userSelectedOptions;
             _jsonService = jsonService;

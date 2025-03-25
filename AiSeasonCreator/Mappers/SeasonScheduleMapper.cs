@@ -112,16 +112,37 @@ namespace AiSeasonCreator.Mappers
             s.NumFastTows = -1;
             s.AvoidUser = _userSelectedOptions.AiAvoids;
 
-            //if (_userSelectedOptions.UseAdaptiveAi)
-            //{
-            //    //Adaptive Ai HERE
-            //}
-            //else
-            //{
+            if (_userSelectedOptions.UseAdaptiveAi)
+            {
+                s.AdaptiveAiEnabled = true;
+                
+                switch (_userSelectedOptions.AdaptiveAiDifficulty)
+                {
+                    case "Easy":
+                        s.AdaptiveAiDifficulty = 1;
+                        break;
+                    case "Medium":
+                        s.AdaptiveAiDifficulty = 2;
+                        break;
+                    case "Hard":
+                        s.AdaptiveAiDifficulty = 3;
+                        break;
+                    case "Extreme":
+                        s.AdaptiveAiDifficulty = 4;
+                        break;
+                    default:
+                        s.AdaptiveAiDifficulty = 0;
+                        break;
+                }
+            }
+            else
+            {
+                s.AdaptiveAiEnabled = false;
+                s.AdaptiveAiDifficulty = 0;
                 s.MinSkill = _userSelectedOptions.AiMin;
                 s.MaxSkill = _userSelectedOptions.AiMax;
-            //}
-            
+            }
+
             s.MustUseDiffTireTypesInRace = c.MustUseDiffTireTypesInRace;
             s.StartOnQualTire = c.StartOnQualTire;
             s.UnsportConductRuleMode = 0;

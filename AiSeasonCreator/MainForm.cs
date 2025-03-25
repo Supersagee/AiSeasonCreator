@@ -7,6 +7,7 @@ using System.Diagnostics;
 using AiSeasonCreator.Roster;
 using static ReaLTaiizor.Controls.ExtendedPanel;
 using AiSeasonCreator.FormOptions;
+using AiSeasonCreator.Interfaces;
 
 namespace AiSeasonCreator
 {
@@ -14,13 +15,13 @@ namespace AiSeasonCreator
     {
         private readonly SeasonBuilder<SeasonSchedule> _seasonBuilder;
         private readonly UserSelectedOptions _userSelectedOptions;
-        private readonly JsonService _jsonService;
+        private readonly IJsonRepo _jsonService;
         private readonly SeasonService _seasonService;
         private readonly TrackSelectionForm _trackSelectionForm;
         public MainForm(
             SeasonBuilder<SeasonSchedule> seasonBuilder,
             UserSelectedOptions userSelectedOptions,
-            JsonService jsonService,
+            IJsonRepo jsonService,
             SeasonService seasonService,
             TrackSelectionForm tsf)
         {
@@ -665,7 +666,7 @@ namespace AiSeasonCreator
             _userSelectedOptions.SeriesName = seriesListCombo.Text;
             _userSelectedOptions.CarName = carListCombo.Text;
             _userSelectedOptions.UseAdaptiveAi = adaptiveAiCheckBox.Checked;
-            _userSelectedOptions.AdaptiveAiSkillLevel = adaptiveAiComboBox.Text;
+            _userSelectedOptions.AdaptiveAiDifficulty = adaptiveAiComboBox.Text;
             _userSelectedOptions.AiMin = aiSkillMinTrackBar.Value;
             _userSelectedOptions.AiMax = aiSkillMaxTrackBar.Value;
             _userSelectedOptions.DisableDamage = disableCarDamageCheckBox.Checked;

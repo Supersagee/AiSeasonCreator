@@ -35,6 +35,10 @@ namespace AiSeasonCreator.ScheduleClasses
         public int NumFastTows { get; set; }
         [JsonPropertyName("avoidUser")]
         public bool AvoidUser { get; set; }
+        [JsonPropertyName("adaptiveAIEnabled")]
+        public bool AdaptiveAiEnabled { get; set; }
+        [JsonPropertyName("adaptiveAIDifficulty")]
+        public int AdaptiveAiDifficulty { get; set; }
         [JsonPropertyName("minSkill")]
         public int MinSkill { get; set; }
         [JsonPropertyName("maxSkill")]
