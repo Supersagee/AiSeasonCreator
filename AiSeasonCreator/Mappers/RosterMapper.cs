@@ -12,8 +12,8 @@ namespace AiSeasonCreator.Mappers
     public class RosterMapper : IMapper<DriverRoster>
     {
         private readonly UserSelectedOptions _userSelectedOptions;
-        private readonly IJsonService _jsonService;
-        public RosterMapper(UserSelectedOptions userSelectedOptions, IJsonService jsonService)
+        private readonly IJsonRepo _jsonService;
+        public RosterMapper(UserSelectedOptions userSelectedOptions, IJsonRepo jsonService)
         {
             _userSelectedOptions = userSelectedOptions;
             _jsonService = jsonService;

@@ -15,13 +15,13 @@ namespace AiSeasonCreator
     {
         private readonly SeasonBuilder<SeasonSchedule> _seasonBuilder;
         private readonly UserSelectedOptions _userSelectedOptions;
-        private readonly IJsonService _jsonService;
+        private readonly IJsonRepo _jsonService;
         private readonly SeasonService _seasonService;
         private readonly TrackSelectionForm _trackSelectionForm;
         public MainForm(
             SeasonBuilder<SeasonSchedule> seasonBuilder,
             UserSelectedOptions userSelectedOptions,
-            IJsonService jsonService,
+            IJsonRepo jsonService,
             SeasonService seasonService,
             TrackSelectionForm tsf)
         {

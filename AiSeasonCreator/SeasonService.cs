@@ -21,12 +21,12 @@ namespace AiSeasonCreator
     public class SeasonService
     {
         private readonly UserSelectedOptions _userSelectedOptions;
-        private readonly IJsonService _jsonService;
+        private readonly IJsonRepo _jsonService;
         private readonly IMapper<DriverRoster> _driverRoster;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public SeasonService(UserSelectedOptions userSelectedOptions, IJsonService jsonService, IMapper<DriverRoster> driverRoster) 
+        public SeasonService(UserSelectedOptions userSelectedOptions, IJsonRepo jsonService, IMapper<DriverRoster> driverRoster) 
         {
             _userSelectedOptions = userSelectedOptions;
             _jsonService = jsonService;

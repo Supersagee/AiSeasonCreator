@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AiSeasonCreator.Interfaces
 {
-    public interface IJsonService
+    public interface IJsonRepo
     {
         T Load<T>(string filePath);
         void Save<T>(string filePath, T data);
