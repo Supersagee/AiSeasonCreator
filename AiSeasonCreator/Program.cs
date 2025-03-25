@@ -32,7 +32,7 @@ namespace AiSeasonCreator
 
             services.AddSingleton<UserSelectedOptions>();
             services.AddSingleton<SeasonService>();
-            services.AddSingleton<JsonService>();
+            services.AddSingleton<IJsonService, JsonService>();
 
             services.AddTransient<SeasonBuilder<SeasonSchedule>>();
 
