@@ -1,5 +1,4 @@
-﻿using AiSeasonCreator.Interfaces;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 
-namespace AiSeasonCreator
+namespace AiSeasonCreator.Repos
 {
     public class JsonRepo : IJsonRepo
     {

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AiSeasonCreator.Interfaces
+namespace AiSeasonCreator.Presenters
 {
-    public interface IMapper<T>
+    class AboutPresenter
     {
-        T Map(int eventIndex, string eventGuid);
     }
 }

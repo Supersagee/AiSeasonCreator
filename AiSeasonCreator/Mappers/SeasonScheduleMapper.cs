@@ -1,6 +1,5 @@
 ﻿using AiSeasonCreator.ScheduleClasses;
 using AiSeasonCreator.FormOptions;
-using AiSeasonCreator.Interfaces;
 using AiSeasonCreator.Roster;
 
 namespace AiSeasonCreator.Mappers

@@ -1,6 +1,5 @@
 ﻿using AiSeasonCreator.ScheduleClasses;
 using AiSeasonCreator.FormOptions;
-using AiSeasonCreator.Interfaces;
 
 namespace AiSeasonCreator.Mappers
 {

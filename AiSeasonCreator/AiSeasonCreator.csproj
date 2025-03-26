@@ -32,10 +32,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="JsonFiles\carClassesJson.json">
+    <None Update="JsonFiles\CarClasses.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="JsonFiles\carsJson.json">
+    <None Update="JsonFiles\Cars.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\Schedules\2024 - Season 3.json">
@@ -47,7 +47,7 @@
     <None Update="JsonFiles\Schedules\2025 - Season 1.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="JsonFiles\Schedules\2025 - Season 2.json">
+    <None Update="JsonFiles\SeasonSchedule.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\SeriesDetails\24s3_series.json">
@@ -59,10 +59,10 @@
     <None Update="JsonFiles\SeriesDetails\25s1_series.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="JsonFiles\SeriesDetails\25s2_series.json">
+    <None Update="JsonFiles\SeriesDetails.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="JsonFiles\tracksJson.json">
+    <None Update="JsonFiles\Tracks.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\WeatherSchedules\WeatherSchedule 2024 - Season 3.json">
@@ -74,7 +74,7 @@
     <None Update="JsonFiles\WeatherSchedules\WeatherSchedule 2025 - Season 1.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="JsonFiles\WeatherSchedules\WeatherSchedule 2025 - Season 2.json">
+    <None Update="JsonFiles\WeatherSchedule.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

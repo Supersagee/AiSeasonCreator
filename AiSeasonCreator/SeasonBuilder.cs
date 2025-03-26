@@ -1,4 +1,4 @@
-﻿using AiSeasonCreator.Interfaces;
+﻿using AiSeasonCreator.Mappers;
 using AiSeasonCreator.ScheduleClasses;
 using System;
 using System.Collections.Generic;

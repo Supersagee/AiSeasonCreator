@@ -7,7 +7,7 @@ using System.Diagnostics;
 using AiSeasonCreator.Roster;
 using static ReaLTaiizor.Controls.ExtendedPanel;
 using AiSeasonCreator.FormOptions;
-using AiSeasonCreator.Interfaces;
+using AiSeasonCreator.Repos;
 
 namespace AiSeasonCreator
 {
