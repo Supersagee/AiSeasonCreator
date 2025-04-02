@@ -796,10 +796,10 @@
             aboutTabPage.Controls.Add(aboutSectionLabel);
             aboutTabPage.Controls.Add(versionLabel);
             aboutTabPage.Controls.Add(forumLinkLabel);
-            aboutTabPage.Location = new Point(4, 35);
+            aboutTabPage.Location = new Point(4, 38);
             aboutTabPage.Name = "aboutTabPage";
             aboutTabPage.Padding = new Padding(3);
-            aboutTabPage.Size = new Size(412, 558);
+            aboutTabPage.Size = new Size(412, 555);
             aboutTabPage.TabIndex = 1;
             aboutTabPage.Text = "About";
             aboutTabPage.UseVisualStyleBackColor = true;

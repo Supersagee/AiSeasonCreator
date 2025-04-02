@@ -1,27 +1,28 @@
 ﻿using AiSeasonCreator.ScheduleClasses;
 using AiSeasonCreator.FormOptions;
+using AiSeasonCreator.Data;
+using AiSeasonCreator.Views;
 
 namespace AiSeasonCreator.Mappers
 {
     public class KeyframesMapper : IMapper<List<Keyframes>>
     {
-        private readonly UserSelectedOptions _userSelectedOptions;
-        public KeyframesMapper(UserSelectedOptions userSelectedOptions)
+        private readonly LoadedData _loadedData;
+        private readonly ISeasonView _seasonView;
+        public KeyframesMapper(LoadedData loadedData, ISeasonView seasonView)
         {
-            _userSelectedOptions = userSelectedOptions;
+            _loadedData = loadedData;
+            _seasonView = seasonView;
         }
         public List<Keyframes> Map(int eventIndex, string eventGuid)
         {
-            var i = _userSelectedOptions.SeasonSeriesIndex;
-            var j = eventIndex;
-
             var lkf = new List<Keyframes>();
 
-            var weatherWeek = _userSelectedOptions.WeatherSchedule.Series[i].Events[j];
+            var weatherWeek = _loadedData.SelectedSeriesWeather.Events[eventIndex];
             var wkf = weatherWeek.Keyframes;
             long? ws = weatherWeek.Keyframes[0].WeatherSeed;
 
-            var sst = _userSelectedOptions.FullSchedule[i].Schedules[j].Weather.SimulatedStartTime;
+            var sst = _loadedData.SelectedSeries.Schedules[eventIndex].Weather.SimulatedStartTime;
             
             var index = 0;
 
@@ -31,7 +32,7 @@ namespace AiSeasonCreator.Mappers
                 kf.Index = index;
                 kf.Timestamp = f.Timestamp;
                 kf.TimeOffset = f.TimeOffset;
-                kf.AllowPrecip = _userSelectedOptions.NeverRain ? false : f.AllowPrecip;
+                kf.AllowPrecip = _seasonView.NeverRain ? false : f.AllowPrecip;
                 kf.ValidStats = f.ValidStats;
                 kf.AffectsSession = f.AffectsSession;
                 kf.CloudCover = f.CloudCover;
@@ -40,7 +41,7 @@ namespace AiSeasonCreator.Mappers
                 kf.Pressure = f.Pressure;
                 kf.WindDir = f.WindDir;
                 kf.WindSpeed = f.WindSpeed;
-                kf.PrecipChance = _userSelectedOptions.NeverRain ? 0 : f.PrecipChance;
+                kf.PrecipChance = _seasonView.NeverRain ? 0 : f.PrecipChance;
                 kf.PrecipAmount = f.PrecipAmount;
                 kf.RawAirTemp = f.RawAirTemp;
                 kf.IsSunUp = f.IsSunUp;
@@ -53,7 +54,7 @@ namespace AiSeasonCreator.Mappers
                 kf.Index = index;
                 kf.Timestamp = f.Timestamp.AddMinutes(15);
                 kf.TimeOffset = f.TimeOffset + 15;
-                kf.AllowPrecip = _userSelectedOptions.NeverRain ? false : f.AllowPrecip;
+                kf.AllowPrecip = _seasonView.NeverRain ? false : f.AllowPrecip;
                 kf.ValidStats = f.ValidStats;
                 kf.AffectsSession = f.AffectsSession;
                 kf.CloudCover = f.CloudCover;
@@ -62,7 +63,7 @@ namespace AiSeasonCreator.Mappers
                 kf.Pressure = f.Pressure;
                 kf.WindDir = f.WindDir;
                 kf.WindSpeed = f.WindSpeed;
-                kf.PrecipChance = _userSelectedOptions.NeverRain ? 0 : f.PrecipChance;
+                kf.PrecipChance = _seasonView.NeverRain ? 0 : f.PrecipChance;
                 kf.PrecipAmount = f.PrecipAmount;
                 kf.RawAirTemp = f.RawAirTemp;
                 kf.IsSunUp = f.IsSunUp;
@@ -74,7 +75,7 @@ namespace AiSeasonCreator.Mappers
                 kf.Index = index;
                 kf.Timestamp = f.Timestamp.AddMinutes(30);
                 kf.TimeOffset = f.TimeOffset + 30;
-                kf.AllowPrecip = _userSelectedOptions.NeverRain ? false : f.AllowPrecip;
+                kf.AllowPrecip = _seasonView.NeverRain ? false : f.AllowPrecip;
                 kf.ValidStats = f.ValidStats;
                 kf.AffectsSession = f.AffectsSession;
                 kf.CloudCover = f.CloudCover;
@@ -83,7 +84,7 @@ namespace AiSeasonCreator.Mappers
                 kf.Pressure = f.Pressure;
                 kf.WindDir = f.WindDir;
                 kf.WindSpeed = f.WindSpeed;
-                kf.PrecipChance = _userSelectedOptions.NeverRain ? 0 : f.PrecipChance;
+                kf.PrecipChance = _seasonView.NeverRain ? 0 : f.PrecipChance;
                 kf.PrecipAmount = f.PrecipAmount;
                 kf.RawAirTemp = f.RawAirTemp;
                 kf.IsSunUp = f.IsSunUp;
@@ -95,7 +96,7 @@ namespace AiSeasonCreator.Mappers
                 kf.Index = index;
                 kf.Timestamp = f.Timestamp.AddMinutes(45);
                 kf.TimeOffset = f.TimeOffset + 45;
-                kf.AllowPrecip = _userSelectedOptions.NeverRain ? false : f.AllowPrecip;
+                kf.AllowPrecip = _seasonView.NeverRain ? false : f.AllowPrecip;
                 kf.ValidStats = f.ValidStats;
                 kf.AffectsSession = f.AffectsSession;
                 kf.CloudCover = f.CloudCover;
@@ -104,7 +105,7 @@ namespace AiSeasonCreator.Mappers
                 kf.Pressure = f.Pressure;
                 kf.WindDir = f.WindDir;
                 kf.WindSpeed = f.WindSpeed;
-                kf.PrecipChance = _userSelectedOptions.NeverRain ? 0 : f.PrecipChance;
+                kf.PrecipChance = _seasonView.NeverRain ? 0 : f.PrecipChance;
                 kf.PrecipAmount = f.PrecipAmount;
                 kf.RawAirTemp = f.RawAirTemp;
                 kf.IsSunUp = f.IsSunUp;

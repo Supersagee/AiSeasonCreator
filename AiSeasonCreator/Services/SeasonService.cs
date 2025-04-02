@@ -6,9 +6,12 @@ using AiSeasonCreator.JsonClasses.FullSchedule;
 using AiSeasonCreator.JsonClasses.SeriesDetails;
 using AiSeasonCreator.JsonClasses.TrackDetails;
 using AiSeasonCreator.Repos;
+using AiSeasonCreator.ScheduleClasses;
+using AiSeasonCreator.Views;
 using iRacingWeatherURLParser.WeatherSchedule;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -20,11 +23,15 @@ namespace AiSeasonCreator.Services
     {
         private IJsonRepo _jsonRepo;
         private LoadedData _loadedData;
+        private AppSettings _appSettings;
+        private readonly SeasonBuilder<SeasonSchedule> _seasonBuilder;
 
-        public SeasonService(IJsonRepo jsonRepo, LoadedData loadedData)
+        public SeasonService(IJsonRepo jsonRepo, LoadedData loadedData, AppSettings appSettings, SeasonBuilder<SeasonSchedule> seasonBuilder)
         {
             _jsonRepo = jsonRepo;
             _loadedData = loadedData;
+            _appSettings = appSettings;
+            _seasonBuilder = seasonBuilder;
         }
 
         public void Initialize()
@@ -46,13 +53,23 @@ namespace AiSeasonCreator.Services
             _loadedData.WeatherSchedule = _jsonRepo.Load<WeatherSchedule>(weatherFilePath);
 
             var carClassesFilePath = Path.Combine(basePath, "JsonFiles", "CarClasses.json");
-            _loadedData.CarClasses = _jsonRepo.Load<CarClasses[]>(carClassesFilePath);
+            _loadedData.CarClasses = _jsonRepo.Load<JsonClasses.CarClasses.CarClasses[]>(carClassesFilePath);
 
             var carsFilePath = Path.Combine(basePath, "JsonFiles", "Cars.json");
             _loadedData.CarDetails = _jsonRepo.Load<CarDetails[]>(carsFilePath);
 
             var tracksFilePath = Path.Combine(basePath, "JsonFiles", "Tracks.json");
             _loadedData.TrackDetails = _jsonRepo.Load<TrackDetails[]>(tracksFilePath);
+        }
+
+        public void SetSelectedSeasonAndSeries(string seriesName)
+        {
+            var selectedSeries = _loadedData.FullSchedule.FirstOrDefault(s => s.Schedules[0].SeriesName == seriesName);
+            _loadedData.SelectedSeries = selectedSeries;
+
+            _loadedData.SelectedSeriesDetails = _loadedData.SeriesDetails.FirstOrDefault(s => s.SeriesId == selectedSeries.SeriesId);
+
+            _loadedData.SelectedSeriesWeather = _loadedData.WeatherSchedule.Series.FirstOrDefault(s => s.SeriesId == selectedSeries.SeriesId);
         }
 
         public IEnumerable<string> GetAvailableSeries()
@@ -84,12 +101,87 @@ namespace AiSeasonCreator.Services
             return availableSeries;
         }
 
-        public void SetSelectedSeasonAndSeries(string seriesName)
+        public IEnumerable<string> GetAvailableCars()
         {
-            var selectedSeries = _loadedData.FullSchedule.FirstOrDefault(s => s.Schedules[0].SeriesName == seriesName);
-            _loadedData.SelectedSeries = selectedSeries;
+            var cars = new List<string>();
+            var carIds = new List<int>();
+            var carClasses = _loadedData.SelectedSeries.CarClassIds;
 
-            _loadedData.SelectedSeriesDetails = _loadedData.SeriesDetails.FirstOrDefault(s => s.SeriesId == selectedSeries.SeriesId);
+            foreach (var carClass in carClasses)
+            {
+                var ids = _loadedData.CarClasses.FirstOrDefault(c => c.CarClassId == carClass);
+
+                foreach (var id in ids.CarsInClass)
+                {
+                    var car = _loadedData.CarDetails.FirstOrDefault(c => c.CarId == id.CarId);
+
+                    if (car.AiEnabled)
+                    {
+                        cars.Add(car.CarName);
+                    }
+                }
+            }
+
+            return cars;
+        }
+
+        public IEnumerable<string> GetAvailableTracks()
+        {
+            var availableTracks = new List<string>();
+            var ss = _loadedData.SelectedSeries;
+
+            foreach (var evnt in ss.Schedules)
+            {
+                var id = evnt.Track.TrackId;
+
+                var trackDetail = _loadedData.TrackDetails.FirstOrDefault(t => t.TrackId == id);
+
+                if (trackDetail.AiEnabled)
+                {
+                    availableTracks.Add(trackDetail.TrackName);
+                }
+            }
+
+            return availableTracks;
+        }
+
+        public int GetDriverCount()
+        {
+            return _loadedData.SelectedSeriesDetails.MaxStarters;
+        }
+
+        public IEnumerable<string> GetAvailableRosters()
+        {
+            var rosterNames = new List<string>() { "Generate Roster", "Exclude Roster"};
+            var folerPath = _appSettings.RosterFolderPath;
+
+            if (Directory.Exists(folerPath))
+            {
+                var rosters = Directory.GetDirectories(folerPath);
+
+                if (rosters.Length > 0)
+                {
+                    foreach (var roster in rosters)
+                    {
+                        rosterNames.Add(Path.GetFileName(roster));
+                    }
+                }
+            }
+            return rosterNames;
+        }
+
+        public void CreateSeason(string seasonName)
+        {
+            var filePath = Path.Combine(_appSettings.SeasonFolderPath, $"{seasonName}.json");
+            try
+            {
+                var sb = _seasonBuilder.BuildSeason();
+                _jsonRepo.Save(filePath, sb);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

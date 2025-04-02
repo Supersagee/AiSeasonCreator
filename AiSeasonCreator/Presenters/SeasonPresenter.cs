@@ -20,6 +20,7 @@ namespace AiSeasonCreator.Presenters
 
             _view.ViewLoaded += OnViewLoaded;
             _view.SeriesIndexChanged += OnSeriesIndexChanged;
+            _view.RosterClicked += OnRosterClicked;
             _view.CreateSeasonClicked += OnCreateSeasonClicked;
         }
 
@@ -27,16 +28,25 @@ namespace AiSeasonCreator.Presenters
         {
             _seasonService.Initialize();
             _view.SeriesList = _seasonService.GetAvailableSeries();
+            _view.RosterList = _seasonService.GetAvailableRosters();
         }
 
         public void OnSeriesIndexChanged(object sender, EventArgs e)
         {
             _seasonService.SetSelectedSeasonAndSeries(_view.SeriesName);
+            _view.CarList = _seasonService.GetAvailableCars();
+            _view.TrackList =_seasonService.GetAvailableTracks();
+            _view.CarCount = _seasonService.GetDriverCount();
+        }
+
+        public void OnRosterClicked(object sender, EventArgs e)
+        {
+            _view.RosterList = _seasonService.GetAvailableRosters();
         }
 
         public void OnCreateSeasonClicked(object sender, EventArgs e)
         {
-
+            _seasonService.CreateSeason(_view.SeasonName);
         }
     }
 }

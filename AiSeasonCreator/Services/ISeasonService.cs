@@ -11,5 +11,10 @@ namespace AiSeasonCreator.Services
         void Initialize();
         void SetSelectedSeasonAndSeries(string seriesName);
         IEnumerable<string> GetAvailableSeries();
+        IEnumerable<string> GetAvailableCars();
+        IEnumerable<string> GetAvailableTracks();
+        int GetDriverCount();
+        IEnumerable<string> GetAvailableRosters();
+        void CreateSeason(string seasonName);
     }
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AiSeasonCreator.FormOptions;
+using AiSeasonCreator.Services;
+using AiSeasonCreator.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +9,41 @@ using System.Threading.Tasks;
 
 namespace AiSeasonCreator.Presenters
 {
-    class SettingsPresenter
+    class SettingsPresenter : ISettingsPresenter
     {
+        private ISettingsView _view;
+        private ISettingsService _settingsService;
+        private AppSettings _appSettings;
+        public SettingsPresenter(ISettingsView view, ISettingsService settingsService, AppSettings appSettings)
+        {
+            _view = view;
+            _settingsService = settingsService;
+            _appSettings = appSettings;
+
+            _view.ViewLoaded += OnViewLoaded;
+            _view.SeasonFolderClicked += OnSeasonFolderClicked;
+            _view.RosterFolderClicked += OnRosterFolderClicked;
+        }
+
+        public void OnViewLoaded(object sender, EventArgs e)
+        {
+            _view.SeasonFolderPath = _settingsService.GetFolderPath("aiseasons");
+            _appSettings.SeasonFolderPath = _view.SeasonFolderPath;
+
+            _view.RosterFolderPath = _settingsService.GetFolderPath("airosters");
+            _appSettings.RosterFolderPath = _view.RosterFolderPath;
+        }
+
+        public void OnSeasonFolderClicked(object sender, EventArgs e)
+        {
+            _view.SeasonFolderPath = _settingsService.GetFolderPath();
+            _appSettings.SeasonFolderPath = _view.SeasonFolderPath;
+        }
+
+        public void OnRosterFolderClicked(object sender, EventArgs e)
+        {
+            _view.RosterFolderPath = _settingsService.GetFolderPath();
+            _appSettings.RosterFolderPath = _view.RosterFolderPath;
+        }
     }
 }

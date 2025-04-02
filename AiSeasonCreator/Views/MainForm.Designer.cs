@@ -35,11 +35,14 @@
             aboutButton = new Button();
             rosterButton = new Button();
             topBarPanel = new Panel();
+            mainPanel = new Panel();
             menuPanel.SuspendLayout();
             SuspendLayout();
             // 
             // menuPanel
             // 
+            menuPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            menuPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             menuPanel.BackColor = Color.FromArgb(166, 166, 166);
             menuPanel.Controls.Add(settingsButton);
             menuPanel.Controls.Add(seasonButton);
@@ -62,6 +65,7 @@
             settingsButton.Size = new Size(50, 50);
             settingsButton.TabIndex = 4;
             settingsButton.UseVisualStyleBackColor = false;
+            settingsButton.Click += settingsButton_Click;
             // 
             // seasonButton
             // 
@@ -78,6 +82,7 @@
             seasonButton.Size = new Size(50, 50);
             seasonButton.TabIndex = 3;
             seasonButton.UseVisualStyleBackColor = false;
+            seasonButton.Click += seasonButton_Click;
             // 
             // aboutButton
             // 
@@ -91,6 +96,7 @@
             aboutButton.Size = new Size(50, 50);
             aboutButton.TabIndex = 3;
             aboutButton.UseVisualStyleBackColor = false;
+            aboutButton.Click += aboutButton_Click;
             // 
             // rosterButton
             // 
@@ -107,6 +113,7 @@
             rosterButton.Size = new Size(50, 50);
             rosterButton.TabIndex = 2;
             rosterButton.UseVisualStyleBackColor = false;
+            rosterButton.Click += rosterButton_Click;
             // 
             // topBarPanel
             // 
@@ -117,16 +124,25 @@
             topBarPanel.Size = new Size(1300, 30);
             topBarPanel.TabIndex = 1;
             // 
+            // mainPanel
+            // 
+            mainPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            mainPanel.BackColor = SystemColors.ActiveBorder;
+            mainPanel.Location = new Point(60, 30);
+            mainPanel.Name = "mainPanel";
+            mainPanel.Size = new Size(1240, 750);
+            mainPanel.TabIndex = 3;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1300, 780);
+            Controls.Add(mainPanel);
             Controls.Add(menuPanel);
             Controls.Add(topBarPanel);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "MainForm";
-            Text = "MainForm";
+            Text = "AiSeasonCreator";
             Load += MainForm_Load;
             menuPanel.ResumeLayout(false);
             ResumeLayout(false);
@@ -140,5 +156,6 @@
         private Panel topBarPanel;
         private Button settingsButton;
         private Button aboutButton;
+        private Panel mainPanel;
     }
 }

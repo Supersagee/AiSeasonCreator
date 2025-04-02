@@ -873,7 +873,7 @@ namespace AiSeasonCreator
                 }
             }
             catch { }
-            
+
             SetTrackBarValueText();
         }
     }

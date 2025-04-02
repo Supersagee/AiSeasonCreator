@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace AiSeasonCreator.Views
 {
-    interface ISettingsView
+    public interface ISettingsView
     {
+        event EventHandler ViewLoaded;
+        event EventHandler SeasonFolderClicked;
+        event EventHandler RosterFolderClicked;
+
+        string SeasonFolderPath { get; set; }
+        string RosterFolderPath { get; set; }
     }
 }

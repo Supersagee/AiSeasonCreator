@@ -22,17 +22,10 @@ namespace AiSeasonCreator
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
 
-            var services = new ServiceCollection();
 
-            //services.AddTransient<IMapper<List<CarSettings>>, CarSettingsMapper>();
-            //services.AddTransient<IMapper<List<Events>>, EventsMapper>();
-            //services.AddTransient<IMapper<GuidedParameters>, GuidedParametersMapper>();
-            //services.AddTransient<IMapper<List<Keyframes>>, KeyframesMapper>();
-            //services.AddTransient<IMapper<PaceCar>, PaceCarMapper>();
-            //services.AddTransient<IMapper<SeasonSchedule>, SeasonScheduleMapper>();
-            //services.AddTransient<IMapper<TrackState>, TrackStateMapper>();
-            //services.AddTransient<IMapper<Weather>, WeatherMapper>();
-            //services.AddTransient<IMapper<DriverRoster>, RosterMapper>();
+
+
+            
 
             //services.AddSingleton<UserSelectedOptions>();
             //services.AddSingleton<SeasonService>();
@@ -49,29 +42,71 @@ namespace AiSeasonCreator
 
             //***************************************************************************************
 
+
+            var services = new ServiceCollection();
+
+            services.AddTransient<IMapper<List<CarSettings>>, CarSettingsMapper>();
+            services.AddTransient<IMapper<List<Events>>, EventsMapper>();
+            services.AddTransient<IMapper<GuidedParameters>, GuidedParametersMapper>();
+            services.AddTransient<IMapper<List<Keyframes>>, KeyframesMapper>();
+            services.AddTransient<IMapper<PaceCar>, PaceCarMapper>();
+            services.AddTransient<IMapper<SeasonSchedule>, SeasonScheduleMapper>();
+            services.AddTransient<IMapper<TrackState>, TrackStateMapper>();
+            services.AddTransient<IMapper<Weather>, WeatherMapper>();
+            services.AddTransient<IMapper<DriverRoster>, RosterMapper>();
+            services.AddTransient<SeasonBuilder<SeasonSchedule>>();
+
             services.AddSingleton<IJsonRepo, JsonRepo>();
+            services.AddSingleton<AppSettings>();
             services.AddSingleton<LoadedData>();
+
+            services.AddSingleton<ISettingsService, SettingsService>();
+            services.AddSingleton<ISettingsPresenter, SettingsPresenter>();
+            services.AddSingleton<SettingsForm>();
+            services.AddSingleton<ISettingsView>(provider => provider.GetRequiredService<SettingsForm>());
+
+            services.AddSingleton<IAboutService, AboutService>();
+            services.AddSingleton<IAboutPresenter, AboutPresenter>();
+            services.AddSingleton<AboutForm>();
+            services.AddSingleton<IAboutView>(provider => provider.GetRequiredService<AboutForm>());
+
+            services.AddSingleton<IRosterService, RosterService>();
+            services.AddSingleton<IRosterPresenter, RosterPresenter>();
+            services.AddSingleton<RosterForm>();
+            services.AddSingleton<IRosterView>(provider => provider.GetRequiredService<RosterForm>());
+
             services.AddSingleton<ISeasonService, Services.SeasonService>();
             services.AddSingleton<ISeasonPresenter, SeasonPresenter>();
-
-            // Register SeasonForm as itself
             services.AddSingleton<SeasonForm>();
-
-            // Map ISeasonView to the same SeasonForm instance
             services.AddSingleton<ISeasonView>(provider => provider.GetRequiredService<SeasonForm>());
+            
 
-            var serviceProvider = services.BuildServiceProvider();
+            services.AddSingleton<Views.MainForm>();
+            services.AddSingleton<IMainView>(provider => provider.GetRequiredService<Views.MainForm>());
 
             ApplicationConfiguration.Initialize();
 
-            // Resolve SeasonForm and ISeasonPresenter
+            var serviceProvider = services.BuildServiceProvider();
+
             var seasonForm = serviceProvider.GetRequiredService<SeasonForm>();
-            var seasonPresenter = serviceProvider.GetRequiredService<ISeasonPresenter>();
+            seasonForm.Presenter = serviceProvider.GetRequiredService<ISeasonPresenter>();
 
-            // Assign the presenter to the SeasonForm via a property (make sure SeasonForm has a public property for this)
-            seasonForm.Presenter = seasonPresenter;
+            var rosterForm = serviceProvider.GetRequiredService<RosterForm>();
+            rosterForm.Presenter = serviceProvider.GetRequiredService<IRosterPresenter>();
 
-            Application.Run(seasonForm);
+            var settingsForm = serviceProvider.GetRequiredService<SettingsForm>();
+            settingsForm.Presenter = serviceProvider.GetRequiredService<ISettingsPresenter>();
+
+            var aboutForm = serviceProvider.GetRequiredService<AboutForm>();
+            aboutForm.Presenter = serviceProvider.GetRequiredService<IAboutPresenter>();
+
+            var mainForm = serviceProvider.GetRequiredService<Views.MainForm>();
+            //var seasonForm = serviceProvider.GetRequiredService<Views.SeasonForm>();
+
+            Application.Run(mainForm);
+            //Application.Run(seasonForm);
+
+
         }
     }
 }

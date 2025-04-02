@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace AiSeasonCreator.Views
 {
-    interface IAboutView
+    public interface IAboutView
     {
+        event EventHandler ViewLoaded;
+        event EventHandler ForumLinkClicked;
+        string AboutSection { get; set; }
     }
 }

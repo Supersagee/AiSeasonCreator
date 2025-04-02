@@ -10,12 +10,14 @@ namespace AiSeasonCreator.Views
     {
         event EventHandler ViewLoaded;
         event EventHandler SeriesIndexChanged;
+        event EventHandler RosterClicked;
         event EventHandler CreateSeasonClicked;
 
         IEnumerable<string> SeriesList { set; }
         IEnumerable<string> CarList { set; }
         IEnumerable<string> TrackList { set; }
-        IEnumerable<string> ActiveTracks { get; }
+        IEnumerable<string> SelectedTracks { get; }
+        IEnumerable<string> RosterList { set; }
 
         string SeasonName { get; }
         string SeriesName { get; }

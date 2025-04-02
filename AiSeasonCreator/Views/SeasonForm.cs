@@ -21,11 +21,17 @@ namespace AiSeasonCreator.Views
         private void SeasonForm_Load(object sender, EventArgs e)
         {
             ViewLoaded?.Invoke(this, e);
+            availableTracksFlowLayoutPanel.BackColor = Color.FromArgb(200, 30, 30, 30);
         }
 
         private void seriesListCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             SeriesIndexChanged?.Invoke(this, e);
+        }
+
+        private void carCountTrackBar_ValueChanged(object sender, EventArgs e)
+        {
+            carCountValueLabel.Text = carCountTrackBar.Value.ToString();
         }
 
         private void createSeasonButton_Click(object sender, EventArgs e)
@@ -41,10 +47,13 @@ namespace AiSeasonCreator.Views
             {
                 var button = new Button();
                 button.Text = track;
-                button.AutoSize = true;
+                button.Height = 36;
+                button.Width = 360;
+                button.FlatAppearance.BorderSize = 1;
                 button.Font = new Font("Microsoft Sans Serif", 14, FontStyle.Regular);
                 button.BackColor = Color.FromArgb(200, 30, 30, 30);
                 button.ForeColor = Color.White;
+                button.TextAlign = ContentAlignment.MiddleRight;
                 button.FlatStyle = FlatStyle.Flat;
                 button.Tag = false;
                 button.Click += Button_Click;
@@ -61,11 +70,15 @@ namespace AiSeasonCreator.Views
 
                 if (isSelected)
                 {
+                    button.FlatAppearance.BorderSize = 1;
+                    button.Font = new Font("Microsoft Sans Serif", 14, FontStyle.Regular);
                     button.ForeColor = Color.White;
                     button.BackColor = Color.FromArgb(200, 30, 30, 30);
                 }
                 else
                 {
+                    button.FlatAppearance.BorderSize = 0;
+                    button.Font = new Font("Microsoft Sans Serif", 14, FontStyle.Italic);
                     button.ForeColor = Color.Gray;
                     button.BackColor = Color.FromArgb(220, 50, 50, 50);
                 }
@@ -74,10 +87,17 @@ namespace AiSeasonCreator.Views
             }
         }
 
+        private void rosterNameComboBox_Click(object sender, EventArgs e)
+        {
+            RosterClicked.Invoke(this, e);
+        }
+
         public event EventHandler ViewLoaded;
         public event EventHandler SeriesIndexChanged;
+        public event EventHandler RosterClicked;
         public event EventHandler CreateSeasonClicked;
 
+        public ISeasonPresenter Presenter { get; set; }
         public IEnumerable<string> SeriesList
         {
             set { seriesListCombo.DataSource = value.ToList(); }
@@ -91,17 +111,23 @@ namespace AiSeasonCreator.Views
         {
             set { PopulateTrackButtons(value); }
         }
-        public IEnumerable<string> ActiveTracks
+        public IEnumerable<string> SelectedTracks
         {
             get
             {
                 return availableTracksFlowLayoutPanel.Controls
                     .OfType<Button>()
                     .Where(btn => btn.Tag is bool selected && !selected)
-                    .Select(btn => btn.Text);
+                    .Select(btn => btn.Text)
+                    .ToList();
             }
         }
-        public ISeasonPresenter Presenter { get; set; }
+
+        public IEnumerable<string> RosterList
+        {
+            set { rosterNameComboBox.DataSource = value.ToList(); }
+        }
+        
         public string SeasonName
         {
             get { return seasonNameTextBox.Text; }
@@ -155,8 +181,8 @@ namespace AiSeasonCreator.Views
 
         public bool StaticWeather
         {
-            get { return consistentWeatherCheckBox.Checked; }
-            set { consistentWeatherCheckBox.Checked = value; }
+            get { return staticWeatherCheckBox.Checked; }
+            set { staticWeatherCheckBox.Checked = value; }
         }
 
         public bool AfternoonRaces

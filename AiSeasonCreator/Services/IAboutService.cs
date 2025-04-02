@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AiSeasonCreator.Views
+namespace AiSeasonCreator.Services
 {
-    public interface IMainView
+    public interface IAboutService
     {
+        string GetAboutSection();
+        void GoToForum();
     }
 }

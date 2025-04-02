@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SeasonForm));
             aiSkillGroupBox = new GroupBox();
             adaptiveAiCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             adaptiveAiComboBox = new ReaLTaiizor.Controls.PoisonComboBox();
@@ -40,11 +41,11 @@
             neverRainsCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             rosterNameComboBox = new ReaLTaiizor.Controls.PoisonComboBox();
             panel1 = new Panel();
-            customCarCountSeasonLabel = new ReaLTaiizor.Controls.PoisonLabel();
+            carCountValueLabel = new ReaLTaiizor.Controls.PoisonLabel();
             carCountLabel = new ReaLTaiizor.Controls.PoisonLabel();
             carCountTrackBar = new ReaLTaiizor.Controls.PoisonTrackBar();
             disableCarDamageCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
-            consistentWeatherCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
+            staticWeatherCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             afternoonRacesCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             aiAvoidPlayerCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             selectTracksCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
@@ -62,6 +63,7 @@
             seriesPanel = new Panel();
             seasonNamePanel = new Panel();
             availableTracksFlowLayoutPanel = new FlowLayoutPanel();
+            button1 = new Button();
             aiSkillGroupBox.SuspendLayout();
             aiSkillPanel.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -74,7 +76,7 @@
             aiSkillGroupBox.Controls.Add(adaptiveAiComboBox);
             aiSkillGroupBox.Controls.Add(aiSkillPanel);
             aiSkillGroupBox.ForeColor = SystemColors.ControlDark;
-            aiSkillGroupBox.Location = new Point(360, 198);
+            aiSkillGroupBox.Location = new Point(262, 193);
             aiSkillGroupBox.Name = "aiSkillGroupBox";
             aiSkillGroupBox.Size = new Size(380, 100);
             aiSkillGroupBox.TabIndex = 47;
@@ -189,14 +191,14 @@
             groupBox1.Controls.Add(rosterNameComboBox);
             groupBox1.Controls.Add(panel1);
             groupBox1.Controls.Add(disableCarDamageCheckBox);
-            groupBox1.Controls.Add(consistentWeatherCheckBox);
+            groupBox1.Controls.Add(staticWeatherCheckBox);
             groupBox1.Controls.Add(afternoonRacesCheckBox);
             groupBox1.Controls.Add(aiAvoidPlayerCheckBox);
             groupBox1.Controls.Add(selectTracksCheckBox);
             groupBox1.Controls.Add(qualiAloneCheckBox);
             groupBox1.Controls.Add(shortParadeCheckBox);
             groupBox1.ForeColor = SystemColors.ControlDark;
-            groupBox1.Location = new Point(360, 300);
+            groupBox1.Location = new Point(262, 295);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(380, 274);
             groupBox1.TabIndex = 39;
@@ -222,7 +224,6 @@
             // rosterNameComboBox
             // 
             rosterNameComboBox.DropDownHeight = 260;
-            rosterNameComboBox.Enabled = false;
             rosterNameComboBox.FormattingEnabled = true;
             rosterNameComboBox.IntegralHeight = false;
             rosterNameComboBox.ItemHeight = 23;
@@ -233,11 +234,12 @@
             rosterNameComboBox.TabIndex = 21;
             rosterNameComboBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             rosterNameComboBox.UseSelectable = true;
+            rosterNameComboBox.Click += rosterNameComboBox_Click;
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(80, 30, 30, 30);
-            panel1.Controls.Add(customCarCountSeasonLabel);
+            panel1.Controls.Add(carCountValueLabel);
             panel1.Controls.Add(carCountLabel);
             panel1.Controls.Add(carCountTrackBar);
             panel1.Location = new Point(7, 18);
@@ -245,19 +247,19 @@
             panel1.Size = new Size(366, 28);
             panel1.TabIndex = 1;
             // 
-            // customCarCountSeasonLabel
+            // carCountValueLabel
             // 
-            customCarCountSeasonLabel.AutoSize = true;
-            customCarCountSeasonLabel.BackColor = Color.Transparent;
-            customCarCountSeasonLabel.Font = new Font("Arial", 9F, FontStyle.Italic);
-            customCarCountSeasonLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
-            customCarCountSeasonLabel.Location = new Point(208, 3);
-            customCarCountSeasonLabel.Name = "customCarCountSeasonLabel";
-            customCarCountSeasonLabel.Size = new Size(17, 19);
-            customCarCountSeasonLabel.TabIndex = 26;
-            customCarCountSeasonLabel.Text = "0";
-            customCarCountSeasonLabel.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            customCarCountSeasonLabel.UseCustomBackColor = true;
+            carCountValueLabel.AutoSize = true;
+            carCountValueLabel.BackColor = Color.Transparent;
+            carCountValueLabel.Font = new Font("Arial", 9F, FontStyle.Italic);
+            carCountValueLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
+            carCountValueLabel.Location = new Point(208, 3);
+            carCountValueLabel.Name = "carCountValueLabel";
+            carCountValueLabel.Size = new Size(17, 19);
+            carCountValueLabel.TabIndex = 26;
+            carCountValueLabel.Text = "0";
+            carCountValueLabel.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            carCountValueLabel.UseCustomBackColor = true;
             // 
             // carCountLabel
             // 
@@ -288,6 +290,7 @@
             carCountTrackBar.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             carCountTrackBar.UseCustomBackColor = true;
             carCountTrackBar.Value = 30;
+            carCountTrackBar.ValueChanged += carCountTrackBar_ValueChanged;
             // 
             // disableCarDamageCheckBox
             // 
@@ -307,19 +310,19 @@
             // 
             // consistentWeatherCheckBox
             // 
-            consistentWeatherCheckBox.AutoSize = true;
-            consistentWeatherCheckBox.BackColor = Color.Transparent;
-            consistentWeatherCheckBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonCheckBoxSize.Medium;
-            consistentWeatherCheckBox.Location = new Point(10, 82);
-            consistentWeatherCheckBox.Name = "consistentWeatherCheckBox";
-            consistentWeatherCheckBox.Size = new Size(113, 19);
-            consistentWeatherCheckBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
-            consistentWeatherCheckBox.TabIndex = 11;
-            consistentWeatherCheckBox.Text = "Static Weather";
-            consistentWeatherCheckBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            consistentWeatherCheckBox.UseCustomBackColor = true;
-            consistentWeatherCheckBox.UseSelectable = true;
-            consistentWeatherCheckBox.UseVisualStyleBackColor = false;
+            staticWeatherCheckBox.AutoSize = true;
+            staticWeatherCheckBox.BackColor = Color.Transparent;
+            staticWeatherCheckBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonCheckBoxSize.Medium;
+            staticWeatherCheckBox.Location = new Point(10, 82);
+            staticWeatherCheckBox.Name = "consistentWeatherCheckBox";
+            staticWeatherCheckBox.Size = new Size(113, 19);
+            staticWeatherCheckBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
+            staticWeatherCheckBox.TabIndex = 11;
+            staticWeatherCheckBox.Text = "Static Weather";
+            staticWeatherCheckBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            staticWeatherCheckBox.UseCustomBackColor = true;
+            staticWeatherCheckBox.UseSelectable = true;
+            staticWeatherCheckBox.UseVisualStyleBackColor = false;
             // 
             // afternoonRacesCheckBox
             // 
@@ -403,7 +406,7 @@
             // 
             // createSeasonButton
             // 
-            createSeasonButton.Location = new Point(605, 579);
+            createSeasonButton.Location = new Point(507, 574);
             createSeasonButton.Name = "createSeasonButton";
             createSeasonButton.Size = new Size(135, 23);
             createSeasonButton.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -416,11 +419,10 @@
             // carListCombo
             // 
             carListCombo.DropDownHeight = 400;
-            carListCombo.Enabled = false;
             carListCombo.FormattingEnabled = true;
             carListCombo.IntegralHeight = false;
             carListCombo.ItemHeight = 23;
-            carListCombo.Location = new Point(440, 163);
+            carListCombo.Location = new Point(342, 158);
             carListCombo.Name = "carListCombo";
             carListCombo.Size = new Size(300, 29);
             carListCombo.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -434,7 +436,7 @@
             seriesListCombo.FormattingEnabled = true;
             seriesListCombo.IntegralHeight = false;
             seriesListCombo.ItemHeight = 23;
-            seriesListCombo.Location = new Point(440, 128);
+            seriesListCombo.Location = new Point(342, 123);
             seriesListCombo.Name = "seriesListCombo";
             seriesListCombo.Size = new Size(300, 29);
             seriesListCombo.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -458,7 +460,7 @@
             seasonNameTextBox.CustomButton.UseSelectable = true;
             seasonNameTextBox.CustomButton.Visible = false;
             seasonNameTextBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonTextBoxSize.Medium;
-            seasonNameTextBox.Location = new Point(440, 58);
+            seasonNameTextBox.Location = new Point(342, 53);
             seasonNameTextBox.MaxLength = 32767;
             seasonNameTextBox.Name = "seasonNameTextBox";
             seasonNameTextBox.PasswordChar = '\0';
@@ -479,7 +481,7 @@
             // 
             incompleteFormLabel.AutoSize = true;
             incompleteFormLabel.ForeColor = Color.FromArgb(128, 187, 0);
-            incompleteFormLabel.Location = new Point(457, 567);
+            incompleteFormLabel.Location = new Point(359, 562);
             incompleteFormLabel.Name = "incompleteFormLabel";
             incompleteFormLabel.Size = new Size(0, 15);
             incompleteFormLabel.TabIndex = 42;
@@ -488,7 +490,7 @@
             // 
             carListLabel.AutoSize = true;
             carListLabel.ForeColor = SystemColors.ControlDark;
-            carListLabel.Location = new Point(409, 177);
+            carListLabel.Location = new Point(311, 172);
             carListLabel.Name = "carListLabel";
             carListLabel.Size = new Size(25, 15);
             carListLabel.TabIndex = 40;
@@ -497,10 +499,11 @@
             // seasonNameLabel
             // 
             seasonNameLabel.AutoSize = true;
+            seasonNameLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             seasonNameLabel.ForeColor = SystemColors.ControlDark;
-            seasonNameLabel.Location = new Point(355, 72);
+            seasonNameLabel.Location = new Point(257, 67);
             seasonNameLabel.Name = "seasonNameLabel";
-            seasonNameLabel.Size = new Size(79, 15);
+            seasonNameLabel.Size = new Size(86, 15);
             seasonNameLabel.TabIndex = 38;
             seasonNameLabel.Text = "Season Name";
             // 
@@ -508,7 +511,7 @@
             // 
             seriesListLabel.AutoSize = true;
             seriesListLabel.ForeColor = SystemColors.ControlDark;
-            seriesListLabel.Location = new Point(397, 142);
+            seriesListLabel.Location = new Point(299, 137);
             seriesListLabel.Name = "seriesListLabel";
             seriesListLabel.Size = new Size(37, 15);
             seriesListLabel.TabIndex = 35;
@@ -517,7 +520,7 @@
             // carPanel
             // 
             carPanel.BackColor = Color.FromArgb(128, 187, 0);
-            carPanel.Location = new Point(421, 577);
+            carPanel.Location = new Point(323, 572);
             carPanel.Name = "carPanel";
             carPanel.Size = new Size(27, 27);
             carPanel.TabIndex = 43;
@@ -526,7 +529,7 @@
             // seriesPanel
             // 
             seriesPanel.BackColor = Color.FromArgb(128, 187, 0);
-            seriesPanel.Location = new Point(388, 577);
+            seriesPanel.Location = new Point(290, 572);
             seriesPanel.Name = "seriesPanel";
             seriesPanel.Size = new Size(27, 27);
             seriesPanel.TabIndex = 44;
@@ -535,7 +538,7 @@
             // seasonNamePanel
             // 
             seasonNamePanel.BackColor = Color.FromArgb(128, 187, 0);
-            seasonNamePanel.Location = new Point(355, 577);
+            seasonNamePanel.Location = new Point(257, 572);
             seasonNamePanel.Name = "seasonNamePanel";
             seasonNamePanel.Size = new Size(27, 27);
             seasonNamePanel.TabIndex = 45;
@@ -543,17 +546,31 @@
             // 
             // availableTracksFlowLayoutPanel
             // 
+            availableTracksFlowLayoutPanel.AutoScroll = true;
+            availableTracksFlowLayoutPanel.BackColor = Color.FromArgb(200, 30, 30, 30);
             availableTracksFlowLayoutPanel.Location = new Point(764, 142);
             availableTracksFlowLayoutPanel.Name = "availableTracksFlowLayoutPanel";
-            availableTracksFlowLayoutPanel.Size = new Size(300, 419);
+            availableTracksFlowLayoutPanel.Size = new Size(390, 419);
             availableTracksFlowLayoutPanel.TabIndex = 49;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(96, 246);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 50;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
             // SeasonForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(1200, 750);
+            Controls.Add(button1);
             Controls.Add(availableTracksFlowLayoutPanel);
             Controls.Add(aiSkillGroupBox);
             Controls.Add(groupBox1);
@@ -568,7 +585,7 @@
             Controls.Add(carPanel);
             Controls.Add(seriesPanel);
             Controls.Add(seasonNamePanel);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            DoubleBuffered = true;
             Name = "SeasonForm";
             Text = "SeasonForm";
             Load += SeasonForm_Load;
@@ -598,7 +615,7 @@
         private ReaLTaiizor.Controls.PoisonCheckBox neverRainsCheckBox;
         private ReaLTaiizor.Controls.PoisonComboBox rosterNameComboBox;
         private Panel panel1;
-        private ReaLTaiizor.Controls.PoisonLabel customCarCountSeasonLabel;
+        private ReaLTaiizor.Controls.PoisonLabel carCountValueLabel;
         private ReaLTaiizor.Controls.PoisonLabel carCountLabel;
         private ReaLTaiizor.Controls.PoisonCheckBox customCarSeasonCheckBox;
         private ReaLTaiizor.Controls.PoisonTrackBar carCountTrackBar;
@@ -606,7 +623,7 @@
         private ReaLTaiizor.Controls.PoisonCheckBox useRosterAttributesCheckBox;
         private ReaLTaiizor.Controls.PoisonCheckBox disableCarDamageCheckBox;
         private ReaLTaiizor.Controls.PoisonCheckBox excludeRosterCheckBox;
-        private ReaLTaiizor.Controls.PoisonCheckBox consistentWeatherCheckBox;
+        private ReaLTaiizor.Controls.PoisonCheckBox staticWeatherCheckBox;
         private ReaLTaiizor.Controls.PoisonCheckBox afternoonRacesCheckBox;
         private ReaLTaiizor.Controls.PoisonCheckBox aiAvoidPlayerCheckBox;
         private ReaLTaiizor.Controls.PoisonCheckBox selectTracksCheckBox;
@@ -624,5 +641,6 @@
         private Panel seriesPanel;
         private Panel seasonNamePanel;
         private FlowLayoutPanel availableTracksFlowLayoutPanel;
+        private Button button1;
     }
 }

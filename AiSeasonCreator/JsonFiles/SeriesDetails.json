@@ -732,60 +732,6 @@
   {
     "allowed_licenses": [
       {
-        "group_name": "Class D",
-        "license_group": 2,
-        "max_license_level": 8,
-        "min_license_level": 8
-      },
-      {
-        "group_name": "Class C",
-        "license_group": 3,
-        "max_license_level": 12,
-        "min_license_level": 9
-      },
-      {
-        "group_name": "Class B",
-        "license_group": 4,
-        "max_license_level": 16,
-        "min_license_level": 13
-      },
-      {
-        "group_name": "Class A",
-        "license_group": 5,
-        "max_license_level": 20,
-        "min_license_level": 17
-      },
-      {
-        "group_name": "Pro",
-        "license_group": 6,
-        "max_license_level": 24,
-        "min_license_level": 21
-      },
-      {
-        "group_name": "Pro/WC",
-        "license_group": 7,
-        "max_license_level": 28,
-        "min_license_level": 25
-      }
-    ],
-    "category": "sports_car",
-    "category_id": 5,
-    "eligible": true,
-    "first_season": {
-      "season_year": 2016,
-      "season_quarter": 1
-    },
-    "max_starters": 50,
-    "min_starters": 6,
-    "oval_caution_type": 0,
-    "road_caution_type": 2,
-    "series_id": 271,
-    "series_name": "12 Hours of Sebring",
-    "series_short_name": "12 Hours of Sebring"
-  },
-  {
-    "allowed_licenses": [
-      {
         "group_name": "Rookie",
         "license_group": 1,
         "max_license_level": 4,

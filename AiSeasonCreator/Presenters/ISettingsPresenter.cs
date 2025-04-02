@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace AiSeasonCreator.Presenters
 {
-    interface ISettingsPresenter
+    public interface ISettingsPresenter
     {
+        void OnViewLoaded(object sender, EventArgs e);
+        void OnSeasonFolderClicked(object sender, EventArgs e);
+        void OnRosterFolderClicked(object sender, EventArgs e);
     }
 }

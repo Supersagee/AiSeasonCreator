@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace AiSeasonCreator.Presenters
 {
-    interface IAboutPresenter
+    public interface IAboutPresenter
     {
+        void OnViewLoaded(object sender, EventArgs e);
+        void OnForumLinkClicked(object sender, EventArgs e);
     }
 }

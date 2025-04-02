@@ -3,6 +3,7 @@ using AiSeasonCreator.JsonClasses.CarDetails;
 using AiSeasonCreator.JsonClasses.FullSchedule;
 using AiSeasonCreator.JsonClasses.SeriesDetails;
 using AiSeasonCreator.JsonClasses.TrackDetails;
+using AiSeasonCreator.Roster;
 using iRacingWeatherURLParser.WeatherSchedule;
 
 namespace AiSeasonCreator.Data
@@ -17,5 +18,9 @@ namespace AiSeasonCreator.Data
         public TrackDetails[] TrackDetails { get; set; }
         public FullSchedule SelectedSeries { get; set; }
         public SeriesDetails SelectedSeriesDetails { get; set; }
+        public Series SelectedSeriesWeather { get; set; }
+        public FullSchedule RosterSelectedSeries { get; set; }
+        public SeriesDetails RosterSelectedSeriesDetails { get; set; }
+        public DriverRoster SelectedRoster { get; set; }
     }
 }
