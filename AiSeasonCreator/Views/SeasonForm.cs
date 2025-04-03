@@ -1,4 +1,7 @@
-﻿using AiSeasonCreator.Presenters;
+﻿using AiSeasonCreator.Helpers;
+using AiSeasonCreator.Presenters;
+using Microsoft.VisualBasic.ApplicationServices;
+using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +39,14 @@ namespace AiSeasonCreator.Views
 
         private void createSeasonButton_Click(object sender, EventArgs e)
         {
+            if (SelectedSeries == null || SelectedSeries == "")
+            {
+                return;
+            }
+            
             CreateSeasonClicked?.Invoke(this, e);
+            
+            createSeasonButton.Refresh();
         }
 
         private void PopulateTrackButtons(IEnumerable<string> tracks)
@@ -46,7 +56,17 @@ namespace AiSeasonCreator.Views
             foreach (var track in tracks)
             {
                 var button = new Button();
-                button.Text = track;
+
+                var info = new ButtonInfo { OriginalName = track, IsSelected = false };
+                button.Tag = info;
+
+                if (track.Length > 25)
+                    button.Text = $"  {track.Substring(0, 25).Trim()}...";
+                else
+                    button.Text = $"  {track}";
+                button.Image = Image.FromFile("C:\\Users\\Billy\\TrackAssets\\daytonainternationalspeedway-logo-small.png");
+                button.TextImageRelation = TextImageRelation.ImageBeforeText;
+                button.ImageAlign = ContentAlignment.MiddleLeft;
                 button.Height = 36;
                 button.Width = 360;
                 button.FlatAppearance.BorderSize = 1;
@@ -55,7 +75,7 @@ namespace AiSeasonCreator.Views
                 button.ForeColor = Color.White;
                 button.TextAlign = ContentAlignment.MiddleRight;
                 button.FlatStyle = FlatStyle.Flat;
-                button.Tag = false;
+                //button.Tag = false;
                 button.Click += Button_Click;
 
                 availableTracksFlowLayoutPanel.Controls.Add(button);
@@ -64,28 +84,79 @@ namespace AiSeasonCreator.Views
 
         private void Button_Click(object sender, EventArgs e)
         {
-            if (sender is Button button)
+            if (sender is Button button && button.Tag is ButtonInfo info)
             {
-                bool isSelected = (bool)button.Tag;
+                // Toggle the selection state
+                info.IsSelected = !info.IsSelected;
 
-                if (isSelected)
-                {
-                    button.FlatAppearance.BorderSize = 1;
-                    button.Font = new Font("Microsoft Sans Serif", 14, FontStyle.Regular);
-                    button.ForeColor = Color.White;
-                    button.BackColor = Color.FromArgb(200, 30, 30, 30);
-                }
-                else
+                if (info.IsSelected)
                 {
                     button.FlatAppearance.BorderSize = 0;
                     button.Font = new Font("Microsoft Sans Serif", 14, FontStyle.Italic);
                     button.ForeColor = Color.Gray;
                     button.BackColor = Color.FromArgb(220, 50, 50, 50);
                 }
-
-                button.Tag = !isSelected;
+                else
+                {
+                    button.FlatAppearance.BorderSize = 1;
+                    button.Font = new Font("Microsoft Sans Serif", 14, FontStyle.Regular);
+                    button.ForeColor = Color.White;
+                    button.BackColor = Color.FromArgb(200, 30, 30, 30);
+                }
             }
         }
+
+        private void PopulateSeriesButtons(IEnumerable<string> series)
+        {
+            // Clear any existing buttons
+            seriesFlowLayoutPanel.Controls.Clear();
+
+            foreach (var item in series)
+            {
+                var button = new Button();
+                button.Text = item;
+                button.AutoSize = true;
+                // Initially, the button is not selected.
+                // We can store selection state as a bool in the Tag property (false means not selected).
+                button.Tag = false;
+
+                // Optionally, set default styling (unselected style)
+                button.BackColor = Color.FromArgb(200, 30, 30, 30);
+                button.ForeColor = Color.White;
+                button.FlatStyle = FlatStyle.Flat;
+
+                // Attach the click event handler
+                button.Click += SeriesButton_Click;
+                seriesFlowLayoutPanel.Controls.Add(button);
+            }
+        }
+
+        private void SeriesButton_Click(object sender, EventArgs e)
+        {
+            if (sender is Button clickedButton)
+            {
+                // Deselect all buttons in the panel first.
+                foreach (Button btn in seriesFlowLayoutPanel.Controls)
+                {
+                    btn.Tag = false;
+                    // Reset to unselected style
+                    btn.BackColor = Color.FromArgb(200, 30, 30, 30);
+                    btn.ForeColor = Color.White;
+                    // You might also adjust border style or font here.
+                }
+
+                // Mark the clicked button as selected.
+                clickedButton.Tag = true;
+                // Set a "highlighted" style.
+                //clickedButton.BackColor = Color.Blue;       // or any highlight color
+                clickedButton.ForeColor = Color.FromArgb(142, 188, 0);       // highlight text color
+
+                // Store the selected series for later use.
+                SelectedSeries = clickedButton.Text;
+            }
+        }
+
+        public string SelectedSeries { get; private set; }
 
         private void rosterNameComboBox_Click(object sender, EventArgs e)
         {
@@ -100,7 +171,7 @@ namespace AiSeasonCreator.Views
         public ISeasonPresenter Presenter { get; set; }
         public IEnumerable<string> SeriesList
         {
-            set { seriesListCombo.DataSource = value.ToList(); }
+            set { PopulateSeriesButtons(value); }
         }
         public IEnumerable<string> CarList
         {
@@ -117,8 +188,8 @@ namespace AiSeasonCreator.Views
             {
                 return availableTracksFlowLayoutPanel.Controls
                     .OfType<Button>()
-                    .Where(btn => btn.Tag is bool selected && !selected)
-                    .Select(btn => btn.Text)
+                    .Where(btn => btn.Tag is ButtonInfo info && !info.IsSelected)
+                    .Select(btn => ((ButtonInfo)btn.Tag).OriginalName)
                     .ToList();
             }
         }
@@ -127,7 +198,7 @@ namespace AiSeasonCreator.Views
         {
             set { rosterNameComboBox.DataSource = value.ToList(); }
         }
-        
+
         public string SeasonName
         {
             get { return seasonNameTextBox.Text; }

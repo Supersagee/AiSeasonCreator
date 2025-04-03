@@ -79,4 +79,9 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Assets\CarAssets\" />
+    <Folder Include="Assets\SeriesAssets\" />
+  </ItemGroup>
+
 </Project>

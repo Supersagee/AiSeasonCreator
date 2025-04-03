@@ -22,27 +22,6 @@ namespace AiSeasonCreator
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
 
-
-
-
-            
-
-            //services.AddSingleton<UserSelectedOptions>();
-            //services.AddSingleton<SeasonService>();
-            //services.AddSingleton<IJsonRepo, JsonRepo>();
-
-            //services.AddTransient<SeasonBuilder<SeasonSchedule>>();
-
-            //services.AddSingleton<MainForm>();
-            //services.AddTransient<TrackSelectionForm>();
-            //var serviceProvider = services.BuildServiceProvider();
-
-            //ApplicationConfiguration.Initialize();
-            //Application.Run(serviceProvider.GetRequiredService<MainForm>());
-
-            //***************************************************************************************
-
-
             var services = new ServiceCollection();
 
             services.AddTransient<IMapper<List<CarSettings>>, CarSettingsMapper>();
@@ -101,12 +80,7 @@ namespace AiSeasonCreator
             aboutForm.Presenter = serviceProvider.GetRequiredService<IAboutPresenter>();
 
             var mainForm = serviceProvider.GetRequiredService<Views.MainForm>();
-            //var seasonForm = serviceProvider.GetRequiredService<Views.SeasonForm>();
-
             Application.Run(mainForm);
-            //Application.Run(seasonForm);
-
-
         }
     }
 }

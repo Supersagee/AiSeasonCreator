@@ -34,7 +34,6 @@
             seasonButton = new Button();
             aboutButton = new Button();
             rosterButton = new Button();
-            topBarPanel = new Panel();
             mainPanel = new Panel();
             menuPanel.SuspendLayout();
             SuspendLayout();
@@ -50,7 +49,7 @@
             menuPanel.Controls.Add(rosterButton);
             menuPanel.Location = new Point(0, 0);
             menuPanel.Name = "menuPanel";
-            menuPanel.Size = new Size(60, 780);
+            menuPanel.Size = new Size(60, 846);
             menuPanel.TabIndex = 0;
             // 
             // settingsButton
@@ -115,32 +114,22 @@
             rosterButton.UseVisualStyleBackColor = false;
             rosterButton.Click += rosterButton_Click;
             // 
-            // topBarPanel
-            // 
-            topBarPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            topBarPanel.BackColor = Color.FromArgb(166, 166, 166);
-            topBarPanel.Location = new Point(0, 0);
-            topBarPanel.Name = "topBarPanel";
-            topBarPanel.Size = new Size(1300, 30);
-            topBarPanel.TabIndex = 1;
-            // 
             // mainPanel
             // 
             mainPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             mainPanel.BackColor = SystemColors.ActiveBorder;
-            mainPanel.Location = new Point(60, 30);
+            mainPanel.Location = new Point(60, 0);
             mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(1240, 750);
+            mainPanel.Size = new Size(824, 846);
             mainPanel.TabIndex = 3;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1300, 780);
+            ClientSize = new Size(884, 846);
             Controls.Add(mainPanel);
             Controls.Add(menuPanel);
-            Controls.Add(topBarPanel);
             Name = "MainForm";
             Text = "AiSeasonCreator";
             Load += MainForm_Load;
@@ -153,7 +142,6 @@
         private Panel menuPanel;
         private Button rosterButton;
         private Button seasonButton;
-        private Panel topBarPanel;
         private Button settingsButton;
         private Button aboutButton;
         private Panel mainPanel;
