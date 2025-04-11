@@ -105800,9 +105800,9 @@
         "full_course_cautions": false,
         "practice_length": 0,
         "qual_attached": false,
-        "qualify_laps": 0,
-        "qualify_length": 0,
-        "race_lap_limit": 4,
+        "qualify_laps": 2,
+        "qualify_length": 8,
+        "race_lap_limit": null,
         "race_time_descriptors": [
           {
             "day_offset": [

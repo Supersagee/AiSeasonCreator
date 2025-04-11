@@ -150,6 +150,43 @@ namespace AiSeasonCreator.Services
             return _loadedData.SelectedSeriesDetails.MaxStarters;
         }
 
+        public int GetPracticeLength()
+        {
+            return 3;
+        }
+
+        public int GetQualiLength(bool qualiAlone)
+        {
+            var ss = _loadedData.SelectedSeries.Schedules[0];
+
+            if (_loadedData.SelectedSeries != null)
+            {
+                if (qualiAlone)
+                    return ss.QualifyLaps > 5 ? 5 : ss.QualifyLaps;
+                else
+                    return ss.QualifyLength > 30 ? 30 :  ss.QualifyLength;
+            }
+            else
+            {
+                if (qualiAlone)
+                    return 2;
+                else
+                    return 8;
+            }
+        }
+
+        public int GetRaceLength()
+        {
+            var ss = _loadedData.SelectedSeries.Schedules[0];
+
+            if (ss.RaceLapLimit == null)
+            {
+                return ss.RaceTimeLimit > 300 ? 300 : (int)ss.RaceTimeLimit;
+            }
+
+            return 100;
+        }
+
         public IEnumerable<string> GetAvailableRosters()
         {
             var rosterNames = new List<string>() { "Generate Roster", "Exclude Roster"};

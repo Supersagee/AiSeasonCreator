@@ -51,7 +51,7 @@ namespace AiSeasonCreator.Mappers
             var cc = _loadedData.CarClasses;
             var carSettingsList = _carSettingsMapper.Map(0, "");
 
-            ss.CarId = cd.FirstOrDefault(c => c.CarName == _seasonView.CarName).CarId;
+            ss.CarId = cd.FirstOrDefault(c => c.CarName == _seasonView.SelectedCar).CarId;
 
             //get AiIds and UserClassId
             if (s.CarClassIds.Count == 1)
@@ -132,20 +132,20 @@ namespace AiSeasonCreator.Mappers
             ss.MustUseDiffTireTypesInRace = s.MustUseDiffTireTypesInRace;
             ss.StartOnQualTire = s.StartOnQualTire;
             ss.UnsportConductRuleMode = 0;
-            ss.PracticeLength = 3;
-            ss.QualifyLaps = 2;
-            ss.QualifyLength = 8;
+            ss.PracticeLength = _seasonView.PracticeLength;
+            ss.QualifyLaps = _seasonView.QualiLength;
+            ss.QualifyLength = _seasonView.QualiLength;
 
             //sets race by lap count or time limit
             if (s.Schedules[0].RaceLapLimit == null)
             {
                 ss.RaceLaps = 0;
-                ss.RaceLength = s.Schedules[0].RaceTimeLimit;
+                ss.RaceLength = _seasonView.RaceLength;
                 ss.RaceLengthType = 2;
             }
             else
             {
-                ss.RaceLaps = s.Schedules[0].RaceLapLimit;
+                ss.RaceLaps = (s.Schedules[0].RaceTimeLimit * _seasonView.RaceLength) / 100;
                 ss.RaceLength = 0;
                 ss.RaceLengthType = 3;
             }

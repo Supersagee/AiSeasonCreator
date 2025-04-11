@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SeasonForm));
             aiSkillGroupBox = new GroupBox();
             aiSkillMinTrackBar = new ReaLTaiizor.Controls.PoisonTrackBar();
@@ -50,26 +51,30 @@
             shortParadeCheckBox = new ReaLTaiizor.Controls.PoisonCheckBox();
             rosterNameComboBox = new ReaLTaiizor.Controls.PoisonComboBox();
             createSeasonButton = new ReaLTaiizor.Controls.PoisonButton();
-            carListCombo = new ReaLTaiizor.Controls.PoisonComboBox();
-            seriesListCombo = new ReaLTaiizor.Controls.PoisonComboBox();
             seasonNameTextBox = new ReaLTaiizor.Controls.PoisonTextBox();
-            incompleteFormLabel = new Label();
-            carListLabel = new Label();
+            messageFormLabel = new Label();
             seasonNameLabel = new Label();
-            seriesListLabel = new Label();
             availableTracksFlowLayoutPanel = new FlowLayoutPanel();
-            label1 = new Label();
+            trackSelectionLabel = new Label();
             rosterLabel = new Label();
             sessionLengthsGroupBox = new GroupBox();
+            raceMinutesOrPercentageLabel = new ReaLTaiizor.Controls.PoisonLabel();
+            raceLengthValueLabel = new ReaLTaiizor.Controls.PoisonLabel();
+            qualiLapsOrMinutesLabel = new ReaLTaiizor.Controls.PoisonLabel();
+            qualiLengthValueLabel = new ReaLTaiizor.Controls.PoisonLabel();
+            practiceMinutesLabel = new ReaLTaiizor.Controls.PoisonLabel();
+            practiceLengthValueLabel = new ReaLTaiizor.Controls.PoisonLabel();
             raceLengthLabel = new ReaLTaiizor.Controls.PoisonLabel();
             qualiLengthLabel = new ReaLTaiizor.Controls.PoisonLabel();
             practiceLengthLabel = new ReaLTaiizor.Controls.PoisonLabel();
             raceLengthTrackBar = new ReaLTaiizor.Controls.PoisonTrackBar();
             qualiLengthTrackBar = new ReaLTaiizor.Controls.PoisonTrackBar();
             practiceLengthTrackBar = new ReaLTaiizor.Controls.PoisonTrackBar();
-            button1 = new Button();
             seriesFlowLayoutPanel = new FlowLayoutPanel();
             carsFlowLayoutPanel = new FlowLayoutPanel();
+            toolTip1 = new ToolTip(components);
+            seriesSelectionLabel = new Label();
+            carSelectionLabel = new Label();
             aiSkillGroupBox.SuspendLayout();
             optionalsGroupBox.SuspendLayout();
             carCountPanel.SuspendLayout();
@@ -78,7 +83,6 @@
             // 
             // aiSkillGroupBox
             // 
-            aiSkillGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             aiSkillGroupBox.BackColor = Color.FromArgb(200, 30, 30, 30);
             aiSkillGroupBox.Controls.Add(aiSkillMinTrackBar);
             aiSkillGroupBox.Controls.Add(adaptiveAiCheckBox);
@@ -88,7 +92,7 @@
             aiSkillGroupBox.Controls.Add(aiSkillPerLabel);
             aiSkillGroupBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             aiSkillGroupBox.ForeColor = Color.White;
-            aiSkillGroupBox.Location = new Point(674, 295);
+            aiSkillGroupBox.Location = new Point(846, 618);
             aiSkillGroupBox.Name = "aiSkillGroupBox";
             aiSkillGroupBox.Size = new Size(400, 100);
             aiSkillGroupBox.TabIndex = 47;
@@ -108,6 +112,7 @@
             aiSkillMinTrackBar.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             aiSkillMinTrackBar.UseCustomBackColor = true;
             aiSkillMinTrackBar.Value = 25;
+            aiSkillMinTrackBar.ValueChanged += aiSkillMinTrackBar_ValueChanged;
             // 
             // adaptiveAiCheckBox
             // 
@@ -155,6 +160,7 @@
             aiSkillMaxTrackBar.Text = "poisonTrackBar2";
             aiSkillMaxTrackBar.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             aiSkillMaxTrackBar.UseCustomBackColor = true;
+            aiSkillMaxTrackBar.ValueChanged += aiSkillMaxTrackBar_ValueChanged;
             // 
             // aiSkillLevelLabel
             // 
@@ -179,15 +185,14 @@
             aiSkillPerLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
             aiSkillPerLabel.Location = new Point(20, 73);
             aiSkillPerLabel.Name = "aiSkillPerLabel";
-            aiSkillPerLabel.Size = new Size(17, 19);
+            aiSkillPerLabel.Size = new Size(71, 19);
             aiSkillPerLabel.TabIndex = 26;
-            aiSkillPerLabel.Text = "0";
+            aiSkillPerLabel.Text = "25%-50%";
             aiSkillPerLabel.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             aiSkillPerLabel.UseCustomBackColor = true;
             // 
             // optionalsGroupBox
             // 
-            optionalsGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             optionalsGroupBox.BackColor = Color.FromArgb(200, 30, 30, 30);
             optionalsGroupBox.Controls.Add(carCountPanel);
             optionalsGroupBox.Controls.Add(neverRainsCheckBox);
@@ -199,7 +204,7 @@
             optionalsGroupBox.Controls.Add(shortParadeCheckBox);
             optionalsGroupBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             optionalsGroupBox.ForeColor = Color.White;
-            optionalsGroupBox.Location = new Point(674, 425);
+            optionalsGroupBox.Location = new Point(429, 617);
             optionalsGroupBox.Name = "optionalsGroupBox";
             optionalsGroupBox.Size = new Size(400, 183);
             optionalsGroupBox.TabIndex = 39;
@@ -356,6 +361,7 @@
             qualiAloneCheckBox.UseCustomBackColor = true;
             qualiAloneCheckBox.UseSelectable = true;
             qualiAloneCheckBox.UseVisualStyleBackColor = false;
+            qualiAloneCheckBox.CheckedChanged += qualiAloneCheckBox_CheckedChanged;
             // 
             // shortParadeCheckBox
             // 
@@ -375,13 +381,12 @@
             // 
             // rosterNameComboBox
             // 
-            rosterNameComboBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             rosterNameComboBox.BackColor = Color.FromArgb(17, 17, 17);
             rosterNameComboBox.DropDownHeight = 260;
             rosterNameComboBox.FormattingEnabled = true;
             rosterNameComboBox.IntegralHeight = false;
             rosterNameComboBox.ItemHeight = 23;
-            rosterNameComboBox.Location = new Point(674, 225);
+            rosterNameComboBox.Location = new Point(846, 807);
             rosterNameComboBox.Name = "rosterNameComboBox";
             rosterNameComboBox.Size = new Size(400, 29);
             rosterNameComboBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -392,11 +397,10 @@
             // 
             // createSeasonButton
             // 
-            createSeasonButton.Anchor = AnchorStyles.Bottom;
             createSeasonButton.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             createSeasonButton.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Tall;
             createSeasonButton.Highlight = true;
-            createSeasonButton.Location = new Point(838, 803);
+            createSeasonButton.Location = new Point(458, 837);
             createSeasonButton.Name = "createSeasonButton";
             createSeasonButton.Size = new Size(204, 62);
             createSeasonButton.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -406,42 +410,8 @@
             createSeasonButton.UseSelectable = true;
             createSeasonButton.Click += createSeasonButton_Click;
             // 
-            // carListCombo
-            // 
-            carListCombo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            carListCombo.BackColor = Color.FromArgb(17, 17, 17);
-            carListCombo.DropDownHeight = 400;
-            carListCombo.FormattingEnabled = true;
-            carListCombo.IntegralHeight = false;
-            carListCombo.ItemHeight = 23;
-            carListCombo.Location = new Point(674, 165);
-            carListCombo.Name = "carListCombo";
-            carListCombo.Size = new Size(400, 29);
-            carListCombo.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
-            carListCombo.TabIndex = 37;
-            carListCombo.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            carListCombo.UseSelectable = true;
-            // 
-            // seriesListCombo
-            // 
-            seriesListCombo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            seriesListCombo.BackColor = Color.FromArgb(17, 17, 17);
-            seriesListCombo.DropDownHeight = 415;
-            seriesListCombo.FormattingEnabled = true;
-            seriesListCombo.IntegralHeight = false;
-            seriesListCombo.ItemHeight = 23;
-            seriesListCombo.Location = new Point(674, 102);
-            seriesListCombo.Name = "seriesListCombo";
-            seriesListCombo.Size = new Size(400, 29);
-            seriesListCombo.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
-            seriesListCombo.TabIndex = 36;
-            seriesListCombo.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            seriesListCombo.UseSelectable = true;
-            seriesListCombo.SelectedIndexChanged += seriesListCombo_SelectedIndexChanged;
-            // 
             // seasonNameTextBox
             // 
-            seasonNameTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             // 
             // 
             // 
@@ -455,7 +425,7 @@
             seasonNameTextBox.CustomButton.UseSelectable = true;
             seasonNameTextBox.CustomButton.Visible = false;
             seasonNameTextBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonTextBoxSize.Medium;
-            seasonNameTextBox.Location = new Point(675, 37);
+            seasonNameTextBox.Location = new Point(847, 748);
             seasonNameTextBox.MaxLength = 32767;
             seasonNameTextBox.Name = "seasonNameTextBox";
             seasonNameTextBox.PasswordChar = '\0';
@@ -472,81 +442,56 @@
             seasonNameTextBox.WaterMarkColor = Color.FromArgb(109, 109, 109);
             seasonNameTextBox.WaterMarkFont = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
             // 
-            // incompleteFormLabel
+            // messageFormLabel
             // 
-            incompleteFormLabel.AutoSize = true;
-            incompleteFormLabel.ForeColor = Color.FromArgb(128, 187, 0);
-            incompleteFormLabel.Location = new Point(471, 551);
-            incompleteFormLabel.Name = "incompleteFormLabel";
-            incompleteFormLabel.Size = new Size(0, 15);
-            incompleteFormLabel.TabIndex = 42;
-            // 
-            // carListLabel
-            // 
-            carListLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            carListLabel.AutoSize = true;
-            carListLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            carListLabel.ForeColor = SystemColors.ControlDark;
-            carListLabel.Location = new Point(674, 147);
-            carListLabel.Name = "carListLabel";
-            carListLabel.Size = new Size(26, 15);
-            carListLabel.TabIndex = 40;
-            carListLabel.Text = "Car";
+            messageFormLabel.AutoSize = true;
+            messageFormLabel.BackColor = Color.Transparent;
+            messageFormLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            messageFormLabel.ForeColor = Color.FromArgb(128, 187, 0);
+            messageFormLabel.Location = new Point(668, 879);
+            messageFormLabel.Name = "messageFormLabel";
+            messageFormLabel.Size = new Size(150, 20);
+            messageFormLabel.TabIndex = 42;
+            messageFormLabel.Text = "messageFormLabel";
             // 
             // seasonNameLabel
             // 
-            seasonNameLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             seasonNameLabel.AutoSize = true;
             seasonNameLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             seasonNameLabel.ForeColor = SystemColors.ControlDark;
-            seasonNameLabel.Location = new Point(674, 18);
+            seasonNameLabel.Location = new Point(846, 729);
             seasonNameLabel.Name = "seasonNameLabel";
             seasonNameLabel.Size = new Size(86, 15);
             seasonNameLabel.TabIndex = 38;
             seasonNameLabel.Text = "Season Name";
             // 
-            // seriesListLabel
-            // 
-            seriesListLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            seriesListLabel.AutoSize = true;
-            seriesListLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            seriesListLabel.ForeColor = SystemColors.ControlDark;
-            seriesListLabel.Location = new Point(674, 84);
-            seriesListLabel.Name = "seriesListLabel";
-            seriesListLabel.Size = new Size(42, 15);
-            seriesListLabel.TabIndex = 35;
-            seriesListLabel.Text = "Series";
-            // 
             // availableTracksFlowLayoutPanel
             // 
-            availableTracksFlowLayoutPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             availableTracksFlowLayoutPanel.AutoScroll = true;
             availableTracksFlowLayoutPanel.BackColor = Color.FromArgb(200, 30, 30, 30);
-            availableTracksFlowLayoutPanel.Location = new Point(1080, 37);
+            availableTracksFlowLayoutPanel.Location = new Point(846, 41);
             availableTracksFlowLayoutPanel.Name = "availableTracksFlowLayoutPanel";
-            availableTracksFlowLayoutPanel.Size = new Size(400, 571);
+            availableTracksFlowLayoutPanel.Size = new Size(400, 570);
             availableTracksFlowLayoutPanel.TabIndex = 49;
             // 
-            // label1
+            // trackSelectionLabel
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(200, 30, 30, 30);
-            label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(1080, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(140, 24);
-            label1.TabIndex = 50;
-            label1.Text = "Track Selection";
+            trackSelectionLabel.AutoSize = true;
+            trackSelectionLabel.BackColor = Color.FromArgb(200, 30, 30, 30);
+            trackSelectionLabel.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            trackSelectionLabel.ForeColor = Color.White;
+            trackSelectionLabel.Location = new Point(846, 9);
+            trackSelectionLabel.Name = "trackSelectionLabel";
+            trackSelectionLabel.Size = new Size(140, 24);
+            trackSelectionLabel.TabIndex = 50;
+            trackSelectionLabel.Text = "Track Selection";
             // 
             // rosterLabel
             // 
-            rosterLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             rosterLabel.AutoSize = true;
             rosterLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rosterLabel.ForeColor = SystemColors.ControlDark;
-            rosterLabel.Location = new Point(674, 207);
+            rosterLabel.Location = new Point(846, 789);
             rosterLabel.Name = "rosterLabel";
             rosterLabel.Size = new Size(43, 15);
             rosterLabel.TabIndex = 51;
@@ -555,6 +500,12 @@
             // sessionLengthsGroupBox
             // 
             sessionLengthsGroupBox.BackColor = Color.FromArgb(200, 30, 30, 30);
+            sessionLengthsGroupBox.Controls.Add(raceMinutesOrPercentageLabel);
+            sessionLengthsGroupBox.Controls.Add(raceLengthValueLabel);
+            sessionLengthsGroupBox.Controls.Add(qualiLapsOrMinutesLabel);
+            sessionLengthsGroupBox.Controls.Add(qualiLengthValueLabel);
+            sessionLengthsGroupBox.Controls.Add(practiceMinutesLabel);
+            sessionLengthsGroupBox.Controls.Add(practiceLengthValueLabel);
             sessionLengthsGroupBox.Controls.Add(raceLengthLabel);
             sessionLengthsGroupBox.Controls.Add(qualiLengthLabel);
             sessionLengthsGroupBox.Controls.Add(practiceLengthLabel);
@@ -563,12 +514,102 @@
             sessionLengthsGroupBox.Controls.Add(practiceLengthTrackBar);
             sessionLengthsGroupBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             sessionLengthsGroupBox.ForeColor = Color.White;
-            sessionLengthsGroupBox.Location = new Point(12, 633);
+            sessionLengthsGroupBox.Location = new Point(12, 729);
             sessionLengthsGroupBox.Name = "sessionLengthsGroupBox";
             sessionLengthsGroupBox.Size = new Size(400, 167);
             sessionLengthsGroupBox.TabIndex = 52;
             sessionLengthsGroupBox.TabStop = false;
             sessionLengthsGroupBox.Text = "Session Lengths";
+            // 
+            // raceMinutesOrPercentageLabel
+            // 
+            raceMinutesOrPercentageLabel.AutoSize = true;
+            raceMinutesOrPercentageLabel.BackColor = Color.Transparent;
+            raceMinutesOrPercentageLabel.Font = new Font("MV Boli", 9F);
+            raceMinutesOrPercentageLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
+            raceMinutesOrPercentageLabel.Location = new Point(141, 109);
+            raceMinutesOrPercentageLabel.Name = "raceMinutesOrPercentageLabel";
+            raceMinutesOrPercentageLabel.Size = new Size(59, 19);
+            raceMinutesOrPercentageLabel.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
+            raceMinutesOrPercentageLabel.TabIndex = 36;
+            raceMinutesOrPercentageLabel.Text = "Minutes";
+            raceMinutesOrPercentageLabel.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            raceMinutesOrPercentageLabel.UseCustomBackColor = true;
+            // 
+            // raceLengthValueLabel
+            // 
+            raceLengthValueLabel.Anchor = AnchorStyles.Right;
+            raceLengthValueLabel.BackColor = Color.Transparent;
+            raceLengthValueLabel.Font = new Font("Arial", 9F, FontStyle.Italic);
+            raceLengthValueLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
+            raceLengthValueLabel.Location = new Point(111, 109);
+            raceLengthValueLabel.Name = "raceLengthValueLabel";
+            raceLengthValueLabel.Size = new Size(33, 19);
+            raceLengthValueLabel.TabIndex = 35;
+            raceLengthValueLabel.Text = "8";
+            raceLengthValueLabel.TextAlign = ContentAlignment.MiddleRight;
+            raceLengthValueLabel.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            raceLengthValueLabel.UseCustomBackColor = true;
+            // 
+            // qualiLapsOrMinutesLabel
+            // 
+            qualiLapsOrMinutesLabel.AutoSize = true;
+            qualiLapsOrMinutesLabel.BackColor = Color.Transparent;
+            qualiLapsOrMinutesLabel.Font = new Font("MV Boli", 9F);
+            qualiLapsOrMinutesLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
+            qualiLapsOrMinutesLabel.Location = new Point(171, 65);
+            qualiLapsOrMinutesLabel.Name = "qualiLapsOrMinutesLabel";
+            qualiLapsOrMinutesLabel.Size = new Size(59, 19);
+            qualiLapsOrMinutesLabel.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
+            qualiLapsOrMinutesLabel.TabIndex = 34;
+            qualiLapsOrMinutesLabel.Text = "Minutes";
+            qualiLapsOrMinutesLabel.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            qualiLapsOrMinutesLabel.UseCustomBackColor = true;
+            // 
+            // qualiLengthValueLabel
+            // 
+            qualiLengthValueLabel.Anchor = AnchorStyles.Right;
+            qualiLengthValueLabel.BackColor = Color.Transparent;
+            qualiLengthValueLabel.Font = new Font("Arial", 9F, FontStyle.Italic);
+            qualiLengthValueLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
+            qualiLengthValueLabel.Location = new Point(141, 65);
+            qualiLengthValueLabel.Name = "qualiLengthValueLabel";
+            qualiLengthValueLabel.Size = new Size(33, 19);
+            qualiLengthValueLabel.TabIndex = 33;
+            qualiLengthValueLabel.Text = "8";
+            qualiLengthValueLabel.TextAlign = ContentAlignment.MiddleRight;
+            qualiLengthValueLabel.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            qualiLengthValueLabel.UseCustomBackColor = true;
+            // 
+            // practiceMinutesLabel
+            // 
+            practiceMinutesLabel.AutoSize = true;
+            practiceMinutesLabel.BackColor = Color.Transparent;
+            practiceMinutesLabel.Font = new Font("MV Boli", 9F);
+            practiceMinutesLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
+            practiceMinutesLabel.Location = new Point(154, 24);
+            practiceMinutesLabel.Name = "practiceMinutesLabel";
+            practiceMinutesLabel.Size = new Size(59, 19);
+            practiceMinutesLabel.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
+            practiceMinutesLabel.TabIndex = 32;
+            practiceMinutesLabel.Text = "Minutes";
+            practiceMinutesLabel.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            practiceMinutesLabel.UseCustomBackColor = true;
+            // 
+            // practiceLengthValueLabel
+            // 
+            practiceLengthValueLabel.Anchor = AnchorStyles.Right;
+            practiceLengthValueLabel.BackColor = Color.Transparent;
+            practiceLengthValueLabel.Font = new Font("Arial", 9F, FontStyle.Italic);
+            practiceLengthValueLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
+            practiceLengthValueLabel.Location = new Point(125, 24);
+            practiceLengthValueLabel.Name = "practiceLengthValueLabel";
+            practiceLengthValueLabel.Size = new Size(33, 19);
+            practiceLengthValueLabel.TabIndex = 31;
+            practiceLengthValueLabel.Text = "3";
+            practiceLengthValueLabel.TextAlign = ContentAlignment.MiddleRight;
+            practiceLengthValueLabel.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            practiceLengthValueLabel.UseCustomBackColor = true;
             // 
             // raceLengthLabel
             // 
@@ -578,10 +619,10 @@
             raceLengthLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
             raceLengthLabel.Location = new Point(70, 109);
             raceLengthLabel.Name = "raceLengthLabel";
-            raceLengthLabel.Size = new Size(37, 19);
+            raceLengthLabel.Size = new Size(40, 19);
             raceLengthLabel.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
             raceLengthLabel.TabIndex = 30;
-            raceLengthLabel.Text = "Race";
+            raceLengthLabel.Text = "Race:";
             raceLengthLabel.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             raceLengthLabel.UseCustomBackColor = true;
             // 
@@ -593,10 +634,10 @@
             qualiLengthLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
             qualiLengthLabel.Location = new Point(70, 65);
             qualiLengthLabel.Name = "qualiLengthLabel";
-            qualiLengthLabel.Size = new Size(71, 19);
+            qualiLengthLabel.Size = new Size(74, 19);
             qualiLengthLabel.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
             qualiLengthLabel.TabIndex = 29;
-            qualiLengthLabel.Text = "Qualifying";
+            qualiLengthLabel.Text = "Qualifying:";
             qualiLengthLabel.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             qualiLengthLabel.UseCustomBackColor = true;
             // 
@@ -608,10 +649,10 @@
             practiceLengthLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
             practiceLengthLabel.Location = new Point(70, 24);
             practiceLengthLabel.Name = "practiceLengthLabel";
-            practiceLengthLabel.Size = new Size(56, 19);
+            practiceLengthLabel.Size = new Size(59, 19);
             practiceLengthLabel.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
             practiceLengthLabel.TabIndex = 28;
-            practiceLengthLabel.Text = "Practice";
+            practiceLengthLabel.Text = "Practice:";
             practiceLengthLabel.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             practiceLengthLabel.UseCustomBackColor = true;
             // 
@@ -619,7 +660,8 @@
             // 
             raceLengthTrackBar.BackColor = Color.Transparent;
             raceLengthTrackBar.Location = new Point(70, 136);
-            raceLengthTrackBar.Maximum = 125;
+            raceLengthTrackBar.Maximum = 300;
+            raceLengthTrackBar.Minimum = 10;
             raceLengthTrackBar.Name = "raceLengthTrackBar";
             raceLengthTrackBar.Size = new Size(258, 16);
             raceLengthTrackBar.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -628,12 +670,13 @@
             raceLengthTrackBar.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             raceLengthTrackBar.UseCustomBackColor = true;
             raceLengthTrackBar.Value = 25;
+            raceLengthTrackBar.ValueChanged += raceLengthTrackBar_ValueChanged;
             // 
             // qualiLengthTrackBar
             // 
             qualiLengthTrackBar.BackColor = Color.Transparent;
             qualiLengthTrackBar.Location = new Point(70, 90);
-            qualiLengthTrackBar.Maximum = 125;
+            qualiLengthTrackBar.Maximum = 30;
             qualiLengthTrackBar.Name = "qualiLengthTrackBar";
             qualiLengthTrackBar.Size = new Size(258, 16);
             qualiLengthTrackBar.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -641,13 +684,14 @@
             qualiLengthTrackBar.Text = "poisonTrackBar1";
             qualiLengthTrackBar.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             qualiLengthTrackBar.UseCustomBackColor = true;
-            qualiLengthTrackBar.Value = 25;
+            qualiLengthTrackBar.Value = 8;
+            qualiLengthTrackBar.ValueChanged += qualiLengthTrackBar_ValueChanged;
             // 
             // practiceLengthTrackBar
             // 
             practiceLengthTrackBar.BackColor = Color.Transparent;
             practiceLengthTrackBar.Location = new Point(70, 46);
-            practiceLengthTrackBar.Maximum = 125;
+            practiceLengthTrackBar.Maximum = 120;
             practiceLengthTrackBar.Name = "practiceLengthTrackBar";
             practiceLengthTrackBar.Size = new Size(258, 16);
             practiceLengthTrackBar.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -655,37 +699,50 @@
             practiceLengthTrackBar.Text = "poisonTrackBar1";
             practiceLengthTrackBar.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             practiceLengthTrackBar.UseCustomBackColor = true;
-            practiceLengthTrackBar.Value = 25;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(579, 703);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 53;
-            button1.Text = "button1";
-            button1.TextAlign = ContentAlignment.MiddleRight;
-            button1.UseVisualStyleBackColor = true;
+            practiceLengthTrackBar.Value = 3;
+            practiceLengthTrackBar.ValueChanged += practiceLengthTrackBar_ValueChanged;
             // 
             // seriesFlowLayoutPanel
             // 
-            seriesFlowLayoutPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             seriesFlowLayoutPanel.AutoScroll = true;
             seriesFlowLayoutPanel.BackColor = Color.FromArgb(200, 30, 30, 30);
-            seriesFlowLayoutPanel.Location = new Point(12, 18);
+            seriesFlowLayoutPanel.Location = new Point(12, 41);
             seriesFlowLayoutPanel.Name = "seriesFlowLayoutPanel";
-            seriesFlowLayoutPanel.Size = new Size(284, 571);
+            seriesFlowLayoutPanel.Size = new Size(400, 570);
             seriesFlowLayoutPanel.TabIndex = 54;
             // 
             // carsFlowLayoutPanel
             // 
-            carsFlowLayoutPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             carsFlowLayoutPanel.AutoScroll = true;
             carsFlowLayoutPanel.BackColor = Color.FromArgb(200, 30, 30, 30);
-            carsFlowLayoutPanel.Location = new Point(317, 18);
+            carsFlowLayoutPanel.Location = new Point(429, 41);
             carsFlowLayoutPanel.Name = "carsFlowLayoutPanel";
-            carsFlowLayoutPanel.Size = new Size(337, 571);
+            carsFlowLayoutPanel.Size = new Size(400, 570);
             carsFlowLayoutPanel.TabIndex = 55;
+            // 
+            // seriesSelectionLabel
+            // 
+            seriesSelectionLabel.AutoSize = true;
+            seriesSelectionLabel.BackColor = Color.FromArgb(200, 30, 30, 30);
+            seriesSelectionLabel.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            seriesSelectionLabel.ForeColor = Color.White;
+            seriesSelectionLabel.Location = new Point(12, 9);
+            seriesSelectionLabel.Name = "seriesSelectionLabel";
+            seriesSelectionLabel.Size = new Size(146, 24);
+            seriesSelectionLabel.TabIndex = 56;
+            seriesSelectionLabel.Text = "Series Selection";
+            // 
+            // carSelectionLabel
+            // 
+            carSelectionLabel.AutoSize = true;
+            carSelectionLabel.BackColor = Color.FromArgb(200, 30, 30, 30);
+            carSelectionLabel.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            carSelectionLabel.ForeColor = Color.White;
+            carSelectionLabel.Location = new Point(429, 9);
+            carSelectionLabel.Name = "carSelectionLabel";
+            carSelectionLabel.Size = new Size(122, 24);
+            carSelectionLabel.TabIndex = 57;
+            carSelectionLabel.Text = "Car Selection";
             // 
             // SeasonForm
             // 
@@ -694,25 +751,22 @@
             BackColor = SystemColors.ActiveCaptionText;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(1486, 914);
+            ClientSize = new Size(1260, 911);
+            Controls.Add(carSelectionLabel);
+            Controls.Add(seriesSelectionLabel);
             Controls.Add(carsFlowLayoutPanel);
             Controls.Add(seriesFlowLayoutPanel);
-            Controls.Add(button1);
             Controls.Add(sessionLengthsGroupBox);
             Controls.Add(rosterLabel);
-            Controls.Add(label1);
+            Controls.Add(trackSelectionLabel);
             Controls.Add(rosterNameComboBox);
             Controls.Add(availableTracksFlowLayoutPanel);
             Controls.Add(aiSkillGroupBox);
             Controls.Add(optionalsGroupBox);
             Controls.Add(createSeasonButton);
-            Controls.Add(carListCombo);
-            Controls.Add(seriesListCombo);
             Controls.Add(seasonNameTextBox);
-            Controls.Add(incompleteFormLabel);
-            Controls.Add(carListLabel);
+            Controls.Add(messageFormLabel);
             Controls.Add(seasonNameLabel);
-            Controls.Add(seriesListLabel);
             DoubleBuffered = true;
             Name = "SeasonForm";
             Text = "SeasonForm";
@@ -752,15 +806,11 @@
         private ReaLTaiizor.Controls.PoisonCheckBox qualiAloneCheckBox;
         private ReaLTaiizor.Controls.PoisonCheckBox shortParadeCheckBox;
         private ReaLTaiizor.Controls.PoisonButton createSeasonButton;
-        private ReaLTaiizor.Controls.PoisonComboBox carListCombo;
-        private ReaLTaiizor.Controls.PoisonComboBox seriesListCombo;
         private ReaLTaiizor.Controls.PoisonTextBox seasonNameTextBox;
-        private Label incompleteFormLabel;
-        private Label carListLabel;
+        private Label messageFormLabel;
         private Label seasonNameLabel;
-        private Label seriesListLabel;
         private FlowLayoutPanel availableTracksFlowLayoutPanel;
-        private Label label1;
+        private Label trackSelectionLabel;
         private ReaLTaiizor.Controls.PoisonLabel carCountLabel;
         private ReaLTaiizor.Controls.PoisonLabel carCountValueLabel;
         private ReaLTaiizor.Controls.PoisonTrackBar carCountTrackBar;
@@ -773,8 +823,16 @@
         private ReaLTaiizor.Controls.PoisonLabel raceLengthLabel;
         private ReaLTaiizor.Controls.PoisonLabel qualiLengthLabel;
         private ReaLTaiizor.Controls.PoisonLabel practiceLengthLabel;
-        private Button button1;
         private FlowLayoutPanel seriesFlowLayoutPanel;
         private FlowLayoutPanel carsFlowLayoutPanel;
+        private ToolTip toolTip1;
+        private Label seriesSelectionLabel;
+        private Label carSelectionLabel;
+        private ReaLTaiizor.Controls.PoisonLabel practiceLengthValueLabel;
+        private ReaLTaiizor.Controls.PoisonLabel practiceMinutesLabel;
+        private ReaLTaiizor.Controls.PoisonLabel qualiLapsOrMinutesLabel;
+        private ReaLTaiizor.Controls.PoisonLabel qualiLengthValueLabel;
+        private ReaLTaiizor.Controls.PoisonLabel raceMinutesOrPercentageLabel;
+        private ReaLTaiizor.Controls.PoisonLabel raceLengthValueLabel;
     }
 }

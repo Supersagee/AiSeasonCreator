@@ -24,6 +24,10 @@ namespace AiSeasonCreator.JsonClasses.FullSchedule
         public string StartDate { get; set; }
         [JsonPropertyName("simulated_time_multiplier")]
         public int SimulatedTimeMultiplier { get; set; }
+        [JsonPropertyName("qualify_laps")]
+        public int QualifyLaps { get; set; }
+        [JsonPropertyName("qualify_length")]
+        public int QualifyLength { get; set; }
 
         [JsonPropertyName("race_lap_limit")]
         public int? RaceLapLimit { get; set; }

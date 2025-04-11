@@ -14,6 +14,9 @@ namespace AiSeasonCreator.Services
         IEnumerable<string> GetAvailableCars();
         IEnumerable<string> GetAvailableTracks();
         int GetDriverCount();
+        int GetPracticeLength();
+        int GetQualiLength(bool qualiAlone);
+        int GetRaceLength();
         IEnumerable<string> GetAvailableRosters();
         void CreateSeason(string seasonName);
     }

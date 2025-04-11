@@ -49,7 +49,7 @@
             menuPanel.Controls.Add(rosterButton);
             menuPanel.Location = new Point(0, 0);
             menuPanel.Name = "menuPanel";
-            menuPanel.Size = new Size(60, 846);
+            menuPanel.Size = new Size(60, 951);
             menuPanel.TabIndex = 0;
             // 
             // settingsButton
@@ -116,18 +116,17 @@
             // 
             // mainPanel
             // 
-            mainPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             mainPanel.BackColor = SystemColors.ActiveBorder;
             mainPanel.Location = new Point(60, 0);
             mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(824, 846);
+            mainPanel.Size = new Size(1500, 950);
             mainPanel.TabIndex = 3;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(884, 846);
+            ClientSize = new Size(1560, 951);
             Controls.Add(mainPanel);
             Controls.Add(menuPanel);
             Name = "MainForm";

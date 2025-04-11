@@ -11,6 +11,7 @@ namespace AiSeasonCreator.Views
         event EventHandler ViewLoaded;
         event EventHandler SeriesIndexChanged;
         event EventHandler RosterClicked;
+        event EventHandler QualiAloneChecked;
         event EventHandler CreateSeasonClicked;
 
         IEnumerable<string> SeriesList { set; }
@@ -19,9 +20,9 @@ namespace AiSeasonCreator.Views
         IEnumerable<string> SelectedTracks { get; }
         IEnumerable<string> RosterList { set; }
 
+        string SelectedSeries { get; }
         string SeasonName { get; }
-        string SeriesName { get; }
-        string CarName { get; }
+        string SelectedCar { get; }
         bool UseAdaptiveAi { get; set; }
         string AdaptiveAiDifficulty { get; set; }
         int AiMin { get; set; }
@@ -35,5 +36,8 @@ namespace AiSeasonCreator.Views
         bool ShortParade { get; set; }
         string RosterName { get; set; }
         int CarCount { get; set; }
+        int PracticeLength { get; set; }
+        int QualiLength { get; set; }
+        int RaceLength { get; set; }
     }
 }

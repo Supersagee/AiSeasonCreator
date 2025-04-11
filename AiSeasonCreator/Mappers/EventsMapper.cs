@@ -38,14 +38,7 @@ namespace AiSeasonCreator.Mappers
 
                     loopEvent.MustUseDiffTireTypesInRace = s.MustUseDiffTireTypesInRace;
 
-                    if (_seasonView.QualiAlone)
-                    {
-                        loopEvent.Subsessions = new List<int> { 3, 4, 6 };
-                    }
-                    else
-                    {
-                        loopEvent.Subsessions = new List<int> { 3, 5, 6 };
-                    }
+                    SetSubsessions(loopEvent);
 
                     eventGuid = Guid.NewGuid().ToString();
                     loopEvent.EventId = eventGuid;
@@ -53,12 +46,12 @@ namespace AiSeasonCreator.Mappers
                     if (s.Schedules[i].RaceLapLimit == null)
                     {
                         loopEvent.RaceLaps = 0;
-                        loopEvent.RaceLength = s.Schedules[i].RaceTimeLimit;
+                        loopEvent.RaceLength = _seasonView.RaceLength;
                         loopEvent.RaceLengthType = 2;
                     }
                     else
                     {
-                        loopEvent.RaceLaps = s.Schedules[i].RaceLapLimit;
+                        loopEvent.RaceLaps = (s.Schedules[i].RaceLapLimit * _seasonView.RaceLength) / 100;
                         loopEvent.RaceLength = 0;
                         loopEvent.RaceLengthType = 3;
                     }
@@ -70,7 +63,7 @@ namespace AiSeasonCreator.Mappers
 
                     if (s.Schedules[i].Track.TrackName.Contains("Combined") || s.Schedules[i].Track.TrackName.Contains("Nordschleife"))
                     {
-                        loopEvent.QualifyLength = 20;
+                        loopEvent.QualifyLength = 30;
                     }
                     else if (s.Schedules[i].Track.Category == "oval")
                     {
@@ -91,6 +84,37 @@ namespace AiSeasonCreator.Mappers
             }
 
             return events;
+        }
+        
+        private void SetSubsessions(Events loopEvent)
+        {
+            if (_seasonView.PracticeLength == 0 && _seasonView.QualiLength == 0)
+            {
+                loopEvent.Subsessions = new List<int> { 6 };
+            }
+            else if (_seasonView.PracticeLength == 0)
+            {
+                if (_seasonView.QualiAlone)
+                {
+                    loopEvent.Subsessions = new List<int> { 4, 6 };
+                }
+                else
+                {
+                    loopEvent.Subsessions = new List<int> { 5, 6 };
+                }
+            }
+            else if (_seasonView.QualiLength == 0)
+            {
+                loopEvent.Subsessions = new List<int> { 3, 6 };
+            }
+            else if (_seasonView.QualiAlone)
+            {
+                loopEvent.Subsessions = new List<int> { 3, 4, 6 };
+            }
+            else
+            {
+                loopEvent.Subsessions = new List<int> { 3, 5, 6 };
+            }
         }
     }
 }

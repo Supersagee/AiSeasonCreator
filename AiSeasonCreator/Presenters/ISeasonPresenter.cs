@@ -11,6 +11,7 @@ namespace AiSeasonCreator.Presenters
         void OnViewLoaded(object sender, EventArgs e);
         void OnSeriesIndexChanged(object sender, EventArgs e);
         void OnRosterClicked(object sender, EventArgs e);
+        void OnQualiAloneChecked(object sender, EventArgs e);
         void OnCreateSeasonClicked(object sender, EventArgs e);
     }
 }

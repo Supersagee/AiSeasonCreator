@@ -24,7 +24,7 @@ namespace AiSeasonCreator.Views
         private void SeasonForm_Load(object sender, EventArgs e)
         {
             ViewLoaded?.Invoke(this, e);
-            availableTracksFlowLayoutPanel.BackColor = Color.FromArgb(200, 30, 30, 30);
+            messageFormLabel.Text = "";
         }
 
         private void seriesListCombo_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,16 +37,159 @@ namespace AiSeasonCreator.Views
             carCountValueLabel.Text = carCountTrackBar.Value.ToString();
         }
 
+        private void rosterNameComboBox_Click(object sender, EventArgs e)
+        {
+            RosterClicked.Invoke(this, e);
+        }
+
+        private void SeriesSelectionButton_Click(object sender, EventArgs e)
+        {
+            SelectedCar = "";
+
+            if (sender is Button clickedButton && clickedButton.Tag is ButtonInfo info)
+            {
+                foreach (Button button in seriesFlowLayoutPanel.Controls)
+                {
+                    if (button.Tag is ButtonInfo inf)
+                        inf.IsSelected = false;
+                    button.BackColor = Color.FromArgb(200, 30, 30, 30);
+                    button.ForeColor = Color.White;
+                }
+
+                clickedButton.ForeColor = Color.FromArgb(128, 187, 0);
+                info.IsSelected = true;
+                SelectedSeries = info.OriginalName;
+
+                SeriesIndexChanged?.Invoke(this, e);
+
+                if (RaceLength == 100)
+                    raceMinutesOrPercentageLabel.Text = "%";
+                else
+                    raceMinutesOrPercentageLabel.Text = "Minutes";
+            }
+        }
+
+        private void CarsSelectionButton_Click(object sender, EventArgs e)
+        {
+            if (sender is Button clickedButton && clickedButton.Tag is ButtonInfo info)
+            {
+                foreach (Button button in carsFlowLayoutPanel.Controls)
+                {
+                    if (button.Tag is ButtonInfo inf)
+                        inf.IsSelected = false;
+                    button.BackColor = Color.FromArgb(200, 30, 30, 30);
+                    button.ForeColor = Color.White;
+                }
+
+                clickedButton.ForeColor = Color.FromArgb(128, 187, 0);
+                info.IsSelected = true;
+                SelectedCar = info.OriginalName;
+            }
+        }
+
+        private void TrackSelectionButton_Click(object sender, EventArgs e)
+        {
+            if (sender is Button button && button.Tag is ButtonInfo info)
+            {
+                info.IsSelected = !info.IsSelected;
+
+                if (info.IsSelected)
+                {
+                    button.FlatAppearance.BorderSize = 0;
+                    button.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Italic);
+                    button.ForeColor = Color.Gray;
+                    button.BackColor = Color.FromArgb(220, 50, 50, 50);
+                }
+                else
+                {
+                    button.FlatAppearance.BorderSize = 1;
+                    button.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
+                    button.ForeColor = Color.White;
+                    button.BackColor = Color.FromArgb(200, 30, 30, 30);
+                }
+            }
+        }
+
         private void createSeasonButton_Click(object sender, EventArgs e)
         {
-            if (SelectedSeries == null || SelectedSeries == "")
+            createSeasonButton.Visible = false;
+            createSeasonButton.Visible = true;
+            createSeasonButton.Refresh();
+
+            if (IsFormBlank())
             {
+                messageFormLabel.Text = "Please complete your selections";
+                BlinkLabel(messageFormLabel);
                 return;
             }
-            
+
+            messageFormLabel.Text = "";
             CreateSeasonClicked?.Invoke(this, e);
-            
-            createSeasonButton.Refresh();
+            TempDisableCreateSeasonButton();
+        }
+
+        private bool IsFormBlank()
+        {
+            if (SeasonName == null || SeasonName == "")
+                return true;
+            if (SelectedSeries == null || SelectedSeries == "")
+                return true;
+            if (SelectedCar == null || SelectedCar == "")
+                return true;
+            if (SelectedTracks.Count() == 0)
+                return true;
+            if (practiceLengthTrackBar.Value < 1 &&
+                qualiLengthTrackBar.Value < 1 &&
+                raceLengthTrackBar.Value < 1)
+                return true;
+
+            return false;
+        }
+
+        private async void TempDisableCreateSeasonButton()
+        {
+            messageFormLabel.Text = "Season Created Successfully!";
+            BlinkLabel(messageFormLabel);
+            createSeasonButton.Enabled = false;
+            await Task.Delay(3000);
+            createSeasonButton.Enabled = true;
+        }
+
+        private async void BlinkLabel(Label label)
+        {
+            for (var i = 0; i < 6; i++)
+            {
+                await Task.Delay(100);
+                label.ForeColor = label.ForeColor == Color.FromArgb(128, 187, 0) ? Color.Black : Color.FromArgb(128, 187, 0);
+            }
+        }
+
+        private void PopulateSeriesButtons(IEnumerable<string> series)
+        {
+            seriesFlowLayoutPanel.Controls.Clear();
+
+            foreach (var item in series)
+            {
+                var button = new Button();
+
+                SetFlowPanelButton(button, item);
+                button.Click += SeriesSelectionButton_Click;
+                seriesFlowLayoutPanel.Controls.Add(button);
+            }
+        }
+
+        private void PopulateCarButtons(IEnumerable<string> cars)
+        {
+            carsFlowLayoutPanel.Controls.Clear();
+
+            foreach (var car in cars)
+            {
+                var button = new Button();
+
+                SetFlowPanelButton(button, car);
+                button.Click += CarsSelectionButton_Click;
+                carsFlowLayoutPanel.Controls.Add(button);
+            }
         }
 
         private void PopulateTrackButtons(IEnumerable<string> tracks)
@@ -57,115 +200,115 @@ namespace AiSeasonCreator.Views
             {
                 var button = new Button();
 
-                var info = new ButtonInfo { OriginalName = track, IsSelected = false };
-                button.Tag = info;
-
-                if (track.Length > 25)
-                    button.Text = $"  {track.Substring(0, 25).Trim()}...";
-                else
-                    button.Text = $"  {track}";
-                button.Image = Image.FromFile("C:\\Users\\Billy\\TrackAssets\\daytonainternationalspeedway-logo-small.png");
-                button.TextImageRelation = TextImageRelation.ImageBeforeText;
-                button.ImageAlign = ContentAlignment.MiddleLeft;
-                button.Height = 36;
-                button.Width = 360;
-                button.FlatAppearance.BorderSize = 1;
-                button.Font = new Font("Microsoft Sans Serif", 14, FontStyle.Regular);
-                button.BackColor = Color.FromArgb(200, 30, 30, 30);
-                button.ForeColor = Color.White;
-                button.TextAlign = ContentAlignment.MiddleRight;
-                button.FlatStyle = FlatStyle.Flat;
-                //button.Tag = false;
-                button.Click += Button_Click;
+                SetFlowPanelButton(button, track);
+                button.Click += TrackSelectionButton_Click;
 
                 availableTracksFlowLayoutPanel.Controls.Add(button);
             }
         }
 
-        private void Button_Click(object sender, EventArgs e)
+        private void SetFlowPanelButton(Button button, string item)
         {
-            if (sender is Button button && button.Tag is ButtonInfo info)
-            {
-                // Toggle the selection state
-                info.IsSelected = !info.IsSelected;
+            var info = new ButtonInfo { OriginalName = item, IsSelected = false };
+            button.Tag = info;
 
-                if (info.IsSelected)
-                {
-                    button.FlatAppearance.BorderSize = 0;
-                    button.Font = new Font("Microsoft Sans Serif", 14, FontStyle.Italic);
-                    button.ForeColor = Color.Gray;
-                    button.BackColor = Color.FromArgb(220, 50, 50, 50);
-                }
+            if (item.Length > 40)
+            {
+                button.Text = $"  {item.Substring(0, 40).Trim()}...";
+                toolTip1.SetToolTip(button, item);
+            }
+            else
+                button.Text = $"  {item}";
+
+            button.Image = Image.FromFile("C:\\Users\\Billy\\TrackAssets\\daytonainternationalspeedway-logo-small.png");
+            button.TextImageRelation = TextImageRelation.ImageBeforeText;
+            button.ImageAlign = ContentAlignment.MiddleLeft;
+            button.Height = 36;
+            button.Width = 360;
+            button.FlatAppearance.BorderSize = 0;
+            button.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
+            button.BackColor = Color.FromArgb(200, 30, 30, 30);
+            button.ForeColor = Color.White;
+            button.TextAlign = ContentAlignment.MiddleRight;
+            button.FlatStyle = FlatStyle.Flat;
+        }
+
+        private void practiceLengthTrackBar_ValueChanged(object sender, EventArgs e)
+        {
+            practiceLengthValueLabel.Text = practiceLengthTrackBar.Value.ToString();
+
+            if (practiceLengthTrackBar.Value == 1)
+                practiceMinutesLabel.Text = "Minute";
+            else
+                practiceMinutesLabel.Text = "Minutes";
+        }
+
+        private void qualiLengthTrackBar_ValueChanged(object sender, EventArgs e)
+        {
+            qualiLengthValueLabel.Text = qualiLengthTrackBar.Value.ToString();
+
+            if (qualiAloneCheckBox.Checked)
+            {
+                if (qualiLengthTrackBar.Value == 1)
+                    qualiLapsOrMinutesLabel.Text = "Lap";
                 else
-                {
-                    button.FlatAppearance.BorderSize = 1;
-                    button.Font = new Font("Microsoft Sans Serif", 14, FontStyle.Regular);
-                    button.ForeColor = Color.White;
-                    button.BackColor = Color.FromArgb(200, 30, 30, 30);
-                }
+                    qualiLapsOrMinutesLabel.Text = "Laps";
             }
-        }
-
-        private void PopulateSeriesButtons(IEnumerable<string> series)
-        {
-            // Clear any existing buttons
-            seriesFlowLayoutPanel.Controls.Clear();
-
-            foreach (var item in series)
+            else
             {
-                var button = new Button();
-                button.Text = item;
-                button.AutoSize = true;
-                // Initially, the button is not selected.
-                // We can store selection state as a bool in the Tag property (false means not selected).
-                button.Tag = false;
-
-                // Optionally, set default styling (unselected style)
-                button.BackColor = Color.FromArgb(200, 30, 30, 30);
-                button.ForeColor = Color.White;
-                button.FlatStyle = FlatStyle.Flat;
-
-                // Attach the click event handler
-                button.Click += SeriesButton_Click;
-                seriesFlowLayoutPanel.Controls.Add(button);
+                if (qualiLengthTrackBar.Value == 1)
+                    qualiLapsOrMinutesLabel.Text = "Minute";
+                else
+                    qualiLapsOrMinutesLabel.Text = "Minutes";
             }
         }
 
-        private void SeriesButton_Click(object sender, EventArgs e)
+        private void raceLengthTrackBar_ValueChanged(object sender, EventArgs e)
         {
-            if (sender is Button clickedButton)
+            raceLengthValueLabel.Text = raceLengthTrackBar.Value.ToString();
+        }
+
+        private void qualiAloneCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (qualiAloneCheckBox.Checked)
             {
-                // Deselect all buttons in the panel first.
-                foreach (Button btn in seriesFlowLayoutPanel.Controls)
-                {
-                    btn.Tag = false;
-                    // Reset to unselected style
-                    btn.BackColor = Color.FromArgb(200, 30, 30, 30);
-                    btn.ForeColor = Color.White;
-                    // You might also adjust border style or font here.
-                }
-
-                // Mark the clicked button as selected.
-                clickedButton.Tag = true;
-                // Set a "highlighted" style.
-                //clickedButton.BackColor = Color.Blue;       // or any highlight color
-                clickedButton.ForeColor = Color.FromArgb(142, 188, 0);       // highlight text color
-
-                // Store the selected series for later use.
-                SelectedSeries = clickedButton.Text;
+                qualiLapsOrMinutesLabel.Text = "Laps";
+                qualiLengthTrackBar.Maximum = 5;
             }
+            else
+            {
+                qualiLapsOrMinutesLabel.Text = "Minutes";
+                qualiLengthTrackBar.Maximum = 30;
+            }
+
+            QualiAloneChecked.Invoke(this, e);
         }
 
-        public string SelectedSeries { get; private set; }
-
-        private void rosterNameComboBox_Click(object sender, EventArgs e)
+        private void aiSkillMinTrackBar_ValueChanged(object sender, EventArgs e)
         {
-            RosterClicked.Invoke(this, e);
+            if (aiSkillMinTrackBar.Value > aiSkillMaxTrackBar.Value)
+            {
+                aiSkillMaxTrackBar.Value = aiSkillMinTrackBar.Value;
+            }
+
+            aiSkillPerLabel.Text = $"{aiSkillMinTrackBar.Value.ToString()}%-{aiSkillMaxTrackBar.Value.ToString()}%";
+        }
+
+        private void aiSkillMaxTrackBar_ValueChanged(object sender, EventArgs e)
+        {
+            if (aiSkillMaxTrackBar.Value < aiSkillMinTrackBar.Value)
+            {
+                aiSkillMinTrackBar.Value = aiSkillMaxTrackBar.Value;
+            }
+
+            aiSkillPerLabel.Text = $"{aiSkillMinTrackBar.Value.ToString()}%-{aiSkillMaxTrackBar.Value.ToString()}%";
         }
 
         public event EventHandler ViewLoaded;
         public event EventHandler SeriesIndexChanged;
         public event EventHandler RosterClicked;
+        public event EventHandler QualiAloneChecked;
         public event EventHandler CreateSeasonClicked;
 
         public ISeasonPresenter Presenter { get; set; }
@@ -175,7 +318,7 @@ namespace AiSeasonCreator.Views
         }
         public IEnumerable<string> CarList
         {
-            set { carListCombo.DataSource = value.ToList(); }
+            set { PopulateCarButtons(value); }
         }
 
         public IEnumerable<string> TrackList
@@ -199,20 +342,13 @@ namespace AiSeasonCreator.Views
             set { rosterNameComboBox.DataSource = value.ToList(); }
         }
 
+        public string SelectedSeries { get; private set; }
         public string SeasonName
         {
-            get { return seasonNameTextBox.Text; }
+            get { return seasonNameTextBox.Text.Trim(); }
         }
 
-        public string SeriesName
-        {
-            get { return seriesListCombo.Text; }
-        }
-
-        public string CarName
-        {
-            get { return carListCombo.Text; }
-        }
+        public string SelectedCar { get; private set; }
 
         public bool UseAdaptiveAi
         {
@@ -290,6 +426,24 @@ namespace AiSeasonCreator.Views
         {
             get { return carCountTrackBar.Value; }
             set { carCountTrackBar.Value = value; }
+        }
+
+        public int PracticeLength
+        {
+            get { return practiceLengthTrackBar.Value; }
+            set { practiceLengthTrackBar.Value = value; }
+        }
+
+        public int QualiLength
+        {
+            get { return qualiLengthTrackBar.Value; }
+            set { qualiLengthTrackBar.Value = value; }
+        }
+
+        public int RaceLength
+        {
+            get { return raceLengthTrackBar.Value; }
+            set { raceLengthTrackBar.Value = value; }
         }
     }
 }
