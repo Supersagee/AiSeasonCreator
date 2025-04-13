@@ -38,7 +38,6 @@ namespace AiSeasonCreator.Presenters
             _view.CarList = _seasonService.GetAvailableCars();
             _view.TrackList =_seasonService.GetAvailableTracks();
             _view.CarCount = _seasonService.GetDriverCount();
-            //_view.PracticeLength = _seasonService.GetPracticeLength();
             _view.QualiLength = _seasonService.GetQualiLength(_view.QualiAlone);
             _view.RaceLength = _seasonService.GetRaceLength();
         }

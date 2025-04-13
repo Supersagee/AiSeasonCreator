@@ -1,5 +1,7 @@
 ﻿using AiSeasonCreator.Data;
 using AiSeasonCreator.FormOptions;
+using AiSeasonCreator.Helpers;
+using AiSeasonCreator.JsonClasses.Assets;
 using AiSeasonCreator.JsonClasses.CarClasses;
 using AiSeasonCreator.JsonClasses.CarDetails;
 using AiSeasonCreator.JsonClasses.FullSchedule;
@@ -60,6 +62,15 @@ namespace AiSeasonCreator.Services
 
             var tracksFilePath = Path.Combine(basePath, "JsonFiles", "Tracks.json");
             _loadedData.TrackDetails = _jsonRepo.Load<TrackDetails[]>(tracksFilePath);
+
+            var carAssetsFilePath = Path.Combine(basePath, "JsonFiles", "CarAssets.json");
+            _loadedData.CarAssets = _jsonRepo.Load<Dictionary<string, CarAssets>>(carAssetsFilePath);
+
+            var seriesAssetsFilePath = Path.Combine(basePath, "JsonFiles", "SeriesAssets.json");
+            _loadedData.SeriesAssets = _jsonRepo.Load<Dictionary<string, SeriesAssets>>(seriesAssetsFilePath);
+
+            var trackAssetsFilePath = Path.Combine(basePath, "JsonFiles", "TrackAssets.json");
+            _loadedData.TrackAssets = _jsonRepo.Load<Dictionary<string, TrackAssets>>(trackAssetsFilePath);
         }
 
         public void SetSelectedSeasonAndSeries(string seriesName)
@@ -72,15 +83,19 @@ namespace AiSeasonCreator.Services
             _loadedData.SelectedSeriesWeather = _loadedData.WeatherSchedule.Series.FirstOrDefault(s => s.SeriesId == selectedSeries.SeriesId);
         }
 
-        public IEnumerable<string> GetAvailableSeries()
+        public IEnumerable<NameAndAsset> GetAvailableSeries()
         {
-            var availableSeries = new List<string>();
+            var availableSeries = new List<NameAndAsset>();
             var schedules = _loadedData.FullSchedule;
             var carClasses = _loadedData.CarClasses;
             var carDetails = _loadedData.CarDetails;
 
+            var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
             foreach (var schedule in schedules)
             {
+                var naa = new NameAndAsset();
+
                 var carIds = schedule.CarClassIds;
                 var carsInSeries = carClasses
                     .Where(cc => carIds.Contains(cc.CarClassId))
@@ -91,21 +106,29 @@ namespace AiSeasonCreator.Services
                     .Where(cd => carsInSeries.Contains(cd.CarId) && cd.AiEnabled)
                     .ToList();
 
+                var seriesAssets = _loadedData.SeriesAssets.FirstOrDefault(s => Convert.ToInt32(s.Key) == schedule.SeriesId).Value.Logo;
+                seriesAssets = Path.Combine(basePath, "Assets", "SeriesAssets", seriesAssets);
+
                 if (aiCarsInSeries.Any())
                 {
-                    availableSeries.Add(schedule.Schedules[0].SeriesName);
+                    naa.Name = schedule.Schedules[0].SeriesName;
+                    naa.Asset = Image.FromFile(seriesAssets);
+                    availableSeries.Add(naa);
                 }
             }
 
-            availableSeries.Sort();
+            //availableSeries.Sort();
             return availableSeries;
         }
 
-        public IEnumerable<string> GetAvailableCars()
+        public IEnumerable<NameAndAsset> GetAvailableCars()
         {
-            var cars = new List<string>();
+            var cars = new List<NameAndAsset>();
             var carIds = new List<int>();
             var carClasses = _loadedData.SelectedSeries.CarClassIds;
+
+            var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
 
             foreach (var carClass in carClasses)
             {
@@ -113,11 +136,27 @@ namespace AiSeasonCreator.Services
 
                 foreach (var id in ids.CarsInClass)
                 {
+                    var naa = new NameAndAsset();
+
                     var car = _loadedData.CarDetails.FirstOrDefault(c => c.CarId == id.CarId);
+                    var carAssets = _loadedData.CarAssets.FirstOrDefault(c => Convert.ToInt32(c.Key) == id.CarId).Value.Logo;
+                    carAssets = Path.Combine(basePath, "Assets", "CarAssets", carAssets);
 
                     if (car.AiEnabled)
                     {
-                        cars.Add(car.CarName);
+                        naa.Name = car.CarName;
+
+                        //if (Directory.Exists(carAsset))
+                        //{
+                            naa.Asset = Image.FromFile(carAssets);
+                        //}
+                        //else
+                        //{
+                        //    var defaultLogo = Path.Combine(basePath, "Assets", "CarAssets", "iracingnotext-logo.png");
+                        //    naa.Asset = Image.FromFile(defaultLogo);
+                        //}
+
+                        cars.Add(naa);
                     }
                 }
             }
@@ -125,20 +164,27 @@ namespace AiSeasonCreator.Services
             return cars;
         }
 
-        public IEnumerable<string> GetAvailableTracks()
+        public IEnumerable<NameAndAsset> GetAvailableTracks()
         {
-            var availableTracks = new List<string>();
+            var availableTracks = new List<NameAndAsset>();
             var ss = _loadedData.SelectedSeries;
+
+            var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
             foreach (var evnt in ss.Schedules)
             {
+                var naa = new NameAndAsset();
                 var id = evnt.Track.TrackId;
 
                 var trackDetail = _loadedData.TrackDetails.FirstOrDefault(t => t.TrackId == id);
+                var trackAssets = _loadedData.TrackAssets.FirstOrDefault(c => Convert.ToInt32(c.Key) == evnt.Track.TrackId).Value.Logo;
+                trackAssets = Path.Combine(basePath, "Assets", "TrackAssets", trackAssets);
 
                 if (trackDetail.AiEnabled)
                 {
-                    availableTracks.Add(trackDetail.TrackName);
+                    naa.Name = trackDetail.TrackName;
+                    naa.Asset = Image.FromFile(trackAssets);
+                    availableTracks.Add(naa);
                 }
             }
 
@@ -205,6 +251,38 @@ namespace AiSeasonCreator.Services
                 }
             }
             return rosterNames;
+        }
+
+        public string GetImageFilePath(string assetType, string itemName)
+        {
+            var fileName = "";
+
+            var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+            if (assetType == "car")
+            {
+                var id = _loadedData.CarDetails.FirstOrDefault(c => c.CarName == itemName).CarId;
+                fileName = _loadedData.CarAssets.FirstOrDefault(c => Convert.ToInt32(c.Key) == id).Value.Logo;
+                fileName = Path.Combine(basePath, "Assets", "CarAssets", fileName);
+            }
+            else if (assetType == "series")
+            {
+                var id = _loadedData.FullSchedule.FirstOrDefault(c => c.Schedules[0].SeriesName == itemName).SeriesId;
+                fileName = _loadedData.SeriesAssets.FirstOrDefault(c => Convert.ToInt32(c.Key) == id).Value.Logo;
+                fileName = Path.Combine(basePath, "Assets", "SeriesAssets", fileName);
+            }
+            else if (assetType == "track")
+            {
+                var id = _loadedData.TrackDetails.FirstOrDefault(c => c.TrackName == itemName).TrackId;
+                fileName = _loadedData.TrackAssets.FirstOrDefault(c => Convert.ToInt32(c.Key) == id).Value.Logo;
+                fileName = Path.Combine(basePath, "Assets", "TrackAssets", fileName);
+            }
+            else
+            {
+                fileName = Path.Combine(basePath, "Assets", "CarAssets", "iracingnotext-logo.png");
+            }
+
+            return fileName;
         }
 
         public void CreateSeason(string seasonName)

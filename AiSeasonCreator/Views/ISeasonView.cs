@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AiSeasonCreator.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,9 +15,9 @@ namespace AiSeasonCreator.Views
         event EventHandler QualiAloneChecked;
         event EventHandler CreateSeasonClicked;
 
-        IEnumerable<string> SeriesList { set; }
-        IEnumerable<string> CarList { set; }
-        IEnumerable<string> TrackList { set; }
+        IEnumerable<NameAndAsset> SeriesList { set; }
+        IEnumerable<NameAndAsset> CarList { set; }
+        IEnumerable<NameAndAsset> TrackList { set; }
         IEnumerable<string> SelectedTracks { get; }
         IEnumerable<string> RosterList { set; }
 

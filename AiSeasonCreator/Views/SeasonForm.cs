@@ -14,6 +14,8 @@ using System.Windows.Forms;
 
 namespace AiSeasonCreator.Views
 {
+    
+
     public partial class SeasonForm : Form, ISeasonView
     {
         public SeasonForm()
@@ -95,14 +97,12 @@ namespace AiSeasonCreator.Views
 
                 if (info.IsSelected)
                 {
-                    button.FlatAppearance.BorderSize = 0;
                     button.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Italic);
                     button.ForeColor = Color.Gray;
                     button.BackColor = Color.FromArgb(220, 50, 50, 50);
                 }
                 else
                 {
-                    button.FlatAppearance.BorderSize = 1;
                     button.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
                     button.ForeColor = Color.White;
                     button.BackColor = Color.FromArgb(200, 30, 30, 30);
@@ -164,7 +164,7 @@ namespace AiSeasonCreator.Views
             }
         }
 
-        private void PopulateSeriesButtons(IEnumerable<string> series)
+        private void PopulateSeriesButtons(IEnumerable<NameAndAsset> series)
         {
             seriesFlowLayoutPanel.Controls.Clear();
 
@@ -172,13 +172,13 @@ namespace AiSeasonCreator.Views
             {
                 var button = new Button();
 
-                SetFlowPanelButton(button, item);
+                SetFlowPanelButton(button, item.Name, item.Asset);
                 button.Click += SeriesSelectionButton_Click;
                 seriesFlowLayoutPanel.Controls.Add(button);
             }
         }
 
-        private void PopulateCarButtons(IEnumerable<string> cars)
+        private void PopulateCarButtons(IEnumerable<NameAndAsset> cars)
         {
             carsFlowLayoutPanel.Controls.Clear();
 
@@ -186,13 +186,15 @@ namespace AiSeasonCreator.Views
             {
                 var button = new Button();
 
-                SetFlowPanelButton(button, car);
+                SetFlowPanelButton(button, car.Name, car.Asset);
+                button.TextImageRelation = TextImageRelation.Overlay;
+                button.TextAlign = ContentAlignment.TopRight;
                 button.Click += CarsSelectionButton_Click;
                 carsFlowLayoutPanel.Controls.Add(button);
             }
         }
 
-        private void PopulateTrackButtons(IEnumerable<string> tracks)
+        private void PopulateTrackButtons(IEnumerable<NameAndAsset> tracks)
         {
             availableTracksFlowLayoutPanel.Controls.Clear();
 
@@ -200,14 +202,15 @@ namespace AiSeasonCreator.Views
             {
                 var button = new Button();
 
-                SetFlowPanelButton(button, track);
+                SetFlowPanelButton(button, track.Name, track.Asset);
+                button.TextImageRelation = TextImageRelation.Overlay;
+                button.TextAlign = ContentAlignment.TopRight;
                 button.Click += TrackSelectionButton_Click;
-
                 availableTracksFlowLayoutPanel.Controls.Add(button);
             }
         }
 
-        private void SetFlowPanelButton(Button button, string item)
+        private void SetFlowPanelButton(Button button, string item, Image asset)
         {
             var info = new ButtonInfo { OriginalName = item, IsSelected = false };
             button.Tag = info;
@@ -220,10 +223,10 @@ namespace AiSeasonCreator.Views
             else
                 button.Text = $"  {item}";
 
-            button.Image = Image.FromFile("C:\\Users\\Billy\\TrackAssets\\daytonainternationalspeedway-logo-small.png");
+            button.Image = asset;
             button.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button.ImageAlign = ContentAlignment.MiddleLeft;
-            button.Height = 36;
+            button.ImageAlign = ContentAlignment.TopLeft;
+            button.Height = 40;
             button.Width = 360;
             button.FlatAppearance.BorderSize = 0;
             button.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
@@ -312,16 +315,15 @@ namespace AiSeasonCreator.Views
         public event EventHandler CreateSeasonClicked;
 
         public ISeasonPresenter Presenter { get; set; }
-        public IEnumerable<string> SeriesList
+        public IEnumerable<NameAndAsset> SeriesList
         {
             set { PopulateSeriesButtons(value); }
         }
-        public IEnumerable<string> CarList
+        public IEnumerable<NameAndAsset> CarList
         {
             set { PopulateCarButtons(value); }
         }
-
-        public IEnumerable<string> TrackList
+        public IEnumerable<NameAndAsset> TrackList
         {
             set { PopulateTrackButtons(value); }
         }
@@ -341,7 +343,6 @@ namespace AiSeasonCreator.Views
         {
             set { rosterNameComboBox.DataSource = value.ToList(); }
         }
-
         public string SelectedSeries { get; private set; }
         public string SeasonName
         {
