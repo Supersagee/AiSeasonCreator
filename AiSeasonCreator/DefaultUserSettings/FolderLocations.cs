@@ -10,8 +10,8 @@ namespace AiSeasonCreator.DefaultUserSettings
     public class FolderLocations
     {
         [JsonPropertyName("seasonsFolder")]
-        public string SeasonsFolder { get; set; }
+        public string SeasonsFolder { get; set; } = "";
         [JsonPropertyName("rostersFolder")]
-        public string RostersFolder { get; set; }
+        public string RostersFolder { get; set; } = "";
     }
 }

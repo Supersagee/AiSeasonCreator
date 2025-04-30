@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using System.Diagnostics;
 
-namespace AiSeasonCreator
+namespace AiSeasonCreator.Helpers
 {
     public class Updater
     {
@@ -16,7 +16,7 @@ namespace AiSeasonCreator
         public async void CheckForUpdates()
         {
             JObject latestReleaseInfo;
-            var updater = new AiSeasonCreator.Updater();
+            var updater = new Updater();
 
             try
             {

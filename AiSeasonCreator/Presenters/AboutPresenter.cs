@@ -23,7 +23,9 @@ namespace AiSeasonCreator.Presenters
         
         public void OnViewLoaded(object sender, EventArgs e)
         {
-            _view.AboutSection = _aboutService.GetAboutSection();
+            _view.GeneralAboutSection = _aboutService.GetGeneralAboutSection();
+            _view.SeasonAboutSection = _aboutService.GetSeasonAboutSection();
+            _view.RosterAboutSection = _aboutService.GetRosterAboutSection();
         }
 
         public void OnForumLinkClicked(object sender, EventArgs e)

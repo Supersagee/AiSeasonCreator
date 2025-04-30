@@ -10,26 +10,26 @@ namespace AiSeasonCreator.DefaultUserSettings
     public class CheckBoxesUserValues
     {
         [JsonPropertyName("useAdaptiveAi")]
-        public bool UseAdaptiveAi { get; set; }
+        public bool UseAdaptiveAi { get; set; } = false;
         [JsonPropertyName("disableCarDamage")]
-        public bool DisableCarDamage { get; set; }
+        public bool DisableCarDamage { get; set; } = false;
         [JsonPropertyName("aiAvoidsPlayer")]
-        public bool AiAvoidsPlayer { get; set; }
+        public bool AiAvoidsPlayer { get; set; } = false;
         [JsonPropertyName("consistentWeather")]
-        public bool ConsistentWeather { get; set; }
+        public bool StaticWeather { get; set; } = false;
         [JsonPropertyName("afternoonRaces")]
-        public bool AfternoonRaces { get; set; }
+        public bool AfternoonRaces { get; set; } = false;
         [JsonPropertyName("neverRain")]
-        public bool NeverRain { get; set; }
+        public bool NeverRain { get; set; } = false;
         [JsonPropertyName("qualifyAlone")]
-        public bool QualifyAlone { get; set; }
+        public bool QualifyAlone { get; set; } = true;
         [JsonPropertyName("shortParade")]
-        public bool ShortParade { get; set; }
+        public bool ShortParade { get; set; } = false;
         [JsonPropertyName("selectTracks")]
-        public bool SelectTracks { get; set; }
+        public bool SelectTracks { get; set; } = false;
         [JsonPropertyName("excludeRoster")]
-        public bool ExcludeRoster { get; set; }
+        public bool ExcludeRoster { get; set; } = false;
         [JsonPropertyName("useRosterTabAtt")]
-        public bool UseRosterTabAtt { get; set; }
+        public bool UseRosterTabAtt { get; set; } = false;
     }
 }

@@ -10,6 +10,6 @@ namespace AiSeasonCreator.DefaultUserSettings
     public class ComboBoxesUserValues
     {
         [JsonPropertyName("adaptiveAiSkillLevel")]
-        public string AdaptiveAiSkillLevel { get; set; }
+        public string AdaptiveAiSkillLevel { get; set; } = "Easy";
     }
 }

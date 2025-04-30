@@ -1,4 +1,5 @@
-﻿using AiSeasonCreator.Services;
+﻿using AiSeasonCreator.Data;
+using AiSeasonCreator.Services;
 using AiSeasonCreator.Views;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,13 @@ namespace AiSeasonCreator.Presenters
     {
         private ISeasonView _view;
         private ISeasonService _seasonService;
+        private LoadedData _loadedData;
 
-        public SeasonPresenter(ISeasonView view, ISeasonService seasonService)
+        public SeasonPresenter(ISeasonView view, ISeasonService seasonService, LoadedData loadedData)
         {
             _view = view;
             _seasonService = seasonService;
+            _loadedData = loadedData;
 
             _view.ViewLoaded += OnViewLoaded;
             _view.SeriesIndexChanged += OnSeriesIndexChanged;
@@ -30,6 +33,7 @@ namespace AiSeasonCreator.Presenters
             _seasonService.Initialize();
             _view.SeriesList = _seasonService.GetAvailableSeries();
             _view.RosterList = _seasonService.GetAvailableRosters();
+            SetUserDefaultSettings();
         }
 
         public void OnSeriesIndexChanged(object sender, EventArgs e)
@@ -55,6 +59,26 @@ namespace AiSeasonCreator.Presenters
         public void OnCreateSeasonClicked(object sender, EventArgs e)
         {
             _seasonService.CreateSeason(_view.SeasonName);
+            var bp = 0;
+        }
+
+        private void SetUserDefaultSettings()
+        {
+            var ud = _loadedData.UserDefaultSettings;
+
+            _view.AiMin = ud.TrackBarUserValues.AiMinSkill;
+            _view.AiMax = ud.TrackBarUserValues.AiMaxSkill;
+
+            _view.UseAdaptiveAi = ud.CheckBoxesUserValues.UseAdaptiveAi;
+            _view.DisableDamage = ud.CheckBoxesUserValues.DisableCarDamage;
+            _view.AiAvoids = ud.CheckBoxesUserValues.AiAvoidsPlayer;
+            _view.StaticWeather = ud.CheckBoxesUserValues.StaticWeather;
+            _view.AfternoonRaces = ud.CheckBoxesUserValues.AfternoonRaces;
+            _view.NeverRain = ud.CheckBoxesUserValues.NeverRain;
+            _view.QualiAlone = ud.CheckBoxesUserValues.QualifyAlone;
+            _view.ShortParade = ud.CheckBoxesUserValues.ShortParade;
+
+            _view.AdaptiveAiDifficulty = ud.ComboBoxesUserValues.AdaptiveAiSkillLevel;
         }
     }
 }

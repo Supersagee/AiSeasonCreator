@@ -42,26 +42,28 @@
             // 
             menuPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             menuPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            menuPanel.BackColor = Color.FromArgb(166, 166, 166);
+            menuPanel.BackColor = Color.FromArgb(18, 18, 27);
             menuPanel.Controls.Add(settingsButton);
             menuPanel.Controls.Add(seasonButton);
             menuPanel.Controls.Add(aboutButton);
             menuPanel.Controls.Add(rosterButton);
             menuPanel.Location = new Point(0, 0);
             menuPanel.Name = "menuPanel";
-            menuPanel.Size = new Size(60, 951);
+            menuPanel.Size = new Size(60, 929);
             menuPanel.TabIndex = 0;
             // 
             // settingsButton
             // 
             settingsButton.BackColor = Color.Transparent;
-            settingsButton.BackgroundImage = (Image)resources.GetObject("settingsButton.BackgroundImage");
             settingsButton.BackgroundImageLayout = ImageLayout.Zoom;
             settingsButton.FlatAppearance.BorderSize = 0;
+            settingsButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(142, 188, 0);
+            settingsButton.FlatAppearance.MouseOverBackColor = Color.DimGray;
             settingsButton.FlatStyle = FlatStyle.Flat;
-            settingsButton.Location = new Point(5, 455);
+            settingsButton.Image = (Image)resources.GetObject("settingsButton.Image");
+            settingsButton.Location = new Point(0, 120);
             settingsButton.Name = "settingsButton";
-            settingsButton.Size = new Size(50, 50);
+            settingsButton.Size = new Size(60, 40);
             settingsButton.TabIndex = 4;
             settingsButton.UseVisualStyleBackColor = false;
             settingsButton.Click += settingsButton_Click;
@@ -69,16 +71,16 @@
             // seasonButton
             // 
             seasonButton.BackColor = Color.Transparent;
-            seasonButton.BackgroundImage = (Image)resources.GetObject("seasonButton.BackgroundImage");
             seasonButton.BackgroundImageLayout = ImageLayout.Zoom;
             seasonButton.FlatAppearance.BorderSize = 0;
             seasonButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(142, 188, 0);
             seasonButton.FlatAppearance.MouseOverBackColor = Color.DimGray;
             seasonButton.FlatStyle = FlatStyle.Flat;
-            seasonButton.Location = new Point(5, 260);
+            seasonButton.Image = (Image)resources.GetObject("seasonButton.Image");
+            seasonButton.Location = new Point(0, 0);
             seasonButton.Name = "seasonButton";
             seasonButton.Padding = new Padding(5);
-            seasonButton.Size = new Size(50, 50);
+            seasonButton.Size = new Size(60, 40);
             seasonButton.TabIndex = 3;
             seasonButton.UseVisualStyleBackColor = false;
             seasonButton.Click += seasonButton_Click;
@@ -86,13 +88,15 @@
             // aboutButton
             // 
             aboutButton.BackColor = Color.Transparent;
-            aboutButton.BackgroundImage = (Image)resources.GetObject("aboutButton.BackgroundImage");
             aboutButton.BackgroundImageLayout = ImageLayout.Zoom;
             aboutButton.FlatAppearance.BorderSize = 0;
+            aboutButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(142, 188, 0);
+            aboutButton.FlatAppearance.MouseOverBackColor = Color.DimGray;
             aboutButton.FlatStyle = FlatStyle.Flat;
-            aboutButton.Location = new Point(5, 390);
+            aboutButton.Image = (Image)resources.GetObject("aboutButton.Image");
+            aboutButton.Location = new Point(0, 80);
             aboutButton.Name = "aboutButton";
-            aboutButton.Size = new Size(50, 50);
+            aboutButton.Size = new Size(60, 40);
             aboutButton.TabIndex = 3;
             aboutButton.UseVisualStyleBackColor = false;
             aboutButton.Click += aboutButton_Click;
@@ -100,16 +104,16 @@
             // rosterButton
             // 
             rosterButton.BackColor = Color.Transparent;
-            rosterButton.BackgroundImage = (Image)resources.GetObject("rosterButton.BackgroundImage");
             rosterButton.BackgroundImageLayout = ImageLayout.Zoom;
             rosterButton.FlatAppearance.BorderSize = 0;
-            rosterButton.FlatAppearance.MouseDownBackColor = Color.RosyBrown;
-            rosterButton.FlatAppearance.MouseOverBackColor = Color.Gray;
+            rosterButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(142, 188, 0);
+            rosterButton.FlatAppearance.MouseOverBackColor = Color.DimGray;
             rosterButton.FlatStyle = FlatStyle.Flat;
-            rosterButton.Location = new Point(5, 325);
+            rosterButton.Image = (Image)resources.GetObject("rosterButton.Image");
+            rosterButton.Location = new Point(0, 40);
             rosterButton.Name = "rosterButton";
             rosterButton.Padding = new Padding(5);
-            rosterButton.Size = new Size(50, 50);
+            rosterButton.Size = new Size(60, 40);
             rosterButton.TabIndex = 2;
             rosterButton.UseVisualStyleBackColor = false;
             rosterButton.Click += rosterButton_Click;
@@ -119,18 +123,24 @@
             mainPanel.BackColor = SystemColors.ActiveBorder;
             mainPanel.Location = new Point(60, 0);
             mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(1500, 950);
+            mainPanel.Size = new Size(1260, 930);
             mainPanel.TabIndex = 3;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1560, 951);
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(1320, 929);
             Controls.Add(mainPanel);
             Controls.Add(menuPanel);
+            ForeColor = Color.Black;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "MainForm";
             Text = "AiSeasonCreator";
+            FormClosing += MainForm_FormClosing;
             Load += MainForm_Load;
             menuPanel.ResumeLayout(false);
             ResumeLayout(false);

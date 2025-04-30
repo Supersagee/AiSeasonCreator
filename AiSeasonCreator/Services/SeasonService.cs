@@ -7,6 +7,7 @@ using AiSeasonCreator.JsonClasses.CarDetails;
 using AiSeasonCreator.JsonClasses.FullSchedule;
 using AiSeasonCreator.JsonClasses.SeriesDetails;
 using AiSeasonCreator.JsonClasses.TrackDetails;
+using AiSeasonCreator.Mappers;
 using AiSeasonCreator.Repos;
 using AiSeasonCreator.ScheduleClasses;
 using AiSeasonCreator.Views;
@@ -16,6 +17,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -112,12 +114,15 @@ namespace AiSeasonCreator.Services
                 if (aiCarsInSeries.Any())
                 {
                     naa.Name = schedule.Schedules[0].SeriesName;
-                    naa.Asset = Image.FromFile(seriesAssets);
+
+                    if (File.Exists(seriesAssets))
+                        naa.Asset = Image.FromFile(seriesAssets);
+
                     availableSeries.Add(naa);
                 }
             }
 
-            //availableSeries.Sort();
+            availableSeries.Sort((x, y) => x.Name.CompareTo(y.Name));
             return availableSeries;
         }
 
@@ -146,15 +151,8 @@ namespace AiSeasonCreator.Services
                     {
                         naa.Name = car.CarName;
 
-                        //if (Directory.Exists(carAsset))
-                        //{
+                        if (File.Exists(carAssets))
                             naa.Asset = Image.FromFile(carAssets);
-                        //}
-                        //else
-                        //{
-                        //    var defaultLogo = Path.Combine(basePath, "Assets", "CarAssets", "iracingnotext-logo.png");
-                        //    naa.Asset = Image.FromFile(defaultLogo);
-                        //}
 
                         cars.Add(naa);
                     }
@@ -183,7 +181,10 @@ namespace AiSeasonCreator.Services
                 if (trackDetail.AiEnabled)
                 {
                     naa.Name = trackDetail.TrackName;
-                    naa.Asset = Image.FromFile(trackAssets);
+
+                    if (File.Exists(trackAssets))
+                        naa.Asset = Image.FromFile(trackAssets);
+
                     availableTracks.Add(naa);
                 }
             }
@@ -203,10 +204,10 @@ namespace AiSeasonCreator.Services
 
         public int GetQualiLength(bool qualiAlone)
         {
-            var ss = _loadedData.SelectedSeries.Schedules[0];
-
             if (_loadedData.SelectedSeries != null)
             {
+                var ss = _loadedData.SelectedSeries.Schedules[0];
+
                 if (qualiAlone)
                     return ss.QualifyLaps > 5 ? 5 : ss.QualifyLaps;
                 else
@@ -253,50 +254,35 @@ namespace AiSeasonCreator.Services
             return rosterNames;
         }
 
-        public string GetImageFilePath(string assetType, string itemName)
-        {
-            var fileName = "";
-
-            var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-            if (assetType == "car")
-            {
-                var id = _loadedData.CarDetails.FirstOrDefault(c => c.CarName == itemName).CarId;
-                fileName = _loadedData.CarAssets.FirstOrDefault(c => Convert.ToInt32(c.Key) == id).Value.Logo;
-                fileName = Path.Combine(basePath, "Assets", "CarAssets", fileName);
-            }
-            else if (assetType == "series")
-            {
-                var id = _loadedData.FullSchedule.FirstOrDefault(c => c.Schedules[0].SeriesName == itemName).SeriesId;
-                fileName = _loadedData.SeriesAssets.FirstOrDefault(c => Convert.ToInt32(c.Key) == id).Value.Logo;
-                fileName = Path.Combine(basePath, "Assets", "SeriesAssets", fileName);
-            }
-            else if (assetType == "track")
-            {
-                var id = _loadedData.TrackDetails.FirstOrDefault(c => c.TrackName == itemName).TrackId;
-                fileName = _loadedData.TrackAssets.FirstOrDefault(c => Convert.ToInt32(c.Key) == id).Value.Logo;
-                fileName = Path.Combine(basePath, "Assets", "TrackAssets", fileName);
-            }
-            else
-            {
-                fileName = Path.Combine(basePath, "Assets", "CarAssets", "iracingnotext-logo.png");
-            }
-
-            return fileName;
-        }
-
         public void CreateSeason(string seasonName)
         {
-            var filePath = Path.Combine(_appSettings.SeasonFolderPath, $"{seasonName}.json");
+            (seasonName, var filePath) = IncrementFileName(seasonName);
+
             try
             {
-                var sb = _seasonBuilder.BuildSeason();
+                var sb = _seasonBuilder.BuildSeason(seasonName);
                 _jsonRepo.Save(filePath, sb);
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private (string SeasonName, string FilePath) IncrementFileName(string seasonName)
+        {
+            var filePath = Path.Combine(_appSettings.SeasonFolderPath, $"{seasonName}.json");
+
+            var newSeasonName = seasonName;
+            int fileCounter = 0;
+            while (File.Exists(filePath))
+            {
+                fileCounter++;
+                filePath = Path.Combine(_appSettings.SeasonFolderPath, $"{seasonName}({fileCounter}).json");
+                newSeasonName = $"{seasonName}({fileCounter})";
+            }
+
+            return (newSeasonName, filePath);
         }
     }
 }

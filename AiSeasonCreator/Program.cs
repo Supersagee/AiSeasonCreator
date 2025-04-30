@@ -8,6 +8,7 @@ using AiSeasonCreator.Views;
 using Microsoft.Extensions.DependencyInjection;
 using AiSeasonCreator.Presenters;
 using AiSeasonCreator.Data;
+using AiSeasonCreator.DefaultUserSettings;
 
 namespace AiSeasonCreator
 {

@@ -49,5 +49,11 @@ namespace AiSeasonCreator.Views
             get { return rosterFolderPathTextBox.Text; }
             set { rosterFolderPathTextBox.Text = value; }
         }
+
+        public string SetFolderPathLabel
+        {
+            get { return checkFolderPathLabel.Text; }
+            set { checkFolderPathLabel.Text = value; }
+        }
     }
 }

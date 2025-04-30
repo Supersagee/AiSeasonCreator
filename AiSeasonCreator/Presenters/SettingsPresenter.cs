@@ -27,22 +27,24 @@ namespace AiSeasonCreator.Presenters
 
         public void OnViewLoaded(object sender, EventArgs e)
         {
-            _view.SeasonFolderPath = _settingsService.GetFolderPath("aiseasons");
+            _settingsService.LoadUserDefaultSettings();
+
+            _view.SeasonFolderPath = _settingsService.GetSeasonsFolderPathAuto("aiseasons");
             _appSettings.SeasonFolderPath = _view.SeasonFolderPath;
 
-            _view.RosterFolderPath = _settingsService.GetFolderPath("airosters");
+            _view.RosterFolderPath = _settingsService.GetRostersFolderPathAuto("airosters");
             _appSettings.RosterFolderPath = _view.RosterFolderPath;
         }
 
         public void OnSeasonFolderClicked(object sender, EventArgs e)
         {
-            _view.SeasonFolderPath = _settingsService.GetFolderPath();
+            _view.SeasonFolderPath = _settingsService.GetSeasonsFolderPath("aiseasons");
             _appSettings.SeasonFolderPath = _view.SeasonFolderPath;
         }
 
         public void OnRosterFolderClicked(object sender, EventArgs e)
         {
-            _view.RosterFolderPath = _settingsService.GetFolderPath();
+            _view.RosterFolderPath = _settingsService.GetRostersFolderPath("airosters");
             _appSettings.RosterFolderPath = _view.RosterFolderPath;
         }
     }

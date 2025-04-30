@@ -14,5 +14,6 @@ namespace AiSeasonCreator.Views
 
         string SeasonFolderPath { get; set; }
         string RosterFolderPath { get; set; }
+        string SetFolderPathLabel { get; set; }
     }
 }

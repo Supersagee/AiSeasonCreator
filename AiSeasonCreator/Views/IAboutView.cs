@@ -10,6 +10,8 @@ namespace AiSeasonCreator.Views
     {
         event EventHandler ViewLoaded;
         event EventHandler ForumLinkClicked;
-        string AboutSection { get; set; }
+        string GeneralAboutSection { get; set; }
+        string SeasonAboutSection { get; set; }
+        string RosterAboutSection { get; set; }
     }
 }

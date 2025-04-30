@@ -8,13 +8,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AiSeasonCreator.Views
 {
-    
+
 
     public partial class SeasonForm : Form, ISeasonView
     {
@@ -54,11 +55,10 @@ namespace AiSeasonCreator.Views
                 {
                     if (button.Tag is ButtonInfo inf)
                         inf.IsSelected = false;
-                    button.BackColor = Color.FromArgb(200, 30, 30, 30);
-                    button.ForeColor = Color.White;
+                    SetStandardButtonFont(button);
                 }
 
-                clickedButton.ForeColor = Color.FromArgb(128, 187, 0);
+                SetSelectedButtonFont(clickedButton);
                 info.IsSelected = true;
                 SelectedSeries = info.OriginalName;
 
@@ -79,11 +79,10 @@ namespace AiSeasonCreator.Views
                 {
                     if (button.Tag is ButtonInfo inf)
                         inf.IsSelected = false;
-                    button.BackColor = Color.FromArgb(200, 30, 30, 30);
-                    button.ForeColor = Color.White;
+                    SetStandardButtonFont(button);
                 }
 
-                clickedButton.ForeColor = Color.FromArgb(128, 187, 0);
+                SetSelectedButtonFont(clickedButton);
                 info.IsSelected = true;
                 SelectedCar = info.OriginalName;
             }
@@ -97,15 +96,11 @@ namespace AiSeasonCreator.Views
 
                 if (info.IsSelected)
                 {
-                    button.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Italic);
-                    button.ForeColor = Color.Gray;
-                    button.BackColor = Color.FromArgb(220, 50, 50, 50);
+                    SetUnselectedButtonFont(button);
                 }
                 else
                 {
-                    button.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
-                    button.ForeColor = Color.White;
-                    button.BackColor = Color.FromArgb(200, 30, 30, 30);
+                    SetStandardButtonFont(button);
                 }
             }
         }
@@ -153,6 +148,7 @@ namespace AiSeasonCreator.Views
             createSeasonButton.Enabled = false;
             await Task.Delay(3000);
             createSeasonButton.Enabled = true;
+            messageFormLabel.Text = "";
         }
 
         private async void BlinkLabel(Label label)
@@ -186,11 +182,15 @@ namespace AiSeasonCreator.Views
             {
                 var button = new Button();
 
-                SetFlowPanelButton(button, car.Name, car.Asset);
-                button.TextImageRelation = TextImageRelation.Overlay;
-                button.TextAlign = ContentAlignment.TopRight;
+                SetCarFlowPanelButton(button, car.Name, car.Asset);
                 button.Click += CarsSelectionButton_Click;
                 carsFlowLayoutPanel.Controls.Add(button);
+
+                if (cars.ToList().Count == 1)
+                {
+                    EventArgs e = null;
+                    CarsSelectionButton_Click(button, e);
+                }
             }
         }
 
@@ -210,28 +210,33 @@ namespace AiSeasonCreator.Views
             }
         }
 
+        private void SetCarFlowPanelButton(Button button, string item, Image asset)
+        {
+            var info = new ButtonInfo { OriginalName = item, IsSelected = false };
+            button.Tag = info;
+            button.Text = $"                                       {item}";
+            button.Image = asset;
+            button.TextImageRelation = TextImageRelation.ImageAboveText;
+            button.ImageAlign = ContentAlignment.TopCenter;
+            button.Height = 100;
+            button.Width = 180;
+            button.FlatAppearance.BorderSize = 0;
+            SetStandardButtonFont(button);
+            button.FlatStyle = FlatStyle.Flat;
+        }
+
         private void SetFlowPanelButton(Button button, string item, Image asset)
         {
             var info = new ButtonInfo { OriginalName = item, IsSelected = false };
             button.Tag = info;
-
-            if (item.Length > 40)
-            {
-                button.Text = $"  {item.Substring(0, 40).Trim()}...";
-                toolTip1.SetToolTip(button, item);
-            }
-            else
-                button.Text = $"  {item}";
-
+            button.Text = $"  {item}";
             button.Image = asset;
             button.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button.ImageAlign = ContentAlignment.TopLeft;
+            button.ImageAlign = ContentAlignment.MiddleLeft;
             button.Height = 40;
             button.Width = 360;
             button.FlatAppearance.BorderSize = 0;
-            button.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
-            button.BackColor = Color.FromArgb(200, 30, 30, 30);
-            button.ForeColor = Color.White;
+            SetStandardButtonFont(button);
             button.TextAlign = ContentAlignment.MiddleRight;
             button.FlatStyle = FlatStyle.Flat;
         }
@@ -288,24 +293,39 @@ namespace AiSeasonCreator.Views
             QualiAloneChecked.Invoke(this, e);
         }
 
-        private void aiSkillMinTrackBar_ValueChanged(object sender, EventArgs e)
+        private void adaptiveAiCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (aiSkillMinTrackBar.Value > aiSkillMaxTrackBar.Value)
-            {
-                aiSkillMaxTrackBar.Value = aiSkillMinTrackBar.Value;
-            }
-
-            aiSkillPerLabel.Text = $"{aiSkillMinTrackBar.Value.ToString()}%-{aiSkillMaxTrackBar.Value.ToString()}%";
+            if (adaptiveAiCheckBox.Checked)
+                adaptiveAiComboBox.Enabled = true;
+            else
+                adaptiveAiComboBox.Enabled = false;
         }
 
-        private void aiSkillMaxTrackBar_ValueChanged(object sender, EventArgs e)
+        private void SetStandardButtonFont(Button button)
         {
-            if (aiSkillMaxTrackBar.Value < aiSkillMinTrackBar.Value)
-            {
-                aiSkillMinTrackBar.Value = aiSkillMaxTrackBar.Value;
-            }
+            button.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
+            button.ForeColor = Color.FromArgb(220, 220, 220);
+            button.BackColor = Color.FromArgb(60, 30, 30, 30);
+            button.FlatAppearance.BorderSize = 0;
+        }
 
-            aiSkillPerLabel.Text = $"{aiSkillMinTrackBar.Value.ToString()}%-{aiSkillMaxTrackBar.Value.ToString()}%";
+        private void SetSelectedButtonFont(Button button)
+        {
+            button.ForeColor = Color.White;
+            button.BackColor = Color.FromArgb(200, 36, 36, 54);
+            button.FlatAppearance.BorderSize = 1;
+        }
+
+        private void SetUnselectedButtonFont(Button button)
+        {
+            button.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Italic);
+            button.ForeColor = Color.Gray;
+            button.BackColor = Color.FromArgb(240, 99, 99, 99);
+        }
+
+        private void aiSkillRangeTrackBar_RangeChanged(object sender, EventArgs e)
+        {
+            aiSkillPerLabel.Text = $"{aiSkillRangeTrackBar.LowerValue.ToString()}%-{aiSkillRangeTrackBar.UpperValue.ToString()}%";
         }
 
         public event EventHandler ViewLoaded;
@@ -365,14 +385,14 @@ namespace AiSeasonCreator.Views
 
         public int AiMin
         {
-            get { return aiSkillMinTrackBar.Value; }
-            set { aiSkillMinTrackBar.Value = value; }
+            get { return aiSkillRangeTrackBar.LowerValue; }
+            set { aiSkillRangeTrackBar.LowerValue = value; }
         }
 
         public int AiMax
         {
-            get { return aiSkillMaxTrackBar.Value; }
-            set { aiSkillMaxTrackBar.Value = value; }
+            get { return aiSkillRangeTrackBar.UpperValue; }
+            set { aiSkillRangeTrackBar.UpperValue = value; }
         }
 
         public bool DisableDamage

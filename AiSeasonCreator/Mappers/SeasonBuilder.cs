@@ -1,12 +1,11 @@
-﻿using AiSeasonCreator.Mappers;
-using AiSeasonCreator.ScheduleClasses;
+﻿using AiSeasonCreator.ScheduleClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AiSeasonCreator
+namespace AiSeasonCreator.Mappers
 {
     public class SeasonBuilder<T>
     {
@@ -17,9 +16,9 @@ namespace AiSeasonCreator
             _seasonScheduleMapper = seasonScheduleMapper;
         }
 
-        public SeasonSchedule BuildSeason()
+        public SeasonSchedule BuildSeason(string seasonName)
         {
-            return _seasonScheduleMapper.Map(0, "");
+            return _seasonScheduleMapper.Map(0, seasonName);
         }
     }
 }

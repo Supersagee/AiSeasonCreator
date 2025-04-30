@@ -42,7 +42,7 @@ namespace AiSeasonCreator.Mappers
             _seasonView = seasonView;
             _loadedData = loadedData;
         }
-        public SeasonSchedule Map(int eventIndex, string eventGuid)
+        public SeasonSchedule Map(int eventIndex, string seasonName)
         {
             var ss = new SeasonSchedule();
             var s = _loadedData.SelectedSeries;
@@ -113,11 +113,8 @@ namespace AiSeasonCreator.Mappers
                     case "Hard":
                         ss.AdaptiveAiDifficulty = 3;
                         break;
-                    case "Extreme":
-                        ss.AdaptiveAiDifficulty = 4;
-                        break;
                     default:
-                        ss.AdaptiveAiDifficulty = 0;
+                        ss.AdaptiveAiDifficulty = 1;
                         break;
                 }
             }
@@ -125,10 +122,10 @@ namespace AiSeasonCreator.Mappers
             {
                 ss.AdaptiveAiEnabled = false;
                 ss.AdaptiveAiDifficulty = 0;
-                ss.MinSkill = _seasonView.AiMin;
-                ss.MaxSkill = _seasonView.AiMax;
             }
 
+            ss.MinSkill = _seasonView.AiMin;
+            ss.MaxSkill = _seasonView.AiMax;
             ss.MustUseDiffTireTypesInRace = s.MustUseDiffTireTypesInRace;
             ss.StartOnQualTire = s.StartOnQualTire;
             ss.UnsportConductRuleMode = 0;
@@ -173,7 +170,7 @@ namespace AiSeasonCreator.Mappers
             if (_seasonView.RosterName == "Generate Roster")
             {
                 ss.RosterName = _seasonView.SeasonName;
-                _driverRoster.Map(0, _seasonView.SeasonName);
+                _driverRoster.Map(0, seasonName);
             }
             else if (_seasonView.RosterName == "Exclude Roster")
             {
@@ -192,7 +189,7 @@ namespace AiSeasonCreator.Mappers
 
             ss.Events = _eventsMapper.Map(0, ""); 
 
-            ss.Name = _seasonView.SeasonName;
+            ss.Name = seasonName;
 
             return ss;
         }

@@ -32,10 +32,20 @@ namespace AiSeasonCreator.Views
         public event EventHandler ForumLinkClicked;
 
         public IAboutPresenter Presenter { get; set; }
-        public string AboutSection
+        public string GeneralAboutSection
         {
-            get { return aboutSectionLabel.Text; }
-            set { aboutSectionLabel.Text = value; }
+            get { return generalAboutLabel.Text; }
+            set { generalAboutLabel.Text = value; }
+        }
+        public string SeasonAboutSection
+        {
+            get { return seasonAboutLabel.Text; }
+            set { seasonAboutLabel.Text = value; }
+        }
+        public string RosterAboutSection
+        {
+            get { return rosterAboutLabel.Text; }
+            set { rosterAboutLabel.Text = value; }
         }
     }
 }

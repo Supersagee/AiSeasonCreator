@@ -8,7 +8,9 @@ namespace AiSeasonCreator.Services
 {
     public interface IAboutService
     {
-        string GetAboutSection();
+        string GetGeneralAboutSection();
+        string GetSeasonAboutSection();
+        string GetRosterAboutSection();
         void GoToForum();
     }
 }

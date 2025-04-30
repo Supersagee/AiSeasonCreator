@@ -6,6 +6,10 @@ using AiSeasonCreator.JsonClasses.TrackDetails;
 using AiSeasonCreator.JsonClasses.Assets;
 using AiSeasonCreator.Roster;
 using iRacingWeatherURLParser.WeatherSchedule;
+using System.Collections.ObjectModel;
+using AiSeasonCreator.Helpers;
+using System.ComponentModel;
+using AiSeasonCreator.DefaultUserSettings;
 
 namespace AiSeasonCreator.Data
 {
@@ -26,5 +30,7 @@ namespace AiSeasonCreator.Data
         public Dictionary<string, CarAssets> CarAssets { get; set; }
         public Dictionary<string, SeriesAssets> SeriesAssets { get; set; }
         public Dictionary<string, TrackAssets> TrackAssets { get; set; }
+        public SortableBindingList<DriversDataGrid> DriversDataGrid { get; set; } = [];
+        public UserDefaultSettings UserDefaultSettings { get; set; } = new UserDefaultSettings();
     }
 }

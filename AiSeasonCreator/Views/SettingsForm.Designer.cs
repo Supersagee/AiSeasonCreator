@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             checkFolderPathLabel = new Label();
             rosterFolderPathLabel = new Label();
             rosterFolderPathTextBox = new ReaLTaiizor.Controls.PoisonTextBox();
@@ -39,7 +40,7 @@
             // 
             checkFolderPathLabel.AutoSize = true;
             checkFolderPathLabel.ForeColor = Color.FromArgb(128, 187, 0);
-            checkFolderPathLabel.Location = new Point(213, 280);
+            checkFolderPathLabel.Location = new Point(12, 133);
             checkFolderPathLabel.Name = "checkFolderPathLabel";
             checkFolderPathLabel.Size = new Size(0, 15);
             checkFolderPathLabel.TabIndex = 54;
@@ -48,7 +49,7 @@
             // 
             rosterFolderPathLabel.AutoSize = true;
             rosterFolderPathLabel.ForeColor = SystemColors.ControlDark;
-            rosterFolderPathLabel.Location = new Point(213, 215);
+            rosterFolderPathLabel.Location = new Point(12, 68);
             rosterFolderPathLabel.Name = "rosterFolderPathLabel";
             rosterFolderPathLabel.Size = new Size(81, 15);
             rosterFolderPathLabel.TabIndex = 53;
@@ -69,14 +70,11 @@
             rosterFolderPathTextBox.CustomButton.UseSelectable = true;
             rosterFolderPathTextBox.CustomButton.Visible = false;
             rosterFolderPathTextBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonTextBoxSize.Medium;
-            rosterFolderPathTextBox.Lines = new string[]
-    {
-    "Click to add folder path. iRacing\\airosters"
-    };
-            rosterFolderPathTextBox.Location = new Point(213, 233);
+            rosterFolderPathTextBox.Location = new Point(12, 86);
             rosterFolderPathTextBox.MaxLength = 32767;
             rosterFolderPathTextBox.Name = "rosterFolderPathTextBox";
             rosterFolderPathTextBox.PasswordChar = '\0';
+            rosterFolderPathTextBox.PromptText = "Click to add folder path. iRacing\\\\airosters";
             rosterFolderPathTextBox.ReadOnly = true;
             rosterFolderPathTextBox.ScrollBars = ScrollBars.None;
             rosterFolderPathTextBox.SelectedText = "";
@@ -86,18 +84,18 @@
             rosterFolderPathTextBox.Size = new Size(374, 29);
             rosterFolderPathTextBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
             rosterFolderPathTextBox.TabIndex = 52;
-            rosterFolderPathTextBox.Text = "Click to add folder path. iRacing\\airosters";
             rosterFolderPathTextBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             rosterFolderPathTextBox.UseSelectable = true;
+            rosterFolderPathTextBox.WaterMark = "Click to add folder path. iRacing\\\\airosters";
             rosterFolderPathTextBox.WaterMarkColor = Color.FromArgb(109, 109, 109);
-            rosterFolderPathTextBox.WaterMarkFont = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
+            rosterFolderPathTextBox.WaterMarkFont = new Font("Segoe UI", 16F, FontStyle.Italic, GraphicsUnit.Pixel);
             rosterFolderPathTextBox.Click += rosterFolderPathTextBox_Click;
             // 
             // seasonFolderPathLabel
             // 
             seasonFolderPathLabel.AutoSize = true;
             seasonFolderPathLabel.ForeColor = SystemColors.ControlDark;
-            seasonFolderPathLabel.Location = new Point(213, 155);
+            seasonFolderPathLabel.Location = new Point(12, 8);
             seasonFolderPathLabel.Name = "seasonFolderPathLabel";
             seasonFolderPathLabel.Size = new Size(85, 15);
             seasonFolderPathLabel.TabIndex = 51;
@@ -118,14 +116,11 @@
             seasonFolderPathTextBox.CustomButton.UseSelectable = true;
             seasonFolderPathTextBox.CustomButton.Visible = false;
             seasonFolderPathTextBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonTextBoxSize.Medium;
-            seasonFolderPathTextBox.Lines = new string[]
-    {
-    "Click to add folder path. iRacing\\aiseasons"
-    };
-            seasonFolderPathTextBox.Location = new Point(213, 173);
+            seasonFolderPathTextBox.Location = new Point(12, 26);
             seasonFolderPathTextBox.MaxLength = 32767;
             seasonFolderPathTextBox.Name = "seasonFolderPathTextBox";
             seasonFolderPathTextBox.PasswordChar = '\0';
+            seasonFolderPathTextBox.PromptText = "Click to add folder path. iRacing\\\\aiseasons";
             seasonFolderPathTextBox.ReadOnly = true;
             seasonFolderPathTextBox.ScrollBars = ScrollBars.None;
             seasonFolderPathTextBox.SelectedText = "";
@@ -135,11 +130,11 @@
             seasonFolderPathTextBox.Size = new Size(374, 29);
             seasonFolderPathTextBox.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
             seasonFolderPathTextBox.TabIndex = 50;
-            seasonFolderPathTextBox.Text = "Click to add folder path. iRacing\\aiseasons";
             seasonFolderPathTextBox.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             seasonFolderPathTextBox.UseSelectable = true;
+            seasonFolderPathTextBox.WaterMark = "Click to add folder path. iRacing\\\\aiseasons";
             seasonFolderPathTextBox.WaterMarkColor = Color.FromArgb(109, 109, 109);
-            seasonFolderPathTextBox.WaterMarkFont = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
+            seasonFolderPathTextBox.WaterMarkFont = new Font("Segoe UI", 16F, FontStyle.Italic, GraphicsUnit.Pixel);
             seasonFolderPathTextBox.Click += seasonFolderPathTextBox_Click;
             // 
             // SettingsForm
@@ -147,12 +142,16 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Center;
+            ClientSize = new Size(1260, 930);
             Controls.Add(checkFolderPathLabel);
             Controls.Add(rosterFolderPathLabel);
             Controls.Add(rosterFolderPathTextBox);
             Controls.Add(seasonFolderPathLabel);
             Controls.Add(seasonFolderPathTextBox);
+            DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "SettingsForm";
             Text = "SettingsForm";
             Load += SettingsForm_Load;

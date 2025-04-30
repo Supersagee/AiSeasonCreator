@@ -1,5 +1,6 @@
 ﻿using AiSeasonCreator.Data;
 using AiSeasonCreator.FormOptions;
+using AiSeasonCreator.Helpers;
 using AiSeasonCreator.Repos;
 using AiSeasonCreator.Roster;
 using AiSeasonCreator.Services;
@@ -33,140 +34,104 @@ namespace AiSeasonCreator.Presenters
             _appSettings = appSettings;
 
             _view.ViewLoaded += OnViewLoaded;
-            _view.RosterSourceIndexChanged += OnRosterSourceIndexChanged;
             _view.SeriesRosterIndexChanged += OnSeriesRosterIndexChanged;
-            _view.DriversIndexChanged += OnDriversIndexChanged;
+            _view.RosterComboBoxClicked += OnRosterComboBoxClicked;
+            _view.RosterComboBoxIndexChanged += OnRosterComboBoxIndexChanged;
+            _view.UpdateSelectedDriversButtonClicked += OnUpdateSelectedDriversButtonClicked;
+            _view.UpdateAllDriversButtonClicked += OnUpdateAllDriversButtonClicked;
+            _view.SkillCellUpdated += OnSkillCellUpdated;
             _view.CreateUpdateRosterClicked += OnCreateUpdateRosterClicked;
         }
 
         public void OnViewLoaded(object sender, EventArgs e)
         {
-            _view.RosterSourceList = _rosterService.GetRosterSources();
-        }
-
-        public void OnRosterSourceIndexChanged(object sender, EventArgs e)
-        {
-            _view.SeriesRosterList = _rosterService.GetAvailableSeriesOrRosters(_view.RosterSource);
+            _view.SeriesList = _rosterService.GetAvailableSeries();
         }
 
         public void OnSeriesRosterIndexChanged(object sender, EventArgs e)
         {
-            if (_view.RosterSource == "Update from existing roster")
-            {
-                _view.DriversList = _rosterService.GetAvailableDrivers(_view.SeriesRosterName);
-            }
-            else
-            {
-                _rosterService.SetSelectedSeasonAndSeries(_view.SeriesRosterName);
-            }
-
+            _rosterService.SetSelectedSeasonAndSeries(_view.SeriesName);
             _view.DriverCount = _rosterService.GetDriverCount();
         }
 
-        public void OnDriversIndexChanged(object sender, EventArgs e)
+        public void OnRosterComboBoxClicked(object sender, EventArgs e)
         {
-            var driver = _rosterService.GetDriver(_view.DriverName);
+            _view.RosterList = _rosterService.GetAvailableRosters();
+        }
 
-            if (driver != null)
+        public void OnRosterComboBoxIndexChanged(object sender, EventArgs e)
+        {
+            _rosterService.GetAvailableDrivers(_view.ExistingRosterName);
+        }
+
+        public void OnUpdateAllDriversButtonClicked(object sender, EventArgs e)
+        {
+            var attributesInUse = new AttributesInUse()
             {
-                _view.RelativeSkillMax = driver.DriverSkill;
-                _view.AggressionMax = driver.DriverAggression;
+                RelativeSkillMin = _view.RelativeSkillMin,
+                RelativeSkillMax = _view.RelativeSkillMax,
+                AggressionMin = _view.AggressionMin,
+                AggressionMax = _view.AggressionMax,
+                OptimismMin = _view.OptimismMin,
+                OptimismMax = _view.OptimismMax,
+                SmoothnessMin = _view.SmoothnessMin,
+                SmoothnessMax = _view.SmoothnessMax,
+                AgeMin = _view.AgeMin,
+                AgeMax = _view.AgeMax,
+                PitCrewMin = _view.PitCrewMin,
+                PitCrewMax = _view.PitCrewMax,
+                PitStratMin = _view.PitStratMin,
+                PitStratMax = _view.PitStratMax,
+                UseRelativeSkill = _view.UseRelativeSkill,
+                UseAggression = _view.UseAggression,
+                UseOptimism = _view.UseOptimism,
+                UseSmoothness = _view.UseSmoothness,
+                UseAge = _view.UseAge,
+                UsePitCrew = _view.UsePitCrew,
+                UsePitStrat = _view.UsePitStrat
+            };
 
-                var colors = GetColors(driver.HelmetDesign);
-                
-                if (colors.Count == 3)
-                {
-                    _view.DriverColor1 = colors[0];
-                    _view.DriverColor2 = colors[1];
-                    _view.DriverColor3 = colors[2];
-                }
-                else
-                {
-                    _view.DriverColor1 = "#000000";
-                    _view.DriverColor2 = "#000000";
-                    _view.DriverColor3 = "#000000";
-                }
+            _rosterService.UpdateDrivers(_view.SelectedDrivers, attributesInUse, _view.ExistingRosterName, true, _view.MinusPlusRandomize);
+        }
 
-                _view.DriverNumber = Convert.ToInt32(driver.CarNumber);
-                _view.DriverCar = _loadedData.CarDetails.FirstOrDefault(c => c.CarId == driver.CarId).CarName;
-            }
-            
+        public void OnUpdateSelectedDriversButtonClicked(object sender, EventArgs e)
+        {
+            var attributesInUse = new AttributesInUse()
+            {
+                RelativeSkillMin = _view.RelativeSkillMin,
+                RelativeSkillMax = _view.RelativeSkillMax,
+                AggressionMin = _view.AggressionMin,
+                AggressionMax = _view.AggressionMax,
+                OptimismMin = _view.OptimismMin,
+                OptimismMax = _view.OptimismMax,
+                SmoothnessMin = _view.SmoothnessMin,
+                SmoothnessMax = _view.SmoothnessMax,
+                AgeMin = _view.AgeMin,
+                AgeMax = _view.AgeMax,
+                PitCrewMin = _view.PitCrewMin,
+                PitCrewMax = _view.PitCrewMax,
+                PitStratMin = _view.PitStratMin,
+                PitStratMax = _view.PitStratMax,
+                UseRelativeSkill = _view.UseRelativeSkill,
+                UseAggression = _view.UseAggression,
+                UseOptimism = _view.UseOptimism,
+                UseSmoothness = _view.UseSmoothness,
+                UseAge = _view.UseAge,
+                UsePitCrew = _view.UsePitCrew,
+                UsePitStrat = _view.UsePitStrat
+            };
+
+            _rosterService.UpdateDrivers(_view.SelectedDrivers, attributesInUse, _view.ExistingRosterName, false, _view.MinusPlusRandomize);
+        }
+
+        public void OnSkillCellUpdated(object sender, EventArgs e)
+        {
+            _rosterService.SkillCellUpdated(_view.ExistingRosterName);
         }
 
         public void OnCreateUpdateRosterClicked(object sender, EventArgs e)
         {
-            if (_view.RosterSource == "Create from iRacing series")
-            {
-                _rosterService.CreateRoster();
-            }
-            else
-            {
-                if (_view.DriverName == "Update All Drivers")
-                {
-                    UpdateRoster(true); 
-                }
-                else
-                {
-                    UpdateRoster(false);
-                }
-            }
-            
-        }
-
-        private void UpdateRoster(bool updateAllDrivers)
-        {
-            var rand = new Random();
-            var rosterFilePath = Path.Combine(_appSettings.RosterFolderPath, _view.SeriesRosterName, "roster.json");
-            var roster = _jsonRepo.Load<DriverRoster>(rosterFilePath);
-            var drivers = roster.Drivers;
-            var v = _view;
-
-            if (updateAllDrivers)
-            {
-                foreach (var d in drivers)
-                {
-                    d.DriverSkill = v.UseRelativeSkill ? rand.Next(v.RelativeSkillMin, v.RelativeSkillMax + 1) : d.DriverSkill;
-                    d.DriverAggression = v.UseAggression ? rand.Next(v.AggressionMin, v.AggressionMax + 1) : d.DriverAggression;
-                    d.DriverOptimism = v.UseOptimism ? rand.Next(v.OptimismMin, v.OptimismMax + 1) : d.DriverOptimism;
-                    d.DriverSmoothness = v.UseSmoothness ? rand.Next(v.SmoothnessMin, v.SmoothnessMax + 1) : d.DriverSmoothness;
-                    d.DriverAge = v.UseAge ? rand.Next(v.AgeMin, v.AgeMax + 1) : d.DriverAge;
-                    d.PitCrewSkill = v.UsePitCrew ? rand.Next(v.PitCrewMin, v.PitCrewMax + 1) : d.PitCrewSkill;
-                    d.StrategyRiskiness = v.UsePitStrat ? rand.Next(v.PitStratMin, v.PitStratMax + 1) : d.StrategyRiskiness;
-                }
-            }
-            else
-            {
-                foreach (var d in drivers)
-                {
-                    if (d.DriverName == v.DriverName)
-                    {
-                        d.DriverSkill = v.UseRelativeSkill ? rand.Next(v.RelativeSkillMin, v.RelativeSkillMax + 1) : d.DriverSkill;
-                        d.DriverAggression = v.UseAggression ? rand.Next(v.AggressionMin, v.AggressionMax + 1) : d.DriverAggression;
-                        d.DriverOptimism = v.UseOptimism ? rand.Next(v.OptimismMin, v.OptimismMax + 1) : d.DriverOptimism;
-                        d.DriverSmoothness = v.UseSmoothness ? rand.Next(v.SmoothnessMin, v.SmoothnessMax + 1) : d.DriverSmoothness;
-                        d.DriverAge = v.UseAge ? rand.Next(v.AgeMin, v.AgeMax + 1) : d.DriverAge;
-                        d.PitCrewSkill = v.UsePitCrew ? rand.Next(v.PitCrewMin, v.PitCrewMax + 1) : d.PitCrewSkill;
-                        d.StrategyRiskiness = v.UsePitStrat ? rand.Next(v.PitStratMin, v.PitStratMax + 1) : d.StrategyRiskiness;
-                    }
-                }
-            }
-            DriverRoster newRoster = new DriverRoster { Drivers = drivers };
-            _jsonRepo.Save(rosterFilePath, newRoster);
-        }
-
-        private List<string> GetColors(string colors)
-        {
-            List<string> colorList = colors.Split(',').ToList<string>();
-
-            colorList.RemoveAt(0);
-            var returnList = new List<string>();
-
-            foreach (var color in colorList)
-            {
-                returnList.Add($"#{color}");
-            }
-
-            return returnList;
+            _rosterService.CreateRoster(_view.RosterName);
         }
     }
 }

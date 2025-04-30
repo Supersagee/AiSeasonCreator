@@ -8,7 +8,10 @@ namespace AiSeasonCreator.Services
 {
     public interface ISettingsService
     {
-        string GetFolderPath(string name);
-        string GetFolderPath();
+        void LoadUserDefaultSettings();
+        string GetSeasonsFolderPathAuto(string name);
+        string GetRostersFolderPathAuto(string name);
+        string GetSeasonsFolderPath(string name);
+        string GetRostersFolderPath(string name);
     }
 }

@@ -36,6 +36,7 @@
             // 
             // releaseNotesTextBox
             // 
+            releaseNotesTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             releaseNotesTextBox.BackColor = Color.FromArgb(30, 30, 30);
             releaseNotesTextBox.ForeColor = SystemColors.Window;
             releaseNotesTextBox.Location = new Point(12, 33);
@@ -43,12 +44,13 @@
             releaseNotesTextBox.Name = "releaseNotesTextBox";
             releaseNotesTextBox.ReadOnly = true;
             releaseNotesTextBox.ScrollBars = ScrollBars.Vertical;
-            releaseNotesTextBox.Size = new Size(360, 359);
+            releaseNotesTextBox.Size = new Size(480, 472);
             releaseNotesTextBox.TabIndex = 0;
             // 
             // cancelButton
             // 
-            cancelButton.Location = new Point(216, 406);
+            cancelButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            cancelButton.Location = new Point(336, 519);
             cancelButton.Name = "cancelButton";
             cancelButton.Size = new Size(75, 23);
             cancelButton.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -56,11 +58,12 @@
             cancelButton.Text = "Cancel";
             cancelButton.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             cancelButton.UseSelectable = true;
-            cancelButton.Click += this.cancelButton_Click;
+            cancelButton.Click += cancelButton_Click;
             // 
             // updateButton
             // 
-            updateButton.Location = new Point(297, 406);
+            updateButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            updateButton.Location = new Point(417, 519);
             updateButton.Name = "updateButton";
             updateButton.Size = new Size(75, 23);
             updateButton.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
@@ -73,7 +76,7 @@
             // updateLabel
             // 
             updateLabel.AutoSize = true;
-            updateLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            updateLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             updateLabel.ForeColor = SystemColors.Window;
             updateLabel.Location = new Point(12, 9);
             updateLabel.Name = "updateLabel";
@@ -85,7 +88,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
-            ClientSize = new Size(384, 441);
+            ClientSize = new Size(504, 554);
             Controls.Add(updateLabel);
             Controls.Add(updateButton);
             Controls.Add(cancelButton);
