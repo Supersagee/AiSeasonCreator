@@ -1,24 +1,22 @@
 ﻿using AiSeasonCreator.ScheduleClasses;
 using AiSeasonCreator.FormOptions;
-using AiSeasonCreator.Interfaces;
+using AiSeasonCreator.Data;
 
 namespace AiSeasonCreator.Mappers
 {
     public class PaceCarMapper : IMapper<PaceCar>
-    { 
-        private readonly UserSelectedOptions _userSelectedOptions;
-        public PaceCarMapper(UserSelectedOptions userSelectedOptions) 
+    {
+        private readonly LoadedData _loadedData;
+        public PaceCarMapper(LoadedData loadeddata) 
         {
-            _userSelectedOptions = userSelectedOptions;
+            _loadedData = loadeddata;
         }
         public PaceCar Map(int eventIndex, string eventGuid)
         {
-            var ss = _userSelectedOptions.FullSchedule;
-            var i = _userSelectedOptions.SeasonSeriesIndex;
-            var j = eventIndex;
             var paceCar = new PaceCar();
+            var s = _loadedData.SelectedSeries;
 
-            if (ss[i].Schedules[j].Track.Category == "road")
+            if (s.Schedules[eventIndex].Track.Category == "road")
             {
                 paceCar.CategoryId = 2;
                 paceCar.CarId = 136;

@@ -1,16 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="CompletionForm.cs">
+    <Compile Update="Helpers\RangeTrackBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Views\UpdateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="MainForm.cs">
+    <Compile Update="Views\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="TrackSelectionForm.cs">
+    <Compile Update="Views\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UpdateForm.cs">
+    <Compile Update="Views\RosterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\SeasonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

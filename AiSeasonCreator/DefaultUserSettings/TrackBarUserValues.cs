@@ -10,36 +10,36 @@ namespace AiSeasonCreator.DefaultUserSettings
     public class TrackBarUserValues
     {
         [JsonPropertyName("aiMinSkill")]
-        public int AiMinSkill { get; set; }
+        public int AiMinSkill { get; set; } = 25;
         [JsonPropertyName("aiMaxSkill")]
-        public int AiMaxSkill { get; set; }
+        public int AiMaxSkill { get; set; } = 75;
         [JsonPropertyName("relativeMinSkill")]
-        public int RelativeMinSkill { get; set; }
+        public int RelativeMinSkill { get; set; } = 25;
         [JsonPropertyName("relativeMaxSkill")]
-        public int RelativeMaxSkill { get; set;}
+        public int RelativeMaxSkill { get; set; } = 75;
         [JsonPropertyName("aggressionMinSkill")]
-        public int AggressionMinSkill { get; set; }
+        public int AggressionMinSkill { get; set; } = 25;
         [JsonPropertyName("aggressionMaxSkill")]
-        public int AggressionMaxSkill { get; set; }
+        public int AggressionMaxSkill { get; set; } = 75;
         [JsonPropertyName("optimismMinSkill")]
-        public int OptimismMinSkill { get; set; }
+        public int OptimismMinSkill { get; set; } = 25;
         [JsonPropertyName("optimismMaxSkill")]
-        public int OptimismMaxSkill { get; set; }
+        public int OptimismMaxSkill { get; set; } = 75;
         [JsonPropertyName("smoothnessMinSkill")]
-        public int SmoothnessMinSkill { get; set; }
+        public int SmoothnessMinSkill { get; set; } = 25;
         [JsonPropertyName("smoothnessMaxSkill")]
-        public int SmoothnessMaxSkill { get; set; }
+        public int SmoothnessMaxSkill { get; set; } = 75;
         [JsonPropertyName("ageMinSkill")]
-        public int AgeMinSkill { get; set; }
+        public int AgeMinSkill { get; set; } = 25;
         [JsonPropertyName("ageMaxSkill")]
-        public int AgeMaxSkill { get; set; }
+        public int AgeMaxSkill { get; set; } = 75;
         [JsonPropertyName("pitCrewMinSkill")]
-        public int PitCrewMinSkill { get; set; }
+        public int PitCrewMinSkill { get; set; } = 25;
         [JsonPropertyName("pitCrewMaxSkill")]
-        public int PitCrewMaxSkill { get; set; }
+        public int PitCrewMaxSkill { get; set; } = 75;
         [JsonPropertyName("pitStratMinSkill")]
-        public int PitStratMinSkill { get; set; }
+        public int PitStratMinSkill { get; set; } = 25;
         [JsonPropertyName("pitStratMaxSkill")]
-        public int PitStratMaxSkill { get; set; }
+        public int PitStratMaxSkill { get; set; } = 75;
     }
 }

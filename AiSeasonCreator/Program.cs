@@ -1,9 +1,14 @@
 using AiSeasonCreator.FormOptions;
-using AiSeasonCreator.Interfaces;
 using AiSeasonCreator.Mappers;
 using AiSeasonCreator.ScheduleClasses;
 using AiSeasonCreator.Roster;
+using AiSeasonCreator.Repos;
+using AiSeasonCreator.Services;
+using AiSeasonCreator.Views;
 using Microsoft.Extensions.DependencyInjection;
+using AiSeasonCreator.Presenters;
+using AiSeasonCreator.Data;
+using AiSeasonCreator.DefaultUserSettings;
 
 namespace AiSeasonCreator
 {
@@ -29,19 +34,54 @@ namespace AiSeasonCreator
             services.AddTransient<IMapper<TrackState>, TrackStateMapper>();
             services.AddTransient<IMapper<Weather>, WeatherMapper>();
             services.AddTransient<IMapper<DriverRoster>, RosterMapper>();
-
-            services.AddSingleton<UserSelectedOptions>();
-            services.AddSingleton<SeasonService>();
-            services.AddSingleton<IJsonRepo, JsonRepo>();
-
             services.AddTransient<SeasonBuilder<SeasonSchedule>>();
 
-            services.AddSingleton<MainForm>();
-            services.AddTransient<TrackSelectionForm>();
-            var serviceProvider = services.BuildServiceProvider();
+            services.AddSingleton<IJsonRepo, JsonRepo>();
+            services.AddSingleton<AppSettings>();
+            services.AddSingleton<LoadedData>();
+
+            services.AddSingleton<ISettingsService, SettingsService>();
+            services.AddSingleton<ISettingsPresenter, SettingsPresenter>();
+            services.AddSingleton<SettingsForm>();
+            services.AddSingleton<ISettingsView>(provider => provider.GetRequiredService<SettingsForm>());
+
+            services.AddSingleton<IAboutService, AboutService>();
+            services.AddSingleton<IAboutPresenter, AboutPresenter>();
+            services.AddSingleton<AboutForm>();
+            services.AddSingleton<IAboutView>(provider => provider.GetRequiredService<AboutForm>());
+
+            services.AddSingleton<IRosterService, RosterService>();
+            services.AddSingleton<IRosterPresenter, RosterPresenter>();
+            services.AddSingleton<RosterForm>();
+            services.AddSingleton<IRosterView>(provider => provider.GetRequiredService<RosterForm>());
+
+            services.AddSingleton<ISeasonService, Services.SeasonService>();
+            services.AddSingleton<ISeasonPresenter, SeasonPresenter>();
+            services.AddSingleton<SeasonForm>();
+            services.AddSingleton<ISeasonView>(provider => provider.GetRequiredService<SeasonForm>());
+            
+
+            services.AddSingleton<Views.MainForm>();
+            services.AddSingleton<IMainView>(provider => provider.GetRequiredService<Views.MainForm>());
 
             ApplicationConfiguration.Initialize();
-            Application.Run(serviceProvider.GetRequiredService<MainForm>());
+
+            var serviceProvider = services.BuildServiceProvider();
+
+            var seasonForm = serviceProvider.GetRequiredService<SeasonForm>();
+            seasonForm.Presenter = serviceProvider.GetRequiredService<ISeasonPresenter>();
+
+            var rosterForm = serviceProvider.GetRequiredService<RosterForm>();
+            rosterForm.Presenter = serviceProvider.GetRequiredService<IRosterPresenter>();
+
+            var settingsForm = serviceProvider.GetRequiredService<SettingsForm>();
+            settingsForm.Presenter = serviceProvider.GetRequiredService<ISettingsPresenter>();
+
+            var aboutForm = serviceProvider.GetRequiredService<AboutForm>();
+            aboutForm.Presenter = serviceProvider.GetRequiredService<IAboutPresenter>();
+
+            var mainForm = serviceProvider.GetRequiredService<Views.MainForm>();
+            Application.Run(mainForm);
         }
     }
 }

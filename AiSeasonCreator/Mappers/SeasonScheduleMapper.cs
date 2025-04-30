@@ -1,7 +1,9 @@
 ﻿using AiSeasonCreator.ScheduleClasses;
 using AiSeasonCreator.FormOptions;
-using AiSeasonCreator.Interfaces;
 using AiSeasonCreator.Roster;
+using AiSeasonCreator.Data;
+using System.Runtime.CompilerServices;
+using AiSeasonCreator.Views;
 
 namespace AiSeasonCreator.Mappers
 {
@@ -15,7 +17,8 @@ namespace AiSeasonCreator.Mappers
         private readonly IMapper<TrackState> _trackStateMapper;
         private readonly IMapper<Weather> _weatherMapper;
         private readonly IMapper<DriverRoster> _driverRoster;
-        private readonly UserSelectedOptions _userSelectedOptions;
+        private readonly ISeasonView _seasonView;
+        private readonly LoadedData _loadedData;
         public SeasonScheduleMapper(
             IMapper<List<CarSettings>> carSettingsMapper,
             IMapper<List<Events>> eventsMapper,
@@ -25,7 +28,8 @@ namespace AiSeasonCreator.Mappers
             IMapper<TrackState> trackStateMapper,
             IMapper<Weather> weatherMapper,
             IMapper<DriverRoster> driverRoster,
-            UserSelectedOptions userSelectedOptions)
+            ISeasonView seasonView,
+            LoadedData loadedData)
         {
             _carSettingsMapper = carSettingsMapper;
             _eventsMapper = eventsMapper;
@@ -35,50 +39,43 @@ namespace AiSeasonCreator.Mappers
             _trackStateMapper = trackStateMapper;
             _weatherMapper = weatherMapper;
             _driverRoster = driverRoster;
-            _userSelectedOptions = userSelectedOptions;
+            _seasonView = seasonView;
+            _loadedData = loadedData;
         }
-        public SeasonSchedule Map(int eventIndex, string eventGuid)
+        public SeasonSchedule Map(int eventIndex, string seasonName)
         {
-            var s = new SeasonSchedule();
-            var seriesDetails = _userSelectedOptions.SeriesDetails;
-            var cars = _userSelectedOptions.CarDetails;
-            var carClasses = _userSelectedOptions.CarClasses;
+            var ss = new SeasonSchedule();
+            var s = _loadedData.SelectedSeries;
+            var sd = _loadedData.SelectedSeriesDetails;
+            var cd = _loadedData.CarDetails;
+            var cc = _loadedData.CarClasses;
             var carSettingsList = _carSettingsMapper.Map(0, "");
-            var i = _userSelectedOptions.SeasonSeriesIndex;
-            var c = _userSelectedOptions.FullSchedule[i];
 
-            for (var j = 0; j < cars.Length; j++)
-            {
-                if (cars[j].CarName == _userSelectedOptions.CarName)
-                {
-                    s.CarId = cars[j].CarId;
-                    break;
-                }
-            }
+            ss.CarId = cd.FirstOrDefault(c => c.CarName == _seasonView.SelectedCar).CarId;
 
             //get AiIds and UserClassId
-            if (c.CarClassIds.Count == 1)
+            if (s.CarClassIds.Count == 1)
             {
-                s.AiCarClassId = c.CarClassIds[0];
-                s.AiCarClassIds = new List<int>();
-                s.UserCarClassId = c.CarClassIds[0];
+                ss.AiCarClassId = s.CarClassIds[0];
+                ss.AiCarClassIds = new List<int>();
+                ss.UserCarClassId = s.CarClassIds[0];
             }
             else
             {
-                s.AiCarClassId = null;
-                s.AiCarClassIds = c.CarClassIds;
+                ss.AiCarClassId = null;
+                ss.AiCarClassIds = s.CarClassIds;
 
-                for (var j = 0; j < carClasses.Length; j++)
+                for (var j = 0; j < cc.Length; j++)
                 {
-                    for (var k = 0; k < s.AiCarClassIds.Count; k++)
+                    for (var k = 0; k < ss.AiCarClassIds.Count; k++)
                     {
-                        if (s.AiCarClassIds[k] == carClasses[j].CarClassId)
+                        if (ss.AiCarClassIds[k] == cc[j].CarClassId)
                         {
-                            for (var n = 0; n < carClasses[j].CarsInClass.Length; n++)
+                            for (var n = 0; n < cc[j].CarsInClass.Length; n++)
                             {
-                                if (carClasses[j].CarsInClass[n].CarId == s.CarId)
+                                if (cc[j].CarsInClass[n].CarId == ss.CarId)
                                 {
-                                    s.UserCarClassId = carClasses[j].CarClassId;
+                                    ss.UserCarClassId = cc[j].CarClassId;
                                 }
                             }
                         }
@@ -86,129 +83,115 @@ namespace AiSeasonCreator.Mappers
                 }
             }
 
-            s.CarSettings = carSettingsList;
-            s.DamageModel = _userSelectedOptions.DisableDamage ? 3 : 0;
-            s.TrackState = _trackStateMapper.Map(0, "");
-            s.TimeOfDay = 0;
-            s.Weather = _weatherMapper.Map(0, "");
-            s.FullCourseCautions = c.Schedules[0].HasFullCourseCautions;
-            s.GridPosition = 1;
-            s.LuckyDog = c.LuckyDog;
-            
-            var matchingSeries = seriesDetails.FirstOrDefault(sd => sd.SeriesId == c.SeriesId);
-            if (matchingSeries != null)
-            {
-                if (_userSelectedOptions.CustCarCountSeason)
-                {
-                    s.MaxDrivers = _userSelectedOptions.CustCarSeasonCountValue;
-                }
-                else
-                {
-                    s.MaxDrivers = matchingSeries.MaxStarters;
-                }
-                s.PointsSystemId = matchingSeries.Category == "oval" ? 3 : 4;
-            }
+            ss.CarSettings = carSettingsList;
+            ss.DamageModel = _seasonView.DisableDamage ? 3 : 0;
+            ss.TrackState = _trackStateMapper.Map(0, "");
+            ss.TimeOfDay = 0;
+            ss.Weather = _weatherMapper.Map(0, "");
+            ss.FullCourseCautions = s.Schedules[0].HasFullCourseCautions;
+            ss.GridPosition = 1;
+            ss.LuckyDog = s.LuckyDog;
 
-            s.NumFastTows = -1;
-            s.AvoidUser = _userSelectedOptions.AiAvoids;
+            ss.MaxDrivers = _seasonView.CarCount;
+            ss.PointsSystemId = sd.Category == "oval" ? 3 : 4;
 
-            if (_userSelectedOptions.UseAdaptiveAi)
+            ss.NumFastTows = -1;
+            ss.AvoidUser = _seasonView.AiAvoids;
+
+            if (_seasonView.UseAdaptiveAi)
             {
-                s.AdaptiveAiEnabled = true;
+                ss.AdaptiveAiEnabled = true;
                 
-                switch (_userSelectedOptions.AdaptiveAiDifficulty)
+                switch (_seasonView.AdaptiveAiDifficulty)
                 {
                     case "Easy":
-                        s.AdaptiveAiDifficulty = 1;
+                        ss.AdaptiveAiDifficulty = 1;
                         break;
                     case "Medium":
-                        s.AdaptiveAiDifficulty = 2;
+                        ss.AdaptiveAiDifficulty = 2;
                         break;
                     case "Hard":
-                        s.AdaptiveAiDifficulty = 3;
-                        break;
-                    case "Extreme":
-                        s.AdaptiveAiDifficulty = 4;
+                        ss.AdaptiveAiDifficulty = 3;
                         break;
                     default:
-                        s.AdaptiveAiDifficulty = 0;
+                        ss.AdaptiveAiDifficulty = 1;
                         break;
                 }
             }
             else
             {
-                s.AdaptiveAiEnabled = false;
-                s.AdaptiveAiDifficulty = 0;
-                s.MinSkill = _userSelectedOptions.AiMin;
-                s.MaxSkill = _userSelectedOptions.AiMax;
+                ss.AdaptiveAiEnabled = false;
+                ss.AdaptiveAiDifficulty = 0;
             }
 
-            s.MustUseDiffTireTypesInRace = c.MustUseDiffTireTypesInRace;
-            s.StartOnQualTire = c.StartOnQualTire;
-            s.UnsportConductRuleMode = 0;
-            s.PracticeLength = 3;
-            s.QualifyLaps = 2;
-            s.QualifyLength = 8;
+            ss.MinSkill = _seasonView.AiMin;
+            ss.MaxSkill = _seasonView.AiMax;
+            ss.MustUseDiffTireTypesInRace = s.MustUseDiffTireTypesInRace;
+            ss.StartOnQualTire = s.StartOnQualTire;
+            ss.UnsportConductRuleMode = 0;
+            ss.PracticeLength = _seasonView.PracticeLength;
+            ss.QualifyLaps = _seasonView.QualiLength;
+            ss.QualifyLength = _seasonView.QualiLength;
 
             //sets race by lap count or time limit
-            if (c.Schedules[0].RaceLapLimit == null)
+            if (s.Schedules[0].RaceLapLimit == null)
             {
-                s.RaceLaps = 0;
-                s.RaceLength = c.Schedules[0].RaceTimeLimit;
-                s.RaceLengthType = 2;
+                ss.RaceLaps = 0;
+                ss.RaceLength = _seasonView.RaceLength;
+                ss.RaceLengthType = 2;
             }
             else
             {
-                s.RaceLaps = c.Schedules[0].RaceLapLimit;
-                s.RaceLength = 0;
-                s.RaceLengthType = 3;
+                ss.RaceLaps = (s.Schedules[0].RaceTimeLimit * _seasonView.RaceLength) / 100;
+                ss.RaceLength = 0;
+                ss.RaceLengthType = 3;
             }
 
             //restart type
-            if (c.Schedules[0].RestartType == "Double-file Back")
+            if (s.Schedules[0].RestartType == "Double-file Back")
             {
-                s.Restarts = 2;
+                ss.Restarts = 2;
             }
             else
             {
-                s.Restarts = 0;
+                ss.Restarts = 0;
             }
 
             //rolling or standing starts
-            if (c.Schedules[0].StartType == "Rolling")
+            if (s.Schedules[0].StartType == "Rolling")
             {
-                s.RollingStarts = true;
+                ss.RollingStarts = true;
             }
             else
             {
-                s.RollingStarts = false;
+                ss.RollingStarts = false;
             }
 
-            if (_userSelectedOptions.ExcludeRoster)
+            if (_seasonView.RosterName == "Generate Roster")
             {
-                s.RosterName = null;
+                ss.RosterName = _seasonView.SeasonName;
+                _driverRoster.Map(0, seasonName);
             }
-            else if (_userSelectedOptions.UseExistingRoster && _userSelectedOptions.ExistingRosterName != "")
+            else if (_seasonView.RosterName == "Exclude Roster")
             {
-                s.RosterName = _userSelectedOptions.ExistingRosterName;
+                ss.RosterName = null;
             }
             else
             {
-                s.RosterName = _userSelectedOptions.SeasonName;
-                _driverRoster.Map(0, _userSelectedOptions.SeasonName);
+                ss.RosterName = _seasonView.RosterName;
             }
 
-            s.ShortParadeLap = _userSelectedOptions.ShortParade;
-            s.NoLapperWaveArounds = false;
-            s.DoNotCountCautionLaps = c.CautionLapsDoNotCount;
-            s.Subsessions = new List<int> { 3, 5, 6 };
-            s.StartZone = 0;
+            ss.ShortParadeLap = _seasonView.ShortParade;
+            ss.NoLapperWaveArounds = false;
+            ss.DoNotCountCautionLaps = s.CautionLapsDoNotCount;
+            ss.Subsessions = new List<int> { 3, 5, 6 };
+            ss.StartZone = 0;
 
-            s.Events = _eventsMapper.Map(0, ""); 
+            ss.Events = _eventsMapper.Map(0, ""); 
 
-            s.Name = _userSelectedOptions.SeasonName;
+            ss.Name = seasonName;
 
-            return s;
+            return ss;
         }
     }
 }

@@ -1,0 +1,562 @@
+{
+  "32": {
+    "series_id": 32,
+    "logo": "seriesid_32.png"
+  },
+  "33": {
+    "series_id": 33,
+    "logo": "seriesid_33.png"
+  },
+  "34": {
+    "series_id": 34,
+    "logo": "skipbarberraceseries-logo.png"
+  },
+  "45": {
+    "series_id": 45,
+    "logo": "skmodifiedweeklyseries-logo.png"
+  },
+  "47": {
+    "series_id": 47,
+    "logo": "nascarclassc-logo.png"
+  },
+  "53": {
+    "series_id": 53,
+    "logo": "seriesid_53.png"
+  },
+  "58": {
+    "series_id": 58,
+    "logo": "nascar-cup-series.png"
+  },
+  "62": {
+    "series_id": 62,
+    "logo": "seriesid_62.png"
+  },
+  "63": {
+    "series_id": 63,
+    "logo": "SCCASRF-logo.png"
+  },
+  "65": {
+    "series_id": 65,
+    "logo": "seriesid_65.png"
+  },
+  "74": {
+    "series_id": 74,
+    "logo": "seriesid_74.png"
+  },
+  "102": {
+    "series_id": 102,
+    "logo": "nascartourmodifiedseries-logo.png"
+  },
+  "103": {
+    "series_id": 103,
+    "logo": "seriesid_103.png"
+  },
+  "112": {
+    "series_id": 112,
+    "logo": "seriesid_112.png"
+  },
+  "116": {
+    "series_id": 116,
+    "logo": "carburetorcup-logo.png"
+  },
+  "131": {
+    "series_id": 131,
+    "logo": "seriesid_131.png"
+  },
+  "132": {
+    "series_id": 132,
+    "logo": "seriesid_132.png"
+  },
+  "133": {
+    "series_id": 133,
+    "logo": "seriesid_133.png"
+  },
+  "139": {
+    "series_id": 139,
+    "logo": "seriesid_139.png"
+  },
+  "164": {
+    "series_id": 164,
+    "logo": "seriesid_164.png"
+  },
+  "165": {
+    "series_id": 165,
+    "logo": "seriesid_165.png"
+  },
+  "167": {
+    "series_id": 167,
+    "logo": "ARCAnational-logo.png"
+  },
+  "182": {
+    "series_id": 182,
+    "logo": "seriesid_182.png"
+  },
+  "190": {
+    "series_id": 190,
+    "logo": "streetstocknextlevelracingseries-logo.png"
+  },
+  "191": {
+    "series_id": 191,
+    "logo": "nascar-cup-series.png"
+  },
+  "201": {
+    "series_id": 201,
+    "logo": "seriesid_201.png"
+  },
+  "207": {
+    "series_id": 207,
+    "logo": "enascariracingseriesfixed-logo.png"
+  },
+  "210": {
+    "series_id": 210,
+    "logo": "seriesid_210.png"
+  },
+  "223": {
+    "series_id": 223,
+    "logo": "seriesid_223.png"
+  },
+  "228": {
+    "series_id": 228,
+    "logo": "seriesid_228.png"
+  },
+  "229": {
+    "series_id": 229,
+    "logo": "enascariracingseries-logo.png"
+  },
+  "231": {
+    "series_id": 231,
+    "logo": "advancedmazdamx5cupseries-logo.png"
+  },
+  "237": {
+    "series_id": 237,
+    "logo": "seriesid_237.png"
+  },
+  "259": {
+    "series_id": 259,
+    "logo": "seriesid_259.png"
+  },
+  "260": {
+    "series_id": 260,
+    "logo": "formulaagrandprixseries-logo.png"
+  },
+  "275": {
+    "series_id": 275,
+    "logo": "seriesid_275.png"
+  },
+  "285": {
+    "series_id": 285,
+    "logo": "seriesid_285.png"
+  },
+  "291": {
+    "series_id": 291,
+    "logo": "dirtcarlimitedlatemodelseries-logo.png"
+  },
+  "292": {
+    "series_id": 292,
+    "logo": "fanatec-305-logo.png"
+  },
+  "299": {
+    "series_id": 299,
+    "logo": "seriesid_299.png"
+  },
+  "305": {
+    "series_id": 305,
+    "logo": "seriesid_305.png"
+  },
+  "306": {
+    "series_id": 306,
+    "logo": "dirtcarprolatemodelseries-logo.png"
+  },
+  "307": {
+    "series_id": 307,
+    "logo": "wooscseries-logo.png"
+  },
+  "308": {
+    "series_id": 308,
+    "logo": "seriesid_308.png"
+  },
+  "309": {
+    "series_id": 309,
+    "logo": "amsoilusacsprintcarnationalchampionship-logo.png"
+  },
+  "310": {
+    "series_id": 310,
+    "logo": "usac360sprintcarseries-logo.png"
+  },
+  "311": {
+    "series_id": 311,
+    "logo": "dirtcarclasscstreetstockseries-logo.png"
+  },
+  "315": {
+    "series_id": 315,
+    "logo": "seriesid_315.png"
+  },
+  "325": {
+    "series_id": 325,
+    "logo": "iracingrallycrossseries-logo.png"
+  },
+  "327": {
+    "series_id": 327,
+    "logo": "dirtmidgetcup-logo.png"
+  },
+  "331": {
+    "series_id": 331,
+    "logo": "seriesid_331.png"
+  },
+  "353": {
+    "series_id": 353,
+    "logo": "seriesid_353.png"
+  },
+  "369": {
+    "series_id": 369,
+    "logo": "seriesid_369.png"
+  },
+  "374": {
+    "series_id": 374,
+    "logo": "seriesid_374.png"
+  },
+  "391": {
+    "series_id": 391,
+    "logo": "pro4offroadracingseries-logo.png"
+  },
+  "399": {
+    "series_id": 399,
+    "logo": "supercars-logo.png"
+  },
+  "405": {
+    "series_id": 405,
+    "logo": "supercars-logo.png"
+  },
+  "413": {
+    "series_id": 413,
+    "logo": "nascarlegends-logo.png"
+  },
+  "414": {
+    "series_id": 414,
+    "logo": "usopenwheelcindypro2000-logo.png"
+  },
+  "416": {
+    "series_id": 416,
+    "logo": "seriesid_416.png"
+  },
+  "417": {
+    "series_id": 417,
+    "logo": "nascartourmodifiedseries-logo.png"
+  },
+  "419": {
+    "series_id": 419,
+    "logo": "seriesid_419.png"
+  },
+  "428": {
+    "series_id": 428,
+    "logo": "bigblockmodifiedseries-logo.png"
+  },
+  "429": {
+    "series_id": 429,
+    "logo": "dallarformulair-logo.png"
+  },
+  "430": {
+    "series_id": 430,
+    "logo": "seriesid_430.png"
+  },
+  "431": {
+    "series_id": 431,
+    "logo": "seriesid_431.png"
+  },
+  "432": {
+    "series_id": 432,
+    "logo": "seriesid_432.png"
+  },
+  "440": {
+    "series_id": 440,
+    "logo": "seriesid_440.png"
+  },
+  "441": {
+    "series_id": 441,
+    "logo": "skmodifiedweeklyseriesfixed-logo.png"
+  },
+  "442": {
+    "series_id": 442,
+    "logo": "seriesid_442.png"
+  },
+  "443": {
+    "series_id": 443,
+    "logo": "usopenwheeldusf2000logo.png"
+  },
+  "444": {
+    "series_id": 444,
+    "logo": "fanatecgt3challenge-logo.png"
+  },
+  "446": {
+    "series_id": 446,
+    "logo": "seriesid_446.png"
+  },
+  "447": {
+    "series_id": 447,
+    "logo": "imsairacingseries-logo.png"
+  },
+  "451": {
+    "series_id": 451,
+    "logo": "seriesid_451.png"
+  },
+  "455": {
+    "series_id": 455,
+    "logo": "seriesid_455.png"
+  },
+  "456": {
+    "series_id": 456,
+    "logo": "seriesid_456.png"
+  },
+  "457": {
+    "series_id": 457,
+    "logo": "seriesid_457.png"
+  },
+  "458": {
+    "series_id": 458,
+    "logo": "worldofoutlawssprintcarseriesfixed-logo.png"
+  },
+  "459": {
+    "series_id": 459,
+    "logo": "rookieirxvolkswagenbeetlelitefixed-logo.png"
+  },
+  "460": {
+    "series_id": 460,
+    "logo": "irxvolkswagenbeetlelite-logo.png"
+  },
+  "461": {
+    "series_id": 461,
+    "logo": "iracingrallycrossseriesfixed-logo.png"
+  },
+  "462": {
+    "series_id": 462,
+    "logo": "rookiepro2liteoffroadracingseries-logo.png"
+  },
+  "463": {
+    "series_id": 463,
+    "logo": "pro4offroadracingseriesfixed-logo.png"
+  },
+  "464": {
+    "series_id": 464,
+    "logo": "pro2offroadracingseriesfixed-logo.png"
+  },
+  "466": {
+    "series_id": 466,
+    "logo": "seriesid_466.png"
+  },
+  "471": {
+    "series_id": 471,
+    "logo": "seriesid_471.png"
+  },
+  "476": {
+    "series_id": 476,
+    "logo": "seriesid_476.png"
+  },
+  "483": {
+    "series_id": 483,
+    "logo": "seriesid_483.png"
+  },
+  "484": {
+    "series_id": 484,
+    "logo": "formulaagrandprixsprint-logo.png"
+  },
+  "490": {
+    "series_id": 490,
+    "logo": "pro2offroadracingseries-logo.png"
+  },
+  "491": {
+    "series_id": 491,
+    "logo": "gt4falkentirechallenge-logo.png"
+  },
+  "492": {
+    "series_id": 492,
+    "logo": "imsamichelinpilotchallenge-logo.png"
+  },
+  "493": {
+    "series_id": 493,
+    "logo": "stockcarbrasil-logo.png"
+  },
+  "495": {
+    "series_id": 495,
+    "logo": "seriesid_495.png"
+  },
+  "496": {
+    "series_id": 496,
+    "logo": "seriesid_496.png"
+  },
+  "498": {
+    "series_id": 498,
+    "logo": "seriesid_498.png"
+  },
+  "500": {
+    "series_id": 500,
+    "logo": "seriesid_500.png"
+  },
+  "501": {
+    "series_id": 501,
+    "logo": "seriesid_501.png"
+  },
+  "502": {
+    "series_id": 502,
+    "logo": "seriesid_502.png"
+  },
+  "503": {
+    "series_id": 503,
+    "logo": "seriesid_503.png"
+  },
+  "505": {
+    "series_id": 505,
+    "logo": "missionrchallengefixed-logo.png"
+  },
+  "514": {
+    "series_id": 514,
+    "logo": "seriesid_514.png"
+  },
+  "515": {
+    "series_id": 515,
+    "logo": "seriesid_515.png"
+  },
+  "516": {
+    "series_id": 516,
+    "logo": "dirtmidgetcupfixed-logo.png"
+  },
+  "517": {
+    "series_id": 517,
+    "logo": "dirtcarprolatemodelseriesfixed-logo.png"
+  },
+  "518": {
+    "series_id": 518,
+    "logo": "superdirtcarbigblockmodifiedsfixed-logo.png"
+  },
+  "519": {
+    "series_id": 519,
+    "logo": "seriesid_519.png"
+  },
+  "520": {
+    "series_id": 520,
+    "logo": "seriesid_520.png"
+  },
+  "521": {
+    "series_id": 521,
+    "logo": "seriesid_521.png"
+  },
+  "524": {
+    "series_id": 524,
+    "logo": "seriesid_524.png"
+  },
+  "525": {
+    "series_id": 525,
+    "logo": "seriesid_525.png"
+  },
+  "526": {
+    "series_id": 526,
+    "logo": "seriesid_526.png"
+  },
+  "530": {
+    "series_id": 530,
+    "logo": "seriesid_530.png"
+  },
+  "535": {
+    "series_id": 535,
+    "logo": "seriesid_535.png"
+  },
+  "536": {
+    "series_id": 536,
+    "logo": "seriesid_536.png"
+  },
+  "537": {
+    "series_id": 537,
+    "logo": "seriesid_537.png"
+  },
+  "538": {
+    "series_id": 538,
+    "logo": "seriesid_538.png"
+  },
+  "539": {
+    "series_id": 539,
+    "logo": "seriesid_539.png"
+  },
+  "540": {
+    "series_id": 540,
+    "logo": "seriesid_540.png"
+  },
+  "541": {
+    "series_id": 541,
+    "logo": "seriesid_541.png"
+  },
+  "542": {
+    "series_id": 542,
+    "logo": "seriesid_542.png"
+  },
+  "550": {
+    "series_id": 550,
+    "logo": "seriesid_550.png"
+  },
+  "551": {
+    "series_id": 551,
+    "logo": "seriesid_551.png"
+  },
+  "552": {
+    "series_id": 552,
+    "logo": "seriesid_552.png"
+  },
+  "553": {
+    "series_id": 553,
+    "logo": "seriesid_553.png"
+  },
+  "554": {
+    "series_id": 554,
+    "logo": "seriesid_554.png"
+  },
+  "557": {
+    "series_id": 557,
+    "logo": "seriesid_557.png"
+  },
+  "558": {
+    "series_id": 558,
+    "logo": "seriesid_558.png"
+  },
+  "559": {
+    "series_id": 559,
+    "logo": "seriesid_559.png"
+  },
+  "562": {
+    "series_id": 562,
+    "logo": "seriesid_562.png"
+  },
+  "563": {
+    "series_id": 563,
+    "logo": "seriesid_563.png"
+  },
+  "564": {
+    "series_id": 564,
+    "logo": "seriesid_564.png"
+  },
+  "567": {
+    "series_id": 567,
+    "logo": "seriesid_567.png"
+  },
+  "571": {
+    "series_id": 571,
+    "logo": "seriesid_571.png"
+  },
+  "572": {
+    "series_id": 572,
+    "logo": "seriesid_572.png"
+  },
+  "574": {
+    "series_id": 574,
+    "logo": "seriesid_574.png"
+  },
+  "575": {
+    "series_id": 575,
+    "logo": "seriesid_575.png"
+  },
+  "576": {
+    "series_id": 576,
+    "logo": "seriesid_576.png"
+  },
+  "579": {
+    "series_id": 579,
+    "logo": "seriesid_579.png"
+  }
+}
