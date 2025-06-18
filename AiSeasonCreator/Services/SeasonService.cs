@@ -134,7 +134,6 @@ namespace AiSeasonCreator.Services
 
             var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-
             foreach (var carClass in carClasses)
             {
                 var ids = _loadedData.CarClasses.FirstOrDefault(c => c.CarClassId == carClass);
@@ -247,7 +246,9 @@ namespace AiSeasonCreator.Services
                 {
                     foreach (var roster in rosters)
                     {
-                        rosterNames.Add(Path.GetFileName(roster));
+                        var path = Path.Combine(roster, "roster.json");
+                        if (File.Exists(path))
+                            rosterNames.Add(Path.GetFileName(roster));
                     }
                 }
             }

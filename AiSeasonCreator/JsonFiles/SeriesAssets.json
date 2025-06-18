@@ -125,7 +125,7 @@
   },
   "231": {
     "series_id": 231,
-    "logo": "advancedmazdamx5cupseries-logo.png"
+    "logo": "seriesid_231.png"
   },
   "237": {
     "series_id": 237,
@@ -214,10 +214,6 @@
   "374": {
     "series_id": 374,
     "logo": "seriesid_374.png"
-  },
-  "391": {
-    "series_id": 391,
-    "logo": "pro4offroadracingseries-logo.png"
   },
   "399": {
     "series_id": 399,
@@ -358,10 +354,6 @@
   "484": {
     "series_id": 484,
     "logo": "formulaagrandprixsprint-logo.png"
-  },
-  "490": {
-    "series_id": 490,
-    "logo": "pro2offroadracingseries-logo.png"
   },
   "491": {
     "series_id": 491,
@@ -558,5 +550,13 @@
   "579": {
     "series_id": 579,
     "logo": "seriesid_579.png"
+  },
+  "584": {
+    "series_id": 584,
+    "logo": "seriesid_584.png"
+  },
+  "588": {
+    "series_id": 588,
+    "logo": "seriesid_588.png"
   }
 }

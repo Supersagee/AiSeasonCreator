@@ -142,7 +142,7 @@
             adaptiveAiComboBox.FormattingEnabled = true;
             adaptiveAiComboBox.IntegralHeight = false;
             adaptiveAiComboBox.ItemHeight = 23;
-            adaptiveAiComboBox.Items.AddRange(new object[] { "Easy", "Medium", "Hard" });
+            adaptiveAiComboBox.Items.AddRange(new object[] { "Low", "Medium", "Hard" });
             adaptiveAiComboBox.Location = new Point(122, 15);
             adaptiveAiComboBox.Name = "adaptiveAiComboBox";
             adaptiveAiComboBox.Size = new Size(255, 29);

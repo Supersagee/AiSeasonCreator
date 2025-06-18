@@ -269,7 +269,7 @@
   },
   "84": {
     "car_id": 84,
-    "logo": "/img/logos/series/woolatemodelseries-logo.png"
+    "logo": "woolatemodelseries-logo.png"
   },
   "85": {
     "car_id": 85,
@@ -698,5 +698,17 @@
   "200": {
     "car_id": 200,
     "logo": "toyota-logo.png"
+  },
+  "201": {
+    "car_id": 201,
+    "logo": "chevrolet-logo.png"
+  },
+  "202": {
+    "car_id": 202,
+    "logo": "ford-logo.png"
+  },
+  "203": {
+    "car_id": 203,
+    "logo": "ferrari-logo.png"
   }
 }

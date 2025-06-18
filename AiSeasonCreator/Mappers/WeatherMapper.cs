@@ -60,16 +60,11 @@ namespace AiSeasonCreator.Mappers
             }
 
             if (_seasonView.AfternoonRaces)
-            {
                 weather.SimulatedStartTime = DateTime.Parse(s.SimulatedStartTime.ToString("yyyy-MM-ddTHH:mm:ss").Substring(0, 11) + "14:00:00");
-                weather.TimeOfDay = 0;
-            }
             else
-            {
                 weather.SimulatedStartTime = s.SimulatedStartTime;
-                weather.TimeOfDay = s.TimeOfDay;
-            }
 
+            weather.TimeOfDay = 4;
             weather.TrackWater = 0;
             weather.WeatherId = "564678_" + Guid.NewGuid().ToString();
             weather.EventId = eventGuid;
@@ -78,7 +73,8 @@ namespace AiSeasonCreator.Mappers
             if (s.ForecastOptions != null && !_seasonView.StaticWeather)
             {
                 weather.GuidedParameters = _guidedParametersMapper.Map(eventIndex, eventGuid);
-                weather.WeatherSeed = s.ForecastOptions.WeatherSeed;
+                //weather.WeatherSeed = s.ForecastOptions.WeatherSeed;
+                weather.WeatherSeed = null;
                 weather.PrecipOption = s.PrecipOption;
                 weather.Keyframes = _keyframesMapper.Map(eventIndex, eventGuid);
             }

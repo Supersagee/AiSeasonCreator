@@ -45,7 +45,8 @@ namespace AiSeasonCreator.Mappers
                 kf.PrecipAmount = f.PrecipAmount;
                 kf.RawAirTemp = f.RawAirTemp;
                 kf.IsSunUp = f.IsSunUp;
-                kf.WeatherSeed = index == 0 ? ws : null;
+                //kf.WeatherSeed = index == 0 ? ws : null;
+                kf.WeatherSeed = null;
                 kf.SimulatedStartTime = index == 0 ? sst.ToString("yyyy-MM-ddTHH:mm:ss") : null;
                 lkf.Add(kf);
                 index++;

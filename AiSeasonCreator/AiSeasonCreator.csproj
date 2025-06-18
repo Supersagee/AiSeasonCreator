@@ -5,9 +5,9 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>25.2.1</Version>
-    <AssemblyVersion>25.2.1.0</AssemblyVersion>
-    <FileVersion>25.2.1.0</FileVersion>
+    <Version>25.3.0</Version>
+    <AssemblyVersion>25.3.0.0</AssemblyVersion>
+    <FileVersion>25.3.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -203,7 +203,7 @@
     <None Update="Assets\CarAssets\wooscseries-logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Assets\SeriesAssets\advancedmazdamx5cupseries-logo.png">
+    <None Update="Assets\SeriesAssets\seriesid_231.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Assets\SeriesAssets\amsoilusacsprintcarnationalchampionship-logo.png">
@@ -567,6 +567,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Assets\SeriesAssets\seriesid_579.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\SeriesAssets\seriesid_584.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Assets\SeriesAssets\seriesid_62.png">
@@ -968,6 +971,9 @@
     <None Update="Assets\TrackAssets\texasmotorspeedway-logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Assets\TrackAssets\thebendmotorsportpark-logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\TrackAssets\thebullring-logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -1031,28 +1037,10 @@
     <None Update="JsonFiles\Cars.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="JsonFiles\Schedules\2024 - Season 3.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="JsonFiles\Schedules\2024 - Season 4.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="JsonFiles\Schedules\2025 - Season 1.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Update="JsonFiles\SeasonSchedule.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\SeriesAssets.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="JsonFiles\SeriesDetails\24s3_series.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="JsonFiles\SeriesDetails\24s4_series.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="JsonFiles\SeriesDetails\25s1_series.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\SeriesDetails.json">
@@ -1062,15 +1050,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\Tracks.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="JsonFiles\WeatherSchedules\WeatherSchedule 2024 - Season 3.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="JsonFiles\WeatherSchedules\WeatherSchedule 2024 - Season 4.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="JsonFiles\WeatherSchedules\WeatherSchedule 2025 - Season 1.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="JsonFiles\WeatherSchedule.json">

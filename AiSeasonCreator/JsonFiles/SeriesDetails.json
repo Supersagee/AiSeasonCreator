@@ -57,8 +57,8 @@
     "oval_caution_type": 0,
     "road_caution_type": 2,
     "series_id": 514,
-    "series_name": "Toyota GR86 Cup by Buttkicker",
-    "series_short_name": "Toyota GR86 Cup by Buttkicker"
+    "series_name": "Toyota GR86 Cup by SIMAGIC",
+    "series_short_name": "Toyota GR86 Cup by SIMAGIC"
   },
   {
     "allowed_licenses": [
@@ -377,6 +377,7 @@
       "season_year": 2023,
       "season_quarter": 1
     },
+    "forum_url": "https://forums.iracing.com/categories/super-dirtcar-big-block-modified",
     "max_starters": 20,
     "min_starters": 6,
     "oval_caution_type": 4,
@@ -437,6 +438,7 @@
       "season_year": 2023,
       "season_quarter": 2
     },
+    "forum_url": "https://forums.iracing.com/categories/renault-clio-r-s-v",
     "max_starters": 20,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -497,6 +499,7 @@
       "season_year": 2023,
       "season_quarter": 2
     },
+    "forum_url": "https://forums.iracing.com/categories/rookie-racing-discussion",
     "max_starters": 12,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -557,6 +560,7 @@
       "season_year": 2023,
       "season_quarter": 2
     },
+    "forum_url": "https://forums.iracing.com/categories/ray-ff1600",
     "max_starters": 20,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -611,6 +615,7 @@
       "season_year": 2023,
       "season_quarter": 2
     },
+    "forum_url": "https://forums.iracing.com/categories/gen-4-stock-car",
     "max_starters": 30,
     "min_starters": 6,
     "oval_caution_type": 3,
@@ -666,6 +671,7 @@
       "season_year": 2023,
       "season_quarter": 3
     },
+    "forum_url": "https://forums.iracing.com/categories/ligier-js-p320",
     "max_starters": 20,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -735,6 +741,66 @@
         "group_name": "Rookie",
         "license_group": 1,
         "max_license_level": 4,
+        "min_license_level": 1
+      },
+      {
+        "group_name": "Class D",
+        "license_group": 2,
+        "max_license_level": 8,
+        "min_license_level": 5
+      },
+      {
+        "group_name": "Class C",
+        "license_group": 3,
+        "max_license_level": 12,
+        "min_license_level": 9
+      },
+      {
+        "group_name": "Class B",
+        "license_group": 4,
+        "max_license_level": 16,
+        "min_license_level": 13
+      },
+      {
+        "group_name": "Class A",
+        "license_group": 5,
+        "max_license_level": 20,
+        "min_license_level": 17
+      },
+      {
+        "group_name": "Pro",
+        "license_group": 6,
+        "max_license_level": 24,
+        "min_license_level": 21
+      },
+      {
+        "group_name": "Pro/WC",
+        "license_group": 7,
+        "max_license_level": 28,
+        "min_license_level": 25
+      }
+    ],
+    "category": "dirt_oval",
+    "category_id": 3,
+    "eligible": true,
+    "first_season": {
+      "season_year": 2023,
+      "season_quarter": 2
+    },
+    "max_starters": 32,
+    "min_starters": 6,
+    "oval_caution_type": 0,
+    "road_caution_type": 0,
+    "series_id": 528,
+    "series_name": "13th Week Dirt Ridiculousness",
+    "series_short_name": "13th Week Dirt Ridiculousness"
+  },
+  {
+    "allowed_licenses": [
+      {
+        "group_name": "Rookie",
+        "license_group": 1,
+        "max_license_level": 4,
         "min_license_level": 4
       },
       {
@@ -781,6 +847,7 @@
       "season_year": 2023,
       "season_quarter": 4
     },
+    "forum_url": "https://forums.iracing.com/categories/ford-mustang-fr500s",
     "max_starters": 20,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -890,6 +957,7 @@
       "season_year": 2023,
       "season_quarter": 4
     },
+    "forum_url": "https://forums.iracing.com/categories/gte",
     "max_starters": 30,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -938,6 +1006,7 @@
       "season_year": 2023,
       "season_quarter": 4
     },
+    "forum_url": "https://forums.iracing.com/categories/super-formula-sf23-toyota",
     "max_starters": 25,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -986,6 +1055,7 @@
       "season_year": 2023,
       "season_quarter": 4
     },
+    "forum_url": "https://forums.iracing.com/categories/super-formula-sf23-toyota",
     "max_starters": 25,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -1089,6 +1159,7 @@
       "season_year": 2023,
       "season_quarter": 4
     },
+    "forum_url": "https://forums.iracing.com/categories/imsa-sports-car-series",
     "max_starters": 50,
     "min_starters": 10,
     "oval_caution_type": 0,
@@ -1149,13 +1220,14 @@
       "season_year": 2023,
       "season_quarter": 4
     },
+    "forum_url": "https://forums.iracing.com/categories/fia-f4-esports-regional-tour-%7C-asia-pacific",
     "max_starters": 26,
     "min_starters": 6,
     "oval_caution_type": 0,
     "road_caution_type": 2,
     "series_id": 540,
-    "series_name": "FIA F4 Esports Regional Tour  - Asia Pacific",
-    "series_short_name": "FIA F4 Esports Regional Tour  - Asia Pacific"
+    "series_name": "FIA F4 Esports Regional Tour - Asia Pacific",
+    "series_short_name": "FIA F4 Esports Regional Tour - Asia Pacific"
   },
   {
     "allowed_licenses": [
@@ -1265,13 +1337,14 @@
       "season_year": 2023,
       "season_quarter": 4
     },
+    "forum_url": "https://forums.iracing.com/categories/fia-f4-esports-regional-tour-%7C-americas",
     "max_starters": 26,
     "min_starters": 6,
     "oval_caution_type": 0,
     "road_caution_type": 2,
     "series_id": 541,
-    "series_name": "FIA F4 Esports Regional Tour  - Americas",
-    "series_short_name": "FIA F4 Esports Regional Tour  - Americas"
+    "series_name": "FIA F4 Esports Regional Tour - America",
+    "series_short_name": "FIA F4 Esports Regional Tour - America"
   },
   {
     "allowed_licenses": [
@@ -1325,6 +1398,7 @@
       "season_year": 2023,
       "season_quarter": 4
     },
+    "forum_url": "https://forums.iracing.com/categories/fia-f4-esports-regional-tour-%7C-europe-north",
     "max_starters": 26,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -1332,6 +1406,66 @@
     "series_id": 542,
     "series_name": "FIA F4 Esports Regional Tour - Europe",
     "series_short_name": "FIA F4 Esports Regional Tour - Europe"
+  },
+  {
+    "allowed_licenses": [
+      {
+        "group_name": "Rookie",
+        "license_group": 1,
+        "max_license_level": 4,
+        "min_license_level": 1
+      },
+      {
+        "group_name": "Class D",
+        "license_group": 2,
+        "max_license_level": 8,
+        "min_license_level": 5
+      },
+      {
+        "group_name": "Class C",
+        "license_group": 3,
+        "max_license_level": 12,
+        "min_license_level": 9
+      },
+      {
+        "group_name": "Class B",
+        "license_group": 4,
+        "max_license_level": 16,
+        "min_license_level": 13
+      },
+      {
+        "group_name": "Class A",
+        "license_group": 5,
+        "max_license_level": 20,
+        "min_license_level": 17
+      },
+      {
+        "group_name": "Pro",
+        "license_group": 6,
+        "max_license_level": 24,
+        "min_license_level": 21
+      },
+      {
+        "group_name": "Pro/WC",
+        "license_group": 7,
+        "max_license_level": 28,
+        "min_license_level": 25
+      }
+    ],
+    "category": "sports_car",
+    "category_id": 5,
+    "eligible": true,
+    "first_season": {
+      "season_year": 2023,
+      "season_quarter": 3
+    },
+    "max_starters": 26,
+    "min_starters": 6,
+    "oval_caution_type": 0,
+    "road_caution_type": 0,
+    "series_id": 544,
+    "series_name": "13th Week Shake Up",
+    "series_short_name": "13th Week Shake Up"
   },
   {
     "allowed_licenses": [
@@ -1683,6 +1817,7 @@
       "season_year": 2024,
       "season_quarter": 2
     },
+    "forum_url": "https://forums.iracing.com/categories/rookie-racing-discussion",
     "max_starters": 12,
     "min_starters": 4,
     "oval_caution_type": 0,
@@ -1737,6 +1872,7 @@
       "season_year": 2024,
       "season_quarter": 2
     },
+    "forum_url": "https://forums.iracing.com/categories/super-formula-lights",
     "max_starters": 28,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -1851,6 +1987,7 @@
       "season_year": 2024,
       "season_quarter": 2
     },
+    "forum_url": "https://forums.iracing.com/categories/super-formula-lights",
     "max_starters": 28,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -1905,6 +2042,7 @@
       "season_year": 2024,
       "season_quarter": 2
     },
+    "forum_url": "https://forums.iracing.com/categories/dirt-micro-sprint-car-winged-non-winged",
     "max_starters": 14,
     "min_starters": 4,
     "oval_caution_type": 4,
@@ -1965,6 +2103,7 @@
       "season_year": 2024,
       "season_quarter": 2
     },
+    "forum_url": "https://forums.iracing.com/categories/srx",
     "max_starters": 16,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -1972,6 +2111,66 @@
     "series_id": 554,
     "series_name": "SRX Series - Fixed",
     "series_short_name": "SRX Series - Fixed"
+  },
+  {
+    "allowed_licenses": [
+      {
+        "group_name": "Rookie",
+        "license_group": 1,
+        "max_license_level": 4,
+        "min_license_level": 1
+      },
+      {
+        "group_name": "Class D",
+        "license_group": 2,
+        "max_license_level": 8,
+        "min_license_level": 5
+      },
+      {
+        "group_name": "Class C",
+        "license_group": 3,
+        "max_license_level": 12,
+        "min_license_level": 9
+      },
+      {
+        "group_name": "Class B",
+        "license_group": 4,
+        "max_license_level": 16,
+        "min_license_level": 13
+      },
+      {
+        "group_name": "Class A",
+        "license_group": 5,
+        "max_license_level": 20,
+        "min_license_level": 17
+      },
+      {
+        "group_name": "Pro",
+        "license_group": 6,
+        "max_license_level": 24,
+        "min_license_level": 21
+      },
+      {
+        "group_name": "Pro/WC",
+        "license_group": 7,
+        "max_license_level": 28,
+        "min_license_level": 25
+      }
+    ],
+    "category": "formula_car",
+    "category_id": 6,
+    "eligible": true,
+    "first_season": {
+      "season_year": 2024,
+      "season_quarter": 1
+    },
+    "max_starters": 24,
+    "min_starters": 6,
+    "oval_caution_type": 0,
+    "road_caution_type": 0,
+    "series_id": 555,
+    "series_name": "13th Week Wet & Wild",
+    "series_short_name": "13th Week Wet & Wild"
   },
   {
     "allowed_licenses": [
@@ -2203,6 +2402,7 @@
       "season_year": 2024,
       "season_quarter": 2
     },
+    "forum_url": "https://forums.iracing.com/categories/bmw-m2-cs",
     "max_starters": 20,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -2263,6 +2463,7 @@
       "season_year": 2024,
       "season_quarter": 2
     },
+    "forum_url": "https://forums.iracing.com/categories/rookie-racing-discussion",
     "max_starters": 12,
     "min_starters": 4,
     "oval_caution_type": 0,
@@ -2323,6 +2524,7 @@
       "season_year": 2024,
       "season_quarter": 2
     },
+    "forum_url": "https://forums.iracing.com/categories/gt3",
     "max_starters": 20,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -2446,66 +2648,6 @@
   {
     "allowed_licenses": [
       {
-        "group_name": "Rookie",
-        "license_group": 1,
-        "max_license_level": 4,
-        "min_license_level": 1
-      },
-      {
-        "group_name": "Class D",
-        "license_group": 2,
-        "max_license_level": 8,
-        "min_license_level": 5
-      },
-      {
-        "group_name": "Class C",
-        "license_group": 3,
-        "max_license_level": 12,
-        "min_license_level": 9
-      },
-      {
-        "group_name": "Class B",
-        "license_group": 4,
-        "max_license_level": 16,
-        "min_license_level": 13
-      },
-      {
-        "group_name": "Class A",
-        "license_group": 5,
-        "max_license_level": 20,
-        "min_license_level": 17
-      },
-      {
-        "group_name": "Pro",
-        "license_group": 6,
-        "max_license_level": 24,
-        "min_license_level": 21
-      },
-      {
-        "group_name": "Pro/WC",
-        "license_group": 7,
-        "max_license_level": 28,
-        "min_license_level": 25
-      }
-    ],
-    "category": "oval",
-    "category_id": 1,
-    "eligible": true,
-    "first_season": {
-      "season_year": 2008,
-      "season_quarter": 3
-    },
-    "max_starters": 20,
-    "min_starters": 10,
-    "oval_caution_type": 0,
-    "road_caution_type": 0,
-    "series_id": 49,
-    "series_name": "13th Week iRacing Legends Cup ",
-    "series_short_name": "13th Week iRacing Legends Cup "
-  },
-  {
-    "allowed_licenses": [
-      {
         "group_name": "Class D",
         "license_group": 2,
         "max_license_level": 8,
@@ -2611,6 +2753,7 @@
       "season_year": 2024,
       "season_quarter": 4
     },
+    "forum_url": "https://forums.iracing.com/categories/legends-ford-34-coupe",
     "max_starters": 16,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -2618,6 +2761,68 @@
     "series_id": 562,
     "series_name": "Legends Road Cup by Go Motorsports Shop",
     "series_short_name": "Legends Road Cup by Go Motorsports Shop"
+  },
+  {
+    "allowed_licenses": [
+      {
+        "group_name": "Rookie",
+        "license_group": 1,
+        "max_license_level": 4,
+        "min_license_level": 4
+      },
+      {
+        "group_name": "Class D",
+        "license_group": 2,
+        "max_license_level": 8,
+        "min_license_level": 5
+      },
+      {
+        "group_name": "Class C",
+        "license_group": 3,
+        "max_license_level": 12,
+        "min_license_level": 9
+      },
+      {
+        "group_name": "Class B",
+        "license_group": 4,
+        "max_license_level": 16,
+        "min_license_level": 13
+      },
+      {
+        "group_name": "Class A",
+        "license_group": 5,
+        "max_license_level": 20,
+        "min_license_level": 17
+      },
+      {
+        "group_name": "Pro",
+        "license_group": 6,
+        "max_license_level": 24,
+        "min_license_level": 21
+      },
+      {
+        "group_name": "Pro/WC",
+        "license_group": 7,
+        "max_license_level": 28,
+        "min_license_level": 25
+      }
+    ],
+    "category": "oval",
+    "category_id": 1,
+    "eligible": true,
+    "first_season": {
+      "season_year": 2024,
+      "season_quarter": 4
+    },
+    "forum_url": "https://forums.iracing.com/categories/indy-pro-2000-pm-18",
+    "max_starters": 16,
+    "min_starters": 6,
+    "oval_caution_type": 0,
+    "road_caution_type": 0,
+    "search_filters": "roadtoindy,oval,openwheel",
+    "series_id": 563,
+    "series_name": "Jr Open Wheel Oval Challenge",
+    "series_short_name": "Jr Open Wheel Oval Challenge - Fixed"
   },
   {
     "allowed_licenses": [
@@ -2675,67 +2880,6 @@
         "group_name": "Rookie",
         "license_group": 1,
         "max_license_level": 4,
-        "min_license_level": 4
-      },
-      {
-        "group_name": "Class D",
-        "license_group": 2,
-        "max_license_level": 8,
-        "min_license_level": 5
-      },
-      {
-        "group_name": "Class C",
-        "license_group": 3,
-        "max_license_level": 12,
-        "min_license_level": 9
-      },
-      {
-        "group_name": "Class B",
-        "license_group": 4,
-        "max_license_level": 16,
-        "min_license_level": 13
-      },
-      {
-        "group_name": "Class A",
-        "license_group": 5,
-        "max_license_level": 20,
-        "min_license_level": 17
-      },
-      {
-        "group_name": "Pro",
-        "license_group": 6,
-        "max_license_level": 24,
-        "min_license_level": 21
-      },
-      {
-        "group_name": "Pro/WC",
-        "license_group": 7,
-        "max_license_level": 28,
-        "min_license_level": 25
-      }
-    ],
-    "category": "oval",
-    "category_id": 1,
-    "eligible": true,
-    "first_season": {
-      "season_year": 2024,
-      "season_quarter": 4
-    },
-    "max_starters": 16,
-    "min_starters": 6,
-    "oval_caution_type": 0,
-    "road_caution_type": 0,
-    "search_filters": "roadtoindy,oval,openwheel",
-    "series_id": 563,
-    "series_name": "Jr Open Wheel Oval Challenge",
-    "series_short_name": "Jr Open Wheel Oval Challenge - Fixed"
-  },
-  {
-    "allowed_licenses": [
-      {
-        "group_name": "Rookie",
-        "license_group": 1,
-        "max_license_level": 4,
         "min_license_level": 1
       },
       {
@@ -2782,6 +2926,7 @@
       "season_year": 2024,
       "season_quarter": 4
     },
+    "forum_url": "https://forums.iracing.com/categories/rookie-racing-discussion",
     "max_starters": 14,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -3041,66 +3186,6 @@
         "min_license_level": 25
       }
     ],
-    "category": "formula_car",
-    "category_id": 6,
-    "eligible": true,
-    "first_season": {
-      "season_year": 2024,
-      "season_quarter": 3
-    },
-    "max_starters": 20,
-    "min_starters": 6,
-    "oval_caution_type": 0,
-    "road_caution_type": 1,
-    "series_id": 566,
-    "series_name": "13th Week iTested Event",
-    "series_short_name": "13th Week iTested Event"
-  },
-  {
-    "allowed_licenses": [
-      {
-        "group_name": "Rookie",
-        "license_group": 1,
-        "max_license_level": 4,
-        "min_license_level": 1
-      },
-      {
-        "group_name": "Class D",
-        "license_group": 2,
-        "max_license_level": 8,
-        "min_license_level": 5
-      },
-      {
-        "group_name": "Class C",
-        "license_group": 3,
-        "max_license_level": 12,
-        "min_license_level": 9
-      },
-      {
-        "group_name": "Class B",
-        "license_group": 4,
-        "max_license_level": 16,
-        "min_license_level": 13
-      },
-      {
-        "group_name": "Class A",
-        "license_group": 5,
-        "max_license_level": 20,
-        "min_license_level": 17
-      },
-      {
-        "group_name": "Pro",
-        "license_group": 6,
-        "max_license_level": 24,
-        "min_license_level": 21
-      },
-      {
-        "group_name": "Pro/WC",
-        "license_group": 7,
-        "max_license_level": 28,
-        "min_license_level": 25
-      }
-    ],
     "category": "dirt_oval",
     "category_id": 3,
     "eligible": true,
@@ -3108,6 +3193,7 @@
       "season_year": 2024,
       "season_quarter": 4
     },
+    "forum_url": "https://forums.iracing.com/categories/rookie-racing-discussion",
     "max_starters": 14,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -3390,13 +3476,14 @@
       "season_year": 2025,
       "season_quarter": 1
     },
+    "forum_url": "https://forums.iracing.com/categories/bmw-m2-cs",
     "max_starters": 12,
     "min_starters": 6,
     "oval_caution_type": 0,
     "road_caution_type": 1,
     "series_id": 571,
-    "series_name": "BMW M2 Cup",
-    "series_short_name": "BMW M2 Cup"
+    "series_name": "BMW M2 Cup by Nitro Concepts",
+    "series_short_name": "BMW M2 Cup by Nitro Concepts"
   },
   {
     "allowed_licenses": [
@@ -3444,6 +3531,7 @@
       "season_year": 2025,
       "season_quarter": 1
     },
+    "forum_url": "https://forums.iracing.com/categories/imsa-sports-car-series",
     "max_starters": 40,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -3548,6 +3636,7 @@
       "season_year": 2025,
       "season_quarter": 1
     },
+    "forum_url": "https://forums.iracing.com/categories/super-late-model",
     "max_starters": 30,
     "min_starters": 6,
     "oval_caution_type": 3,
@@ -3664,6 +3753,7 @@
       "season_year": 2025,
       "season_quarter": 1
     },
+    "forum_url": "https://forums.iracing.com/categories/sk-modifieds-fixed",
     "max_starters": 26,
     "min_starters": 6,
     "oval_caution_type": 3,
@@ -3764,8 +3854,9 @@
     "eligible": true,
     "first_season": {
       "season_year": 2025,
-      "season_quarter": 1
+      "season_quarter": 2
     },
+    "forum_url": "https://forums.iracing.com/categories/dirt-ump-modified",
     "max_starters": 20,
     "min_starters": 6,
     "oval_caution_type": 4,
@@ -3930,6 +4021,7 @@
       "season_year": 2025,
       "season_quarter": 2
     },
+    "forum_url": "https://forums.iracing.com/categories/lotus-79",
     "max_starters": 24,
     "min_starters": 6,
     "oval_caution_type": 0,
@@ -4061,66 +4153,6 @@
   {
     "allowed_licenses": [
       {
-        "group_name": "Rookie",
-        "license_group": 1,
-        "max_license_level": 4,
-        "min_license_level": 1
-      },
-      {
-        "group_name": "Class D",
-        "license_group": 2,
-        "max_license_level": 8,
-        "min_license_level": 5
-      },
-      {
-        "group_name": "Class C",
-        "license_group": 3,
-        "max_license_level": 12,
-        "min_license_level": 9
-      },
-      {
-        "group_name": "Class B",
-        "license_group": 4,
-        "max_license_level": 16,
-        "min_license_level": 13
-      },
-      {
-        "group_name": "Class A",
-        "license_group": 5,
-        "max_license_level": 20,
-        "min_license_level": 17
-      },
-      {
-        "group_name": "Pro",
-        "license_group": 6,
-        "max_license_level": 24,
-        "min_license_level": 21
-      },
-      {
-        "group_name": "Pro/WC",
-        "license_group": 7,
-        "max_license_level": 28,
-        "min_license_level": 25
-      }
-    ],
-    "category": "sports_car",
-    "category_id": 5,
-    "eligible": true,
-    "first_season": {
-      "season_year": 2025,
-      "season_quarter": 1
-    },
-    "max_starters": 20,
-    "min_starters": 8,
-    "oval_caution_type": 0,
-    "road_caution_type": 0,
-    "series_id": 581,
-    "series_name": "13th Week Matt Malone MX-5 Cup",
-    "series_short_name": "13th Week Matt Malone MX-5 Cup"
-  },
-  {
-    "allowed_licenses": [
-      {
         "group_name": "Class C",
         "license_group": 3,
         "max_license_level": 12,
@@ -4227,6 +4259,186 @@
   {
     "allowed_licenses": [
       {
+        "group_name": "Rookie",
+        "license_group": 1,
+        "max_license_level": 4,
+        "min_license_level": 4
+      },
+      {
+        "group_name": "Class D",
+        "license_group": 2,
+        "max_license_level": 8,
+        "min_license_level": 5
+      },
+      {
+        "group_name": "Class C",
+        "license_group": 3,
+        "max_license_level": 12,
+        "min_license_level": 9
+      },
+      {
+        "group_name": "Class B",
+        "license_group": 4,
+        "max_license_level": 16,
+        "min_license_level": 13
+      },
+      {
+        "group_name": "Class A",
+        "license_group": 5,
+        "max_license_level": 20,
+        "min_license_level": 17
+      },
+      {
+        "group_name": "Pro",
+        "license_group": 6,
+        "max_license_level": 24,
+        "min_license_level": 21
+      },
+      {
+        "group_name": "Pro/WC",
+        "license_group": 7,
+        "max_license_level": 28,
+        "min_license_level": 25
+      }
+    ],
+    "category": "sports_car",
+    "category_id": 5,
+    "eligible": true,
+    "first_season": {
+      "season_year": 2025,
+      "season_quarter": 3
+    },
+    "max_starters": 60,
+    "min_starters": 6,
+    "oval_caution_type": 0,
+    "road_caution_type": 2,
+    "series_id": 584,
+    "series_name": "Production Endurance Challenge",
+    "series_short_name": "Production Endurance Challenge"
+  },
+  {
+    "allowed_licenses": [
+      {
+        "group_name": "Rookie",
+        "license_group": 1,
+        "max_license_level": 4,
+        "min_license_level": 1
+      },
+      {
+        "group_name": "Class D",
+        "license_group": 2,
+        "max_license_level": 8,
+        "min_license_level": 5
+      },
+      {
+        "group_name": "Class C",
+        "license_group": 3,
+        "max_license_level": 12,
+        "min_license_level": 9
+      },
+      {
+        "group_name": "Class B",
+        "license_group": 4,
+        "max_license_level": 16,
+        "min_license_level": 13
+      },
+      {
+        "group_name": "Class A",
+        "license_group": 5,
+        "max_license_level": 20,
+        "min_license_level": 17
+      },
+      {
+        "group_name": "Pro",
+        "license_group": 6,
+        "max_license_level": 24,
+        "min_license_level": 21
+      },
+      {
+        "group_name": "Pro/WC",
+        "license_group": 7,
+        "max_license_level": 28,
+        "min_license_level": 25
+      }
+    ],
+    "category": "oval",
+    "category_id": 1,
+    "eligible": true,
+    "first_season": {
+      "season_year": 2025,
+      "season_quarter": 2
+    },
+    "max_starters": 20,
+    "min_starters": 6,
+    "oval_caution_type": 0,
+    "road_caution_type": 1,
+    "series_id": 585,
+    "series_name": "13th Week 5 To Go",
+    "series_short_name": "13th Week 5 To Go"
+  },
+  {
+    "allowed_licenses": [
+      {
+        "group_name": "Rookie",
+        "license_group": 1,
+        "max_license_level": 4,
+        "min_license_level": 1
+      },
+      {
+        "group_name": "Class D",
+        "license_group": 2,
+        "max_license_level": 8,
+        "min_license_level": 5
+      },
+      {
+        "group_name": "Class C",
+        "license_group": 3,
+        "max_license_level": 12,
+        "min_license_level": 9
+      },
+      {
+        "group_name": "Class B",
+        "license_group": 4,
+        "max_license_level": 16,
+        "min_license_level": 13
+      },
+      {
+        "group_name": "Class A",
+        "license_group": 5,
+        "max_license_level": 20,
+        "min_license_level": 17
+      },
+      {
+        "group_name": "Pro",
+        "license_group": 6,
+        "max_license_level": 24,
+        "min_license_level": 21
+      },
+      {
+        "group_name": "Pro/WC",
+        "license_group": 7,
+        "max_license_level": 28,
+        "min_license_level": 25
+      }
+    ],
+    "category": "oval",
+    "category_id": 1,
+    "eligible": true,
+    "first_season": {
+      "season_year": 2025,
+      "season_quarter": 2
+    },
+    "max_starters": 60,
+    "min_starters": 6,
+    "oval_caution_type": 0,
+    "road_caution_type": 0,
+    "series_id": 586,
+    "series_name": "13th Week Sleeves Off Scramble",
+    "series_short_name": "13th Week Sleeves Off Scramble"
+  },
+  {
+    "allowed_licenses": [
+      {
         "group_name": "Class D",
         "license_group": 2,
         "max_license_level": 8,
@@ -4329,6 +4541,66 @@
     "series_id": 331,
     "series_name": "Global Endurance Tour",
     "series_short_name": "Global Endurance Tour"
+  },
+  {
+    "allowed_licenses": [
+      {
+        "group_name": "Rookie",
+        "license_group": 1,
+        "max_license_level": 4,
+        "min_license_level": 4
+      },
+      {
+        "group_name": "Class D",
+        "license_group": 2,
+        "max_license_level": 8,
+        "min_license_level": 5
+      },
+      {
+        "group_name": "Class C",
+        "license_group": 3,
+        "max_license_level": 12,
+        "min_license_level": 9
+      },
+      {
+        "group_name": "Class B",
+        "license_group": 4,
+        "max_license_level": 16,
+        "min_license_level": 13
+      },
+      {
+        "group_name": "Class A",
+        "license_group": 5,
+        "max_license_level": 20,
+        "min_license_level": 17
+      },
+      {
+        "group_name": "Pro",
+        "license_group": 6,
+        "max_license_level": 24,
+        "min_license_level": 21
+      },
+      {
+        "group_name": "Pro/WC",
+        "license_group": 7,
+        "max_license_level": 28,
+        "min_license_level": 25
+      }
+    ],
+    "category": "dirt_road",
+    "category_id": 4,
+    "eligible": true,
+    "first_season": {
+      "season_year": 2025,
+      "season_quarter": 3
+    },
+    "max_starters": 10,
+    "min_starters": 4,
+    "oval_caution_type": 0,
+    "road_caution_type": 0,
+    "series_id": 588,
+    "series_name": "Advanced Pro 2 Lite Off Road Racing Series",
+    "series_short_name": "Advanced Pro 2 Lite Off Road Racing Series"
   },
   {
     "allowed_licenses": [
@@ -4622,15 +4894,15 @@
       "season_year": 2018,
       "season_quarter": 4
     },
-    "forum_url": "https://forums.iracing.com/categories/ferrari-488-gt3",
+    "forum_url": "https://forums.iracing.com/categories/ferrari-296-challenge",
     "max_starters": 20,
     "min_starters": 6,
     "oval_caution_type": 0,
     "road_caution_type": 2,
     "search_filters": "sportscars,road",
     "series_id": 353,
-    "series_name": "Ferrari GT3 Challenge - Fixed",
-    "series_short_name": "Ferrari GT3 Challenge - Fixed"
+    "series_name": "Ferrari 296 Challenge",
+    "series_short_name": "Ferrari 296 Challenge"
   },
   {
     "allowed_licenses": [
@@ -4689,8 +4961,8 @@
     "oval_caution_type": 0,
     "road_caution_type": 2,
     "series_id": 355,
-    "series_name": "13th Week Ferrari GT3 Challenge",
-    "series_short_name": "13th Week Ferrari GT3 Challenge"
+    "series_name": "13th Week Ferrari 296 Challenge",
+    "series_short_name": "13th Week Ferrari 296 Challenge"
   },
   {
     "allowed_licenses": [
@@ -4804,66 +5076,6 @@
         "group_name": "Rookie",
         "license_group": 1,
         "max_license_level": 4,
-        "min_license_level": 1
-      },
-      {
-        "group_name": "Class D",
-        "license_group": 2,
-        "max_license_level": 8,
-        "min_license_level": 5
-      },
-      {
-        "group_name": "Class C",
-        "license_group": 3,
-        "max_license_level": 12,
-        "min_license_level": 9
-      },
-      {
-        "group_name": "Class B",
-        "license_group": 4,
-        "max_license_level": 16,
-        "min_license_level": 13
-      },
-      {
-        "group_name": "Class A",
-        "license_group": 5,
-        "max_license_level": 20,
-        "min_license_level": 17
-      },
-      {
-        "group_name": "Pro",
-        "license_group": 6,
-        "max_license_level": 24,
-        "min_license_level": 21
-      },
-      {
-        "group_name": "Pro/WC",
-        "license_group": 7,
-        "max_license_level": 28,
-        "min_license_level": 25
-      }
-    ],
-    "category": "sports_car",
-    "category_id": 5,
-    "eligible": true,
-    "first_season": {
-      "season_year": 2018,
-      "season_quarter": 4
-    },
-    "max_starters": 30,
-    "min_starters": 6,
-    "oval_caution_type": 0,
-    "road_caution_type": 2,
-    "series_id": 364,
-    "series_name": "13th Week Roval Race",
-    "series_short_name": "13th Week Roval Race"
-  },
-  {
-    "allowed_licenses": [
-      {
-        "group_name": "Rookie",
-        "license_group": 1,
-        "max_license_level": 4,
         "min_license_level": 4
       },
       {
@@ -4911,7 +5123,7 @@
       "season_quarter": 4
     },
     "forum_url": "https://forums.iracing.com/categories/PCC",
-    "max_starters": 40,
+    "max_starters": 44,
     "min_starters": 6,
     "oval_caution_type": 0,
     "road_caution_type": 2,
@@ -5133,8 +5345,8 @@
         "min_license_level": 25
       }
     ],
-    "category": "sports_car",
-    "category_id": 5,
+    "category": "oval",
+    "category_id": 1,
     "eligible": true,
     "first_season": {
       "season_year": 2019,
@@ -5358,6 +5570,7 @@
       "season_year": 2011,
       "season_quarter": 1
     },
+    "forum_url": "https://forums.iracing.com/categories/dallara-ir-18",
     "max_starters": 26,
     "min_starters": 8,
     "oval_caution_type": 3,
@@ -5480,10 +5693,22 @@
   {
     "allowed_licenses": [
       {
+        "group_name": "Rookie",
+        "license_group": 1,
+        "max_license_level": 4,
+        "min_license_level": 1
+      },
+      {
+        "group_name": "Class D",
+        "license_group": 2,
+        "max_license_level": 8,
+        "min_license_level": 5
+      },
+      {
         "group_name": "Class C",
         "license_group": 3,
         "max_license_level": 12,
-        "min_license_level": 12
+        "min_license_level": 9
       },
       {
         "group_name": "Class B",
@@ -5510,22 +5735,80 @@
         "min_license_level": 25
       }
     ],
-    "category": "dirt_road",
-    "category_id": 4,
+    "category": "sports_car",
+    "category_id": 5,
+    "eligible": true,
+    "first_season": {
+      "season_year": 2010,
+      "season_quarter": 4
+    },
+    "max_starters": 20,
+    "min_starters": 8,
+    "oval_caution_type": 0,
+    "road_caution_type": 0,
+    "series_id": 135,
+    "series_name": "13th Week Mazda Cup",
+    "series_short_name": "13th Week Mazda Cup"
+  },
+  {
+    "allowed_licenses": [
+      {
+        "group_name": "Rookie",
+        "license_group": 1,
+        "max_license_level": 4,
+        "min_license_level": 1
+      },
+      {
+        "group_name": "Class D",
+        "license_group": 2,
+        "max_license_level": 8,
+        "min_license_level": 5
+      },
+      {
+        "group_name": "Class C",
+        "license_group": 3,
+        "max_license_level": 12,
+        "min_license_level": 9
+      },
+      {
+        "group_name": "Class B",
+        "license_group": 4,
+        "max_license_level": 16,
+        "min_license_level": 13
+      },
+      {
+        "group_name": "Class A",
+        "license_group": 5,
+        "max_license_level": 20,
+        "min_license_level": 17
+      },
+      {
+        "group_name": "Pro",
+        "license_group": 6,
+        "max_license_level": 24,
+        "min_license_level": 21
+      },
+      {
+        "group_name": "Pro/WC",
+        "license_group": 7,
+        "max_license_level": 28,
+        "min_license_level": 25
+      }
+    ],
+    "category": "sports_car",
+    "category_id": 5,
     "eligible": true,
     "first_season": {
       "season_year": 2019,
-      "season_quarter": 4
+      "season_quarter": 3
     },
-    "forum_url": "https://forums.iracing.com/categories/off-road-racing-pro-4-trucks",
-    "max_starters": 16,
-    "min_starters": 4,
+    "max_starters": 20,
+    "min_starters": 6,
     "oval_caution_type": 0,
-    "road_caution_type": 0,
-    "search_filters": "dirtroad",
-    "series_id": 391,
-    "series_name": "Pro 4 Off Road Racing Series",
-    "series_short_name": "Pro 4 Off Road Racing Series"
+    "road_caution_type": 1,
+    "series_id": 392,
+    "series_name": "13th Week Touring Car Challenge",
+    "series_short_name": "13th Week Touring Car Challenge"
   },
   {
     "allowed_licenses": [
@@ -5758,66 +6041,6 @@
   {
     "allowed_licenses": [
       {
-        "group_name": "Rookie",
-        "license_group": 1,
-        "max_license_level": 4,
-        "min_license_level": 4
-      },
-      {
-        "group_name": "Class D",
-        "license_group": 2,
-        "max_license_level": 8,
-        "min_license_level": 5
-      },
-      {
-        "group_name": "Class C",
-        "license_group": 3,
-        "max_license_level": 12,
-        "min_license_level": 9
-      },
-      {
-        "group_name": "Class B",
-        "license_group": 4,
-        "max_license_level": 16,
-        "min_license_level": 13
-      },
-      {
-        "group_name": "Class A",
-        "license_group": 5,
-        "max_license_level": 20,
-        "min_license_level": 17
-      },
-      {
-        "group_name": "Pro",
-        "license_group": 6,
-        "max_license_level": 24,
-        "min_license_level": 21
-      },
-      {
-        "group_name": "Pro/WC",
-        "license_group": 7,
-        "max_license_level": 28,
-        "min_license_level": 25
-      }
-    ],
-    "category": "sports_car",
-    "category_id": 5,
-    "eligible": true,
-    "first_season": {
-      "season_year": 2020,
-      "season_quarter": 1
-    },
-    "max_starters": 44,
-    "min_starters": 6,
-    "oval_caution_type": 0,
-    "road_caution_type": 2,
-    "series_id": 406,
-    "series_name": "13th Week Sebring Sunrise",
-    "series_short_name": "13th Week Sebring Sunrise"
-  },
-  {
-    "allowed_licenses": [
-      {
         "group_name": "Class C",
         "license_group": 3,
         "max_license_level": 12,
@@ -5976,66 +6199,6 @@
     "series_id": 416,
     "series_name": "Super Late Model Series - Fixed",
     "series_short_name": "Super Late Model Series - Fixed"
-  },
-  {
-    "allowed_licenses": [
-      {
-        "group_name": "Rookie",
-        "license_group": 1,
-        "max_license_level": 4,
-        "min_license_level": 1
-      },
-      {
-        "group_name": "Class D",
-        "license_group": 2,
-        "max_license_level": 8,
-        "min_license_level": 5
-      },
-      {
-        "group_name": "Class C",
-        "license_group": 3,
-        "max_license_level": 12,
-        "min_license_level": 9
-      },
-      {
-        "group_name": "Class B",
-        "license_group": 4,
-        "max_license_level": 16,
-        "min_license_level": 13
-      },
-      {
-        "group_name": "Class A",
-        "license_group": 5,
-        "max_license_level": 20,
-        "min_license_level": 17
-      },
-      {
-        "group_name": "Pro",
-        "license_group": 6,
-        "max_license_level": 24,
-        "min_license_level": 21
-      },
-      {
-        "group_name": "Pro/WC",
-        "license_group": 7,
-        "max_license_level": 28,
-        "min_license_level": 25
-      }
-    ],
-    "category": "sports_car",
-    "category_id": 5,
-    "eligible": true,
-    "first_season": {
-      "season_year": 2011,
-      "season_quarter": 3
-    },
-    "max_starters": 30,
-    "min_starters": 8,
-    "oval_caution_type": 0,
-    "road_caution_type": 2,
-    "series_id": 161,
-    "series_name": "13th Week Legends Road Series",
-    "series_short_name": "13th Week Legends Road Series"
   },
   {
     "allowed_licenses": [
@@ -6361,7 +6524,7 @@
       "season_year": 2012,
       "season_quarter": 1
     },
-    "forum_url": "https://forums.iracing.com/categories/arca-menards-chevrolet-impala",
+    "forum_url": "https://forums.iracing.com/categories/arca-chevrolet-ss-ford-mustang-and-toyota-camry",
     "max_starters": 24,
     "min_starters": 8,
     "oval_caution_type": 0,
@@ -7248,20 +7411,20 @@
         "min_license_level": 25
       }
     ],
-    "category": "dirt_oval",
-    "category_id": 3,
+    "category": "sports_car",
+    "category_id": 5,
     "eligible": true,
     "first_season": {
       "season_year": 2021,
       "season_quarter": 1
     },
-    "max_starters": 20,
+    "max_starters": 30,
     "min_starters": 6,
     "oval_caution_type": 0,
     "road_caution_type": 1,
-    "series_id": 450,
-    "series_name": "13th Week Super Slide",
-    "series_short_name": "13th Week Super Slide"
+    "series_id": 449,
+    "series_name": "13th Week GT3 Challenge - Fixed",
+    "series_short_name": "13th Week GT3 Challenge - Fixed"
   },
   {
     "allowed_licenses": [
@@ -7991,7 +8154,7 @@
       "season_quarter": 3
     },
     "forum_url": "https://forums.iracing.com/categories/pro2Truck",
-    "max_starters": 14,
+    "max_starters": 12,
     "min_starters": 4,
     "oval_caution_type": 0,
     "road_caution_type": 2,
@@ -8618,57 +8781,8 @@
     "road_caution_type": 2,
     "search_filters": "sportscars,road",
     "series_id": 231,
-    "series_name": "Advanced Mazda MX-5 Cup",
-    "series_short_name": "Advanced Mazda MX-5 Cup"
-  },
-  {
-    "allowed_licenses": [
-      {
-        "group_name": "Class C",
-        "license_group": 3,
-        "max_license_level": 12,
-        "min_license_level": 12
-      },
-      {
-        "group_name": "Class B",
-        "license_group": 4,
-        "max_license_level": 16,
-        "min_license_level": 13
-      },
-      {
-        "group_name": "Class A",
-        "license_group": 5,
-        "max_license_level": 20,
-        "min_license_level": 17
-      },
-      {
-        "group_name": "Pro",
-        "license_group": 6,
-        "max_license_level": 24,
-        "min_license_level": 21
-      },
-      {
-        "group_name": "Pro/WC",
-        "license_group": 7,
-        "max_license_level": 28,
-        "min_license_level": 25
-      }
-    ],
-    "category": "dirt_road",
-    "category_id": 4,
-    "eligible": true,
-    "first_season": {
-      "season_year": 2022,
-      "season_quarter": 2
-    },
-    "forum_url": "https://forums.iracing.com/categories/pro2Truck",
-    "max_starters": 16,
-    "min_starters": 4,
-    "oval_caution_type": 0,
-    "road_caution_type": 0,
-    "series_id": 490,
-    "series_name": "Pro 2 Off Road Racing Series",
-    "series_short_name": "Pro 2 Off Road Racing Series"
+    "series_name": "Advanced Mazda MX-5 Cup by Heusinkveld",
+    "series_short_name": "Advanced Mazda MX-5 Cup by Heusinkveld"
   },
   {
     "allowed_licenses": [
@@ -9071,6 +9185,66 @@
   {
     "allowed_licenses": [
       {
+        "group_name": "Rookie",
+        "license_group": 1,
+        "max_license_level": 4,
+        "min_license_level": 1
+      },
+      {
+        "group_name": "Class D",
+        "license_group": 2,
+        "max_license_level": 8,
+        "min_license_level": 5
+      },
+      {
+        "group_name": "Class C",
+        "license_group": 3,
+        "max_license_level": 12,
+        "min_license_level": 9
+      },
+      {
+        "group_name": "Class B",
+        "license_group": 4,
+        "max_license_level": 16,
+        "min_license_level": 13
+      },
+      {
+        "group_name": "Class A",
+        "license_group": 5,
+        "max_license_level": 20,
+        "min_license_level": 17
+      },
+      {
+        "group_name": "Pro",
+        "license_group": 6,
+        "max_license_level": 24,
+        "min_license_level": 21
+      },
+      {
+        "group_name": "Pro/WC",
+        "license_group": 7,
+        "max_license_level": 28,
+        "min_license_level": 25
+      }
+    ],
+    "category": "sports_car",
+    "category_id": 5,
+    "eligible": true,
+    "first_season": {
+      "season_year": 2015,
+      "season_quarter": 2
+    },
+    "max_starters": 50,
+    "min_starters": 6,
+    "oval_caution_type": 0,
+    "road_caution_type": 0,
+    "series_id": 242,
+    "series_name": "13th Week iRacing Tube Frame Twister ",
+    "series_short_name": "13th Week iRacing Tube Frame Twister "
+  },
+  {
+    "allowed_licenses": [
+      {
         "group_name": "Class D",
         "license_group": 2,
         "max_license_level": 8,
@@ -9298,66 +9472,6 @@
   {
     "allowed_licenses": [
       {
-        "group_name": "Rookie",
-        "license_group": 1,
-        "max_license_level": 4,
-        "min_license_level": 1
-      },
-      {
-        "group_name": "Class D",
-        "license_group": 2,
-        "max_license_level": 8,
-        "min_license_level": 5
-      },
-      {
-        "group_name": "Class C",
-        "license_group": 3,
-        "max_license_level": 12,
-        "min_license_level": 9
-      },
-      {
-        "group_name": "Class B",
-        "license_group": 4,
-        "max_license_level": 16,
-        "min_license_level": 13
-      },
-      {
-        "group_name": "Class A",
-        "license_group": 5,
-        "max_license_level": 20,
-        "min_license_level": 17
-      },
-      {
-        "group_name": "Pro",
-        "license_group": 6,
-        "max_license_level": 24,
-        "min_license_level": 21
-      },
-      {
-        "group_name": "Pro/WC",
-        "license_group": 7,
-        "max_license_level": 28,
-        "min_license_level": 25
-      }
-    ],
-    "category": "oval",
-    "category_id": 1,
-    "eligible": true,
-    "first_season": {
-      "season_year": 2015,
-      "season_quarter": 2
-    },
-    "max_starters": 20,
-    "min_starters": 6,
-    "oval_caution_type": 0,
-    "road_caution_type": 0,
-    "series_id": 246,
-    "series_name": "13th Week iRacing Blizzard Series",
-    "series_short_name": "13th Week iRacing Blizzard Series"
-  },
-  {
-    "allowed_licenses": [
-      {
         "group_name": "Class D",
         "license_group": 2,
         "max_license_level": 8,
@@ -9530,65 +9644,5 @@
     "series_id": 250,
     "series_name": "13th Week iRacing Prototype Challenge - Fixed",
     "series_short_name": "13th Week iRacing Prototype Challenge - Fixed"
-  },
-  {
-    "allowed_licenses": [
-      {
-        "group_name": "Rookie",
-        "license_group": 1,
-        "max_license_level": 4,
-        "min_license_level": 1
-      },
-      {
-        "group_name": "Class D",
-        "license_group": 2,
-        "max_license_level": 8,
-        "min_license_level": 5
-      },
-      {
-        "group_name": "Class C",
-        "license_group": 3,
-        "max_license_level": 12,
-        "min_license_level": 9
-      },
-      {
-        "group_name": "Class B",
-        "license_group": 4,
-        "max_license_level": 16,
-        "min_license_level": 13
-      },
-      {
-        "group_name": "Class A",
-        "license_group": 5,
-        "max_license_level": 20,
-        "min_license_level": 17
-      },
-      {
-        "group_name": "Pro",
-        "license_group": 6,
-        "max_license_level": 24,
-        "min_license_level": 21
-      },
-      {
-        "group_name": "Pro/WC",
-        "license_group": 7,
-        "max_license_level": 28,
-        "min_license_level": 25
-      }
-    ],
-    "category": "oval",
-    "category_id": 1,
-    "eligible": true,
-    "first_season": {
-      "season_year": 2015,
-      "season_quarter": 3
-    },
-    "max_starters": 40,
-    "min_starters": 6,
-    "oval_caution_type": 0,
-    "road_caution_type": 0,
-    "series_id": 253,
-    "series_name": "13th Week iRacing Xfinity Challenge",
-    "series_short_name": "13th Week iRacing Xfinity Challenge"
   }
 ]
